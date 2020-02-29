@@ -1,0 +1,1 @@
+Ce dossier sert a sctocke toutes les traitement du php qui se repete dans chaque fichier.php/.html
