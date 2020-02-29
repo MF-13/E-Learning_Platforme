@@ -24,10 +24,6 @@
 </head>
 
 
-
-
-
-
   <body id="page-top">
 
  <?php
