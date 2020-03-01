@@ -38,22 +38,31 @@
             while($row = mysqli_fetch_array($sql))
             {
 
-              
+             
 
-            echo '
-      <tr>
-        <td>Code Massar<input type="number" name="code_massar" required="required" disabled="disabled" value='.$id.'></td>
-        <td>Nom<input type="text" name="nom" required="required" value="'.$row['nom'].'"></td>
-        <td>Prenom<input type="text" name="prenom" required="required" value="'.$row['prenom'].'"></td>
-        <td>mot de passe<input type="text" name="mdps" required="required" value="'.$row['mdps'].'"></td>
-        <td>date de naissance<input type="date" name="date_naiss" required="required" value="'.$row['date_naiss'].'"></td>
-        <td>filierer<input type="text" name="filiere" required="required" value="'.$row['filiere'].'"></td>
-        <td>telephone<input type="number" name="telephone" required="required" value="'.$row['num_tele'].'"></td>
-        <td>adresse<input type="text" name="adresse" required="required" value="'.$row['adresse'].'"></td>
-        <td>email<input type="email" name="email" required="required" value="'.$row['email'].'"></td>
-        <td><input type="submit" value="Valider" class="btn btn-danger"></td>
-              
-      </tr> ';
+            echo '  
+          <tr>
+         <form method="post"action="traitement/modifyetd.php?code_massar='.$_GET['id'].'">
+
+            <td>Code Massar<input type="number" name="code_massar" required="required" disabled="disabled" value='.$id.'></td>
+            <td>Nom<input type="text" name="nom" required="required" value="'.$row['nom'].'"></td>
+            <td>Prenom<input type="text" name="prenom" required="required" value="'.$row['prenom'].'"></td>
+            <td>mot de passe<input type="text" name="mdps" required="required" value="'.$row['mdps'].'"></td>
+            <td>date de naissance<input type="date" name="date_naiss" required="required" value="'.$row['date_naiss'].'"></td>
+            <td>filierer<input type="text" name="filiere" required="required" value="'.$row['filiere'].'"></td>
+            <td>telephone<input type="number" name="telephone" required="required" value="'.$row['num_tele'].'"></td>
+            <td>adresse<input type="text" name="adresse" required="required" value="'.$row['adresse'].'"></td>
+            <td>email<input type="email" name="email" required="required" value="'.$row['email'].'"></td>
+            <td>  
+
+            <input type="submit" value="submit" name="submit"></td>
+              </form>    
+          </tr>
+          ';
+            /*action="traitement/modify.php?code_massar='.$_GET['id'].'"*/
+          if (isset($_POST['submit'])) {
+            
+          }
             }
            
             }

@@ -23,23 +23,24 @@
                 
              <tbody>
                     <?php
-                    /*echo $id;*/
+                    
                       $sql = mysqli_query($conn,"SELECT * FROM `filiere` WHERE filiere_id=\"$id\"");
 
                       $result = mysqli_num_rows($sql);
-
           if($result)  {
             while($row = mysqli_fetch_array($sql))
             {
             echo '
+
       <tr>
+        <form method="post" action="traitement/modifyfiliere.php?id='.$id.'">
         <td>filiere ID
         <input type="text" name="filiere_id" required="required" disabled="disabled" value="'.$row['filiere_id'].'"></td>
-        <td>filiere<input type="text" name="nom" required="required" value="'.$row['filiere'].'"></td>
-        <td>description<input type="text" name="description" required="required" value="'.$row['filiere_description'].'"
+        <td>filiere<input type="text" name="filiere" required="required" value="'.$row['filiere'].'"></td>
+        <td>description<textarea name="description" required="required">'.$row['filiere_description'].'</textarea>
         </td>
         <td><input type="submit" value="Valider" class="btn btn-danger"></td>
-              
+          </form>    
       </tr> ';
 
             }

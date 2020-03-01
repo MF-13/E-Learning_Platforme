@@ -22,13 +22,7 @@ if (isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['mdps']) A
 	$result = mysqli_query($conn,$query);
 
 	if ($result) {
-		
-	}
-	else{
-		echo "error hors de l insertion a la base de donnes";
-	}
-
-echo '		
+		echo '		
           	<div class="alert alert-success" src="../">
   				<strong>Success!</strong> Etudiant ajouter!
 			</div>
@@ -37,6 +31,12 @@ echo '
             window.location.href = \'../addetudiant.php\';
          }, 2000);
       </script>';
+	}
+	else{
+		echo "error hors de l insertion a la base de donnes";
+	}
+
+
 
 }
 else

@@ -41,6 +41,7 @@
 
             echo '
       <tr>
+      <form method="post"action="traitement/modifyprof.php?code_massar='.$_GET['id'].'">
         <td>Code Massar professeur<input type="number" name="code_massar" required="required" disabled="disabled" value='.$id.'></td>
         <td>Nom<input type="text" name="nom" required="required" value="'.$row['nom'].'"></td>
         <td>Prenom<input type="text" name="prenom" required="required" value="'.$row['prenom'].'"></td>
@@ -50,7 +51,7 @@
         <td>telephone<input type="number" name="telephone" required="required" value="'.$row['num_tele'].'"></td>
         <td>email<input type="email" name="email" required="required" value="'.$row['email'].'"></td>
         <td><input type="submit" value="Valider" class="btn btn-danger"></td>
-              
+              </form>
       </tr> ';
             }
            
