@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>Ajouter filiere</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,51 +23,75 @@
 
 </head>
 
-<body id="page-top">
+
 
   <body id="page-top">
 
-<?php
+ <?php
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
 include("connecteDB.php");
-/*Pour obtenir l'id de lurl*/
-$id=$_GET['id'];
  ?>
- <!--Traitement pour detecter l'url-->
-<?php
-$url = (string)$_SERVER['HTTP_REFERER'];
-$tab = explode("/", $url);
-$dernier = $tab[count($tab)-1];
+<!--*************************************************************************************-->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-switch ($dernier) {
-  case "etudiant.php":
-    include("traitement/supprimeretd.php");
-    break;
-    
-  case "prof.php":
-    include("traitement/supprimerprof.php");
-    break;
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-  case "filiere.php":
-    include("traitement/supprimerfiliere.php");
-    break;
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Filiere</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <style>
+                  #datatable {
+                  text-align: center;
+                  font-size: 17px;
+                  font-family: monospace;
+                }
+                sup{
+                   color: red;
+                }
+                </style>
+                <form action="traitement/addfil.php" method="POST" id="formajout">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                 
+                        <tr>
+                            
+                        Filiere ID<sup>*</sup><input type="text" name="filiere_id" placeholder="ID" required="required" maxlength="4"><br><hr><br>
+                        </tr>
+                        <tr>
+                        Nom Filiere<sup>*</sup><input type="text" name="filiere" placeholder="nom" required="required" maxlength="50"><br><hr><br>
+                        </tr>
+                        <tr>
+                        Description de la filiere<sup>*</sup> <input type="text" name="description" placeholder="description" required="required"><br><hr><br>
+                        </tr>
+                        <tr>
+                         <input type="submit" name="submit" class="btn btn-danger"><br><hr>
+                         <p><sup>*</sup> : Champs obligatoires</p>
+                        </tr>
+                    </table>
+                  </form>
+              </div>
+            </div>
+          </div>
 
-  default:
-    include("404.html");
-    break;
-}
+        </div>
+        <!-- /.container-fluid -->
 
-
-
-?>
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; E-learning 2019-<?php echo Date('Y');?></span>
+            <span>Copyright &copy; Your Website 2019</span>
           </div>
         </div>
       </footer>
@@ -120,6 +144,6 @@ switch ($dernier) {
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 
-</body>
 
+</body>
 </html>

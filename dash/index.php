@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin Dashboard</title>
+  <title>Demande</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,8 +32,8 @@ include("dashboard.php");
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Demande </h1>
+          <p class="mb-4">Accepter / refuser les demandes des nouvelles utilisateurs ! </p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -76,7 +76,7 @@ include("dashboard.php");
                     </tr>
                   </tfoot>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `demande`");
+                      $sql = mysqli_query($conn,"SELECT * FROM `demande` where etat='-1'");
 
           $result = mysqli_num_rows($sql);
 
@@ -86,8 +86,8 @@ include("dashboard.php");
 
               echo '<td>'.$row['code_massar'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];
               echo '<td>'.$row['date_naiss'].'</td><td>'.$row['filiere'].'</td><td>'.$row['num_tele'].'</td><td>'.$row['adresse'].'</td><td>'.$row['email'].'</td><td>'.$row['type_user'].'</td>';
-              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'modifieretd.php?code_massar='.$row['code_massar'].'\';">Accepter</button></td>';
-              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimeretd.php?code_massar='.$row['code_massar'].'\';">Refuser</button></td></tr>';
+              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'accepter.php?code_massar='.$row['code_massar'].'\';">Accepter</button></td>';
+              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'refuser.php?code_massar='.$row['code_massar'].'\';">Refuser</button></td></tr>';
 
               
             }
@@ -112,7 +112,7 @@ include("dashboard.php");
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; E-learning 2019-<?php echo Date('Y');?></span>
           </div>
         </div>
       </footer>
