@@ -26,7 +26,25 @@ session_start();
     </section>
     <!-- Path Section -->
     
-          <!--Fotter,script and Contact form-->
+   <?php
+   /*Construire le path du fichier */
+    $dir = $_GET['dir'];
+    $file = "../".$dir."/".$_GET['file'];
+
+    echo ((!$file)? "": "<center><h2> Informations utiles sur le fichier ".$_GET['file']." </h2></center>");
+    echo "<B>Date dernier accès : </B>". date ("j F Y H:i", fileatime($file))."<br>";
+    echo "<B>Date dernière modification : </B>". date ("j F Y H:i", filemtime($file))."<br>";
+
+    echo "<B>Droits d'accès : </B>" . decoct(fileperms($file))."<br>";
+    echo "Type du fichier : " . filetype($file)."<br>";
+    echo "<B>Taille du fichier : </B>" . filesize($file)."<br>";
+
+    //Pour telecharger le fichier
+    echo '<p><a href="telecharger.php?file='.$file.'">telecharger</a></p>';
+    ?>
+
+
+   <!--Fotter,script and Contact form-->
 
   <?php
   include("traitement/footer.php");

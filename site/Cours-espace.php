@@ -30,14 +30,16 @@ include("traitement/connectedb.php");
        
     <?php 
     /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-   /* if (!(isset($_SESSION['code_massar']))){
+    if (!(isset($_SESSION['code_massar']))){
       echo "
       <script>
-      alert('vous ne pouvez pas accedez a cette page!');
+     if(window.confirm(\"Connectez-vous pour acceder a cette page !  \")){
+        window.location.href = 'index.php';
+      }else{
+        window.location.href = 'index.php';
+      }
       </script>";
-     
-     header("location: index.php");
-    }*/
+    }
     ?>
                               
                                 <!--Selection des fichiers a afficher-->
@@ -53,14 +55,20 @@ include("traitement/connectedb.php");
                                           $filiere = $row['filiere'];
                                       }
                                       echo "<p class=\"Text\">Cours pour filiere : ".$filiere."</p>";
+                                      echo "<a href=\"addcours.php\">Ajouter un cours</a>";
                                    
                                     $devdir = "file/".$filiere;
                                     $dir = opendir($devdir);
                                     echo "<hr>";
 
                                     while ($file = readdir($dir)){
+                                        //traitement pour ne pas afficher le dossier pere et le dossier de racine
+                                      if ($file != "." && $file != ".."){ 
+                                        /**********************************************/
+                                        /*si cest les dossier .. ou . on affiche rien */
+                                        /**********************************************/
+                                          
                                       echo '
-                               
                                     <div class="container">
                                         <div class="row">
                                           <div class="col-lg-12">
@@ -71,25 +79,27 @@ include("traitement/connectedb.php");
                                                         <div class="media-body">      
                                       ';
                                       /*l'affichage ici*/
-                                     if ($file != "." && $file!=".."){ 
+                                      /*Au lieu de consulter on va selectioner la description du fichier depuis la base de donnes*/
                                       echo "<h4 class=\"mt-0\">".$file."</h4>";
                                       echo "<p class=\"pmedia\">
-                                                            <ul class=\"pmedia mylist\"><A Href=\"fileinfo.php?file=".$file . "\">Consulter</A></ul></p>";
-                                           
-                                          }
-                                          echo '
-                                           <form class="formbutton">
 
-                                                            <button type="button" class="btn btn-outline-primary btnmarging">Telecharger</button>
+                                            <ul class=\"pmedia mylist\"><A Href=\"cours-detail.php?file=".$file ."&dir=".$devdir."\">Consulter</A></ul></p>";
+                                              /*Telecharger le fichier*/
+                                     echo '<form class="formbutton">
+                                          <button type="button" class="btn btn-outline-primary btnmarging" onclick="window.location.href = \'traitement/downloadfile.php?file='.$file.'&dir='.$devdir.'\'"> Telecharger</button>
+
                                                             ';
-                                                            /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
-                                                            if($_SESSION['type']=="professeur"){
+                            /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
+                            
+                            if($_SESSION['type']=="professeur"){
                                 echo '<button type="button" class="btn btn-outline-warning btnmarging">Modifier</button>
+
                                 <button type="button" class="btn btn-outline-danger btnmarging">Supprimer</button>';
                                   }
                                   else 
                                   {
-                                    echo '<button type="button" class="btn btn-outline-warning btnmarging">Envoyer une reponse</button>';
+                                    echo '<button type="button" class="btn btn-outline-warning btnmarging">
+                                    Envoyer une reponse</button>';
                                   }
                                                             echo '
                                               </form>
@@ -102,7 +112,9 @@ include("traitement/connectedb.php");
             </div>      
     
                                           ' ;
-                                    }
+                                    
+                                  }
+                                }
                                     echo "<hr>";
                                     closedir($dir);
                                  ?>
