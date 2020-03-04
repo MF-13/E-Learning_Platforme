@@ -73,7 +73,7 @@ session_start();
                   Welcome
                 </div>
                 <div class="card-body">
-                    <!--<img src="static/img/Login/male.svg">-->
+                   <!-- <img src="static/img/Login/male.svg">-->
                     <?php echo '<img src="profileimage/'.$type.'/'.$_SESSION['code_massar'].'">';?>
                     <br>
                     <br>
