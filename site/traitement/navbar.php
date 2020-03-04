@@ -29,14 +29,18 @@
 if (!(isset($_SESSION['code_massar']))) {
     /*&nbsp est pour faire une tabulation*/
   echo '<a href="loginetud.php">Login Etudiant</a>&nbsp&nbsp&nbsp&nbsp';
-    /*<button class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>*/
-    echo '<a href="loginproff.php">Log In Professeur</a>';
-    /*<button class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>*/
+  echo '<a href="loginproff.php">Log In Professeur</a>';
 } 
 //else on fait une redirection a la page de connexion
 else{
-  echo '<p class="btn btn-outline-success my-2 my-sm-0"><a href="profile1.php" >Bonjour '.$_SESSION['nom'].' ! </a></p>';
-  echo ' <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="traitement/deconnexion.php"> Deconnexion</a></button>';
+  echo ' 
+  <form class="form-inline my-2 my-lg-0">
+            <a class="alien" href="Profile.php"><i class="fas fa-user-graduate"></i>'.$_SESSION['nom'].'</a>
+            &nbsp&nbsp
+            <a class="btn btn-outline-success" type="submit" href="traitement/deconnexion.php"> Deconnexion</a>
+  </form>
+  ';
+  
     
  }
 
