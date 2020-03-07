@@ -35,11 +35,14 @@ session_start();
     $cpt = mysqli_num_rows( $result);
      if ( $cpt > 0 )
      {
-             
-         while($row = mysqli_fetch_assoc($result)) {
-             echo' <div class="container">
+      echo '  <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-12">
+      ';
+             
+         while($row = mysqli_fetch_assoc($result)) {
+             echo' 
+
           <div class="card">
             <img class="card-img-top" src="static/img/Index/Filiére/communication.png" alt="TCC" height="70">
             <div class="card-body">
@@ -52,22 +55,32 @@ session_start();
                 </ul> 
             </div>
           </div>
-        </div>  
-      </div>
-    </div> ';        
+         ';        
 
           }
 
+          echo '
+            </div>  
+        </div>
+    </div>';
     } else{
       echo "<strong font-position=\"center\">Aucune filiere trouvé</stron>!";
     }
   ?>
   <style>
-    .container{
-      /*Il rest un probleme dans le positionnement*/
-          margin-left: 40%;
-          position: center;
-    }
+    @media (max-width: 768px)
+    {
+  .card {
+    position: relative !important;
+    left: -2px !important;
+    width: 100% !important;
+}}
+.card {
+    position: relative;
+    left: 35px;
+    margin-bottom: 20px;
+    width: 421%;
+}
   </style>
 
   </section>
