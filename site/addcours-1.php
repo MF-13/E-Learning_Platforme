@@ -14,39 +14,29 @@
   </head>
   <body>
     <!-- Nav BAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#"><img src="static/img/Index/logo.png" width="45" height="45" class="d-inline-block align-top" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
-            <a class="nav-link" href="index.html">Index<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Filiére</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="cours.html">Cours</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="contact-us.html">Contactez-Nous</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <a class="alien" href="Profile.html"><i class="fas fa-user-graduate"></i>&nbspEL KHABBAZ Mohamed</a>
-        </form>
-        </div>
-    </nav> 
+    <?php 
+    include("traitement/navbar.php");
+    ?>
     <!-- End NAV BAR -->
     <!-- Path Section -->
     <section class="sectionpath">
         <p><b><i class="fas fa-home"></i>&nbspAcceuil / Profile / Ajouter cours </b></p>
     </section>
     <br>
-    <!-- Path Section -->
+    <?php 
+    /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
+    if (!(isset($_SESSION['code_massar'])) || $_SESSION['type']!="professeur" ){
+      echo "
+      <script>
+     if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
+        window.location.href = '../index.php';
+      }else{
+        window.location.href = '../index.php';
+      }
+      </script>";
+    }
+    ?>
+    <!-- END Path Section -->
     <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-12">
@@ -90,13 +80,23 @@
                                 <option>TP</option>
                                 <option>TD</option>
                             </select>
+         <!--specifier le cour dans le quelle on va importer ce fichier-->
+
                             <label for="exampleFormControlSelect2">Filiére</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2">
-                                <option>Genie Informatique</option>
-                                <option>Technique de son et d'image</option>
-                                <option>Technique de management</option>
-                                <option>Genie electrique</option>
-                                <option>Genie civile</option>
+                            <select name="cours" multiple class="form-control" id="exampleFormControlSelect2">
+                            <?php
+                                $query1 = "SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";";
+                                $res1 = mysqli_query($conn,$query1);
+                                while($row = mysqli_fetch_assoc($res1)) {
+                                $filiere = $row['filiere'];
+                                  } 
+
+                                  $query2 = "SELECT nom from cours where id_filiere=\"".$filiere."\";";
+                                  $res2 = mysqli_query($conn,$query2);
+                                  while ($row = mysqli_fetch_assoc($res2)) {
+                                    echo "<option>".$row['nom']."</option>";
+                                  }
+                             ?>
                             </select>
                             <label for="exampleFormControlTextarea1">Commentaire</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -114,42 +114,9 @@
     </div>
 </div>
 <!-- Footer -->
-<section class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-4 ">
-          <div>
-            <h5>Menu</h5>
-          </div>
-          <ul class="mylist fixUl">
-            <li><a href="filiere.php">Filiére</a></li><br>
-            <li><a href="cours.php">Cours</a></li><br>                                  
-            <li><a href="contact-us.php">Contact</a></li><br>              
-          </ul>                      
-        </div>                                        
-      <div class="col-sm-12 col-md-12 col-lg-4">
-        <h5>Liens utiles</h5>                                     
-        <ul class="mylist fixUl">      
-          <li><a href="#">ESTM</a></li><br>          
-          <li><a href="#">UMI</a></li>                                                  
-        </ul>                                                 
-      </div>                                                                                                                                                       
-      <div class="col-sm-12 col-md-12 col-lg-4">                                         
-        <form>                                                 
-          <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-outline-warning" type="button">Go!</button>
-              </span>
-            </div>                                                 
-          </form>              
-        </div>              
-      </div>
-      <div>
-        <p class="myText">Copyright © E-Learning  2020 - Tous droits réservés.</p>
-      </div>
-    </div>
-  </section>
+<?php
+  include("traitement/footer.php");
+  ?> 
 <!-- End Footer -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
