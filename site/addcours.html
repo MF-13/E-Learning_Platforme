@@ -1,3 +1,7 @@
+<?php
+session_start();
+include("traitement/connectedb.php");
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,71 +18,38 @@
   </head>
   <body>
     <!-- Nav BAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#"><img src="static/img/Index/logo.png" width="45" height="45" class="d-inline-block align-top" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
-            <a class="nav-link" href="index.html">Index<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Filiére</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="cours.html">Cours</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="contact-us.html">Contactez-Nous</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <a class="alien" href="Profile.html"><i class="fas fa-user-graduate"></i>&nbspEL KHABBAZ Mohamed</a>
-        </form>
-        </div>
-    </nav> 
+    <?php
+ include("traitement/navbar.php");
+ ?>
     <!-- End NAV BAR -->
     <!-- Path Section -->
     <section class="sectionpath">
         <p><b><i class="fas fa-home"></i>&nbspAcceuil / Profile / Ajouter cours </b></p>
     </section>
+    <?php 
+    /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
+    if (!(isset($_SESSION['code_massar'])) || $_SESSION['type']!="professeur" ){
+      echo "
+      <script>
+     if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
+        window.location.href = '../index.php';
+      }else{
+        window.location.href = '../index.php';
+      }
+      </script>";
+    }
+    ?>
     <br>
     <!-- Path Section -->
     <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="card text-center">
-                <div class="card-header">
-                  Welcome
-                </div>
-                <div class="card-body">
-                   <img src="static/img/Login/male.svg">
-                    <br>
-                    <br>
-                  <p class="card-text"><b>EL KHABBAZ</b></p>
-                  <p class="card-text"><b>Mohamed</b></p>
-                  <p class="textleft">Links : </p>
-                  <a href="#" class="Facebook"><i class="fab fa-facebook-square fa-2x"></i></a>
-                  <a href="#" class="Twitter"><i class="fab fa-twitter-square fa-2x"></i></a>
-                  <a href="#" class="Linkdin"><i class="fab fa-linkedin fa-2x"></i></a>
-                </div>
-                <div class="card-footer text-muted">
-                  <a href="addcours.php" class="btn btn-info">Ajouter cours</a>
-                  <a href="cours-espace.php" class="btn btn-info">cours disponible</a>
-                  <a href="traitement/deconnexion.php" class="btn btn-danger">Déconnexion</a>
-                </div>
-              </div>
-          </div>
           <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="card text-center">
                 <div class="card-header">
                   Ajouter le cours
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form  method = "post" action = "traitement/upload.php" enctype = "multipart/form-data">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nom de cours</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C">
