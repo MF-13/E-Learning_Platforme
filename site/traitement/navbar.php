@@ -28,8 +28,8 @@
 
 if (!(isset($_SESSION['code_massar']))) {
     /*&nbsp est pour faire une tabulation*/
-  echo '<a href="loginetud.php">Login Etudiant</a>&nbsp&nbsp&nbsp&nbsp';
-  echo '<a href="loginproff.php">Log In Professeur</a>';
+  echo '<a href="login.php">Login</a>&nbsp&nbsp&nbsp&nbsp';
+  echo '<a href="sing-up.php">Nouveau Utilisateur ?</a>';
 } 
 //else on fait une redirection a la page de connexion
 else{
