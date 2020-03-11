@@ -21,6 +21,9 @@ include("traitement/connectedb.php");
     <?php
  include("traitement/navbar.php");
  ?>
+    <?php 
+    include("traitement/navbar.php");
+    ?>
     <!-- End NAV BAR -->
     <!-- Path Section -->
     <section class="sectionpath">
@@ -32,15 +35,15 @@ include("traitement/connectedb.php");
       echo "
       <script>
      if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
-        window.location.href = '../index.php';
+        window.location.href = 'index.php';
       }else{
-        window.location.href = '../index.php';
+        window.location.href = 'index.php';
       }
       </script>";
     }
     ?>
     <br>
-    <!-- Path Section -->
+    <!-- END Path Section -->
     <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-8 col-sm-12">
@@ -53,21 +56,30 @@ include("traitement/connectedb.php");
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nom de cours</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C">
-                            <label for="exampleFormControlFile1" class="textleft"> (au format <strong>texte</strong> ou <strong>HTML</strong> )</label>
+                            <label for="exampleFormControlFile1" class="textleft"> Choisir le fichier(au format <strong>texte</strong> ou <strong>HTML</strong> )</label>
                             <input type="file" class="form-control-file " id="exampleFormControlFile1">
                             <br>
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option>Cours</option>
                                 <option>TP</option>
-                                <option>TD</option>
                             </select>
-                            <label for="exampleFormControlSelect2">Filiére</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2">
-                                <option>Genie Informatique</option>
-                                <option>Technique de son et d'image</option>
-                                <option>Technique de management</option>
-                                <option>Genie electrique</option>
-                                <option>Genie civile</option>
+         <!--specifier le cour dans le quelle on va importer ce fichier-->
+
+                            <label for="exampleFormControlSelect2">Cours</label>
+                            <select name="cours" class="form-control" id="exampleFormControlSelect2">
+                            <?php
+                                $query1 = "SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";";
+                                $res1 = mysqli_query($conn,$query1);
+                                while($row = mysqli_fetch_assoc($res1)) {
+                                $filiere = $row['filiere'];
+                                  } 
+
+                                  $query2 = "SELECT nom from cours where id_filiere=\"".$filiere."\";";
+                                  $res2 = mysqli_query($conn,$query2);
+                                  while ($row = mysqli_fetch_assoc($res2)) {
+                                    echo "<option>".$row['nom']."</option>";
+                                  }
+                             ?>
                             </select>
                             <label for="exampleFormControlTextarea1">Commentaire</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -85,42 +97,9 @@ include("traitement/connectedb.php");
     </div>
 </div>
 <!-- Footer -->
-<section class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-4 ">
-          <div>
-            <h5>Menu</h5>
-          </div>
-          <ul class="mylist fixUl">
-            <li><a href="filiere.php">Filiére</a></li><br>
-            <li><a href="cours.php">Cours</a></li><br>                                  
-            <li><a href="contact-us.php">Contact</a></li><br>              
-          </ul>                      
-        </div>                                        
-      <div class="col-sm-12 col-md-12 col-lg-4">
-        <h5>Liens utiles</h5>                                     
-        <ul class="mylist fixUl">      
-          <li><a href="#">ESTM</a></li><br>          
-          <li><a href="#">UMI</a></li>                                                  
-        </ul>                                                 
-      </div>                                                                                                                                                       
-      <div class="col-sm-12 col-md-12 col-lg-4">                                         
-        <form>                                                 
-          <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-outline-warning" type="button">Go!</button>
-              </span>
-            </div>                                                 
-          </form>              
-        </div>              
-      </div>
-      <div>
-        <p class="myText">Copyright © E-Learning  2020 - Tous droits réservés.</p>
-      </div>
-    </div>
-  </section>
+<?php
+  include("traitement/footer.php");
+  ?> 
 <!-- End Footer -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
