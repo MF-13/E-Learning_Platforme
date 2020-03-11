@@ -32,9 +32,9 @@ include("traitement/connectedb.php");
       echo "
       <script>
      if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
-        window.location.href = '../index.php';
+        window.location.href = 'index.php';
       }else{
-        window.location.href = '../index.php';
+        window.location.href = 'index.php';
       }
       </script>";
     }

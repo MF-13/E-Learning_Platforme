@@ -88,7 +88,7 @@ session_start();
                   <?php  
                     /*verifier c'est c'est un etudiant ou professeur pour ajouter le button d'aller au page d ajoute de cours*/
                     if($type=="professeur"){
-                      echo'<a href="addcours.php" class="btn btn-info">Ajouter cours</a>';
+                      echo'<a href="addcours-1.php" class="btn btn-info">Ajouter cours</a>';
                     }
 
                   ?>
