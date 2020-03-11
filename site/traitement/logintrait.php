@@ -78,6 +78,8 @@ $PASSWORD = '';
                          while($row = mysqli_fetch_assoc($result)) {
                         $_SESSION['email'] =  $_POST['login'];
                         $_SESSION['code_massar'] = $row['id'];
+                        $_SESSION['type'] = "admin";
+                        $_SESSION['nom'] = "admin";
                         $LOGIN = $_POST["login"];
                 }
 
