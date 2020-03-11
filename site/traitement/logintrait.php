@@ -65,15 +65,32 @@ $PASSWORD = '';
 
 
 
-
-
-
-
-
           /*traitement pour le login des admin */
 
           if($_POST['type']=="admin"){
-            echo  "admin";
+            $query = "SELECT id from admin where login='{$_POST['login']}' and mdps= '{$_POST['password']}'";
+                $result = mysqli_query($conn,$query);
+                $cpt = mysqli_num_rows($result);
+            
+                if ( $cpt > 0 )
+                 {
+                         
+                         while($row = mysqli_fetch_assoc($result)) {
+                        $_SESSION['email'] =  $_POST['login'];
+                        $_SESSION['code_massar'] = $row['id'];
+                        $LOGIN = $_POST["login"];
+                }
+
+                 
+                  //sleep(2);    
+                  header("Location: ../dash/index.php");
+
+                 }
+
+                 else
+                 {
+                    $message = 'votre mot de passe ou username incorrect ';
+                 }
           }
 
 
