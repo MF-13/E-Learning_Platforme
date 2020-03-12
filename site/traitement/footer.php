@@ -33,7 +33,7 @@
           </div>
           <ul class="mylist fixUl">
             <li><a href="filiere.php">Filiére</a></li><br>
-            <li><a href="cours.php">Cours</a></li><br>                                  
+            <li><a href="cours-espace.php">Cours</a></li><br>                                  
             <li><a href="contact-us.php">Contact</a></li><br>              
           </ul>                      
         </div>                                        

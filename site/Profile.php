@@ -18,20 +18,11 @@ session_start();
     <!-- Nav BAR -->
    <?php
    include("traitement/navbar.php");
-   include("traitement/connectedb.php");
-   ?>
-    <?php 
-    /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-    if (!(isset($_SESSION['code_massar']))){
-      echo "
-      <script>
-     if(window.confirm(\"Connectez-vous pour acceder a cette page !  \")){
-        window.location.href = 'index.php';
-      }else{
-        window.location.href = 'index.php';
-      }
-      </script>";
-    }
+   include("traitement/function.php");
+    $conn = connectedb();
+   
+    capterConnexion($_SESSION['code_massar']);
+    $typeresult = TypeUser($_SESSION['type']);
     ?>
     <!-- End NAV BAR -->
     <!-- Path Section -->
@@ -40,12 +31,14 @@ session_start();
     </section>
     <!-- Path Section -->
     <?php
-        if($_SESSION['type']==="etudiant"){
-          $query="SELECT * from etudiant where code_massar=".$_SESSION['code_massar'].";";
-        }else{
-          $query="SELECT * from professeur where code_massar_prof=".$_SESSION['code_massar'].";";
+
+        if($typeresult == -1){
+          $res=query("SELECT * from etudiant where code_massar=".$_SESSION['code_massar'].";");
+        }elseif($typeresult == 0){
+          $res = query("SELECT * from professeur where code_massar_prof=".$_SESSION['code_massar'].";");
+        }elseif ($typeresult == 1) {
+          header("location: ../dash/index.php");
         }
-        $res = mysqli_query($conn,$query);
         $cpt = mysqli_num_rows($res);
      if ( $cpt > 0 )
      {
@@ -87,7 +80,7 @@ session_start();
                 <div class="card-footer text-muted">
                   <?php  
                     /*verifier c'est c'est un etudiant ou professeur pour ajouter le button d'aller au page d ajoute de cours*/
-                    if($type=="professeur"){
+                    if($typeresult== 0){
                       echo'<a href="addcours-1.php" class="btn btn-info">Ajouter cours</a>';
                     }
 
@@ -128,10 +121,10 @@ session_start();
                         <div class="modal-body">
 
                            <?php 
-                                if($_SESSION['type']=="etudiant"){
+                                if($typeresult== -1){
                                   echo '<form action="traitement/modifier_etd.php?id='.$_SESSION['code_massar'].'"
                                          method="POST">' ; 
-                                          }else{
+                                          }elseif($typeresult==0){
                                   echo '<form action="traitement/modifier_prof.php?id='.$_SESSION['code_massar'].'"
                                          method="POST">' ;
                                           }

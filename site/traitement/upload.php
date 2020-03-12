@@ -1,6 +1,10 @@
 <?php
 session_start();
-include("connectedb.php");
+    include("traitement/function.php");
+    $conn = connectedb();
+    capterConnexion($_SESSION['code_massar']);
+    $typeresult = TypeUser($_SESSION['type']);
+    capterConnexion($_SESSION['code_massar']);
   ?>
   <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +32,7 @@ include("connectedb.php");
     <!-- Path Section -->
       <?php 
     /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-    if (!(isset($_SESSION['code_massar'])) || $_SESSION['type']!="professeur" ){
+    if ($typeresult!=0){
       echo "
       <script>
      if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
@@ -79,8 +83,7 @@ include("connectedb.php");
 
        /*construction du path */
        
-       $query = "SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";";
-       $res = mysqli_query($conn,$query);
+       $res = mysqli_query("SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";");
 
       while($row = mysqli_fetch_assoc($res)) {
        $filiere = $row['filiere'];
@@ -98,17 +101,17 @@ include("connectedb.php");
        echo '<center><H3>Fichier <font color="red">' . $_FILES['userfile']['name'] . '</font> déposé avec succes</H4></center>';
         
         /*traitement pour tirer l'id du cour depuis la base de donnees*/
-        $query2 ="SELECT id_cour from cours where nom=\"".$_POST['cours']."\";";
-        $res2 = mysqli_query($conn,$query2);
+        
+        $res2 = query("SELECT id_cour from cours where nom=\"".$_POST['cours']."\";");
         while($row = mysqli_fetch_assoc($res2)){
           $id_cour = $row['id_cour'];
         } 
         
         /*Traitement pour ajouter le fichier a la base de donnes*/
-        $query3 = 'INSERT INTO file(pdf_lien,id_filiere,code_prof,commantaire,id_cour,type_cour) 
-        VALUES("'.$path.'","'.$filiere.'",'.$_SESSION['code_massar'].',
-                "'.$_POST['commentaire'].'",'.$id_cour.',"'.$_POST['type_cours'].'");';
-        $res3 = mysqli_query($conn,$query3);   
+       
+        $res3 = query( 'INSERT INTO file(pdf_lien,id_filiere,code_prof,commantaire,id_cour,type_cour) 
+                       VALUES("'.$path.'","'.$filiere.'",'.$_SESSION['code_massar'].',
+                       "'.$_POST['commentaire'].'",'.$id_cour.',"'.$_POST['type_cours'].'");');   
             
     ?>
 

@@ -1,5 +1,8 @@
 <?php
-include("traitement/connectedb.php");
+/*include("traitement/connectedb.php");*/
+include("traitement/function.php");
+$conn = connectedb();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,8 +24,7 @@ include("traitement/connectedb.php");
 				<input type="date" name="date_naiss" class="field" placeholder="Date Naissance" required="required">
 				<select class="field" name="filiere" required="required">
 					<?php
-						$query = "SELECT * FROM filiere";
-						$res = mysqli_query($conn,$query);
+						$res=query("SELECT * FROM filiere");
 						while ($row = mysqli_fetch_assoc($res)) {
 							echo "<option>".$row['filiere_id']."</option>";
 						}

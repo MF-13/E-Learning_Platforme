@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("traitement/connectedb.php");
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,15 +13,16 @@ include("traitement/connectedb.php");
     <link rel="stylesheet" href="static/css/Profile.css">
     <link rel="stylesheet" href="static/css/Index.css">
     <link rel="stylesheet" href="static/css/addcours.css">
-    <title>Ajoutation de cours</title>
+    <title>Ajouter un cour</title>
   </head>
   <body>
     <!-- Nav BAR -->
-    <?php
- include("traitement/navbar.php");
- ?>
     <?php 
     include("traitement/navbar.php");
+    include("traitement/function.php");
+    capterConnexion($_SESSION['code_massar']);
+    $typeresult = TypeUser($_SESSION['type']);
+    capterConnexion($_SESSION['code_massar']);
     ?>
     <!-- End NAV BAR -->
     <!-- Path Section -->
@@ -31,7 +31,11 @@ include("traitement/connectedb.php");
     </section>
     <?php 
     /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-    if (!(isset($_SESSION['code_massar'])) || $_SESSION['type']!="professeur" ){
+    if ($typeresult==1) {
+      header("location: ../dash/index.php");
+    }
+
+    if ($typeresult!=0 ){
       echo "
       <script>
      if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
@@ -68,14 +72,12 @@ include("traitement/connectedb.php");
                             <label for="exampleFormControlSelect2">Cours</label>
                             <select name="cours" class="form-control" id="exampleFormControlSelect2">
                             <?php
-                                $query1 = "SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";";
-                                $res1 = mysqli_query($conn,$query1);
+                                $res1 = query("SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";");
                                 while($row = mysqli_fetch_assoc($res1)) {
                                 $filiere = $row['filiere'];
                                   } 
 
-                                  $query2 = "SELECT nom from cours where id_filiere=\"".$filiere."\";";
-                                  $res2 = mysqli_query($conn,$query2);
+                                  $res2 = query("SELECT nom from cours where id_filiere=\"".$filiere."\";");
                                   while ($row = mysqli_fetch_assoc($res2)) {
                                     echo "<option>".$row['nom']."</option>";
                                   }

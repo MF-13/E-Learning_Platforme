@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("traitement/connectedb.php");
   ?>
   <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +17,12 @@ include("traitement/connectedb.php");
 <body>
    <!--Begin of NavBar-->
  <?php
- include("traitement/navbar.php");
+include("traitement/navbar.php");
+include("traitement/function.php");
+$conn = connectedb();
+capterConnexion($_SESSION['code_massar']);
+$typeresult = TypeUser($_SESSION['type']);
+capterConnexion($_SESSION['code_massar']);
  ?>
   <!--END Nav bar-->
     <!-- Path Section -->
@@ -27,35 +31,22 @@ include("traitement/connectedb.php");
     </section>
     <!-- Path Section -->
     <!-- Posts Section -->
-       
-    <?php 
-    /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-    if (!(isset($_SESSION['code_massar']))){
-      echo "
-      <script>
-     if(window.confirm(\"Connectez-vous pour acceder a cette page !  \")){
-        window.location.href = 'index.php';
-      }else{
-        window.location.href = 'index.php';
-      }
-      </script>";
-    }
-    ?>
                               
                                 <!--Selection des fichiers a afficher-->
  <section class="Posts">
                                 <?php
-                                if($_SESSION['type']=='etudiant'){
-                                        $query = "SELECT filiere FROM etudiant where code_massar=".$_SESSION['code_massar'].";";
-                                }else{
-                                    $query = "SELECT filiere FROM professeur where code_massar_prof=".$_SESSION['code_massar'].";";
+                                if($typeresult==-1){
+                                   $result = query("SELECT filiere FROM etudiant where code_massar=".$_SESSION['code_massar'].";");
+                                }elseif($typeresult==0){
+                                    $result = query("SELECT filiere FROM professeur where code_massar_prof=".$_SESSION['code_massar'].";");
+                                }elseif($typeresult==1){
+                                    header("location: ../dash/index.php");
                                 }
-                                    $result = mysqli_query($conn,$query);
+
                                              while($row = mysqli_fetch_assoc($result)) {
                                           $filiere = $row['filiere'];
                                       }
                                       echo "<p class=\"Text\">Cours pour filiere : ".$filiere."</p>";
-                                      echo "<a href=\"addcours.php\">Ajouter un cours</a>";
                                    
                                     $devdir = "file/".$filiere;
                                     $dir = opendir($devdir);
@@ -91,12 +82,12 @@ include("traitement/connectedb.php");
                                                             ';
                             /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
                             
-                            if($_SESSION['type']=="professeur"){
+                            if($typeresult==0){
                                 echo '<button type="button" class="btn btn-outline-warning btnmarging">Modifier</button>
 
                                 <button type="button" class="btn btn-outline-danger btnmarging">Supprimer</button>';
                                   }
-                                  else 
+                                  elseif($typeresult==-1)
                                   {
                                     echo '<button type="button" class="btn btn-outline-warning btnmarging">
                                     Envoyer une reponse</button>';

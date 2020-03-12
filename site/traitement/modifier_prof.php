@@ -1,7 +1,8 @@
 <?php
 
 /*Ajouter la connexion a lbase de donnes*/
-include("connectedb.php");
+include("traitement/function.php");
+    $conn = connectedb();
 
 $_POST['code_massar']=$_GET['id'];
 
@@ -37,7 +38,7 @@ $_POST['code_massar']=$_GET['id'];
                       WHERE code_massar_prof="'.$_POST['code_massar'].'" ;';
                       }
               				
-					$result = mysqli_query($conn,$query);
+					$result = query($query);
 					if($result) {
 		echo '		
           	<script>

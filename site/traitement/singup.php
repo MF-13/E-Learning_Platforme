@@ -9,7 +9,7 @@ if (isset($_POST['nom']) AND isset($_POST['prenom'])
 			'.$_POST['telephone'].',"'.$_POST['email'].'","'.$_POST['pass'].'","'.$_POST['type'].'",
 				"-1","'.$_POST['adresse'].'")';
 
-				$res = mysqli_query($conn,$query);
+				$res = query($query);
 				if ($res) {
 					echo "AEnregistrer avec succes ! atteder la confirmation du moderateur";
 				}else{

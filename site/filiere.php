@@ -17,7 +17,8 @@ session_start();
   <!--Begin of NavBar-->
  <?php
  include("traitement/navbar.php");
- include("traitement/connectedb.php");
+ include("traitement/function.php");
+ $conn = connectedb();
  ?>
   <!--END Nav bar-->
  
@@ -30,8 +31,7 @@ session_start();
       <br>
     </div>
   <?php
-    $query = "SELECT * from filiere;";
-    $result = mysqli_query($conn,$query);
+    $result = query("SELECT * from filiere;");
     $cpt = mysqli_num_rows( $result);
      if ( $cpt > 0 )
      {

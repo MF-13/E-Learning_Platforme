@@ -5,7 +5,8 @@
 session_start(); 
  $message = '';
 
-include("traitement/connectedb.php");
+include("traitement/function.php");
+    $conn = connectedb();
 
 
 
@@ -36,8 +37,8 @@ $PASSWORD = '';
   {
             /*traitement pour le login des professeur */
           if($_POST['type']=="professeur"){
-                $query = "SELECT code_massar_prof,nom_cmplt,type from login_prof where login='{$_POST['login']}' and     mdps= '{$_POST['password']}'";
-                $result = mysqli_query($conn,$query);
+                
+                $result = query("SELECT code_massar_prof,nom_cmplt,type from login_prof where login='{$_POST['login'                ]}' and     mdps= '{$_POST['password']}'");
                 $cpt = mysqli_num_rows($result);
             
                 if ( $cpt > 0 )
@@ -68,8 +69,8 @@ $PASSWORD = '';
           /*traitement pour le login des admin */
 
           if($_POST['type']=="admin"){
-            $query = "SELECT id from admin where login='{$_POST['login']}' and mdps= '{$_POST['password']}'";
-                $result = mysqli_query($conn,$query);
+             
+                $result = query("SELECT id from admin where login='{$_POST['login']}' and mdps= '{$_POST['password']              }'");
                 $cpt = mysqli_num_rows($result);
             
                 if ( $cpt > 0 )
@@ -98,8 +99,7 @@ $PASSWORD = '';
 
           /*traitement pour le login des etudiants */
           if($_POST['type']=="etudiant"){
-                    $query = "SELECT code_massar,nom_complet,type from login_etd where email='{$_POST['login']}' and  mdps= '{$_POST['password']}'";
-                    $result = mysqli_query($conn,$query);
+                    $result = query("SELECT code_massar,nom_complet,type from login_etd where email='{$_POST['login']}' and  mdps= '{$_POST['password']}'");
                     $cpt = mysqli_num_rows( $result);
               
                     if ( $cpt > 0 )
