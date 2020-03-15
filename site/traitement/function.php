@@ -22,15 +22,9 @@
 	function capterConnexion($code){
 			/*On donne en parametre le code massar : $_SESSION['code_massar']*/
 		  /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-		    if (!(isset($code))){
-		      echo "
-		      <script>
-		     if(window.confirm(\"Connectez-vous pour acceder a cette page !  \")){
-		        window.location.href = 'index.php';
-		      }else{
-		        window.location.href = 'index.php';
-		      }
-		      </script>";
+		    if (!(isset($code)))
+		    {
+		    	header("Location: index.php");  
 		    }
 	}
 

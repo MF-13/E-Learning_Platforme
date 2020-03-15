@@ -1,3 +1,36 @@
+<?php
+  $url = $_SERVER['REQUEST_URI'];
+
+  $tab = explode("/",$url);
+
+   $act = array('index.php'=>'','filiere.php'=>'','cours-espace.php'=>'','contact-us.php'=>'');
+    $title ="";
+   
+    switch($tab[4])
+    {
+      case 'index.php'       :      $act['index.php'] = 'active'; $title = 'E - Learning';break;
+      case 'filiere.php'       :    $act['filiere.php'] = 'active'; $title = 'E - filiere';break;
+      case 'cours-espace.php'       : $act['cours-espace.php'] = 'active'; $title = 'E - Cours';break;
+      case 'contact-us.php'       : $act['contact-us.php'] = 'active'; $title = 'E - Contact';break;
+      case 'addcours-1.php'       : $act['addcours-1.php'] = 'active'; $title = 'Ajouter courz';break;
+    }
+
+
+ ?>
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/Index.css">
+    
+    <title><?php echo $title; ?></title>
+</head>
+<body>
  <!-- Nav BAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="index.php"><img src="static/img/Index/logo.png" width="45" height="45" class="d-inline-block align-top" alt=""></a>
@@ -7,17 +40,17 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.php">Index<span class="sr-only">(current)</span></a>
+        <li class="nav-item ">
+          <a class="nav-link <?php echo $act['index.php']; ?>" href="index.php">Index<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="filiere.php">Filiére</a>
+          <a class="nav-link <?php echo $act['filiere.php']; ?>" href="filiere.php">Filiére</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cours-espace.php">Cours</a>
+          <a class="nav-link <?php echo $act['cours-espace.php']; ?>" href="cours-espace.php">Cours</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact-us.php">Contactez-Nous</a>
+          <a class="nav-link <?php echo $act['contact-us.php']; ?>" href="contact-us.php">Contactez-Nous</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

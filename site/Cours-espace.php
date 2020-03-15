@@ -75,6 +75,7 @@ capterConnexion($_SESSION['code_massar']);
                                       echo "<p class=\"pmedia\">
 
                                             <ul class=\"pmedia mylist\"><A Href=\"cours-detail.php?file=".$file ."&dir=".$devdir."\">Consulter</A></ul></p>";
+                                            
                                               /*Telecharger le fichier*/
                                      echo '<form class="formbutton">
                                           <button type="button" class="btn btn-outline-primary btnmarging" onclick="window.location.href = \'traitement/downloadfile.php?file='.$file.'&dir='.$devdir.'\'"> Telecharger</button>
