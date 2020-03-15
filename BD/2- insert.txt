@@ -45,28 +45,6 @@ insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email) values("WAK
 insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email) values("ROUSSI","SANAE","1974-04-02","GI","0699788488","sanae.roussi@gmail.com");
 insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email) values("BOUSSMOUNI","ALI","1975-01-12","GE","069798949596","ali.bous@gmail.com");
 insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email) values("BIYADI","KARIM","1972-12-14","GE","0616263646","kari.byd@gmail.com");
-*******************
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("AMANI","AMINA","1988-11-01","GI","0615478965","amani.amina@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("HASSANI","FATIHA","1978-04-11","TM","0694587541","fatiha.hassanis@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("ALAOUI","AYOUB","1990-04-25","FBA","0615648754","ayoub.alaoui@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("LOUKILI","HASSAN","1987-07-24","TCC","0603254861","hassan.loukili@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("RASSAN","ADIL","1984-08-12","GI","0612326545","adil.rassan@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("BOUDIRI","MOHAMED","1983-08-30","GC","0605887411","mohamed.boudiri@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("SEBANI","BOUCHTA","1985-09-14","GE","0612349856","bouchta.sebani@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("TAOUIL","KARAM","1987-10-02","GIM","0654123265","karam.taouil@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("FEKKAK","HASSAN","1970-05-01","GI","0678946525","hassan.fekkak@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("ABOUKHADIJA","IDRISS","1978-06-11","GI","0632156784","idriss.abou@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("EL ANDALOUSI","MOUAD","1972-04-22","TSI","0615544898","mouad.elandalousi@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("BENKIRAN","ABDELAH","1973-04-25","TCC","0607258495","abdelah.ben@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("EL RHAZRANI","WISSAL","1991-03-24","GC","0631654895","wissal.elrhz@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("EL MOUHEMADI","AHMED","1988-01-14","GIM","0645985454","ahmed.elmh@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("ROUBAI","CHAFIKA","1989-10-13","GIM","0694326548","chafika.roub@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("SOUBAI","BOUCHRA","1987-11-20","GC","0654987451","bouchra.soubai@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("KHATOURI","ILHAM","1981-10-10","GR","0614748525","ilham.khat@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("WAKRIM","JAWAD","1982-05-12","FBA","0654876525","jawad.wak@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("ROUSSI","SANAE","1974-04-02","GI","0699788488","sanae.roussi@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("BOUSSMOUNI","ALI","1975-01-12","GE","069798949596","ali.bous@gmail.com","1234");
-insert into professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdbs) values("BIYADI","KARIM","1972-12-14","GE","0616263646","kari.byd@gmail.com","1234");
 
 ************************************************************************************************************************************
 *********************************************************table filiere**************************************************************
