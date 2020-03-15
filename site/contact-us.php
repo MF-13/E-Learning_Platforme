@@ -18,9 +18,7 @@ session_start();
   </head>
   <body>
       <!--Begin of NavBar-->
- <?php
- include("traitement/navbar.php");
- ?>
+
   <!--END Nav bar-->
   <div class="contact-form">
     <h1>Contact Us</h1>
@@ -41,6 +39,7 @@ session_start();
       <textarea class="txttb" name="message" placeholder="Enter your text here"></textarea>
     </div>
     <a class="btn">Send</a>
+    <a href="index.php">Retourner a l'acceuil</a>
   </div>
 
    <?php
