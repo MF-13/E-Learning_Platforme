@@ -5,23 +5,18 @@ session_start();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Contact-us</title>
     
       <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Bootstrap CSS<link rel="stylesheet" href="static/css/bootstrap.min.css"> -->
+    <!-- Bootstrap CSS <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">-->
     <link rel="stylesheet" href="static/css/contact-us.css">
 
   </head>
   <body>
-      <!--Begin of NavBar-->
- <?php
- include("traitement/navbar.php");
- ?>
-  <!--END Nav bar-->
   <div class="contact-form">
     <h1>Contact Us</h1>
     <div class="txtb">
@@ -55,7 +50,7 @@ session_start();
 
         if(isset($_POST['name']) and isset($_POST['email']) and isset($_POST['message'])) {    
           $name = $_POST['login'];
-      $visitor_email = $_POST['email'];
+          $visitor_email = $_POST['email'];
       
         }
        else{
