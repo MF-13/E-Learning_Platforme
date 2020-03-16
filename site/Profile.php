@@ -73,7 +73,7 @@ session_start();
                   <p class="card-text"><b><?php echo $nom." ".$prenom ; ?></b></p>
                   <p class="card-text"><b><?php  echo $email."";?></b></p>
                   <p class="textleft">Links : </p>
-                  <a href="#" class="Facebook"><i class="fab fa-facebook-square fa-2x"></i></a>
+                  <a href="#" class="Facebook"><i class="fab fa-github-square fa-2x"></i></a>
                   <a href="#" class="Twitter"><i class="fab fa-twitter-square fa-2x"></i></a>
                   <a href="#" class="Linkdin"><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
@@ -170,7 +170,7 @@ session_start();
                                 value=<?php echo $num_tele; ?>>
                             </div>
                             <div class="modal-footer">
-                            <input type="submit" class="btn btn-primary btn-sm" value="enregistrer">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Enregistrer">
                              </div>
                            </form>
                         </div>

@@ -21,10 +21,9 @@
       <img src="static/img/Login/bg.svg">
     </div>
     <div class="login-content">
-
       <form action="" method="POST">
         <img src="static/img/Login/avatar.svg">
-        <h2 class="title">Welcome</h2>
+        <h2 class="title">Welcome Back</h2>
               <div class="input-div one">
                  <div class="i">
                     <i class="fas fa-user"></i>
@@ -56,10 +55,10 @@
                                 <option value="etudiant">etudiant</option>
                               </select>
                             </div>
-                                             </div>
+                  </div>
               </div>
               <a href="#">Mot de passe oublier?</a>
-              <a href="index.php">Page d'acceuil</a>
+              <a class="lienindex" href="index.php">Page d'acceuil</a>
               <?php if(!empty($message)) : ?>
                   <p><?php echo $message; ?></p>
 

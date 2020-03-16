@@ -1,13 +1,13 @@
 .alien{
-    color: #ffffff;
+    color: #000000;
 }
 .alien:hover {
-    color: #ffffff;
+    color: #ff9a9e;
     text-decoration: none;
 }
 .sectionpath{
     background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-    padding-top: 80px;
+    padding-top: 30px;
     padding-bottom: 1px;
     padding-left: 20px;
 }
@@ -23,7 +23,7 @@
     text-align: left;
 }
 .Facebook{
-    color: #3b5998;
+    color: #000000;
 }
 .Facebook :hover{
     color: darkorchid;
@@ -48,4 +48,7 @@
 }
 .textright{
     text-align: right;
+}
+.btn{
+    margin: 5px;
 }

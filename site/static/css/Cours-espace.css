@@ -11,7 +11,7 @@ body{
 /* Section Path */
 .sectionpath{
     background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-    padding-top: 80px;
+    padding-top: 10px;
     padding-bottom: 1px;
     padding-left: 20px;
 }

@@ -1,0 +1,17 @@
+insert into cours(nom,description,id_filiere) values('Programmation C','Ce cours sert a prends les principe de programmation C','GI');
+insert into cours(nom,description,id_filiere) values('Programmation JAVA','Ce cours sert a prends les principe de programmation JAVA','GI');
+insert into cours(nom,description,id_filiere) values('Base Donnes','Ce cours sert a prends les principe de Base Donnees','GI');
+insert into cours(nom,description,id_filiere) values('Securiter Réseau','Ce cours sert a prends les principe de securité Reseau','TSI');
+insert into cours(nom,description,id_filiere) values('Organisation d entreprise','Ce cours sert a prends les principe d Organisation d entreprise','TM');
+insert into cours(nom,description,id_filiere) values('Droits','Ce cours sert a prends les principe Droits','FBA');
+insert into cours(nom,description,id_filiere) values('Gestion de Projet','Ce cours sert a prends les principe d Organisation d entreprise','TM');
+insert into cours(nom,description,id_filiere) values('Mécanique des fluides','Ce cours sert a prends les principe de Mécanique des fluides','GTE');
+insert into cours(nom,description,id_filiere) values('Physique générale','Ce cours sert a prends les principe de Physique générale','GTE');
+insert into cours(nom,description,id_filiere) values('Electronique Numérique','Ce cours sert a prends les principe de Physique générale','GIM');
+insert into cours(nom,description,id_filiere) values('Organisation et Méthodes et maintenance','Ce cours sert a prends les principe d Organisation et Méthodes et maintenance','GIM');
+insert into cours(nom,description,id_filiere) values('Electronique Analogique','Ce cours sert a prends les principe d Electronique Analogique','GIM');
+insert into cours(nom,description,id_filiere) values('Technique du batiment','Ce cours sert a prends les principe de Technique du batiment','GC');
+insert into cours(nom,description,id_filiere) values('Calcul des Structures','Ce cours sert a prends les principe de Calcul des Structures','GC');
+insert into cours(nom,description,id_filiere) values('Architecture et Topographie','Ce cours sert a prends les principe d Architecture et Topographie','GC');
+insert into cours(nom,description,id_filiere) values('Comptabilité et outils de gestion','Ce cours sert a prends les principe de Comptabilité et outils de gestion','TCC');
+insert into cours(nom,description,id_filiere) values('Outils d aide a la décision','Ce cours sert a prends les principe d Outils d aide a la décision','TCC');

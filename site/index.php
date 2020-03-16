@@ -8,7 +8,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/Index.css">
     <title>E - Learning</title>
@@ -183,6 +183,31 @@ session_start();
     </div>
   </section>
   <!-- End Département section -->
+   <!-- Comtact section -->
+   <section class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 ">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13253.011846027564!2d-5.5799945!3d33.8573711!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x227685e2846b5a39!2sEcole%20Sup%C3%A9rieure%20de%20Technologie!5e0!3m2!1sfr!2sma!4v1581183400398!5m2!1sfr!2sma" width="330" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6 ">
+          <ul class="mylist myBtoo">
+            <li>Address:  Km 5, Rue d'Agouray، N6, Meknes 50040</li>
+            <li>Tel : 05 35 46 70 85</li>
+            <li>Tel : 05 35 46 70 86</li>
+            <li>Email : estm@est-umi.ac.ma</li>
+            <br>
+            <li>
+              <a href="https://www.facebook.com/ESTMEKNES2017/?fref=ts"  target="_blank"><i class="fab fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+              <a href="https://twitter.com/umi_meknes?lang=fr"  target="_blank"><i class="fab fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+            </li>
+            <br>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- End Contact section -->
   <!--Fotter,script and Contact form-->
 
   <?php

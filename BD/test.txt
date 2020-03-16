@@ -1,0 +1,9 @@
+deux methode pour retourner en arriere : 
+javascript:history.go(-1)
+$_SERVER['HTTP_REFERER']
+****************************************
+****************************************
+$url = (string)$_SERVER['HTTP_REFERER'];
+$tab = explode("/", $url);
+print_r($tab);
+echo "<br>".$tab[count($tab)-1];
