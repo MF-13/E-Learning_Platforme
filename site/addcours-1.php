@@ -50,7 +50,7 @@ session_start();
     <!-- END Path Section -->
     <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-8 col-sm-12">
+          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card text-center">
                 <div class="card-header">
                   Ajouter le cours

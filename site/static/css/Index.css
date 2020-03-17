@@ -1,4 +1,10 @@
-
+.alien{
+    color: #000000;
+}
+.alien:hover {
+    color: #ff9a9e;
+    text-decoration: none;
+}
 .myBtoo{
     padding-bottom: 60px;
 }

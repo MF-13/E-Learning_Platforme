@@ -16,16 +16,17 @@
             <h5>Menu</h5>
           </div>
           <ul class="mylist fixUl">
-            <li><a href="filiere.php">Filiére</a></li><br>
-            <li><a href="cours-espace.php">Cours</a></li><br>                                  
-            <li><a href="contact-us.php">Contact</a></li><br>              
+            <li><a href="filiere.php" style="color : #ecf0f1; text-decoration: none;">Filiére</a></li><br>
+            <li><a href="cours-espace.php" style="color : #ecf0f1; text-decoration: none;">Cours</a></li><br>                                  
+            <li><a href="contact-us.php" style="color : #ecf0f1; text-decoration: none;">Contact</a></li><br>
+            <li><a href="Profile.php" style="color : #ecf0f1; text-decoration: none;">Profile</a></li><br>               
           </ul>                      
         </div>                                        
       <div class="col-sm-12 col-md-12 col-lg-4">
         <h5>Liens utiles</h5>                                     
         <ul class="mylist fixUl">      
-          <li><a href="#">ESTM</a></li><br>          
-          <li><a href="#">UMI</a></li>                                                  
+          <li><a href="http://www.est-umi.ac.ma" style="color : #ecf0f1; text-decoration: none;" target="_blank">ESTM</a></li><br>          
+          <li><a href="http://www.umi.ac.ma" style="color : #ecf0f1; text-decoration: none;">UMI</a></li>                                                  
         </ul>                                                 
       </div>                                                                                                                                                       
       <div class="col-sm-12 col-md-12 col-lg-4">                                         
