@@ -1,5 +1,5 @@
 <?php
-include("connectedb.php");
+include("function.php");
 
 if (isset($_POST['nom']) AND isset($_POST['prenom'])
      AND isset($_POST['date_naiss']) AND isset($_POST['telephone']) AND isset($_POST['pass'])
@@ -9,11 +9,12 @@ if (isset($_POST['nom']) AND isset($_POST['prenom'])
 			'.$_POST['telephone'].',"'.$_POST['email'].'","'.$_POST['pass'].'","'.$_POST['type'].'",
 				"-1","'.$_POST['adresse'].'")';
 
-				$res = query($query);
-				if ($res) {
-					echo "AEnregistrer avec succes ! atteder la confirmation du moderateur";
+				$stm=INSERT($query);
+				if ($stm) {
+					echo "<script>alert(\"Enregistrer avec succes ! atteder la confirmation du moderateur\");</script>";
+					
 				}else{
-					echo "Error hors de l ajoute !";
+					echo "<script>alert(\"Error hors de l ajoute !\");</script>";
 				}
 
 

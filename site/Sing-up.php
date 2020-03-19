@@ -19,15 +19,19 @@ $conn = connectedb();
 			<div class="right">
 				<h2>Sign up</h2>
 			<form method="POST" action="traitement/singup.php">
+			<!--<form method="POST" action="<?php $_SERVER['PHP_SELF']?>">-->
 				<input type="text" name="nom" class="field" placeholder="Nom" required="required">
 				<input type="text" name="prenom" class="field" placeholder="Prenom" required="required">
 				<input type="date" name="date_naiss" class="field" placeholder="Date Naissance" required="required">
 				<select class="field" name="filiere" required="required">
 					<?php
-						$res=query("SELECT * FROM filiere");
-						while ($row = mysqli_fetch_assoc($res)) {
-							echo "<option>".$row['filiere_id']."</option>";
+						$stm=PDO("SELECT * FROM filiere");
+						if($stm->rowCount()!=0){
+							while ($row = $stm->fetch()) {
+								echo "<option>".$row['filiere_id']."</option>";
+							}
 						}
+
 					?>
 				</select>
 				<select class="field" name="type" required="required">
@@ -43,5 +47,13 @@ $conn = connectedb();
 			</div>
 		</div>
 	</div>
+	<!--Traitement d ajoute-->
+	<?php
+			if (filter_has_var(INPUT_POST,"submit")) {
+					/*Si user a qlickuer sur OK*/
+					include("traitement/singup.php");	
+
+				}
+	?>
 </body>
 </html>
