@@ -46,12 +46,15 @@ include("traitement/connectedb.php");
         <tr>
           <td width="547" required="required"><b>Nom du fichier</b> (au format <strong>texte</strong> ou <strong>HTML</strong> ) : 
           <input name = "userfile" type = "file"></td>
+
           <td><textarea name="commentaire" required="required" placeholder="commentaire"></textarea></td>        
+          
           <td><select name="type_cours" required="required">
                 <option>cours</option>
                 <option>TP</option>
               </select>
           </td>
+          
             <!--specifier le cour dans le quelle on va importer ce fichier-->
           <td><select name="cours">
                 <?php

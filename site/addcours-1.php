@@ -57,11 +57,13 @@ session_start();
                 <div class="card-body">
                     <form  method = "post" action ="traitement/upload.php" enctype = "multipart/form-data">
                         <div class="form-group">
-                            <label required="required" for="exampleFormControlInput1">Nom de cours</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C">
+                            <label  for="exampleFormControlInput1">Nom de cours</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C" required>
+                           
                             <label for="exampleFormControlFile1" class="textleft"> Choisir le fichier(au format <strong>texte</strong> ou <strong>HTML</strong> )</label>
                             <input name = "userfile" type="file" class="form-control-file " id="exampleFormControlFile1">
                             <br>
+                           
                             <select name="type_cours" class="form-control" id="exampleFormControlSelect1">
                                 <option>Cours</option>
                                 <option>TP</option>
@@ -83,13 +85,14 @@ session_start();
                             <label for="exampleFormControlTextarea1">Commentaire</label>
                             <textarea name="commentaire" required="required" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
+                            <div class="card-footer text-muted">
+                                <div class="textright">
+                                   <input type="submit" name="submit" class="btn btn-outline-info btn-sm" value="Ajouter">
+                                 </div>
+                            </div>
                       </form>
                 </div>
-                <div class="card-footer text-muted">
-                    <div class="textright">
-                        <button type="button" class="btn btn-outline-info btn-sm">Ajouter</button>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

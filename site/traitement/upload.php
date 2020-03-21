@@ -1,6 +1,6 @@
 <?php
 session_start();
-    include("traitement/function.php");
+    include("function.php");
     $conn = connectedb();
     capterConnexion($_SESSION['code_massar']);
     $typeresult = TypeUser($_SESSION['type']);
@@ -44,7 +44,11 @@ session_start();
     }
     ?>
     <!-- Posts Section -->  
-
+    <style>
+      section.sectionpath{
+        margin-top: 100px;
+      }
+    </style>
 
 
     <?php
@@ -53,7 +57,7 @@ session_start();
        $tmp_name = $_FILES['userfile']['tmp_name'];
         /*echo $tmp_name;*/
        // none est la valeur attribuée par PHP quand aucun fichier n'a été téléchargé
-       if($tmp_name == "none"){
+       if($tmp_name == null){
          echo "Problème de téléchargement : aucun fichier téléchargé !";
          exit;
        }
@@ -83,7 +87,7 @@ session_start();
 
        /*construction du path */
        
-       $res = mysqli_query("SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";");
+       $res = query("SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";");
 
       while($row = mysqli_fetch_assoc($res)) {
        $filiere = $row['filiere'];
@@ -109,9 +113,9 @@ session_start();
         
         /*Traitement pour ajouter le fichier a la base de donnes*/
        
-        $res3 = query( 'INSERT INTO file(pdf_lien,id_filiere,code_prof,commantaire,id_cour,type_cour) 
-                       VALUES("'.$path.'","'.$filiere.'",'.$_SESSION['code_massar'].',
-                       "'.$_POST['commentaire'].'",'.$id_cour.',"'.$_POST['type_cours'].'");');   
+        $res3 = query("INSERT INTO file(pdf_lien,id_filiere,code_prof,commantaire,id_cour,type_cour) 
+                       VALUES(\"".$path."\",\"".$filiere."\",".$_SESSION['code_massar'].",
+                       \"".$_POST['commentaire']."\",".$id_cour.",\"".$_POST['type_cours']."\");");   
             
     ?>
 
