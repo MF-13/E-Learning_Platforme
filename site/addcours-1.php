@@ -34,7 +34,6 @@ session_start();
     if ($typeresult==1) {
       header("location: ../dash/index.php");
     }
-
     if ($typeresult!=0 ){
       echo "
       <script>
@@ -56,19 +55,18 @@ session_start();
                   Ajouter le cours
                 </div>
                 <div class="card-body">
-                    <form  method = "post" action = "traitement/upload.php" enctype = "multipart/form-data">
+                    <form  method = "post" action ="traitement/upload.php" enctype = "multipart/form-data">
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">Nom de cours</label>
+                            <label required="required" for="exampleFormControlInput1">Nom de cours</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C">
                             <label for="exampleFormControlFile1" class="textleft"> Choisir le fichier(au format <strong>texte</strong> ou <strong>HTML</strong> )</label>
-                            <input type="file" class="form-control-file " id="exampleFormControlFile1">
+                            <input name = "userfile" type="file" class="form-control-file " id="exampleFormControlFile1">
                             <br>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select name="type_cours" class="form-control" id="exampleFormControlSelect1">
                                 <option>Cours</option>
                                 <option>TP</option>
                             </select>
          <!--specifier le cour dans le quelle on va importer ce fichier-->
-
                             <label for="exampleFormControlSelect2">Cours</label>
                             <select name="cours" class="form-control" id="exampleFormControlSelect2">
                             <?php
@@ -76,7 +74,6 @@ session_start();
                                 while($row = mysqli_fetch_assoc($res1)) {
                                 $filiere = $row['filiere'];
                                   } 
-
                                   $res2 = query("SELECT nom from cours where id_filiere=\"".$filiere."\";");
                                   while ($row = mysqli_fetch_assoc($res2)) {
                                     echo "<option>".$row['nom']."</option>";
@@ -84,10 +81,9 @@ session_start();
                              ?>
                             </select>
                             <label for="exampleFormControlTextarea1">Commentaire</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="commentaire" required="required" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                       </form>
-                
                 </div>
                 <div class="card-footer text-muted">
                     <div class="textright">
