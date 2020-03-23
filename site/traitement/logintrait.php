@@ -5,9 +5,8 @@
 session_start(); 
  $message = '';
 
-include("traitement/function.php");
+include("function.php");
     $conn = connectedb();
-
 
 
 $LOGIN = '';

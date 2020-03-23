@@ -1,3 +1,11 @@
+<?php
+/**
+*
+*confirmer les informations du Login a partir du fichier traitement/login.php
+*
+**/
+  include("traitement/logintrait.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +23,7 @@
 			<img src="static/img/Login/bg.svg">
 		</div>
 		<div class="login-content">
-			<form action="index.html">
+			<form action="" method="POST">
 				<img src="static/img/Login/avatar.svg">
 				<h2 class="title">Welcome</h2>
            		<div class="input-div one">
@@ -23,8 +31,8 @@
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<h5>Username</h5>
-           		   		<input type="text" class="input">
+           		   		<h5>Email</h5>
+           		   		<input type="text" class="input" name="login" id="login">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -33,18 +41,26 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
+           		    	<input type="password" class="input" name="password" id="password">
 				   </div>
 				</div>
 				<!------------------------------------------------------------------->
 				<div class="btn-group marging" role="group" aria-label="Basic example">
-					<button type="button" class="btn btn-secondary">Admin</button>
-					<button type="button" class="btn btn-secondary">Professeur</button>
-					<button type="button" class="btn btn-secondary">Etudiant</button>
+					<button type="submit" class="btn btn-secondary" name="type" value="admin">Admin</button>
+					<button type="submit" class="btn btn-secondary" name="type" value="professeur">Professeur</button>
+					<button type="submit" class="btn btn-secondary" name="type" value="etudiant">Etudiant</button>
 				</div>
+				
+				<?php if(!empty($message)) : ?>
+                  <p><?php echo $message; ?></p>
+
+                  <?php  endif; ?>
+                  <hr>
 				<!--------------------------------------------------------------------->
-            	<a href="#">Forgot Password?</a>
-            	<input type="submit" class="btnt" value="Login">
+            	<a href="Forget_pass.php">Forgot Password?</a>
+            	<a class="lienindex" href="index.php">Page d'acceuil</a>
+            	<!--<input type="submit" class="btnt" value="Login">-->
+            	 
             </form>
         </div>
     </div>

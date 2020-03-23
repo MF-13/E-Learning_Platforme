@@ -46,18 +46,19 @@
               </div>
                <!------------------------------------------------------------------->
               <div class="btn-group marging" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary">Admin</button>
-                <button type="button" class="btn btn-secondary">Professeur</button>
-                <button type="button" class="btn btn-secondary">Etudiant</button>
-                </div>
+                <button type="submit" class="btn btn-secondary" name="type" value="admin">Admin</button>
+                <button type="submit" class="btn btn-secondary" name="type" value="professeur">Professeur</button>
+                <button type="submit" class="btn btn-secondary" name="type" value="etudiant">Etudiant</button>
+              </div>
+                <hr>
               <!--------------------------------------------------------------------->
-              <a href="#">Mot de passe oublier?</a>
+              <a href="Forget_pass.php">Mot de passe oublier?</a>
               <a class="lienindex" href="index.php">Page d'acceuil</a>
               <?php if(!empty($message)) : ?>
                   <p><?php echo $message; ?></p>
 
                   <?php  endif; ?>
-              <input type="submit" class="btnt" value="Login">
+              <!--<input type="submit" class="btn" value="Login">-->
             </form>
         </div>
     </div>
