@@ -102,7 +102,7 @@
         }else{
           document.getElementById("btnScroll").style.display = "none";
         }
-        //changer les couleur du button de scroll
+        //changer les couleurs du button de scroll
          document.getElementById("btnScroll").style.color = "black";
          document.getElementById("btnScroll").style.background= "blue";
       } 

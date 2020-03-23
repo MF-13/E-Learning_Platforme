@@ -1,5 +1,8 @@
 <?php
+include("function.php");
 $path="../".$_GET['dir']."/".$_GET['file']; 
 unlink($path);
-header("location: ../cours-espace.php")
+/*drop file from database*/
+INSERT("DELETE from file where nom_pdf=\"".$_GET['file']."\";");
+header("location: ../cours-espace.php");
 ?>
