@@ -57,7 +57,7 @@
                             </div>
                   </div>
               </div>
-              <a href="#">Mot de passe oublier?</a>
+              <a href="Forget_pass.php">Mot de passe oublier?</a>
               <a class="lienindex" href="index.php">Page d'acceuil</a>
               <?php if(!empty($message)) : ?>
                   <p><?php echo $message; ?></p>
