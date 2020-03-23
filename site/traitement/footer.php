@@ -25,20 +25,17 @@
       <div class="col-sm-12 col-md-12 col-lg-4">
         <h5>Liens utiles</h5>                                     
         <ul class="mylist fixUl">      
-          <li><a href="http://www.est-umi.ac.ma" style="color : #ecf0f1; text-decoration: none;" target="_blank">ESTM</a></li><br>          
-          <li><a href="http://www.umi.ac.ma" style="color : #ecf0f1; text-decoration: none;">UMI</a></li>                                                  
+          <li>
+            <a href="http://www.est-umi.ac.ma" style="color : #ecf0f1; text-decoration: none;" target="_blank">ESTM</a>
+          </li><br>          
+          <li>
+            <a href="http://www.umi.ac.ma" style="color : #ecf0f1; text-decoration: none;" target="_blank">UMI</a>
+          </li><br>
+          <li>
+            <a href="http://https://www.enssup.gov.ma/fr" style="color : #ecf0f1; text-decoration: none;" target="_blank">Ministere de l'education</a>
+          </li>                                                 
         </ul>                                                 
-      </div>                                                                                                                                                       
-      <div class="col-sm-12 col-md-12 col-lg-4">                                         
-        <form>                                                 
-          <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-outline-warning" type="button">Go!</button>
-              </span>
-            </div>                                                 
-          </form>              
-        </div>              
+      </div>                                                                                        
       </div>
       <div>
         <p class="myText">Copyright © E-Learning <?php echo "2019-".date("Y"); ?> - Tous droits réservés.</p>
@@ -105,6 +102,9 @@
         }else{
           document.getElementById("btnScroll").style.display = "none";
         }
+        //changer les couleur du button de scroll
+         document.getElementById("btnScroll").style.color = "black";
+         document.getElementById("btnScroll").style.background= "blue";
       } 
 
       function toUp(){

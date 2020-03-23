@@ -22,25 +22,47 @@ session_start();
   <!-- Wall -->
   <article id="myinfo">
    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-      </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="static/img/Index/2.jpg" class="d-block w-100 mysize" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h4>Paltaforme E Learning</h4>
-                <p>L'université Moulay Ismail lance sa plateforme d'enseignement à distance . </p>
-              </div>
-        </div>
-        <div class="carousel-item">
-          <img src="static/img/Index/1.jpg" class="d-block w-100 mysize" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="static/img/Index/3.jpg" class="d-block w-100 mysize" alt="...">
-        </div>
+      <?php
+      /*cette partie sert pour qfficher tous les photos qui sont dans le dossier /img/wall/ pour eviter la repitition du code n fois */
+
+       $dir = opendir("static/img/index/wall/");
+       $i=1;
+       while ($file = readdir($dir)){
+           if ($file != "." && $file != ".."){
+                if($i==1){
+                  echo '<div class="carousel-item active">
+                  <img src="static/img/Index/wall/'.$file.'" class="d-block w-100 mysize" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h4>Paltaforme E Learning</h4>
+                        <p>L\'université Moulay Ismail lance sa plateforme d\'enseignement à distance . </p>
+                      </div>
+                 </div>';
+                }else{
+                echo '<div class="carousel-item">
+                        <img src="static/img/Index/wall/'.$file.'" class="d-block w-100 mysize" alt="...">
+                      </div>';
+                }
+                $i++;
+            }
+       }
+
+      ?>
+      <?php
+      /*dook l3ibat dial tsawer nit li kaybiynohom */
+      $j=1;
+      echo '<ol class="carousel-indicators">';
+      while($j<$i){
+        if ($j==1) {
+          echo '<li data-target="#carouselExampleCaptions" data-slide-to="1" class="active"></li>';
+        }
+        else {
+          echo '<li data-target="#carouselExampleCaptions" data-slide-to="'.$j.'" class="active"></li>';
+        }
+        $j++;
+      }
+      echo '</ol>';
+      ?>
       </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

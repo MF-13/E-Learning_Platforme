@@ -55,7 +55,6 @@ session_start();
 
        //Récupération de l'emplacement temporaire de stockage du fichier sur le serveur
        $tmp_name = $_FILES['userfile']['tmp_name'];
-        /*echo $tmp_name;*/
        // none est la valeur attribuée par PHP quand aucun fichier n'a été téléchargé
        if($tmp_name == null){
          echo "Problème de téléchargement : aucun fichier téléchargé !";
@@ -112,10 +111,10 @@ session_start();
         } 
         
         /*Traitement pour ajouter le fichier a la base de donnes*/
-       
-        $res3 = query("INSERT INTO file(pdf_lien,id_filiere,code_prof,commantaire,id_cour,type_cour) 
-                       VALUES(\"".$path."\",\"".$filiere."\",".$_SESSION['code_massar'].",
-                       \"".$_POST['commentaire']."\",".$id_cour.",\"".$_POST['type_cours']."\");");   
+
+        $res3 = INSERT("INSERT INTO file(id_filiere,code_prof,commantaire,id_cour,type_cour,nom_pdf,pdf_lien) 
+                       VALUES(\"".$filiere."\",".$_SESSION['code_massar'].",
+                       \"".$_POST['commentaire']."\",".$id_cour.",\"".$_POST['type_cours']."\",\"".$userfile_name."\",\"".$path."\");");   
             
     ?>
 

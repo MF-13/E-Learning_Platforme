@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("traitement/function.php")
   ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -21,24 +22,30 @@ session_start();
 
   <!--END Nav bar-->
   <div class="contact-form">
-    <h1>Contact Us</h1>
-    <div class="txtb">
-      <label>Full Name :</label>
-      <input type="text" name="name" placeholder="Enter Your Name" 
-        <?php if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}?> >
-    </div>
+    <form action="#" method="POST">
+      <h1>Contact Us</h1>
+      <?php if(!isset($_SESSION['code_massar'])){
+          
+          echo '<div class="txtb">
+            <label>Full Name :</label>
+            <input type="text" name="name" required placeholder="Enter Your Name"';
+             if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
+          echo '></div>';
+          
 
-    <div class="txtb">
-      <label>Email :</label>
-      <input type="email" name="email" placeholder="Enter Your Email" 
-      <?php if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['email'].'';}?>>
-    </div>
-
-    <div class="txtb">
-      <label>Message :</label>
-      <textarea class="txttb" name="message" placeholder="Enter your text here"></textarea>
-    </div>
-    <a class="btn">Send</a>
+          echo '<div class="txtb">
+            <label>Email :</label>
+            <input type="email" name="email" required placeholder="Enter Your Email" ';
+             if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['email'].'';}
+          echo '></div>';
+      }
+      ?>
+        <div class="txtb">
+          <label>Message :</label>
+          <textarea class="txttb" name="message" required placeholder="Enter your text here"></textarea>
+        </div>
+        <input type="submit" name="submit" class="btn" value="SEND">
+  </form>
     <a class="retourn" href="Index.php">Retourner a l'acceuil</a>
   </div>
 

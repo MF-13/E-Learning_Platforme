@@ -27,7 +27,7 @@ capterConnexion($_SESSION['code_massar']);
   <!--END Nav bar-->
     <!-- Path Section -->
     <section class="sectionpath">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Cours Espace / Nom Filiére</b></p>
+        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Cours Espace</b></p>
     </section>
     <!-- Path Section -->
     <!-- Posts Section -->
@@ -52,10 +52,18 @@ capterConnexion($_SESSION['code_massar']);
 
     while ($file = readdir($dir)){
     //traitement pour ne pas afficher le dossier pere et le dossier de racine
+       
+      
       if ($file != "." && $file != ".."){ 
       /**********************************************/
       /*si cest les dossier .. ou . on affiche rien */
-      /**********************************************/   
+      /**********************************************/  
+       $res = query("SELECT commantaire,nbr_telechargement,date_ajoute from file where nom_pdf=\"".$file."\";");
+        while($row = mysqli_fetch_assoc($res)){
+         $comm = $row['commantaire'];
+         $nbr_telechargement= $row['nbr_telechargement'];
+         $date_ajoute = $row['date_ajoute'];
+        } 
         echo '
           <div class="container">
             <div class="row">
@@ -71,9 +79,9 @@ capterConnexion($_SESSION['code_massar']);
                          echo "<h4 class=\"mt-0\">".$file."</h4>";
                          echo "<p class=\"pmedia\">
                           <ul class=\"pmedia mylist\">
-                          <li><b>Publier le :</b> 12/02/2020</li>
-                          <li><b>Taille :</b> 100ko</li>
-                          <li><b>Nbr de telechargement :</b> 102</li>
+                          <li><b>Publier le :</b> ".$date_ajoute."</li>
+                          <li><b>Nbr de telechargement :</b>".$nbr_telechargement."</li>
+                          <li><b>Commentaire : </b>".$comm."</li>
                           <br>
                           <A Href=\"cours-detail.php?file=".$file ."&dir=".$devdir."\">Consulter</A>
                           </ul></p>";
@@ -84,7 +92,8 @@ capterConnexion($_SESSION['code_massar']);
                           /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
         if($typeresult==0){
           echo '<button type="button" class="btn btn-outline-warning btnmarging">Modifier</button>
-                <button type="button" class="btn btn-outline-danger btnmarging">Supprimer</button>';
+                <button type="button" class="btn btn-outline-danger btnmarging" 
+                onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
         }
         elseif($typeresult==-1){
           echo '<button type="button" class="btn btn-outline-warning btnmarging">

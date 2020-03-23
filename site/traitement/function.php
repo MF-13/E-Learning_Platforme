@@ -25,6 +25,8 @@
 		    if (!(isset($code)))
 		    {
 		    	header("Location: index.php");  
+		    }else{
+		    	return 1;
 		    }
 	}
 

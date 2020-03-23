@@ -57,16 +57,16 @@ session_start();
                 <div class="card-body">
                     <form  method = "post" action ="traitement/upload.php" enctype = "multipart/form-data">
                         <div class="form-group">
-                            <label  for="exampleFormControlInput1">Nom de cours</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C" required>
+                            <label  for="exampleFormControlInput1">Titre cours</label>
+                            <input type="text" name="titre_cour" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C" required>
                            
                             <label for="exampleFormControlFile1" class="textleft"> Choisir le fichier(au format <strong>texte</strong> ou <strong>HTML</strong> )</label>
                             <input name = "userfile" type="file" class="form-control-file " id="exampleFormControlFile1">
                             <br>
                            
                             <select name="type_cours" class="form-control" id="exampleFormControlSelect1">
-                                <option>Cours</option>
-                                <option>TP</option>
+                                <option>cour</option>
+                                <option>tp</option>
                             </select>
          <!--specifier le cour dans le quelle on va importer ce fichier-->
                             <label for="exampleFormControlSelect2">Cours</label>
