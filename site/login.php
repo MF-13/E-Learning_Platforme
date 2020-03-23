@@ -10,9 +10,11 @@
 <html>
 <head>
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="static/css/Login.css">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="static/css/Login.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <img class="wave" src="static/img/Login/wave.png">
@@ -42,28 +44,20 @@
                     <input type="password" class="input" name="password" id="password">
                  </div>
               </div>
-               <div class="input-div pass">
-                <div class="i"> 
-                    <i class="fas fa-address-card"></i>
-                 </div>
-                 <div class="div">
-                    <h5>Type User</h5>
-                          <div class="form-group">
-                              <select name ="type" class="form-control" id="sel1">
-                                <option value="admin">admin</option>
-                                <option value="professeur">professeur</option>
-                                <option value="etudiant">etudiant</option>
-                              </select>
-                            </div>
-                  </div>
-              </div>
-              <a href="Forget_pass.php">Mot de passe oublier?</a>
+               <!------------------------------------------------------------------->
+              <div class="btn-group marging" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary">Admin</button>
+                <button type="button" class="btn btn-secondary">Professeur</button>
+                <button type="button" class="btn btn-secondary">Etudiant</button>
+                </div>
+              <!--------------------------------------------------------------------->
+              <a href="#">Mot de passe oublier?</a>
               <a class="lienindex" href="index.php">Page d'acceuil</a>
               <?php if(!empty($message)) : ?>
                   <p><?php echo $message; ?></p>
 
                   <?php  endif; ?>
-              <input type="submit" class="btn" value="Login">
+              <input type="submit" class="btnt" value="Login">
             </form>
         </div>
     </div>
