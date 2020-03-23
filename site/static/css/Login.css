@@ -160,7 +160,7 @@ a:hover{
 	color: #38d39f;
 }
 
-.btn{
+.btnt{
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -177,7 +177,7 @@ a:hover{
 	cursor: pointer;
 	transition: .5s;
 }
-.btn:hover{
+.btnt:hover{
 	background-position: right;
 }
 
@@ -223,3 +223,26 @@ a:hover{
 .lienindex{
 	margin-top: 5px;
 }
+/*--------------------------*/
+.btn-secondary {
+	color: #fff;
+	background-color: #868e96;
+	border-color: #868e96;
+  }
+  
+  .btn-secondary:hover {
+	color: #fff;
+	background-color: #32be8f;
+	border-color: #38d39f;
+  }
+  
+  .btn-secondary:focus, .btn-secondary.focus {
+	box-shadow: none;
+	background-color: #32be8f;
+  }
+
+  .marging{
+	  margin-top: 20px;
+	  margin-bottom: 20px;
+  }
+/*--------------------------*/
