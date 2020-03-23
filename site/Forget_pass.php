@@ -18,7 +18,8 @@
   <label for="inputEmail" class="sr-only">Email address</label>
   <input type="email" id="inputEmail" class="form-control margingbuttom" placeholder="Email address" required="" autofocus="">
   <button class="btn btn-lg btn-primary btn-block margingbuttom" type="submit">Envoyez</button>
-  <p class="mt-5 mb-3 text-muted">Copyright © E-Learning <?php echo "2019-".date("Y"); ?> - Tous droits réservés.</p>
+  <p class="mt-5 mb-3 text-muted">Copyright ©  <?php echo '<a href="index.php"> E-Learning</a> '; echo "2019-".date("Y")."<br>"; ?> - Tous droits réservés -</p>
+  
 </form>
 </div>
     <!-- Optional JavaScript -->
