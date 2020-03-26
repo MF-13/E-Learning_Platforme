@@ -37,26 +37,24 @@ $PASSWORD = '';
             /*traitement pour le login des professeur */
           if($_POST['type']=="professeur"){
                 
-                $result = query("SELECT code_massar_prof,nom_cmplt,type from login_prof where login='{$_POST['login'                ]}' and     mdps= '{$_POST['password']}'");
-                $cpt = mysqli_num_rows($result);
-            
-                if ( $cpt > 0 )
-                 {
-                         
-                         while($row = mysqli_fetch_assoc($result)) {
+                $query1 = "SELECT code_massar_prof,nom_cmplt,type from login_prof where login=? and mdps= ?";
+
+                $values1 = array($_POST['login'],$_POST['password']);   
+                $result = PDO($query1,$values1);
+
+                if($result->rowCount()!=0){
+                    while ($row = $result->fetch()) {
+
+                      
                         $_SESSION['email'] =  $_POST['login'];
                         $_SESSION['code_massar'] = $row['code_massar_prof'];
                         $_SESSION['nom'] = $row['nom_cmplt'];
                         $_SESSION['type'] = $row['type'];
                         $LOGIN = $_POST["login"];
-                }
-
-                 
-                  //sleep(2);    
-                  header("Location: index.php");
+                    }
+                    header("Location: index.php");
 
                  }
-
                  else
                  {
                     $message = 'votre mot de passe ou username incorrect ';
@@ -69,26 +67,21 @@ $PASSWORD = '';
 
           if($_POST['type']=="admin"){
              
-                $result = query("SELECT id from admin where login='{$_POST['login']}' and mdps= '{$_POST['password']              }'");
-                $cpt = mysqli_num_rows($result);
-            
-                if ( $cpt > 0 )
-                 {
-                         
-                         while($row = mysqli_fetch_assoc($result)) {
-                        $_SESSION['email'] =  $_POST['login'];
+                $query2 = "SELECT id from admin where login=? and mdps=?";
+
+                $values2 = array($_POST['login'],$_POST['password']);   
+                $result = PDO($query2,$values2);
+                
+                if($result->rowCount()!=0){
+                    while ($row = $result->fetch()) {
+                      $_SESSION['email'] =  $_POST['login'];
                         $_SESSION['code_massar'] = $row['id'];
                         $_SESSION['type'] = "admin";
                         $_SESSION['nom'] = "admin";
                         $LOGIN = $_POST["login"];
+                    }
+                     header("Location: ../dash/index.php");
                 }
-
-                 
-                  //sleep(2);    
-                  header("Location: ../dash/index.php");
-
-                 }
-
                  else
                  {
                     $message = 'votre mot de passe ou username incorrect ';
@@ -98,25 +91,21 @@ $PASSWORD = '';
 
           /*traitement pour le login des etudiants */
           if($_POST['type']=="etudiant"){
-                    $result = query("SELECT code_massar,nom_complet,type from login_etd where email='{$_POST['login']}' and  mdps= '{$_POST['password']}'");
-                    $cpt = mysqli_num_rows( $result);
-              
-                    if ( $cpt > 0 )
-                     {
-                             
-                             while($row = mysqli_fetch_assoc($result)) {
-                            $_SESSION['email'] =  $_POST['login'];
+                    $query3 = "SELECT code_massar,nom_complet,type from login_etd where email=? and  mdps=?";
+
+                    $values3 = array($_POST['login'],$_POST['password']);   
+                    $result = PDO($query3,$values3);
+
+                    if($result->rowCount()!=0){
+                        while ($row = $result->fetch()) {
+                          $_SESSION['email'] =  $_POST['login'];
                             $_SESSION['code_massar'] = $row['code_massar'];
                             $_SESSION['nom'] = $row['nom_complet'];
                             $_SESSION['type'] = $row['type'];
                             $LOGIN = $_POST["login"];
-                    }
-
-                          
-                      header("Location: index.php");
-
+                        }
+                        header("Location: index.php");
                      }
-
                      else
                      {
                         $message = 'votre mot de passe ou username incorrect ';

@@ -2,7 +2,6 @@
 session_start();
  include("traitement/navbar.php");
  include("traitement/function.php");
- $conn = connectedb();
  ?>
   <!--END Nav bar-->
  
@@ -15,41 +14,40 @@ session_start();
       <br>
     </div>
   <?php
-    $result = query("SELECT * from filiere;");
-    $cpt = mysqli_num_rows( $result);
-     if ( $cpt > 0 )
-     {
-      echo '  <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12">
-      ';
-             
-         while($row = mysqli_fetch_assoc($result)) {
-             echo' 
+    $values = array();
+    $result=PDO("SELECT * FROM filiere",$values);
 
-          <div class="card">
-            <img class="card-img-top" src="static/img/Index/Filiére/communication.png" alt="TCC" height="70">
-            <div class="card-body">
+     if($result->rowCount()!=0){
+           echo '  <div class="container">
+                     <div class="row">
+                       <div class="col-lg-3 col-md-6 col-sm-12">
+                 ';
+        while ($row = $result->fetch()) {
+            echo' 
+                  <div class="card">
+                    <img class="card-img-top" src="static/img/Index/Filiére/communication.png" alt="TCC" height="70">
+                    <div class="card-body">
 
-              <h5 class="card-title">'.$row["filiere"].'&nbsp('.$row["filiere_id"].')</h5>
-              <p class="card-text">Filiére :<br>
-                <ul>
-                  <li>'.$row["filiere_description"].'</li>
-                  
-                </ul> 
-            </div>
-          </div>
-         ';        
+                      <h5 class="card-title">'.$row["filiere"].'&nbsp('.$row["filiere_id"].')</h5>
+                      <p class="card-text">Filiére :<br>
+                        <ul>
+                          <li>'.$row["filiere_description"].'</li>
+                          
+                        </ul> 
+                    </div>
+                  </div>
+             ';        
 
-          }
-
-          echo '
-            </div>  
-        </div>
-    </div>';
-    } else{
+        }
+                   echo '
+                    </div>  
+                </div>
+            </div>';
+      }else{
       echo "<strong font-position=\"center\">Aucune filiere trouvé</stron>!";
     }
+
+    
   ?>
   <style>
     @media (max-width: 768px)

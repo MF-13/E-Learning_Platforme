@@ -1,8 +1,6 @@
 <?php
 /*include("traitement/connectedb.php");*/
 include("traitement/function.php");
-$conn = connectedb();
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +23,8 @@ $conn = connectedb();
 				<input type="date" name="date_naiss" class="field" placeholder="Date Naissance" required="required">
 				<select class="field" name="filiere" required="required">
 					<?php
-						$stm=PDO("SELECT * FROM filiere");
+						$values = array();
+						$stm=PDO("SELECT * FROM filiere",$values);
 						if($stm->rowCount()!=0){
 							while ($row = $stm->fetch()) {
 								echo "<option>".$row['filiere_id']."</option>";

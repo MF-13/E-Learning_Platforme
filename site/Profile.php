@@ -33,29 +33,28 @@ session_start();
     <?php
 
         if($typeresult == -1){
-          $res=query("SELECT * from etudiant where code_massar=".$_SESSION['code_massar'].";");
+          $query = "SELECT * from etudiant where code_massar=?;";
         }elseif($typeresult == 0){
-          $res = query("SELECT * from professeur where code_massar_prof=".$_SESSION['code_massar'].";");
+          $query = "SELECT * from professeur where code_massar_prof=?;";
         }elseif ($typeresult == 1) {
           header("location: ../dash/index.php");
         }
-        $cpt = mysqli_num_rows($res);
-     if ( $cpt > 0 )
-     {
-             
-         while($row = mysqli_fetch_assoc($res)) {
-          $nom = $row['nom'];
-          $prenom =  $row['prenom'];
-          $date_naiss =   $row['date_naiss'];
-          $filiere = $row['filiere'];
-          $num_tele =  $row['num_tele'];
-          $adresse =  $row['adresse'];
-          $email =  $row['email'];
-          $mdps =  $row['mdps'];
-          $type =  $row['type'];
+        $values = array($_SESSION['code_massar']);
+        $res=PDO($query,$values);
 
+         if($res->rowCount()!=0){
+              while ($row = $res->fetch()) {
+                $nom = $row['nom'];
+                $prenom =  $row['prenom'];
+                $date_naiss =   $row['date_naiss'];
+                $filiere = $row['filiere'];
+                $num_tele =  $row['num_tele'];
+                $adresse =  $row['adresse'];
+                $email =  $row['email'];
+                $mdps =  $row['mdps'];
+                $type =  $row['type'];
+              }
          }
-      }
     ?>
     <br>
     <div class="container">

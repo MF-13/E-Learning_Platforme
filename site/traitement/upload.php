@@ -86,11 +86,17 @@ session_start();
 
        /*construction du path */
        
-       $res = query("SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";");
+       $query1 = "SELECT filiere from professeur where code_massar_prof=?;";
 
-      while($row = mysqli_fetch_assoc($res)) {
-       $filiere = $row['filiere'];
-        }
+       $values1 = array($_SESSION['code_massar']);
+       $res = PDO($query1,$values1);
+
+        if($res->rowCount()!=0){
+              while ($row = $res->fetch()) {
+                $filiere = $row['filiere'];
+              }
+          }
+
        //  nom du fichier dans le système de l'utilisateur
        $userfile_name = $_FILES['userfile']['name'];
        $path ="../file/".$filiere."/$userfile_name";
@@ -105,16 +111,24 @@ session_start();
         
         /*traitement pour tirer l'id du cour depuis la base de donnees*/
         
-        $res2 = query("SELECT id_cour from cours where nom=\"".$_POST['cours']."\";");
-        while($row = mysqli_fetch_assoc($res2)){
-          $id_cour = $row['id_cour'];
-        } 
+        $query2 = "SELECT id_cour from cours where nom=? ;";
+        
+        $values2 = array($_POST['cours']);
+        $res2 = PDO($query2,$values2);
+        
+         if($res2->rowCount()!=0){
+              while ($row = $res2->fetch()) {
+                 $id_cour = $row['id_cour'];
+              }
+          }
         
         /*Traitement pour ajouter le fichier a la base de donnes*/
 
-        $res3 = INSERT("INSERT INTO file(id_filiere,code_prof,commantaire,id_cour,type_cour,nom_pdf,pdf_lien) 
-                       VALUES(\"".$filiere."\",".$_SESSION['code_massar'].",
-                       \"".$_POST['commentaire']."\",".$id_cour.",\"".$_POST['type_cours']."\",\"".$userfile_name."\",\"".$path."\");");   
+        $query3 = "INSERT INTO file(id_filiere,code_prof,commantaire,id_cour,type_cour,nom_pdf,pdf_lien) 
+                       VALUES(?,?,?,?,?,?,?);";   
+
+        $values3 = array($filiere,$_SESSION['code_massar'],$_POST['commentaire'],$id_cour,$_POST['type_cours'],$userfile_name,$path);
+        $res3 = PDO($query3,$values3);
             
     ?>
 

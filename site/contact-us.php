@@ -28,10 +28,14 @@ include("traitement/function.php")
           
           echo '<div class="txtb">
             <label>Full Name :</label>
-            <input type="text" name="name" required placeholder="Enter Your Name"';
+            <input type="text" name="nom" required placeholder="Enter Your Name"';
              if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
           echo '></div>';
-          
+          echo '<div class="txtb">
+              <label>Telephone : </label>
+              <input type="number" name="telephone" required placeholder="Enter you Phone number(without 0)"';
+              if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
+          echo '></div>';
 
           echo '<div class="txtb">
             <label>Email :</label>
@@ -50,43 +54,44 @@ include("traitement/function.php")
   </div>
 
    <?php
-        if (!(isset($_SESSION['login']))) {
-          
-               } 
-//else on fait une redirection a la page de connexion
-        else{
-              
-    
-              
+        if (filter_has_var(INPUT_POST,"submit")) {
 
-        if(isset($_POST['name']) and isset($_POST['email']) and isset($_POST['message'])) {    
-          $name = $_POST['login'];
-      $visitor_email = $_POST['email'];
-      
+          if(!(isset($_SESSION['code_massar'])))
+            {
+              $nom=$_POST['nom'];
+              $email=$_POST['email'];
+              $telephone=$_POST['telephone'];
+              $message=$_POST['message'];
+              $type="visiteur";
+              $code_massar=-1;
+            }else{
+                  if(TypeUser($_SESSION['type'])==0){
+                    $query1="select num_tele from professeur where code_massar_prof=? ;";
+                  }else{
+                    $query1="select num_tele from etudiant where code_massar =? ;";
+                  }
+                  
+                  $values1 = array($_SESSION['code_massar']);
+                  $res = PDO($query1,$values1);
+
+                  if($res->rowCount()!=0){
+                  while ($row = $res->fetch()) {
+                    $telephone=$row['num_tele'];
+                  }
+                }
+                  $code_massar=$_SESSION['code_massar'];
+                  $nom=$_SESSION['nom'];
+                  $email=$_SESSION['email'];
+                  $message=$_POST['message'];
+                  $type=$_SESSION['type'];
+            }
+
+            //traitement d insertion a la base de donnees
+            $query2 = "INSERT INTO message(name,message,email,telephone,type,code_user) values(?,?,?,?,?,?);";
+            $values2 = array($nom,$message,$email,$telephone,$type,$code_massar);
+            PDO($query2,$values2);
         }
-       else{
-              $name = $_SESSION['name'];
-            /*  $visitor_email = $_SESSION['email'];*/
-      
-              }/*
-      $contacte_message = $_POST['message'];
-
-      $email_from= $visitor_email;
-      $email_objet = $_POST['objet'];
-      $email_body = "NOM : $name.\n".
-              "E-mail : $visitor_email.\n".
-              "Message : $contacte_message.\n";
-
-      $to = "ayman.binou@gmail.com";
-
-      $headers = "From : $email_from \r\n";
-      $haeders .= "Reply To : $email_from";
-
-      mail($to,$email_objet,$email_body,$headers);
-
-      header("Location: index.html");*/
-      }
-        ?>
+   ?>
 
   </body>
 </html>

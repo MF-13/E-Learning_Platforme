@@ -40,13 +40,26 @@
 		  return $conn;
 	}
 
-	/*this function need some work*/
-	function deconnexion(){
-		session_start();
-		session_unset();
-		session_destroy();
-		header("location: ../index.php");
-		return "Deconnexion avec succes !";
+		/*Cette funtion permet d'afficher la dernier page visite*/
+	function lastpage($array){
+ 			$url = (string)$_SERVER['HTTP_REFERER'];
+			$tab = explode("/", $url);
+			/*ce tableau affiche tous les composant de URL*/
+			//print_r($tab);
+			$last=$tab[count($tab)-1];
+			
+			reset($array);
+			while($frt = current($array)){
+				if($last==$frt){
+						echo "<script> alert(\"you can t see this page if you are not login in\");</script>";
+				}
+				next($array);
+			}
+			/*exemeple de fonctionnement dans la page : */
+ 			/*
+				 $visite =  array("filiere.php","contact-us.php");
+				 lastpage($visite);
+ 			*/
 	}
 
 
@@ -54,6 +67,7 @@
 		//cette fonction sert a faire des query depuis la base de donnees 
 		//il retourne result qui contient le resultat de la requete
 		$conn = connectedb();
+		mysqli_query($conn,"SET NAMES UTF8"); 
 		$result = mysqli_query($conn,$query);
 		return $result;
 	}
@@ -63,6 +77,7 @@
 					try{
 						$db = new PDO('mysql:host=localhost:3308;dbname=elearning;charset=utf8','root','');
 						$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+						$db->query("SET NAMES utf8mb4");
 					}catch(PDOException $e){		
 					}
 					return $db;
@@ -92,15 +107,5 @@
 					return $stm;	
 				}
 
-	function INSERT($query){
-					$db = connecte();
-					$stm = $db->prepare($query);
-
-					$stm->execute();
-					//Fermer la connexion 
-					$db=null;
-
-					//Retourner le resultat 
-					return $stm;	
-				}
+	
 ?>

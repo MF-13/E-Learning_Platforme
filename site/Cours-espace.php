@@ -19,7 +19,6 @@ session_start();
  <?php
 include("traitement/navbar.php");
 include("traitement/function.php");
-$conn = connectedb();
 capterConnexion($_SESSION['code_massar']);
 $typeresult = TypeUser($_SESSION['type']);
 capterConnexion($_SESSION['code_massar']);
@@ -36,15 +35,22 @@ capterConnexion($_SESSION['code_massar']);
  <section class="Posts">
    <?php
        if($typeresult==-1){
-        $result = query("SELECT filiere FROM etudiant where code_massar=".$_SESSION['code_massar'].";");
+        $query1 = "SELECT filiere FROM etudiant where code_massar=? ;";
         }elseif($typeresult==0){
-          $result = query("SELECT filiere FROM professeur where code_massar_prof=".$_SESSION['code_massar'].";");
+          $query1 = "SELECT filiere FROM professeur where code_massar_prof=? ;";
         }elseif($typeresult==1){
           header("location: ../dash/index.php");
         }
-    while($row = mysqli_fetch_assoc($result)) {
-      $filiere = $row['filiere'];
-    }
+
+        $values = array($_SESSION['code_massar']);
+        $result = PDO($query1,$values);
+
+        if($result->rowCount()!=0){
+              while ($row = $result->fetch()) {
+                 $filiere = $row['filiere'];
+              }
+            }
+   
     echo "<p class=\"Text\">Cours pour filiere : ".$filiere."</p>";
     $devdir = "file/".$filiere;
     $dir = opendir($devdir);
@@ -58,12 +64,18 @@ capterConnexion($_SESSION['code_massar']);
       /**********************************************/
       /*si cest les dossier .. ou . on affiche rien */
       /**********************************************/  
-       $res = query("SELECT commantaire,nbr_telechargement,date_ajoute from file where nom_pdf=\"".$file."\";");
-        while($row = mysqli_fetch_assoc($res)){
-         $comm = $row['commantaire'];
-         $nbr_telechargement= $row['nbr_telechargement'];
-         $date_ajoute = $row['date_ajoute'];
-        } 
+       $query2 = "SELECT commantaire,nbr_telechargement,date_ajoute from file where nom_pdf=?;";
+        
+        $values = array($file);
+        $res = PDO($query2,$values);
+
+        if($res->rowCount()!=0){
+              while ($row = $res->fetch()) {
+                 $comm = $row['commantaire'];
+                 $nbr_telechargement= $row['nbr_telechargement'];
+                 $date_ajoute = $row['date_ajoute'];
+              }
+          }
         echo '
           <div class="container">
             <div class="row">

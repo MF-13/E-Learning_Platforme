@@ -72,14 +72,27 @@ session_start();
                             <label for="exampleFormControlSelect2">Cours</label>
                             <select name="cours" class="form-control" id="exampleFormControlSelect2">
                             <?php
-                                $res1 = query("SELECT filiere from professeur where code_massar_prof=".$_SESSION['code_massar'] .";");
-                                while($row = mysqli_fetch_assoc($res1)) {
-                                $filiere = $row['filiere'];
-                                  } 
-                                  $res2 = query("SELECT nom from cours where id_filiere=\"".$filiere."\";");
-                                  while ($row = mysqli_fetch_assoc($res2)) {
-                                    echo "<option>".$row['nom']."</option>";
+                                $query1 = "SELECT filiere from professeur where code_massar_prof=?;";
+
+                                $values1 = array($_SESSION['code_massar']);
+                                $res1 = PDO($query1,$values1);
+
+                                if($res1->rowCount()!=0){
+                                  while ($row = $res1->fetch()) {
+                                    $filiere = $row['filiere'];
                                   }
+                                }
+
+                                $query2 = "SELECT nom from cours where id_filiere=?;";
+
+                                $values2 = array($filiere);
+                                $res2 = PDO($query2,$values2);
+
+                                 if($res2->rowCount()!=0){
+                                  while ($row = $res2->fetch()) {
+                                     echo "<option>".$row['nom']."</option>"; 
+                                     }
+                                }
                              ?>
                             </select>
                             <label for="exampleFormControlTextarea1">Commentaire</label>
