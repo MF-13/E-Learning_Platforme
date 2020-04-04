@@ -62,7 +62,7 @@ session_start();
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="card text-center">
                 <div class="card-header">
-                  Welcome
+                  Bonjour
                 </div>
                 <div class="card-body">
                    <!-- <img src="static/img/Login/male.svg">-->

@@ -25,7 +25,7 @@
     <div class="login-content">
       <form action="" method="POST">
         <img src="static/img/Login/avatar.svg">
-        <h2 class="title">Welcome Back</h2>
+        <h2 class="title">Bonjour</h2>
               <div class="input-div one">
                  <div class="i">
                     <i class="fas fa-user"></i>

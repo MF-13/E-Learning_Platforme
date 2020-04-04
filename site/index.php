@@ -34,7 +34,7 @@ session_start();
                   echo '<div class="carousel-item active">
                   <img src="static/img/Index/wall/'.$file.'" class="d-block w-100 mysize" alt="...">
                       <div class="carousel-caption d-none d-md-block">
-                        <h4>Paltaforme E Learning</h4>
+                        <h4>Palataforme E Learning</h4>
                         <p>L\'université Moulay Ismail lance sa plateforme d\'enseignement à distance . </p>
                       </div>
                  </div>';

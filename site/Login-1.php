@@ -25,7 +25,7 @@
 		<div class="login-content">
 			<form action="" method="POST">
 				<img src="static/img/Login/avatar.svg">
-				<h2 class="title">Welcome</h2>
+				<h2 class="title">Bonjour</h2>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
@@ -57,7 +57,7 @@
                   <?php  endif; ?>
                   <hr>
 				<!--------------------------------------------------------------------->
-            	<a href="Forget_pass.php">Forgot Password?</a>
+            	<a href="Forget_pass.php">Mot de passe oublié?</a>
             	<a class="lienindex" href="index.php">Page d'acceuil</a>
             	<!--<input type="submit" class="btnt" value="Login">-->
             	 
