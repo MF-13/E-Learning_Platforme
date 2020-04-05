@@ -107,7 +107,7 @@ include("dashboard.php");
       </div>
 
         <!--**********************************************************************************************--> 
-        <!---end of page content->
+        <!---end of page content-->
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
