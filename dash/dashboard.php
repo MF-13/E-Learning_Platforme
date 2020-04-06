@@ -1,4 +1,11 @@
  <!-- Page Wrapper -->
+  <?php
+  session_start();
+  if (!(isset($_SESSION['code_massar'])))
+        {
+          header("Location: ../site/index.php");  
+        }
+  ?>
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -126,17 +133,17 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nom de l'admin  </span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom'].'-'.$_SESSION['code_massar']; ?> </span>
                 <i class="fas fa-user-shield fa-1x" style="color : black"></i>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="message.php">
                   <i class="fas fa-id-badge fa-sm fa-fw mr-2 text-gray-400"></i><!--Aller au profile-->
-                  Profile
+                  Message
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="../site/traitement/deconnexion.php">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Déconnexion 
                 </a> <!-- revenir a l'acceuil-->

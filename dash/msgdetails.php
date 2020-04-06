@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Message</title>
-	  <meta charset="utf-8">
+
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+
+  <title>SB Admin 2 - Tables</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,44 +20,107 @@
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
-<body>
-	<?php
-include("connecteDB.php");
+
+<body id="page-top">
+
+  <body id="page-top">
+
+ <?php
+ /*Ajouter le Dashboard */
 include("dashboard.php");
-?>
-
-
-<div class="container-fluid">
+/*Ajouter la connexion a lbase de donnes*/
+include("connecteDB.php");
+/*Pour obtenir l'id de lurl*/
+$id=$_GET['id'];
+ ?>
+ <!--Traitement pour detecter l'url-->
+ <!--*************************************************************************************-->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+         
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Message</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Message N <?php echo $id; ?></h6>
             </div>
             <div class="card-body">
-              <form>
-                <?php
-                $query = "SELECT * from message where id_msg =".$_GET['id'].";";
-                $result = mysqli_query($conn,$query);
-                if($result){
-                  while ($row = mysqli_fetch_assoc($result)) {
-                    $message = $row['message'];
-                    $type = $row['type'];
-                    $emetteur_id = $row['emetteur_id'];
-                    $message_id = $row['id_msg'];
-                   }
-                }
-                ?>
-              </form>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Message</th>
+                      <th>email</th>
+                      <th>telephone</th>
+                      <th>Type</th>
+                      <th>Id recepteur</th>
+                      <th>Reponse</th>
+                      <th>Submit</th>
+                    </tr>
+                  </thead>
+                
+             <tbody>
+                    <?php
+          $query = "UPDATE message set etat='1' where id_msg=$id";
+          mysqli_query($conn,$query);
+         
+          $sql = mysqli_query($conn,"SELECT * FROM `message` WHERE id_msg=$id");
+
+          $result = mysqli_num_rows($sql);
+
+          if($result)  {
+            while($row = mysqli_fetch_array($sql))
+            {
+
+             
+
+            echo '  
+          <tr>
+         <form method="post"action="traitement/message.php?id='.$_GET['id'].'">
+
+            <td><input type="text" name="nom" value="'.$row['name'].'"></td>
+            <td><textarea type="text">'.$row['message'].'</textarea></td>
+            <td><input type="text" name="email"  value="'.$row['email'].'"></td>
+            <td><input type="text"  value="'.$row['telephone'].'"></td>
+            <td><input type="text" name="type"  value="'.$row['type'].'"></td>
+            <td><input type="text" name="code_user"  value="'.$row['code_user'].'"></td>
+            <td><textarea name="message">Votre reponse...</textarea>
+            <td><input type="submit" value="submit" name="submit"></td>
+              </form>    
+          </tr>
+          ';
+            /*action="traitement/modify.php?code_massar='.$_GET['id'].'"*/
+          if (isset($_POST['submit'])) {
+            
+          }
+            }
+           
+            }
+
+
+            ?>
+
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
+
         </div>
-<!-- Footer -->
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+
+
+
+      <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -63,7 +129,14 @@ include("dashboard.php");
         </div>
       </footer>
       <!-- End of Footer -->
- <!-- Scroll to Top Button-->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
@@ -103,5 +176,7 @@ include("dashboard.php");
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+
 </body>
+
 </html>

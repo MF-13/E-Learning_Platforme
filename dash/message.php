@@ -44,6 +44,7 @@ include("dashboard.php");
                       <th>From</th>
                       <th>type</th>
                       <th>contenue</th>
+                      <th>Etat</th>
                       <th>details</th>
                     </tr>
                   </thead>
@@ -52,20 +53,25 @@ include("dashboard.php");
                       <th>From</th>
                       <th>type</th>
                       <th>contenue</th>
+                      <th>Etat</th>
                       <th>details</th>
                     </tr>
                   </tfoot>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `message` ORDER BY id_msg");
+                      $sql = mysqli_query($conn,"SELECT * FROM `message` ORDER BY id_msg DESC");
 
           $result = mysqli_num_rows($sql);
 
           if($result)  {
             while($row = mysqli_fetch_array($sql))
             {
-
-              echo '<td>'.$row['emetteur_id'].'</td><td>'.$row['type'].'</td><td>'.$row['message'].'</td><td>
-              		<button class="btn btn-warning" onclick="window.location.href = \'msgdetails.php?id='.$row['id_msg'].'\';">details</button></td></tr>';
+              if($row['etat']==1){
+                $etat="vu";
+              }else{
+                $etat="Non vu";
+              }
+              echo '<td>'.$row['name'].'</td><td>'.$row['type'].'</td><td>'.$row['message'].'</td><td>'.$etat.'</td><td>
+              		<button class="btn btn-warning" onclick="window.location.href = \'msgdetails.php?id='.$row['id_msg'].'\';">Repondre</button></td></tr>';
 
               
             }

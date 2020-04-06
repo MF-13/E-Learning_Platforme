@@ -98,7 +98,7 @@ $PASSWORD = '';
 
                     if($result->rowCount()!=0){
                         while ($row = $result->fetch()) {
-                          $_SESSION['email'] =  $_POST['login'];
+                            $_SESSION['email'] =  $_POST['login'];
                             $_SESSION['code_massar'] = $row['code_massar'];
                             $_SESSION['nom'] = $row['nom_complet'];
                             $_SESSION['type'] = $row['type'];
