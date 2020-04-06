@@ -65,8 +65,8 @@ session_start();
                             <br>
                            
                             <select name="type_cours" class="form-control" id="exampleFormControlSelect1">
-                                <option>Cour</option>
-                                <option>TP</option>
+                                <option>cour</option>
+                                <option>tp</option>
                             </select>
          <!--specifier le cour dans le quelle on va importer ce fichier-->
                             <label for="exampleFormControlSelect2">Cours</label>
