@@ -23,14 +23,10 @@
 include("connecteDB.php");
 include("dashboard.php");
 ?>
-
-
 <div class="container-fluid">
-
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
           <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -59,47 +55,53 @@ include("dashboard.php");
                   </tfoot>
                     <?php
                       $sql = mysqli_query($conn,"SELECT * FROM `message` ORDER BY id_msg DESC");
-
-          $result = mysqli_num_rows($sql);
-
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
-            {
-              if($row['etat']==1){
-                $etat="vu";
-              }else{
-                $etat="Non vu";
-              }
-              echo '<td>'.$row['name'].'</td><td>'.$row['type'].'</td><td>'.$row['message'].'</td><td>'.$etat.'</td><td>
-              		<button class="btn btn-warning" onclick="window.location.href = \'msgdetails.php?id='.$row['id_msg'].'\';">Repondre</button></td></tr>';
-
-              
-            }
-           // echo "</tr>";
-          }
-
-                    ?>
+                      $result = mysqli_num_rows($sql);
+                      if($result)  {
+                        while($row = mysqli_fetch_array($sql))
+                        {
+                          if($row['etat']==1){
+                            $etat="vu";
+                          }else{
+                            $etat="Non vu";
+                          }
+                          echo '<td>'.$row['name'].'</td><td>'.$row['type'].'</td><td>'.$row['message'].'</td><td>'.$etat.'</td><td>
+                              <button class="btn btn-warning" onclick="window.location.href = \'msgdetails.php?id='.$row['id_msg'].'\';">Repondre</button>
+                              <!-- Button trigger modal -->
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                                Launch demo modal
+                              </button>
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      ...
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td></tr>';
+                        }
+                      }?>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
-
       </div>
       <!-- End of Main Content -->
-
-
-
-
-
-
-
-
-
-
 <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
