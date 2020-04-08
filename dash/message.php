@@ -81,7 +81,7 @@ include("dashboard.php");
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      ...
+                                      ici on va ouviri une form pour envoyer les messages
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
