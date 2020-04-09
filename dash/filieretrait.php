@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>Ajouter filiere</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,8 +23,9 @@
 
 </head>
 
-<body id="page-top">
 
+
+  <body id="page-top">
 
  <?php
  /*Ajouter le Dashboard*/
@@ -32,75 +33,82 @@ include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
 include("connecteDB.php");
 
+
+
+if(isset($_GET['id'])){
+$id = $_GET['id'];
+$sql = mysqli_query($conn,"SELECT * FROM `filiere` WHERE filiere_id=\"$id\"");
+
+$result = mysqli_num_rows($sql);
+    if($result)  {
+                while($row = mysqli_fetch_array($sql))
+                {
+                  
+                  $nom = $row['filiere'];
+                  $description = $row['filiere_description'];
+                }
+
+            
+    }
+
+
+}
+
  ?>
+
+
+
+
 <!--*************************************************************************************-->
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
+        
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Etudiant</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i> Filiere</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Code Massar</th>
-                      <th>Nom</th>
-                      <th>Prenom</th>
-                      <th>Mot de passe</th>
-                      <th>Date de naissance</th>   
-                      <th>Filiere</th>
-                      <th>Telephone</th>
-                      <th>Adresse</th>
-                      <th>Email</th>
-                      <th>Modifier</th>
-                      <th>Suprimmer</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Code Massar</th>
-                      <th>Nom</th>
-                      <th>Prenom</th>
-                      <th>Mot de passe</th>
-                      <th>Date de naissance</th>   
-                      <th>Filiere</th>
-                      <th>Telephone</th>
-                      <th>Adresse</th>
-                      <th>Email</th>
-                      <th>Modifier</th>
-                      <th>Suprimmer</th>
-                    </tr>
-                  </tfoot>
-                    <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `etudiant` ORDER BY code_massar");
-
-          $result = mysqli_num_rows($sql);
-
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
-            {
-
-              echo '<td>'.$row['code_massar'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];
-              echo '<td>'.$row['date_naiss'].'</td><td>'.$row['filiere'].'</td><td>'.$row['num_tele'].'</td><td>'.$row['adresse'].'</td><td>'.$row['email'].'</td>';
-              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'etudtrait.php?id='.$row['code_massar'].'\';">Modifier</button></td>';
-              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['code_massar'].'\';">Supprimer</button></td></tr>';
-
-              
-            }
-           // echo "</tr>";
-          }
-
-                    ?>
-                  </tbody>
-                </table>
+                <style>
+                  #datatable {
+                  text-align: center;
+                  font-size: 17px;
+                  font-family: monospace;
+                }
+                sup{
+                   color: red;
+                }
+                </style>
+                <?php 
+                  if(isset($_GET['id'])){
+                    echo '<form action="traitement/modifyfiliere.php?id='.$id.'" method="POST" id="formajout">';
+                  }else{
+                    echo '<form action="traitement/addfil.php" method="POST" id="formajout">';
+                  }
+                ?>
+                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére ID</span>
+                  </div>
+                  <input type="text" name="filiere_id" class="form-control" placeholder="ex : GI" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value= "'.$id.'"';} ?>>
+              </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére Nom </span>
+                  </div>
+                  <input type="text" name="filiere" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$nom.'"'; }?>>
+              </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+                  </div>
+                  <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$description.'"'; }?>>
+              </div>
+              <input type="submit" name="submit" class="btn btn-danger float-right">
+                  </form>
               </div>
             </div>
           </div>
@@ -115,7 +123,7 @@ include("connecteDB.php");
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; EST-LEARNING 2019</span>
           </div>
         </div>
       </footer>
@@ -168,6 +176,6 @@ include("connecteDB.php");
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 
-</body>
 
+</body>
 </html>

@@ -88,7 +88,7 @@ include("connecteDB.php");
             {
               echo '<td>'.$row['code_massar_prof'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];
               echo '<td>'.$row['date_naiss'].'</td><td>'.$row['filiere'].'</td><td>'.$row['num_tele'].'</td><td>'.$row['email'].'</td>';
-              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'modifier.php?id='.$row['code_massar_prof'].'\';">Modifier</button></td>';
+              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'proftrait.php?id='.$row['code_massar_prof'].'\';">Modifier</button></td>';
               echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['code_massar_prof'].'\';">Supprimer</button></td></tr>';
             }
            // echo "</tr>";

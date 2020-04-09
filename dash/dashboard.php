@@ -45,7 +45,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="etudiant.php">Afficher</a>
-            <a class="collapse-item" href="addetudiant.php">Ajouter</a>
+            <a class="collapse-item" href="etudtrait.php">Ajouter</a>
           </div>
         </div>
       </li>
@@ -59,7 +59,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="prof.php">Afficher</a>
-            <a class="collapse-item" href="addprofesseur.php">Ajouter</a>
+            <a class="collapse-item" href="proftrait.php">Ajouter</a>
           </div>
         </div>
       </li>
@@ -74,7 +74,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="filiere.php">Afficher</a>
-            <a class="collapse-item" href="addfiliere.php">Ajouter</a>
+            <a class="collapse-item" href="filieretrait.php">Ajouter</a>
           </div>
         </div>
       </li>

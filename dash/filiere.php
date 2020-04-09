@@ -77,7 +77,7 @@ include("connecteDB.php");
             while($row = mysqli_fetch_array($sql))
             {
               echo '<td>'.$row['filiere_id'].'</td><td>'.$row['filiere'].'</td><td>'.$row['filiere_description'].'</td>';
-               echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'modifier.php?id='.$row['filiere_id'].'\';">Modifier</button></td>';
+               echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>';
               echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['filiere_id'].'\';">Supprimer</button></td></tr>';
             }
            // echo "</tr>";
