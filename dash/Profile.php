@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Ajouter filiere</title>
+  <title>SB Admin 2 - Tables</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,82 +23,70 @@
 
 </head>
 
+<body id="page-top">
 
-
-  <body id="page-top">
 
  <?php
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
 include("connecteDB.php");
+
  ?>
 <!--*************************************************************************************-->
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-        
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i> Filiere</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-id-card-alt"></i> Profile</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <style>
-                  #datatable {
-                  text-align: center;
-                  font-size: 17px;
-                  font-family: monospace;
-                }
-                sup{
-                   color: red;
-                }
-                </style>
-                <form action="traitement/addfil.php" method="POST" id="formajout">
-                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére ID</span>
-                  </div>
-                  <input type="text" name="filiere_id" class="form-control" placeholder="ex : GI" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére Nom </span>
-                  </div>
-                  <input type="text" name="code_massar" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-                  </div>
-                  <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-              <input type="submit" name="submit" class="btn btn-danger float-right">
-                    <!--<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                 
-                        <tr>
-                            
-                        Filiere ID<sup>*</sup><input type="text" name="filiere_id" placeholder="ID" required="required" maxlength="4"><br><hr><br>
-                        </tr>
-                        <tr>
-                        Nom Filiere<sup>*</sup><input type="text" name="filiere" placeholder="nom" required="required" maxlength="50"><br><hr><br>
-                        </tr>
-                        <tr>
-                        Description de la filiere<sup>*</sup> <input type="text" name="description" placeholder="description" required="required"><br><hr><br>
-                        </tr>
-                        <tr>
-                         <input type="submit" name="submit" class="btn btn-danger"><br><hr>
-                         <p><sup>*</sup> : Champs obligatoires</p>
-                        </tr>
-                    </table>-->
-                  </form>
-              </div>
+                <p><b style="color: #222831;">Nom et Prenom :</b> EL KHABBAZ Mohamed</p>
+                <p><b style="color: #222831;">ID :</b> 2</p>
+                <p><b style="color: #222831;">Mot de passe :</b> 1234567890</p>
+                <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info btn-sm float-right" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fas fa-retweet"></i> Modifier
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Nom et Prenom</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="pass1"
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">ID</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="pass1"
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Nouveau mot de pass</label>
+                                    <input type="password" class="form-control" id="recipient-name" name="pass1"
+                                    >
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary">Engistrer</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
             </div>
           </div>
-
-        </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -161,6 +149,6 @@ include("connecteDB.php");
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 
-
 </body>
+
 </html>

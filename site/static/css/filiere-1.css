@@ -3,6 +3,7 @@ body{
 }
 .card{
     margin: 0px;
+    margin-top: 30px;
 }
 .table{
     margin-left: 10px;
@@ -11,4 +12,8 @@ body{
 }
 .tt{
     margin-right: 50px;
+}
+hr{
+    color: black;
+    size: 20px;
 }

@@ -20,7 +20,7 @@
       </style>
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-text mx-3">E-Learning</div>
+        <div class="sidebar-brand-text mx-3">EST-Learning</div>
       </a>
 
       <!-- Divider -->
@@ -138,8 +138,12 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="Profile.php">
+                  <i class="fas fa-id-card-alt fa-sm fa-fw mr-2 text-gray-400"></i><!--Aller au profile-->
+                  Profile
+                </a>
                 <a class="dropdown-item" href="message.php">
-                  <i class="fas fa-id-badge fa-sm fa-fw mr-2 text-gray-400"></i><!--Aller au profile-->
+                  <i class="fas fa-envelope-square fa-sm fa-fw mr-2 text-gray-400"></i><!--Aller au profile-->
                   Message
                 </a>
                 <div class="dropdown-divider"></div>

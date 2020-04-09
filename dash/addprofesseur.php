@@ -36,15 +36,10 @@ include("connecteDB.php");
 <!--*************************************************************************************-->
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Professeur</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i> Professeur</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -59,10 +54,70 @@ include("connecteDB.php");
                 }
                 </style>
                 <form action="traitement/addprof.php" method="POST" id="formajout">
+                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Code Professeur</span>
+                  </div>
+                  <input type="number" name="code_massar" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
+                  </div>
+                  <input type="text" name="nom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Prenom</span>
+                  </div>
+                  <input type="text" name="prenom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
+                  </div>
+                  <input type="password" name="mdps" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
+                  </div>
+                  <input type="date" name="date_naiss" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <?php
+                  $sql = mysqli_query($conn,"SELECT filiere_id FROM filiere;");
+                  echo "<div class=\"input-group mb-3\">
+                        <div class=\"input-group-prepend\">
+                        <label class=\"input-group-text\" for=\"inputGroupSelect01\">Filiére</label>
+                        </div>
+                  <select class=\"custom-select\" id=\"inputGroupSelect01\" required=\"required\" name=\"filiere\">
+                   ";
+                  while($row = mysqli_fetch_array($sql))
+                    {
+                      echo ' 
+                      <option>'.$row['filiere_id'].'</option>
+                        ';
+                    }
+                    echo "</select>
+                    </div>";
+                ?>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
+                  </div>
+                  <input type="number" name="telephone" placeholder="06********" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                  </div>
+                  <input type="email" name="email" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <input type="submit" name="submit" class="btn btn-danger float-right">
+                  <!--b 
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                 
-                        <tr>
-                            
+                        <tr>  
                         Code Professeur<input type="number" name="code_massar" placeholder="code massar" required="required" disabled="disabled"><br><hr><br>
                         </tr>
                         <tr>
@@ -82,7 +137,7 @@ include("connecteDB.php");
                           <?php
                               
 
-                                      $sql = mysqli_query($conn,"SELECT filiere_id FROM filiere;");
+                                    /*  $sql = mysqli_query($conn,"SELECT filiere_id FROM filiere;");
                                       echo "Filiere<sup>*</sup> : <select required=\"required\" name=\"filiere\">";
                                     while($row = mysqli_fetch_array($sql))
                                     {
@@ -93,7 +148,7 @@ include("connecteDB.php");
                                                   ';
                                           
                                          }
-                                              echo "</select>";
+                                              echo "</select>";*/
                           ?><br><hr><br>
                         </tr>
                         <tr>
@@ -106,7 +161,7 @@ include("connecteDB.php");
                          <input type="submit" name="submit" class="btn btn-danger"><br><hr>
                          <p><sup>*</sup> : Champs obligatoires</p>
                         </tr>
-                    </table>
+                    </table>-->
                   </form>
               </div>
             </div>
@@ -122,7 +177,7 @@ include("connecteDB.php");
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; EST-LEARNING 2019</span>
           </div>
         </div>
       </footer>

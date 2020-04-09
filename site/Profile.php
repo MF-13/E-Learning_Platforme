@@ -75,6 +75,11 @@ session_start();
                   <a href="#" class="Facebook"><i class="fab fa-github-square fa-2x"></i></a>
                   <a href="#" class="Twitter"><i class="fab fa-twitter-square fa-2x"></i></a>
                   <a href="#" class="Linkdin"><i class="fab fa-linkedin fa-2x"></i></a>
+                  <br>
+                  <br>
+<!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->
+                  <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fas fa-envelope-open"></i> Boite Message</button>
+<!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->               
                 </div>
                 <div class="card-footer text-muted">
                   <?php  

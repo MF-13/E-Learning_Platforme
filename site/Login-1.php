@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Animated Login Form</title>
+	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 	<img class="wave" src="static/img/Login/wave.png">
 	<div class="container">
 		<div class="img">
-			<img src="static/img/Login/bg.svg">
+			<img src="static/img/Login/undraw_authentication_fsn5.svg">
 		</div>
 		<div class="login-content">
 			<form action="" method="POST">
