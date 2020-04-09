@@ -7,6 +7,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/Index.css">
     <link rel="stylesheet" href="static/css/filiere-1.css">
     
     <title>Filiere Information</title>
@@ -111,7 +112,7 @@
           </div>
           <!-- end card -->
           <!-- card -->
-          <div class="card" >
+          <div class="card margingbottom" >
             <img src="static/img/Index/Filiére/communication.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Techniques de Management</h5>

@@ -127,7 +127,7 @@ session_start();
   <!-- Département Section -->
   <section class="Departement">
     <div>
-      <h4 class="myText">ESTM Départements</h4>
+      <h4 class="myText white">ESTM Départements</h4>
       <br>
       <br>
     </div>

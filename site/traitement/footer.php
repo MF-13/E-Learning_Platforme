@@ -38,7 +38,7 @@
       </div>                                                                                        
       </div>
       <div>
-        <p class="myText">Copyright © E-Learning <?php echo "2019-".date("Y"); ?> - Tous droits réservés.</p>
+        <p class="myText">Copyright © EST-Learning <?php echo "2019-".date("Y"); ?> - Tous droits réservés.</p>
       </div>
     </div>
   </section>
@@ -104,7 +104,7 @@
         }
         //changer les couleurs du button de scroll
          document.getElementById("btnScroll").style.color = "black";
-         document.getElementById("btnScroll").style.background= "blue";
+         document.getElementById("btnScroll").style.background= "#00adb5";
       } 
 
       function toUp(){

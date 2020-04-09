@@ -17,9 +17,13 @@ hr{
     color: black;
     size: 20px;
 }
+/*
 .footer{
     padding-top: 80px;
     padding-bottom: 20px;
     background-color: #34495e;
     color: #ecf0f1;
+}*/
+.margingbottom{
+    margin-bottom: 40px;
 }

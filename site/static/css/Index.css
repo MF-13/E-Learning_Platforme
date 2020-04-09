@@ -110,9 +110,12 @@
 /* relation section end */
 /* Departement section */
 .Departement{
-    background-color: #F8EFBA;
+    background-color: #393e46;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+.white{
+    color: white;
 }
 .cardbody{
     padding-bottom: 40px;
