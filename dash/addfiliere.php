@@ -67,7 +67,7 @@ include("connecteDB.php");
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Filiére Nom </span>
                   </div>
-                  <input type="text" name="code_massar" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  <input type="text" name="filiere" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">

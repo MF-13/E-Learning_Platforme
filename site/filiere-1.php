@@ -150,10 +150,11 @@
           <!-- end card -->
           </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <?php
-    include("traitement/footer.php");
-    ?>   
+        </div>     
 </body>
+<footer>
+  <?php
+    include("traitement/footer.php");
+    ?>  
+</footer>
+</html>

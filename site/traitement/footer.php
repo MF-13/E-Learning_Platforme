@@ -16,7 +16,7 @@
             <h5>Menu</h5>
           </div>
           <ul class="mylist fixUl">
-            <li><a href="filiere.php" style="color : #ecf0f1; text-decoration: none;">Filiére</a></li><br>
+            <li><a href="filiere-1.php" style="color : #ecf0f1; text-decoration: none;">Filiére</a></li><br>
             <li><a href="cours-espace.php" style="color : #ecf0f1; text-decoration: none;">Cours</a></li><br>                                  
             <li><a href="contact-us.php" style="color : #ecf0f1; text-decoration: none;">Contact</a></li><br>
             <li><a href="Profile.php" style="color : #ecf0f1; text-decoration: none;">Profile</a></li><br>               

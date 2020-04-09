@@ -78,7 +78,7 @@ session_start();
                   <br>
                   <br>
 <!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->
-                  <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fas fa-envelope-open"></i> Boite Message</button>
+                  <button type="button" class="btn btn-primary btn-sm btn-block" onclick="window.location.href='Message_Boit.php'"><i class="fas fa-envelope-open"></i> Boite Message</button>
 <!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->               
                 </div>
                 <div class="card-footer text-muted">
