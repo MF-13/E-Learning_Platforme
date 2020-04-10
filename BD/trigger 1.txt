@@ -1,0 +1,10 @@
+delimiter //
+create trigger message_default_email before insert on message
+for each row
+begin
+   if (NEW.recepteur_email is null ) then
+      set NEW.recepteur_email = 'admin@gmail.com';
+   end if;
+end
+//
+delimiter ;
