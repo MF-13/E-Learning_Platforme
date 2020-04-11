@@ -31,15 +31,6 @@
 	}
 
 
-	function connectedb(){
-		$conn = mysqli_connect('localhost:3308','root','','elearning') or die();
-		  if (!$conn) {
-		     $message = "error de la connexion a la base de donnes ! ";
-		  }
-
-		  return $conn;
-	}
-
 		/*Cette funtion permet d'afficher la dernier page visite*/
 	function lastpage($array){
  			$url = (string)$_SERVER['HTTP_REFERER'];
@@ -62,15 +53,6 @@
  			*/
 	}
 
-
-	function query($query){
-		//cette fonction sert a faire des query depuis la base de donnees 
-		//il retourne result qui contient le resultat de la requete
-		$conn = connectedb();
-		mysqli_query($conn,"SET NAMES UTF8"); 
-		$result = mysqli_query($conn,$query);
-		return $result;
-	}
 
 				/*Traitement avec PDO*/
 	function connecte(){
@@ -106,6 +88,24 @@
 					//Retourner le resultat 
 					return $stm;	
 				}
+
+
+	function dislay_message($values){
+			//array of values
+
+		$query = "select * from message where  recepteur_id = ? and recepteur_type = ? order by id_msg desc";
+		$stm=PDO($query,$values);
+		
+		if($stm->rowCount()!=0){
+			
+            return $stm;
+        }else{
+        	
+        	return null;
+        }
+		
+
+	}
 
 	
 ?>

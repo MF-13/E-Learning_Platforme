@@ -19,7 +19,6 @@ session_start();
    <?php
    include("traitement/navbar.php");
    include("traitement/function.php");
-    $conn = connectedb();
    
     capterConnexion($_SESSION['code_massar']);
     $typeresult = TypeUser($_SESSION['type']);

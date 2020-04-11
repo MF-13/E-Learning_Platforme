@@ -9,6 +9,7 @@ if (isset($_POST['nom']) AND isset($_POST['prenom'])
 				$etat="-1";
 				$values1 = array($_POST['nom'],$_POST['prenom'],$_POST['date_naiss'],$_POST['filiere'],
 					$_POST['telephone'],$_POST['email'],$_POST['pass'],$_POST['type'],$etat,$_POST['adresse']);
+				
         		$stm = PDO($query1,$values1);
 
 				

@@ -85,10 +85,13 @@ include("traitement/function.php")
                   $message=$_POST['message'];
                   $type=$_SESSION['type'];
             }
-
+            $admin_id = "1";
+            $admin_email = 'ayman.elbou@gmail.com';
+            $admin_type = "admin";
             //traitement d insertion a la base de donnees
-            $query2 = "INSERT INTO message(name,message,email,telephone,type,code_user) values(?,?,?,?,?,?);";
-            $values2 = array($nom,$message,$email,$telephone,$type,$code_massar);
+            $query2 = "INSERT INTO message(emetteur_id,emetteur_nom,emetteur_email,emetteur_telephone,emetteur_type,message,
+            recepteur_id,recepteur_email,recepteur_type) values(?,?,?,?,?,?,?,?,?);";
+            $values2 = array($code_massar,$nom,$email,$telephone,$type,$message,$admin_id,$admin_email,$admin_type);
             PDO($query2,$values2);
         }
    ?>

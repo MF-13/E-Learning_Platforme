@@ -19,107 +19,73 @@ session_start();
    <?php
    include("traitement/navbar.php");
    include("traitement/function.php");
-    $conn = connectedb();
    
     capterConnexion($_SESSION['code_massar']);
     $typeresult = TypeUser($_SESSION['type']);
     ?>
     <!-- End NAV BAR -->
     <!-- Path Section -->
+    <br>
+    <br>
+    <br>
     <section class="sectionpath">
         <p><b><i class="fas fa-home"></i>&nbspAcceuil / Profile / Message</b></p>
     </section>
     <!-- Path Section -->
-    <?php
 
-        if($typeresult == -1){
-          $query = "SELECT * from etudiant where code_massar=?;";
-        }elseif($typeresult == 0){
-          $query = "SELECT * from professeur where code_massar_prof=?;";
-        }elseif ($typeresult == 1) {
-          header("location: ../dash/index.php");
-        }
-        $values = array($_SESSION['code_massar']);
-        $res=PDO($query,$values);
-
-         if($res->rowCount()!=0){
-              while ($row = $res->fetch()) {
-                $nom = $row['nom'];
-                $prenom =  $row['prenom'];
-                $date_naiss =   $row['date_naiss'];
-                $filiere = $row['filiere'];
-                $num_tele =  $row['num_tele'];
-                $adresse =  $row['adresse'];
-                $email =  $row['email'];
-                $mdps =  $row['mdps'];
-                $type =  $row['type'];
-              }
-         }
-    ?>
     <br>
     <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card text-center">
                 <div class="card-header">
-                    <i class="fas fa-envelope-open"></i>    Boite Message
+                    <i class="fas fa-envelope-open"> Boite Message</i>   
                 </div>
-                <div class="card-body">
-                    <div class="card">
-                        <div class="card-body textleft">
-                          <h5 class="card-title">L'expéditeur : Admin nom</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">email dyalo</h6>
-                          <p class="card-text">Message context  blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla.</p>
-                          <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
-                          <p class="text-muted">13/04/2020 - 12:00</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body textleft">
-                          <h5 class="card-title">L'expéditeur : Admin nom</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">email dyalo</h6>
-                          <p class="card-text">Message context  blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla.</p>
-                          <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
-                          <p class="text-muted">13/04/2020 - 12:00</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body textleft">
-                          <h5 class="card-title">L'expéditeur : Admin nom</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">email dyalo</h6>
-                          <p class="card-text">Message context  blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla.</p>
-                          <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
-                          <p class="text-muted">13/04/2020 - 12:00</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body textleft">
-                          <h5 class="card-title">L'expéditeur : Admin nom</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">email dyalo</h6>
-                          <p class="card-text">Message context  blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla.</p>
-                          <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
-                          <p class="text-muted">13/04/2020 - 12:00</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body textleft">
-                          <h5 class="card-title">L'expéditeur : Admin nom</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">email dyalo</h6>
-                          <p class="card-text">Message context  blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla.</p>
-                          <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
-                          <p class="text-muted">13/04/2020 - 12:00</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body textleft">
-                          <h5 class="card-title">L'expéditeur : Admin nom</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">email dyalo</h6>
-                          <p class="card-text">Message context  blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla blablablabla.</p>
-                          <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
-                          <p class="text-muted">13/04/2020 - 12:00</p>
-                        </div>
-                    </div>
-                </div>
+                <?php
+ 
+                  $values = array($_SESSION['code_massar'],$_SESSION['type']);
+                  $stm= dislay_message($values);
+                      if(!empty($stm)){
+                        
+                          if($stm->rowCount()!=0){
+                                    while ($row = $stm->fetch()) {
+                                      if ($row['etat']==0) {
+                                        $etat  = "non lu";
+                                      }else{
+                                        $etat  = "lu";
+                                      }
+                                       echo '
+                                        <div class="card-body">
+                                            <div class="card">
+                                                <div class="card-body textleft">
+                                                  <h5 class="card-title">L\'expéditeur : '.$row['emetteur_nom'].'('.$etat.')</h5>
+                                                  <h6 class="card-subtitle mb-2 text-muted">'.$row['emetteur_email'].'</h6>
+                                                  <p class="card-text">'.$row['message'].'</p>
+                                                  <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
+                                                  <p class="text-muted">'.$row['date_env'].'</p>
+                                                </div>
+                                            </div>
+                                       </div>
+
+                                       ';                                   
+                                        }
+                          }
+
+                      }else{
+
+                        echo ' <div class="card-body">
+                                <div class="card">
+                                   <div class="card-body textleft">
+                                      <h5 class="card-title"> Vide</h5>
+                                      <p class="card-text">Vous n\'avez aucun message pour le moment !</p>
+                              </div>
+                          </div>
+                      </div>';
+                      }
+
+
+                ?>
+
                 <div class="card-footer text-muted">
                     <button type="button" class="btn btn-outline-danger btn-sm float-right"><i class="fas fa-trash-alt"></i> Supprimer les messages</button>
                 </div>
