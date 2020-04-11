@@ -66,6 +66,9 @@ session_start();
                 <div class="card-body">
                    <!-- <img src="static/img/Login/male.svg">-->
                     <?php echo '<img src="profileimage/'.$type.'/'.$_SESSION['code_massar'].'">';?>
+                    <div class="textright">
+                      <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button>
+                    </div>
                     <br>
                     <br>
                   <p class="card-text"><b><?php echo $nom." ".$prenom ; ?></b></p>
@@ -143,6 +146,10 @@ session_start();
                                 <input type="password" class="form-control" id="recipient-name" name="pass2">
                             </div>
                             <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">changer la photo</label>
+                                <input name = "userfile" type="file" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Nom</label>
                                 <input type="text" class="form-control" id="recipient-name" name="nom" 
                                 value=<?php echo $nom; ?>>
@@ -186,7 +193,30 @@ session_start();
           </div>
         </div>
       </div>
-    
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="traitement/modifier_photo.php" method="POST" enctype = "multipart/form-data">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">changer la photo</label>
+                                <input name = "userfile" type="file" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Enregistrer">
+                             </div>
+                           </form>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+
 <?php
 include("traitement/footer.php");
 ?>  
