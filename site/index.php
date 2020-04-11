@@ -144,7 +144,7 @@ session_start();
                   <li>Commercialisation des Produits Agroalimentaires</li>
                 </ul> 
               </p>
-              <p class="card-text"><button type="button" class="btn btn-link">Plus...</button></p>
+              <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_tcc.php" target="blank">Plus...</a></button></p>
             </div>
           </div>
         </div>
@@ -162,7 +162,7 @@ session_start();
                 </ul> 
                 <br>
               </p>
-              <p class="card-text"><button type="button" class="btn btn-link">Plus...</button></p>
+              <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_genie_electrique.php" target="blank">Plus...</a></button></p>
             </div>
           </div>
         </div>
@@ -181,7 +181,7 @@ session_start();
                 <br>
                 <br>
               </p>
-              <p class="card-text"><button type="button" class="btn btn-link">Plus...</button></p>
+              <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_informatique.php" target="blank">Plus...</a></button></p>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ session_start();
                   <li>Gestion des ressources humaines</li>
                 </ul> 
               </p>
-              <p class="card-text"><button type="button" class="btn btn-link">Plus...</button></p>
+              <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_technique_de_management.php" target="blank">Plus...</a></button></p>
             </div>
           </div>
         </div>
