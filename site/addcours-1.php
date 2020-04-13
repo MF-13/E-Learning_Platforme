@@ -68,6 +68,7 @@ session_start();
                                 <option>cour</option>
                                 <option>tp</option>
                                 <option>td</option>
+                                <option>bibliotheque</option>
                             </select>
          <!--specifier le cour dans le quelle on va importer ce fichier-->
                             <label for="exampleFormControlSelect2">Cours</label>
@@ -94,6 +95,7 @@ session_start();
                                      echo "<option>".$row['nom']."</option>"; 
                                      }
                                 }
+                                      echo "<option>bibliotheque</option>";
                              ?>
                             </select>
                             <label for="exampleFormControlTextarea1">Commentaire</label>

@@ -81,15 +81,10 @@ session_start();
                       <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
                     </div>
                     <br>
-                    <br>
+                   
                   <p class="card-text"><b><?php echo $nom." ".$prenom ; ?></b></p>
                   <p class="card-text"><b><?php  echo $email."";?></b></p>
-                  <p class="textleft">Links : </p>
-                  <a href="#" class="Facebook"><i class="fab fa-github-square fa-2x"></i></a>
-                  <a href="#" class="Twitter"><i class="fab fa-twitter-square fa-2x"></i></a>
-                  <a href="#" class="Linkdin"><i class="fab fa-linkedin fa-2x"></i></a>
-                  <br>
-                  <br>
+                  
 <!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->
                   <button type="button" class="btn btn-primary btn-sm btn-block" onclick="window.location.href='Message_Boit.php'"><i class="fas fa-envelope-open"></i> Boite Message</button>
 <!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->               
@@ -98,7 +93,7 @@ session_start();
                   <?php  
                     /*verifier c'est c'est un etudiant ou professeur pour ajouter le button d'aller au page d ajoute de cours*/
                     if($typeresult== 0){
-                      echo'<a href="addcours-1.php" class="btn btn-info">Ajouter cours</a>';
+                      echo '<a href="addcours-1.php" class="btn btn-info">Ajouter cours</a><br>';
                     }
 
                   ?>

@@ -98,7 +98,13 @@ session_start();
 
        //  nom du fichier dans le système de l'utilisateur
        $userfile_name = $_FILES['userfile']['name'];
-       $path ="../file/".$filiere."/$userfile_name";
+       if ($_POST['type_cours'] == "bibliotheque") {
+         $path ="../file/bibliotheque/$userfile_name";
+         $filiere = 'bibl';
+       }else{
+         $path ="../file/".$filiere."/$userfile_name";
+        }
+
 
        if(!move_uploaded_file($tmp_name,$path)){
               echo "Impossible de copier le fichier !";
@@ -109,7 +115,9 @@ session_start();
        echo '<center><H3>Fichier <font color="red">' . $_FILES['userfile']['name'] . '</font> déposé avec succes</H4></center>';
         
         /*traitement pour tirer l'id du cour depuis la base de donnees*/
-        
+        if ($_POST['type_cours'] == "bibliotheque") {
+         $id_cour=-1;
+       }else{
         $query2 = "SELECT id_cour from cours where nom=? ;";
         
         $values2 = array($_POST['cours']);
@@ -120,13 +128,15 @@ session_start();
                  $id_cour = $row['id_cour'];
               }
           }
-        
+        }
+
+          $nom_file = $_FILES['userfile']['name'];
         /*Traitement pour ajouter le fichier a la base de donnes*/
 
-        $query3 = "INSERT INTO file(id_filiere,code_prof,commantaire,id_cour,type_cour,nom_pdf,pdf_lien) 
-                       VALUES(?,?,?,?,?,?,?);";   
+        $query3 = "INSERT INTO file(id_filiere,code_prof,commantaire,id_cour,type_cour,nom_pdf,pdf_lien,titre) 
+                       VALUES(?,?,?,?,?,?,?,?);";   
 
-        $values3 = array($filiere,$_SESSION['code_massar'],$_POST['commentaire'],$id_cour,$_POST['type_cours'],$_POST['titre_cour'],$path);
+        $values3 = array($filiere,$_SESSION['code_massar'],$_POST['commentaire'],$id_cour,$_POST['type_cours'],$nom_file,$path,$_POST['titre_cour']);
         $res3 = PDO($query3,$values3);
             
     ?>

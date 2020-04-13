@@ -3,7 +3,7 @@
 
   $tab = explode("/",$url);
 
-   $act = array('index.php'=>'','filiere-1.php'=>'','cours-espace.php'=>'','contact-us.php'=>'');
+   $act = array('index.php'=>'','filiere-1.php'=>'','cours-espace.php'=>'','biblio.php'=>'','contact-us.php'=>'');
     $title ="";
    
     switch($tab[4])
@@ -12,7 +12,8 @@
       case 'filiere-1.php'       :    $act['filiere-1.php'] = 'active'; $title = 'E - filiere';break;
       case 'cours-espace.php'       : $act['cours-espace.php'] = 'active'; $title = 'E - Cours';break;
       case 'contact-us.php'       : $act['contact-us.php'] = 'active'; $title = 'E - Contact';break;
-      case 'addcours-1.php'       : $act['addcours-1.php'] = 'active'; $title = 'Ajouter courz';break;
+      case 'addcours-1.php'       : $act['addcours-1.php'] = 'active'; $title = 'Ajouter cour';break;
+      case 'biblio.php'       : $act['biblio.php'] = 'active'; $title = 'bibliotheque';break;
     }
 
 
@@ -45,6 +46,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link <?php echo $act['cours-espace.php']; ?>" href="cours-espace.php">Cours</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <?php echo $act['biblio.php']; ?>" href="biblio.php">Bibliotheqe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link <?php echo $act['contact-us.php']; ?>" href="contact-us.php">Contactez-Nous</a>

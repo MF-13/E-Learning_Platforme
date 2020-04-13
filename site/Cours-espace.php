@@ -89,7 +89,7 @@ echo "<div id=\"cours\" class=\"tabcontent\">";
   
 
 
-           $query2 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf from file where  nom_pdf=?;";
+           $query2 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf,titre from file where  nom_pdf=?;";
             $values2 = array($file);
             $res2 = PDO($query2,$values2);
 
@@ -98,7 +98,7 @@ echo "<div id=\"cours\" class=\"tabcontent\">";
                      $comm = $row['commantaire'];
                      $nbr_telechargement= $row['nbr_telechargement'];
                      $date_ajoute = $row['date_ajoute'];
-                     $nom = $row['nom_pdf'];
+                     $nom = $row['titre'];
                   }
               }
             echo '
@@ -179,7 +179,7 @@ $devdir = "file/".$filiere;
           /**********************************************/  
     
 
-           $query4 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf from file where  nom_pdf=?;";
+           $query4 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf,titre from file where  nom_pdf=?;";
             $values4 = array($file);
             $res4 = PDO($query4,$values4);
 
@@ -188,7 +188,7 @@ $devdir = "file/".$filiere;
                      $comm = $row['commantaire'];
                      $nbr_telechargement= $row['nbr_telechargement'];
                      $date_ajoute = $row['date_ajoute'];
-                     $nom = $row['nom_pdf'];
+                     $nom = $row['titre'];
                   }
               }
             echo '
@@ -267,7 +267,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
   
 
 
-           $query6 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf from file where  nom_pdf=?;";
+           $query6 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf,titre from file where  nom_pdf=?;";
             $values6 = array($file);
             $res6 = PDO($query6,$values6);
 
@@ -276,7 +276,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
                      $comm = $row['commantaire'];
                      $nbr_telechargement= $row['nbr_telechargement'];
                      $date_ajoute = $row['date_ajoute'];
-                     $nom = $row['nom_pdf'];
+                     $nom = $row['titre'];
                   }
               }
               
