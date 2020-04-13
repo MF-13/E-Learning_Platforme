@@ -33,7 +33,9 @@ if($result2->rowCount()!=0){
   while ($row =  $result2->fetch()) {
 
 
-    echo '<div class="card" style="margin-top: 100px;">';
+    echo '<div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">';
+    echo '<button class="accordion"><h3 class="titre">'.strtoupper($row['departement']).'</h3> </button>
+            <div class="panel">';
     echo '<img src="static/img/Index/Filiére/'.$row['departement'].'.png" class="card-img-top" alt="...">';
 
     $query3 = "select distinct * from filiere where departement = ?";
@@ -64,6 +66,7 @@ if($result2->rowCount()!=0){
     }
                 
     echo "</div>";
+    echo "</div>";
   }
 }
 ?>
@@ -79,4 +82,21 @@ if($result2->rowCount()!=0){
     include("traitement/footer.php");
     ?>  
 </footer>
+
+<script>
+          var acc = document.getElementsByClassName("accordion");
+          var i;
+
+          for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var panel = this.nextElementSibling;
+              if (panel.style.display === "block") {
+                panel.style.display = "none";
+              } else {
+                panel.style.display = "block";
+              }
+            });
+          }
+          </script>
 </html>
