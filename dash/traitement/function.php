@@ -35,6 +35,15 @@ function connecte(){
 					return $stm;	
 				}
 
-
+	function capterConnexion($code){
+			/*On donne en parametre le code massar : $_SESSION['code_massar']*/
+		  /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
+		    if (!(isset($code)))
+		    {
+		    	header("Location: index.php");  
+		    }else{
+		    	return 1;
+		    }
+	}
 
 ?>

@@ -1,16 +1,17 @@
 <?php
 include("../connecteDB.php");
 
-if (isset($_POST['filiere_id']) AND isset($_POST['filiere']) AND isset($_POST['description']))
+if (isset($_POST['filiere_id']) AND isset($_POST['filiere']) AND isset($_POST['description']) AND isset($_POST['departement']))
 	  {
 
 	$filiere_id = $_POST['filiere_id'];
 	$filiere = $_POST['filiere'];
 	$description = $_POST['description'];
+	$departement = $_POST['departement'];
 	
 
 	$query = "INSERT into filiere 
-				VALUES('".$filiere_id."','".$filiere."','".$description."');";
+				VALUES('".$filiere_id."','".$filiere."','".$description."','".$departement."');";
 	$result = mysqli_query($conn,$query);
 
 	if ($result) {

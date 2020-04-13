@@ -64,10 +64,21 @@ session_start();
                   Bonjour
                 </div>
                 <div class="card-body">
-                   <!-- <img src="static/img/Login/male.svg">-->
-                    <?php echo '<img src="profileimage/'.$type.'/'.$_SESSION['code_massar'].'">';?>
-                    <div class="textright">
-                      <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button>
+                   <div class="textcenter">
+                   <!-- la photo de profile-->
+                    <?php 
+
+                      $path = "profileimage/".$type."/";
+                      $result = searchimage($path,$_SESSION['code_massar']);
+
+                      if ($result == 1) {
+                        echo '<img src="'.$path.'/'.$_SESSION['code_massar'].'">';
+                      }else{
+                        echo '<img src="'.$path.'/defaultpicture.png">';
+                      }
+                   ?>
+                      <br>
+                      <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
                     </div>
                     <br>
                     <br>
@@ -215,7 +226,7 @@ session_start();
                          </div>
                        </div>
                      </div>
-                   </div>
+         </div>
 
 <?php
 include("traitement/footer.php");

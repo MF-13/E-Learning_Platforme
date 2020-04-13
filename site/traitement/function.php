@@ -107,5 +107,23 @@
 
 	}
 
+
+	function searchimage($path,$code){
+
+		$dir = opendir($path);
+        $val = 0;
+        while ($file = readdir($dir)){
+            if ($file != "." && $file != ".."){
+                $tab = explode(".", $file);
+                    if ($tab[0]==$code) {
+
+                            return 1;
+                     }
+
+                          
+			}
+		}
+		return 0;
+	}
 	
 ?>

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Ajouter filiere</title>
+  <title>Cours</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,20 +33,19 @@ include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
 include("connecteDB.php");
 
-
-
 if(isset($_GET['id'])){
 $id = $_GET['id'];
-$sql = mysqli_query($conn,"SELECT * FROM `filiere` WHERE filiere_id=\"$id\"");
+$sql = mysqli_query($conn,"SELECT * FROM `cours` WHERE id_cour=\"$id\"");
 
 $result = mysqli_num_rows($sql);
     if($result)  {
                 while($row = mysqli_fetch_array($sql))
                 {
                   
-                  $nom = $row['filiere'];
-                  $description = $row['filiere_description'];
-                  $departement = $row['departement'];
+                  $nom = $row['nom'] ;
+                  $description = $row['description'] ;
+                  $filiere = $row['id_filiere'] ;
+
                 }
 
             
@@ -54,21 +53,14 @@ $result = mysqli_num_rows($sql);
 
 
 }
-
  ?>
-
-
-
-
 <!--*************************************************************************************-->
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-        
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i> Filiere</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i>Cour</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -84,37 +76,39 @@ $result = mysqli_num_rows($sql);
                 </style>
                 <?php 
                   if(isset($_GET['id'])){
-                    echo '<form action="traitement/modifyfiliere.php?id='.$id.'" method="POST" id="formajout">';
+                    echo '<form action="traitement/modifycour.php?id='.$id.'" method="POST" id="formajout">';
                   }else{
-                    echo '<form action="traitement/addfil.php" method="POST" id="formajout">';
+                    echo '<form action="traitement/addcour.php" method="POST" id="formajout">';
                   }
                 ?>
-                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  
+                
+                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére ID</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">id cour</span>
                   </div>
-                  <input type="text" name="filiere_id" class="form-control" placeholder="ex : GI" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value= "'.$id.'"';} ?>>
-              </div>
+                  <input type="number" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$id.'"'; }?> disabled>
+                </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére Nom </span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
                   </div>
-                  <input type="text" name="filiere" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$nom.'"'; }?>>
-              </div>
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">departement</span>
-                  </div>
-                  <input type="text" name="departement" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="ex : genie informatique" <?php if(isset($_GET['id'])){ echo 'value="'.$departement.'"'; }?>>
-              </div>
+                  <input type="text" name="nom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$nom.'"'; }?>>
+                </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">description</span>
                   </div>
                   <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$description.'"'; }?>>
-              </div>
-              <input type="submit" name="submit" class="btn btn-danger float-right">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">filiere</span>
+                  </div>
+                  <input type="text" name="filiere" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$filiere.'"'; }?>>
+                </div>
+                
+                <input type="submit" name="submit" class="btn btn-danger float-right">
                   </form>
               </div>
             </div>

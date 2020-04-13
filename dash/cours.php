@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>Cours</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,50 +25,85 @@
 
 <body id="page-top">
 
-  <body id="page-top">
 
-<?php
+ <?php
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
 include("connecteDB.php");
-/*Pour obtenir l'id de lurl*/
-$id=$_GET['id'];
+
  ?>
- <!--Traitement pour detecter l'url-->
-<?php
-$url = (string)$_SERVER['HTTP_REFERER'];
-$tab = explode("/", $url);
-$dernier = $tab[count($tab)-1];
+<!--*************************************************************************************-->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-switch ($dernier) {
-  case "etudiant.php":
-    include("traitement/supprimeretd.php");
-    break;
-    
-  case "prof.php":
-    include("traitement/supprimerprof.php");
-    break;
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Cours</h1>
 
-  case "filiere.php":
-    include("traitement/supprimerfiliere.php");
-    break;
-  case "cours.php":
-    include("traitement/supprimercours.php");
-  default:
-    include("404.html");
-    break;
-}
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Cours</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Id cour</th>
+                      <th>Nom</th>
+                      <th>description</th>
+                      <th>filiere</th>
+                      <th>Modifier</th>
+                      <th>Suprimmer</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Id cour</th>
+                      <th>Nom</th>
+                      <th>description</th>
+                      <th>filiere</th>
+                      <th>Modifier</th>
+                      <th>Suprimmer</th>
+                    </tr>
+                  </tfoot>
+                    <?php
+                      $sql = mysqli_query($conn,"SELECT * FROM `cours` ORDER BY id_cour");
 
+          $result = mysqli_num_rows($sql);
 
+          if($result)  {
+            while($row = mysqli_fetch_array($sql))
+            {
 
-?>
+              echo '<td>'.$row['id_cour'].'</td><td>'.$row['nom'].'</td><td>'.$row['description'].'</td><td>'.$row['id_filiere'].'</td>';
+              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'courtrait.php?id='.$row['id_cour'].'\';">Modifier</button></td>';
+              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_cour'].'\';">Supprimer</button></td></tr>';
+
+              
+            }
+           // echo "</tr>";
+          }
+
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; E-learning 2019-<?php echo Date('Y');?></span>
+            <span>Copyright &copy; Your Website 2019</span>
           </div>
         </div>
       </footer>

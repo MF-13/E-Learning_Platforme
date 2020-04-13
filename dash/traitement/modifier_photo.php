@@ -2,8 +2,6 @@
 session_start();
     include("function.php");
     capterConnexion($_SESSION['code_massar']);
-    $typeresult = TypeUser($_SESSION['type']);
-    capterConnexion($_SESSION['code_massar']);
   ?>
   <!DOCTYPE html>
 <html lang="en">
@@ -20,29 +18,13 @@ session_start();
 </head>
 <body>
    <!--Begin of NavBar-->
- <?php
- include("navbar.php");
- ?>
+ 
   <!--END Nav bar-->
     <!-- Path Section -->
     <section class="sectionpath">
         <p><b><i class="fas fa-home"></i>&nbspAcceuil / Cours Espace / Upload</b></p>
     </section>
-    <!-- Path Section -->
-      <?php 
-    /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-    if ($typeresult!=0){
-      echo "
-      <script>
-     if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
-        window.location.href = '../index.php';
-      }else{
-        window.location.href = '../index.php';
-      }
-      </script>";
-    }
-    ?>
-    <!-- Posts Section -->  
+      
     <style>
       section.sectionpath{
         margin-top: 100px;
@@ -61,10 +43,10 @@ session_start();
        }
      // on vérifie maintenant l'extension
      $tmp_type= $_FILES['userfile']['type'];
-     if(!strstr($tmp_type,'text/plain') && !strstr($tmp_type,'text/html') && !strstr($tmp_type,'pdf'))
+     if(!strstr($tmp_type,'image/png') && !strstr($tmp_type,'image/jpg') && !strstr($tmp_type,'image/jpeg'))
      {
      echo "Votre format $tmp_type <br>";
-     echo "Le fichier n'est pas en format <strong> .txt </strong> ni <strong>.html</strong>";
+     echo "Le fichier n'est pas en format <strong> .png </strong>";
      exit;
      }
 
@@ -84,50 +66,22 @@ session_start();
        }
 
        /*construction du path */
+       $dept= $_POST['dept']; 
+        
+       $tab = explode("/",$tmp_type);
+       $ex = $tab[count($tab)-1];
+
+       $path ="../../site/static/img/Index/Filiére/".$dept.".".$ex;
        
-       $query1 = "SELECT filiere from professeur where code_massar_prof=?;";
-
-       $values1 = array($_SESSION['code_massar']);
-       $res = PDO($query1,$values1);
-
-        if($res->rowCount()!=0){
-              while ($row = $res->fetch()) {
-                $filiere = $row['filiere'];
-              }
-          }
-
-       //  nom du fichier dans le système de l'utilisateur
-       $userfile_name = $_FILES['userfile']['name'];
-       $path ="../file/".$filiere."/$userfile_name";
-
        if(!move_uploaded_file($tmp_name,$path)){
               echo "Impossible de copier le fichier !";
               exit;
        }
 
-
+       
        echo '<center><H3>Fichier <font color="red">' . $_FILES['userfile']['name'] . '</font> déposé avec succes</H4></center>';
         
-        /*traitement pour tirer l'id du cour depuis la base de donnees*/
         
-        $query2 = "SELECT id_cour from cours where nom=? ;";
-        
-        $values2 = array($_POST['cours']);
-        $res2 = PDO($query2,$values2);
-        
-         if($res2->rowCount()!=0){
-              while ($row = $res2->fetch()) {
-                 $id_cour = $row['id_cour'];
-              }
-          }
-        
-        /*Traitement pour ajouter le fichier a la base de donnes*/
-
-        $query3 = "INSERT INTO file(id_filiere,code_prof,commantaire,id_cour,type_cour,nom_pdf,pdf_lien) 
-                       VALUES(?,?,?,?,?,?,?);";   
-
-        $values3 = array($filiere,$_SESSION['code_massar'],$_POST['commentaire'],$id_cour,$_POST['type_cours'],$_POST['titre_cour'],$path);
-        $res3 = PDO($query3,$values3);
             
     ?>
 

@@ -29,8 +29,8 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="index.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Tableau de bord</span></a>
+          <i class="fas fa-fw fa-sliders-h"></i>
+          <span>Demande</span></a>
       </li>
 
       <!-- Divider -->
@@ -39,7 +39,7 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-users-cog"></i>
+          <i class="fas fa-fw fa-sliders-h"></i>
           <span class="glyphicon glyphicon-search" aria-hidden="true">Etudiant</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -49,11 +49,12 @@
           </div>
         </div>
       </li>
+      <hr class="sidebar-divider">
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-users-cog"></i>
+          <i class="fas fa-fw fa-sliders-h"></i>
           <span>Professeur</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -63,7 +64,7 @@
           </div>
         </div>
       </li>
-
+      <hr class="sidebar-divider">
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -78,6 +79,36 @@
           </div>
         </div>
       </li>
+      <hr class="sidebar-divider">
+       <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+          <i class="fas fa-fw fa-sliders-h"></i>
+          <span>cours</span>
+        </a>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="cours.php">Afficher</a>
+            <a class="collapse-item" href="courtrait.php">Ajouter</a>
+          </div>
+        </div>
+      </li>
+
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+          <i class="fas fa-fw fa-sliders-h"></i>
+          <span>departement</span>
+        </a>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="departement.php">Afficher</a>
+          </div>
+        </div>
+      </li>
+
     
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">

@@ -89,7 +89,7 @@ echo "<div id=\"cours\" class=\"tabcontent\">";
   
 
 
-           $query2 = "SELECT commantaire,nbr_telechargement,date_ajoute from file where  nom_pdf=?;";
+           $query2 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf from file where  nom_pdf=?;";
             $values2 = array($file);
             $res2 = PDO($query2,$values2);
 
@@ -98,6 +98,7 @@ echo "<div id=\"cours\" class=\"tabcontent\">";
                      $comm = $row['commantaire'];
                      $nbr_telechargement= $row['nbr_telechargement'];
                      $date_ajoute = $row['date_ajoute'];
+                     $nom = $row['nom_pdf'];
                   }
               }
             echo '
@@ -112,7 +113,7 @@ echo "<div id=\"cours\" class=\"tabcontent\">";
                             ';
                           /*l'affichage ici*/
                           /*Au lieu de consulter on va selectioner la description du fichier depuis la base de donnes*/
-                             echo "<h4 class=\"mt-0\">".$file."</h4>";
+                             echo "<h4 class=\"mt-0\">".$nom."</h4>";
                              echo "<p class=\"pmedia\">
                               <ul class=\"pmedia mylist\">
                               <li><b>Publier le :</b> ".$date_ajoute."</li>
@@ -127,7 +128,7 @@ echo "<div id=\"cours\" class=\"tabcontent\">";
                                     ';
                               /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
         if($typeresult==0){
-          echo '<button type="button" class="btn btn-outline-warning btnmarging">Modifier</button>
+          echo '
                 <button type="button" class="btn btn-outline-danger btnmarging" 
                 onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
         }
@@ -178,7 +179,7 @@ $devdir = "file/".$filiere;
           /**********************************************/  
     
 
-           $query4 = "SELECT commantaire,nbr_telechargement,date_ajoute from file where  nom_pdf=?;";
+           $query4 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf from file where  nom_pdf=?;";
             $values4 = array($file);
             $res4 = PDO($query4,$values4);
 
@@ -187,6 +188,7 @@ $devdir = "file/".$filiere;
                      $comm = $row['commantaire'];
                      $nbr_telechargement= $row['nbr_telechargement'];
                      $date_ajoute = $row['date_ajoute'];
+                     $nom = $row['nom_pdf'];
                   }
               }
             echo '
@@ -201,7 +203,7 @@ $devdir = "file/".$filiere;
                             ';
                           /*l'affichage ici*/
                           /*Au lieu de consulter on va selectioner la description du fichier depuis la base de donnes*/
-                             echo "<h4 class=\"mt-0\">".$file."</h4>";
+                             echo "<h4 class=\"mt-0\">".$nom."</h4>";
                              echo "<p class=\"pmedia\">
                               <ul class=\"pmedia mylist\">
                               <li><b>Publier le :</b> ".$date_ajoute."</li>
@@ -217,7 +219,7 @@ $devdir = "file/".$filiere;
                               
            /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
         if($typeresult==0){
-          echo '<button type="button" class="btn btn-outline-warning btnmarging">Modifier</button>
+          echo '
                 <button type="button" class="btn btn-outline-danger btnmarging" 
                 onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
         }
@@ -265,7 +267,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
   
 
 
-           $query6 = "SELECT commantaire,nbr_telechargement,date_ajoute from file where  nom_pdf=?;";
+           $query6 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf from file where  nom_pdf=?;";
             $values6 = array($file);
             $res6 = PDO($query6,$values6);
 
@@ -274,6 +276,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
                      $comm = $row['commantaire'];
                      $nbr_telechargement= $row['nbr_telechargement'];
                      $date_ajoute = $row['date_ajoute'];
+                     $nom = $row['nom_pdf'];
                   }
               }
               
@@ -289,7 +292,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
                             ';
                           /*l'affichage ici*/
                           /*Au lieu de consulter on va selectioner la description du fichier depuis la base de donnes*/
-                             echo "<h4 class=\"mt-0\">".$file."</h4>";
+                             echo "<h4 class=\"mt-0\">".$nom."</h4>";
                              echo "<p class=\"pmedia\">
                               <ul class=\"pmedia mylist\">
                               <li><b>Publier le :</b> ".$date_ajoute."</li>
@@ -305,7 +308,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
                               
            /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
         if($typeresult==0){
-          echo '<button type="button" class="btn btn-outline-warning btnmarging">Modifier</button>
+          echo '
                 <button type="button" class="btn btn-outline-danger btnmarging" 
                 onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
         }

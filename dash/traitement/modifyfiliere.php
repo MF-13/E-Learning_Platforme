@@ -6,15 +6,16 @@ include("../connecteDB.php");
 $_POST['id']=$_GET['id'];
 
 
-  if (isset($_POST['filiere']) AND isset($_POST['description'])) 
+  if (isset($_POST['filiere']) AND isset($_POST['description']) AND isset($_POST['departement'])) 
               {
 
-            if (!(empty($_POST['filiere'])) AND !(empty($_POST['description'])))
+            if (!(empty($_POST['filiere'])) AND !(empty($_POST['description'])) AND !(empty($_POST['departement'])))
                {
               		
               	$query = 'UPDATE filiere
               				set filiere="'.$_POST['filiere'].'",
-                      filiere_description="'.$_POST['description'].'"
+                      filiere_description="'.$_POST['description'].'",
+                      departement = "'.$_POST['departement'].'" 
                       WHERE filiere_id="'.$_POST['id'].'" ;';
               				
               				
