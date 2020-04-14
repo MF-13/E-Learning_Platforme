@@ -135,7 +135,7 @@ session_start();
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="card">
-            <img class="card-img-top" src="static/img/Index/Filiére/communication.png" alt="TCC" height="70">
+            <img class="card-img-top" src="static/img/Index/Filiére/techniques de commercialisation et de communication.png" alt="TCC" height="70">
             <div class="card-body">
               <h5 class="card-title">Techniques de Commercialisation et de Communication</h5>
               <p class="card-text">Filiére :<br>
@@ -150,7 +150,7 @@ session_start();
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="card">
-            <img class="card-img-top" src="static/img/Index/Filiére/electrique.png" alt="GE" height="70">
+            <img class="card-img-top" src="static/img/Index/Filiére/genie electrique.png" alt="GE" height="70">
             <div class="card-body">
               <h5 class="card-title">Génie éléctrique</h5>
               <p class="card-text">Filiére :<br>
@@ -168,7 +168,7 @@ session_start();
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="card">
-            <img class="card-img-top" src="static/img/Index/Filiére/informatique.png" alt="GI" height="70">
+            <img class="card-img-top" src="static/img/Index/Filiére/genie informatique.png" alt="GI" height="70">
             <div class="card-body">
               <h5 class="card-title">Génie Informatique</h5>
               <p class="card-text">Filiére :<br>
@@ -187,7 +187,7 @@ session_start();
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="card">
-            <img class="card-img-top" src="static/img/Index/Filiére/managment.png" alt="TM" height="70">
+            <img class="card-img-top" src="static/img/Index/Filiére/techniques de management.png" alt="TM" height="70">
             <div class="card-body cardbody">
               <h5 class="card-title">Technique de managment</h5>
               <p class="card-text">Filiére :<br>
