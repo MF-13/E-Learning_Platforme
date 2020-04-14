@@ -29,7 +29,7 @@ session_start();
     <br>
     <br>
     <section class="sectionpath">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Profile / Message</b></p>
+        <p><b><i class="fas fa-home" style=""></i>&nbspAcceuil / Profile / Message</b></p>
     </section>
     <!-- Path Section -->
 
@@ -58,10 +58,10 @@ session_start();
                                         <div class="card-body">
                                             <div class="card">
                                                 <div class="card-body textleft">
-                                                  <h5 class="card-title">L\'expéditeur : '.$row['emetteur_nom'].'('.$etat.')</h5>
-                                                  <h6 class="card-subtitle mb-2 text-muted">'.$row['emetteur_email'].'</h6>
-                                                  <p class="card-text">'.$row['message'].'</p>
-                                                  <button type="button" class="btn btn-warning float-right"><i class="fas fa-reply"></i> Répondre</button>
+                                                  <h5 class="card-title">L\'expéditeur : '.$row['emetteur_nom'].'</h5>
+                                                  <h6 class="card-subtitle mb-2 text-muted">'.$row['emetteur_email'].'</h6><br>
+                                                  <p class="card-text">Message : &nbsp&nbsp'.$row['message'].'</p>
+                                                  <button type="button" class="btn btn-danger float-right" onclick="window.location.href = \'traitement/dropmsg.php?id='.$row['id_msg'].'\'"><i class="fas fa-trash-alt"></i> Supprimer</button>
                                                   <p class="text-muted">'.$row['date_env'].'</p>
                                                 </div>
                                             </div>
@@ -87,8 +87,14 @@ session_start();
                 ?>
 
                 <div class="card-footer text-muted">
-                    <button type="button" class="btn btn-outline-danger btn-sm float-right"><i class="fas fa-trash-alt"></i> Supprimer les messages</button>
+                  <?php 
+                   echo '
+                    <button type="button" class="btn btn-outline-danger btn-sm float-right" 
+                    onclick="window.location.href = \'traitement/dropallmsg.php?id='.$_SESSION['code_massar'].'\'" ><i class="fas fa-trash-alt"></i> Supprimer les messages</button>
+                      ';
+                    ?>
                 </div>
+                
               </div>
           </div>
         </div>

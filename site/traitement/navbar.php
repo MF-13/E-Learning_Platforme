@@ -76,5 +76,5 @@ else{
 ?>       
       </form>
     </div>
-  </nav> 
+  </nav>
   <!-- End NAV BAR -->

@@ -132,10 +132,6 @@ echo "<div id=\"cours\" class=\"tabcontent\">";
                 <button type="button" class="btn btn-outline-danger btnmarging" 
                 onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
         }
-        elseif($typeresult==-1){
-          echo '<button type="button" class="btn btn-outline-warning btnmarging">
-                Envoyer une reponse</button>';
-        }
            
             echo ' </form>
                   </div>
@@ -223,10 +219,6 @@ $devdir = "file/".$filiere;
                 <button type="button" class="btn btn-outline-danger btnmarging" 
                 onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
         }
-        elseif($typeresult==-1){
-          echo '<button type="button" class="btn btn-outline-warning btnmarging">
-                Envoyer une reponse</button>';
-        }
             echo ' </form>
                   </div>
                   </div>
@@ -311,10 +303,6 @@ echo "<div id=\"td\" class=\"tabcontent\">";
           echo '
                 <button type="button" class="btn btn-outline-danger btnmarging" 
                 onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
-        }
-        elseif($typeresult==-1){
-          echo '<button type="button" class="btn btn-outline-warning btnmarging">
-                Envoyer une reponse</button>';
         }
             echo ' </form>
                   </div>
