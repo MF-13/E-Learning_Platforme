@@ -60,7 +60,7 @@ $result = mysqli_num_rows($sql);
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i>Cour</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i> Cour</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -108,7 +108,7 @@ $result = mysqli_num_rows($sql);
                   <input type="text" name="filiere" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$filiere.'"'; }?>>
                 </div>
                 
-                <input type="submit" name="submit" class="btn btn-danger float-right">
+                <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>
             </div>

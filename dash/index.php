@@ -38,7 +38,7 @@ include("dashboard.php");
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Etudiant</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Demandes</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -86,7 +86,7 @@ include("dashboard.php");
 
               echo '<td>'.$row['code_massar'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];
               echo '<td>'.$row['date_naiss'].'</td><td>'.$row['filiere'].'</td><td>'.$row['num_tele'].'</td><td>'.$row['adresse'].'</td><td>'.$row['email'].'</td><td>'.$row['type_user'].'</td>';
-              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'accepter.php?code_massar='.$row['code_massar'].'\';">Accepter</button></td>';
+              echo '<td><button type="button" class="btn btn-success" onclick=" window.location.href = \'accepter.php?code_massar='.$row['code_massar'].'\';">Accepter</button></td>';
               echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'refuser.php?code_massar='.$row['code_massar'].'\';">Refuser</button></td></tr>';
 
               
@@ -112,7 +112,7 @@ include("dashboard.php");
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; E-learning 2019-<?php echo Date('Y');?></span>
+            <span>Copyright &copy; EST-learning 2019-<?php echo Date('Y');?></span>
           </div>
         </div>
       </footer>

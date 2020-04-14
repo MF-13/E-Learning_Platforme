@@ -28,7 +28,8 @@ include("dashboard.php");
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Message</h6>
+              <h6 class="m-0 font-weight-bold text-primary float-left">Message</h6>
+              <button type="button" class="btn btn-primary float-right">Nouveau Message</button>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -63,7 +64,7 @@ include("dashboard.php");
                             $etat="Non vu";
                           }
                           echo '<td>'.$row['emetteur_nom'].'</td><td>'.$row['emetteur_type'].'</td><td>'.$row['message'].'</td><td>'.$etat.'</td><td>
-                              <button class="btn btn-danger" onclick="window.location.href = \'msg_details.php?id='.$row['id_msg'].'\';">Repondre</button>
+                              <button class="btn btn-warning" onclick="window.location.href = \'msg_details.php?id='.$row['id_msg'].'\';">Repondre</button>
                               
                               </div>
                             </td></tr>';
@@ -82,7 +83,7 @@ include("dashboard.php");
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; EST-LEARNING 2019</span>
           </div>
         </div>
       </footer>

@@ -65,7 +65,7 @@ $result = mysqli_num_rows($sql);
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i> Professeur</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i> Etudiants</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -144,7 +144,7 @@ $result = mysqli_num_rows($sql);
                   </div>
                   <input type="email" name="email" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$email.'"'; }?>>
                 </div>
-                <input type="submit" name="submit" class="btn btn-danger float-right">
+                <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>
             </div>

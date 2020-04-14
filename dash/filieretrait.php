@@ -114,7 +114,7 @@ $result = mysqli_num_rows($sql);
                   </div>
                   <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$description.'"'; }?>>
               </div>
-              <input type="submit" name="submit" class="btn btn-danger float-right">
+              <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>
             </div>

@@ -137,7 +137,7 @@ $result = mysqli_num_rows($sql);
                   </div>
                   <input type="email" name="email" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$email.'"'; }?>>
                 </div>
-                <input type="submit" name="submit" class="btn btn-danger float-right">
+                <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>
             </div>
