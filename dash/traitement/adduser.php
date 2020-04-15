@@ -1,5 +1,5 @@
 <?php
-include("../connecteDB.php");
+include("function.php");
 
 if (isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['mdps']) AND isset($_POST['date_naiss'])
 	 AND isset($_POST['filiere']) AND isset($_POST['telephone']) AND isset($_POST['adresse']) AND isset($_POST['email']))
@@ -26,10 +26,10 @@ if (isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['mdps']) A
 	
 
 	$query = "INSERT into user(nom_user,prenom_user,date_naiss_user,num_tele_user,filiere_user,email_user,mdps_user,adresse_user,type_user) 
-				VALUES('".$nom."','".$prenom."','".$date_naiss."','".$telephone."',
-					'".$filiere."','".$email."','".$mdps."','".$adresse."',
-					'".$type."');";
-	$result = mysqli_query($conn,$query);
+				VALUES(?,?,?,?,?,?,?,?,?);";
+
+	$value = array($nom,$prenom,$date_naiss,$telephone,$filiere,$email,$mdps,$adresse,$type);
+	$result = PDO($query,$value);
 
 	if ($result) {
 		echo '		

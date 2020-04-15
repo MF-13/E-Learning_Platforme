@@ -126,5 +126,26 @@
 		}
 		return 0;
 	}
+
+	function test_input($data) {
+  
+		  $data = trim($data); // Supprime les espaces (ou d'autres caractères) en début et fin de chaîne
+		  $data = stripslashes($data); // Supprime les antislashs d'une chaîne
+		  $data = htmlspecialchars($data); //Convertit les caractères spéciaux en entités HTML
+		  return $data;
+
+    }
 	
+
+	function test_email($email) {
+
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) { //verifie les emails
+		    return 1;
+		} else {
+		    return 0;
+		}
+
+	}
+
+
 ?>

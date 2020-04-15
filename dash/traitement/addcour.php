@@ -1,5 +1,6 @@
 <?php
-include("../connecteDB.php");
+include("function.php");
+
 
 if (isset($_POST['nom']) AND isset($_POST['description'])  AND isset($_POST['filiere']))
 	  {
@@ -10,8 +11,10 @@ if (isset($_POST['nom']) AND isset($_POST['description'])  AND isset($_POST['fil
 	
 
 	$query = "INSERT into cours(nom,description,id_filiere) 
-				VALUES('".$nom."','".$description."','".$filiere."');";
-	$result = mysqli_query($conn,$query);
+				VALUES(?,?,?);";
+
+	$value = array($nom,$description,$filiere);
+	$result = PDO($query,$value);
 
 	if ($result) {
 		echo '		

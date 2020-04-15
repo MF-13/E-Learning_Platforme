@@ -1,7 +1,7 @@
 <?php
 
 /*Ajouter la connexion a lbase de donnes*/
-include("../connecteDB.php");
+include("function.php");
 
 $_POST['id']=$_GET['id'];
 
@@ -12,15 +12,12 @@ $_POST['id']=$_GET['id'];
             if (!(empty($_POST['filiere'])) AND !(empty($_POST['description'])) AND !(empty($_POST['departement'])))
                {
               		
-              	$query = 'UPDATE filiere
-              				set filiere="'.$_POST['filiere'].'",
-                      filiere_description="'.$_POST['description'].'",
-                      departement = "'.$_POST['departement'].'" 
-                      WHERE filiere_id="'.$_POST['id'].'" ;';
+              	$query = 'UPDATE filiere set filiere = ? , filiere_description = ? ,  departement = ?   WHERE filiere_id=? ;';
+              	$value = array($_POST['filiere'],$_POST['description'],$_POST['departement'],$_POST['id']);		
               				
               				
-              				
-					$result = mysqli_query($conn,$query);
+					      $result = PDO($query,$value);
+                
 					if($result) {
 		echo '		
           	<script>

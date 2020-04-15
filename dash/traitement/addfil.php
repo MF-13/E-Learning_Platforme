@@ -1,5 +1,5 @@
 <?php
-include("../connecteDB.php");
+include("function.php");
 
 if (isset($_POST['filiere_id']) AND isset($_POST['filiere']) AND isset($_POST['description']) AND isset($_POST['departement']))
 	  {
@@ -10,9 +10,11 @@ if (isset($_POST['filiere_id']) AND isset($_POST['filiere']) AND isset($_POST['d
 	$departement = $_POST['departement'];
 	
 
-	$query = "INSERT into filiere 
-				VALUES('".$filiere_id."','".$filiere."','".$description."','".$departement."');";
-	$result = mysqli_query($conn,$query);
+	$query = "INSERT into filiere VALUES(?,?,?,?);";
+	$value = array($filiere_id,$filiere,$description,$departement);
+
+
+	$result = PDO($query,$value);
 
 	if ($result) {
 		echo '		

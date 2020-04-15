@@ -1,9 +1,10 @@
 <?php
 		
-		$sql = mysqli_query($conn,"DELETE FROM `user` WHERE id_user=$id");
+		$sql = "DELETE FROM `user` WHERE id_user=?";
+    $value = array($id);
+    $result = PDO($sql,$value);
 
-
-          if($sql)  {
+          if($result)  {
           	echo '
           	<div class="alert alert-success">
   				<strong>Success!</strong> Etudiant supprimer!

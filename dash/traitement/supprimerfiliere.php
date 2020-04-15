@@ -1,9 +1,10 @@
 <?php
 
-                      $sql = mysqli_query($conn,"DELETE FROM `filiere` WHERE filiere_id=\"$id\"");
+          $sql = "DELETE FROM `filiere` WHERE filiere_id=?" ;
+          $value = array($id);
+          $result = PDO($sql,$value);
 
-
-          if($sql)  {
+          if($result)  {
           	echo '
           	<div class="alert alert-success">
 			  <strong>Success!</strong> filiere supprimer!

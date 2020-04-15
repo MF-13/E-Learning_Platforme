@@ -1,7 +1,7 @@
 <?php
 
 /*Ajouter la connexion a lbase de donnes*/
-include("../connecteDB.php");
+include("function.php");
 
 $_POST['id_user']=$_GET['id'];
 
@@ -15,18 +15,20 @@ $_POST['id_user']=$_GET['id'];
                !(empty($_POST['telephone'])) AND !(empty($_POST['adresse'])) AND !(empty($_POST['email']))) {
               		
               	$query = 'UPDATE user
-              				set nom_user="'.$_POST['nom'].'",
-              				prenom_user="'.$_POST['prenom'].'",
-              				date_naiss_user="'.$_POST['date_naiss'].'",
-                      num_tele_user='.$_POST['telephone'].',
-              				filiere_user="'.$_POST['filiere'].'",
-              				email_user="'.$_POST['email'].'",
-                      mdps_user="'.$_POST['mdps'].'",
-              				adresse_user="'.$_POST['adresse'].'"
-              				WHERE id_user="'.$_POST['id_user'].'" ;';
+              				set nom_user=?,
+              				prenom_user=?,
+              				date_naiss_user=?,
+                      num_tele_user='..',
+              				filiere_user=?,
+              				email_user=?,
+                      mdps_user=?,
+              				adresse_user=?
+              				WHERE id_user=? ;';
+                      
+              	$value = array($_POST['nom'],$_POST['prenom'],$_POST['date_naiss'],$_POST['telephone'],$_POST['filiere'],$_POST['email'],$_POST['mdps'],$_POST['adresse'],$_POST['id_user']);			
               				
-              				
-					$result = mysqli_query($conn,$query);
+					     $result = PDO($query,$value);
+
 					if($result) {
 		echo '		
           	<script>
