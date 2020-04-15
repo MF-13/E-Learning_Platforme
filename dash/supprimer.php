@@ -31,7 +31,7 @@
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
-include("function.php");
+include("traitement/function.php");
 /*Pour obtenir l'id de lurl*/
 $id=$_GET['id'];
 

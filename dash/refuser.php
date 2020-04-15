@@ -1,11 +1,13 @@
 <?php
 
-include('connecteDB.php');
+include('traitement/function.php');
 
 $id = $_GET['id'];
 
-$query1="UPDATE demande set etat='0' where id=".$id.";";
-$result1= mysqli_query($conn,$query1);
+$query1="UPDATE demande set etat='0' where id=?;";
+$value = array($id);
+
+$result1= PDO($query1,$value);
 
 if ($result1) {
   header("location: index.php");

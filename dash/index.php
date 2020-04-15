@@ -23,7 +23,7 @@
 <body id="page-top">
 
  <?php
-include("connecteDB.php");
+include("traitement/function.php");
 include("dashboard.php");
  ?>
         <!--page content-->
@@ -76,12 +76,13 @@ include("dashboard.php");
                     </tr>
                   </tfoot>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `demande` where etat='-1'");
+                      $sql = "SELECT * FROM `demande` where etat='-1'";
+                      $value = array();
 
-          $result = mysqli_num_rows($sql);
+          $result = PDO($sql,$value);
 
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
+          if($result->rowCount()!=0)  {
+            while($row = $result->fetch())
             {
 
               echo '<td>'.$row['id'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];

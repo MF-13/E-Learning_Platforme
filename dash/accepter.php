@@ -1,6 +1,6 @@
 <?php
 
-include('function.php');
+include('traitement/function.php');
 
 $id = $_GET['id'];
 

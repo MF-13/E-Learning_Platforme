@@ -31,7 +31,7 @@
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
-include("connecteDB.php");
+include("traitement/function.php");
  ?>
 <!--*************************************************************************************-->
         <!-- Begin Page Content -->
@@ -77,12 +77,13 @@ include("connecteDB.php");
                   </tfoot>
              <tbody>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `user` where type_user='professeur'");
+                      $sql = "SELECT * FROM `user` where type_user='professeur'";
+                      $value = array();
 
-          $result = mysqli_num_rows($sql);
+                      $result = PDO($sql,$value);
 
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
+          if($result->rowCount()!=0)  {
+            while($row = $result->fetch())
             {
               echo '<td>'.$row['id_user'].'</td><td>'.$row['nom_user'].'</td><td>'.$row['prenom_user'].'</td><td>'.$row['mdps_user'];
               echo '<td>'.$row['date_naiss_user'].'</td><td>'.$row['filiere_user'].'</td><td>'.$row['num_tele_user'].'</td><td>'.$row['email_user'].'</td><td>'.$row['adresse_user'].'</td>';

@@ -20,7 +20,7 @@
 </head>
 <body>
 	<?php
-include("connecteDB.php");
+include("traitement/function.php");
 include("dashboard.php");
 ?>
 <div class="container-fluid">
@@ -55,10 +55,12 @@ include("dashboard.php");
                     </tr>
                   </tfoot>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `message`where recepteur_type=\"admin\" ORDER BY id_msg DESC");
-                      $result = mysqli_num_rows($sql);
-                      if($result)  {
-                        while($row = mysqli_fetch_array($sql))
+                      $sql = "SELECT * FROM `message`where recepteur_type=\"admin\" ORDER BY id_msg DESC";
+                      $value = array();
+                      $result = PDO($sql,$value);
+
+                      if($result->rowCount()!=0)  {
+                           while($row = $result->fetch())
                         {
                           if($row['etat']==1){
                             $etat="vu";

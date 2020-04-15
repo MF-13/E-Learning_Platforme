@@ -60,13 +60,14 @@ include("traitement/function.php");
                     </tr>
                   </tfoot>
              <tbody>
-                    <?php
-                      $sql = mysqli_query($conn,"SELECT distinct departement FROM `filiere`");
+       <?php
+          $sql = "SELECT distinct departement FROM `filiere`";
+          $value = array();
 
-          $result = mysqli_num_rows($sql);
+          $result = PDO($sql,$value);
 
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
+          if($result->rowCount()!=0)  {
+            while($row = $result->fetch())
             {
               echo '<td>'.$row['departement'].'</td>';
                echo '<td><button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button></td></tr>';

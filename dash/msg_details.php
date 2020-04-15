@@ -42,17 +42,19 @@ if (isset($_GET['id'])) {
 }
 
  ?>
- <!--Traitement pour detecter l'url-->
+ 
  <?php
-          $query = "UPDATE message set etat='1' where id_msg=$id";
-          mysqli_query($conn,$query);
+          $query = "UPDATE message set etat='1' where id_msg=?";
+          $value = array($id);
+          PDO($query,$value);
          
-          $sql = mysqli_query($conn,"SELECT * FROM `message` WHERE id_msg=$id");
 
-          $result = mysqli_num_rows($sql);
+          $sql = "SELECT * FROM `message` WHERE id_msg=?";
+          $value2 = array($id);
+          $result = PDO($sql,$value2);
 
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
+          if($result->rowCount()!=0)  {
+            while($row = $result->fetch())
             {
 
              

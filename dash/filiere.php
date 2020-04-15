@@ -31,7 +31,7 @@
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
-include("connecteDB.php");
+include("traitement/function.php");
  ?>
 <!--*************************************************************************************-->
         <!-- Begin Page Content -->
@@ -69,11 +69,12 @@ include("connecteDB.php");
              <tbody>
                     <?php
                       $sql = mysqli_query($conn,"SELECT * FROM `filiere`");
+                      $value = aray();
 
-          $result = mysqli_num_rows($sql);
+          $result = PDO($sql,$value);
 
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
+          if($result->rowCount()!=0)  {
+            while($row = $result->fetch())
             {
               echo '<td>'.$row['filiere_id'].'</td><td>'.$row['filiere'].'</td><td>'.$row['filiere_description'].'</td><td>'.$row['departement'].'</td>';
                echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>';

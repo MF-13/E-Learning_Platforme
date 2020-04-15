@@ -31,17 +31,18 @@
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
-include("connecteDB.php");
+include("traitement/function.php");
 
 
 
 if(isset($_GET['id'])){
 $id = $_GET['id'];
-$sql = mysqli_query($conn,"SELECT * FROM `filiere` WHERE filiere_id=\"$id\"");
+$sql = "SELECT * FROM `filiere` WHERE filiere_id=? ";
+$value = array($id);
 
-$result = mysqli_num_rows($sql);
-    if($result)  {
-                while($row = mysqli_fetch_array($sql))
+$result = PDO($sql,$value);
+    if($result->rowCount()!=0)  {
+            while($row = $result->fetch())
                 {
                   
                   $nom = $row['filiere'];

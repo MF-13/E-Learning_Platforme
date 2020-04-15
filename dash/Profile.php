@@ -30,15 +30,18 @@
  /*Ajouter le Dashboard*/
 include("dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
-include("connecteDB.php");
+include("traitement/function.php");
 
 if(isset($_SESSION['id_user'])){
 $id = $_SESSION['id_user'];
-$sql = mysqli_query($conn,"SELECT * FROM `user` WHERE id_user=\"$id\" and type_user='admin'");
 
-$result = mysqli_num_rows($sql);
-    if($result)  {
-                while($row = mysqli_fetch_array($sql))
+$sql = "SELECT * FROM `user` WHERE id_user=? and type_user='admin'";
+$value = array($id);
+
+$result = PDO($sql,$value);
+
+    if($result->rowCount()!=0)  {
+            while($row = $result->fetch())
                 {
                   
                   $nom = $row['nom_user'] ;

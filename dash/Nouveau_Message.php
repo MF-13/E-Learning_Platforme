@@ -29,11 +29,10 @@
 
  <?php
  /*Ajouter le Dashboard */
+ 
 include("dashboard.php");
 include("traitement/function.php");
-/*Ajouter la connexion a lbase de donnes*/
-include("connecteDB.php");
-/*Pour obtenir l'id de lurl*/
+
 
  ?>
  
