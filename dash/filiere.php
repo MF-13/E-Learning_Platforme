@@ -68,8 +68,8 @@ include("traitement/function.php");
                   </tfoot>
              <tbody>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `filiere`");
-                      $value = aray();
+                      $sql = "SELECT * FROM `filiere`";
+                      $value = array();
 
           $result = PDO($sql,$value);
 
