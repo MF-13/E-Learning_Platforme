@@ -29,7 +29,7 @@ include("dashboard.php");
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary float-left">Message</h6>
-              <button type="button" class="btn btn-primary float-right">Nouveau Message</button>
+              <button type="button" class="btn btn-primary float-right" onclick="window.location.href='Nouveau_Message.php'">Nouveau Message</button>
             </div>
             <div class="card-body">
               <div class="table-responsive">

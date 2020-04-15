@@ -34,54 +34,16 @@ include("traitement/function.php");
 /*Ajouter la connexion a lbase de donnes*/
 include("connecteDB.php");
 /*Pour obtenir l'id de lurl*/
-if (isset($_GET['id'])) {
-  $id=$_GET['id'];
-}else{
-  echo "no id";
-  header("location: message.php");
-}
 
  ?>
- <!--Traitement pour detecter l'url-->
- <?php
-          $query = "UPDATE message set etat='1' where id_msg=$id";
-          mysqli_query($conn,$query);
-         
-          $sql = mysqli_query($conn,"SELECT * FROM `message` WHERE id_msg=$id");
-
-          $result = mysqli_num_rows($sql);
-
-          if($result)  {
-            while($row = mysqli_fetch_array($sql))
-            {
-
-             
-
-           
-           $emetteur_id = $row['emetteur_id'];
-           $emetteur_nom = $row['emetteur_nom'];
-          $emetteur_email =  $row['emetteur_email'];
-          $emetteur_telephone = $row['emetteur_telephone'];
-          $emetteur_type =  $row['emetteur_type'];
-          $message =  $row['message'];
-          $date_env =  $row['date_env'];
-
-           
-           
-           
-          ;
-
-          }
-        }
-
-?>
+ 
 <!--*************************************************************************************-->
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-envelope-square"></i> Message details</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-envelope-square"></i>&nbspNouveau Message</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -100,55 +62,19 @@ if (isset($_GET['id'])) {
                 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Message ID</span>
-                  </div>
-                  <input type="number" name="message_id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$id.'"'; }?> disabled>
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Code emetteur</span>
                   </div>
-                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$emetteur_id.'"'; }?> >
+                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
-                  </div>
-                  <input type="text" name="nom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$emetteur_nom.'"'; }?> >
-                </div>
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">email</span>
                   </div>
-                  <input type="text" name="email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$emetteur_email.'"'; }?> >
+                  <input type="text" name="email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">telephone</span>
-                  </div>
-                  <input type="text" name="telephone" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$emetteur_telephone.'"'; }?>>
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">type</span>
-                  </div>
-                  <input type="text" name="type" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$emetteur_type.'"'; }?>>
-                </div>
-                  
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">date envoie</span>
-                        </div>
-                        <input type="text" name="date_env" placeholder="ex : GI" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$date_env.'"'; }?> >
-                  
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Message</span>
-                  </div>
-                  <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled><?php if(isset($_GET['id'])){ echo $message; }?></textarea>
-                  
-                </div>
+
+                
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Votre reponse</span>
@@ -169,21 +95,16 @@ if (isset($_GET['id'])) {
         if (filter_has_var(INPUT_POST,"submit")) {
 
           $message = $_POST['reply'];
-          $code_massar="1";
-          $nom="admin";
-          $email="ayman.admin@gmail.com";
-          $telephone="0548615";
-          $type="admin";
-          $recepteur_id = $_POST['id'];
-          $recepteur_email =  $_POST['email'];
-          $recepteur_type = $_POST['type']; 
+          $email=$_POST['email'];
+          $id = $_POST['id'];
+          
 
           $query2 = "INSERT INTO message(emetteur_id,emetteur_nom,emetteur_email,emetteur_telephone,emetteur_type,message,
             recepteur_id,recepteur_email,recepteur_type) values(?,?,?,?,?,?,?,?,?);";
             $values2 = array($code_massar,$nom,$email,$telephone,$type,$message,$recepteur_id,$recepteur_email,$recepteur_type);
             PDO($query2,$values2);
 
-            if ($recepteur_type=="visiteur") {
+            
               //transfer protocol by mail
               $to = $recepteur_email;
               $subject = "EST-ELEARNING -- NoReply";
@@ -191,9 +112,9 @@ if (isset($_GET['id'])) {
               $message="<html><head></head><body>".$message."</body></html>";
 
               $headers  = 'EST-ELEARNING';
-              //set fontion de  mail va etre activer une fois que le site et heberger , on utilise un SMTP
+              //set fontion de  mail va etre activer une fois que le site et heberger , on utilise le SMTP
               //mail($to, $subject, $message, $headers);
-            }
+            
         }
    ?>
       </div>
