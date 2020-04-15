@@ -47,7 +47,10 @@ $PASSWORD = '';
                         $_SESSION['nom'] = $row['nom_user'].' '.$row['prenom_user'];
                         $_SESSION['type'] = $row['type_user'];
                     }
-                    header("Location: index.php");
+
+                    
+                      header("Location: profile.php");
+                   
 
                  }
                  else

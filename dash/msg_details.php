@@ -156,6 +156,7 @@ if (isset($_GET['id'])) {
                   <textarea name="reply" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
                   
                 </div>
+                <?php echo '<button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$id.'\';">supprimer</button>';?>
                 <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>

@@ -60,16 +60,10 @@ include("connecteDB.php");
                 
              <form action="#" method="POST" id="formajout">
                 
+                
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Code emetteur</span>
-                  </div>
-                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">email</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                   </div>
                   <input type="text" name="email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
@@ -77,9 +71,9 @@ include("connecteDB.php");
                 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Votre reponse</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Message</span>
                   </div>
-                  <textarea name="reply" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
+                  <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
                   
                 </div>
                 <input type="submit" name="submit" class="btn btn-info float-right">
@@ -91,17 +85,37 @@ include("connecteDB.php");
         </div>
         <!-- /.container-fluid -->
         <!--traintement d envoie de reponse : -->
+
         <?php
         if (filter_has_var(INPUT_POST,"submit")) {
-
-          $message = $_POST['reply'];
-          $email=$_POST['email'];
-          $id = $_POST['id'];
           
+          $id = $_SESSION['id_user'];
+          $nom = "admin ".$_SESSION['nom'];
+          $email = "admin@gmail.com";
+          $telephone="0544778899";
+          $type = "admin";
+          $message = $_POST['message'];
+          $recepteur_email=$_POST['email'];
+          
+          $q = "SELECT * from user where email_user = ?";
+          $v = array($recepteur_email);
+          $r = PDO($q,$v);
+
+          if($r->rowCount()!=0){
+            while ($row = $r->fetch()) {
+              $recepteur_id = $row['id_user'];
+              $recepteur_type = $row['type_user'];
+            }
+          }else{
+              $recepteur_id = "-1";
+              $recepteur_type = 'visiteur';
+
+          }
+
 
           $query2 = "INSERT INTO message(emetteur_id,emetteur_nom,emetteur_email,emetteur_telephone,emetteur_type,message,
             recepteur_id,recepteur_email,recepteur_type) values(?,?,?,?,?,?,?,?,?);";
-            $values2 = array($code_massar,$nom,$email,$telephone,$type,$message,$recepteur_id,$recepteur_email,$recepteur_type);
+            $values2 = array($id,$nom,$email,$telephone,$type,$message,$recepteur_id,$recepteur_email,$recepteur_type);
             PDO($query2,$values2);
 
             

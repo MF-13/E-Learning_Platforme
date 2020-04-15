@@ -1,7 +1,7 @@
  <!-- Page Wrapper -->
   <?php
   session_start();
-  if (!(isset($_SESSION['code_massar'])))
+  if (!(isset($_SESSION['id_user'])))
         {
           header("Location: ../site/index.php");  
         }
@@ -150,7 +150,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom'].'-'.$_SESSION['code_massar']; ?> </span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom']; ?> </span>
                 <i class="fas fa-user-shield fa-1x" style="color : black"></i>
               </a>
               <!-- Dropdown - User Information -->

@@ -1,6 +1,6 @@
 <?php
 		
-		$sql = mysqli_query($conn,"DELETE FROM `etudiant` WHERE code_massar=$id");
+		$sql = mysqli_query($conn,"DELETE FROM `user` WHERE id_user=$id");
 
 
           if($sql)  {

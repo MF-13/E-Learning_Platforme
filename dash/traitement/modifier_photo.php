@@ -1,7 +1,7 @@
 <?php
 session_start();
     include("function.php");
-    capterConnexion($_SESSION['code_massar']);
+    capterConnexion($_SESSION['id_user']);
   ?>
   <!DOCTYPE html>
 <html lang="en">

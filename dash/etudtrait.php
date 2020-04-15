@@ -35,21 +35,21 @@ include("connecteDB.php");
 
 if(isset($_GET['id'])){
 $id = $_GET['id'];
-$sql = mysqli_query($conn,"SELECT * FROM `etudiant` WHERE code_massar=\"$id\"");
+$sql = mysqli_query($conn,"SELECT * FROM `user` WHERE id_user=\"$id\" and type_user='etudiant'");
 
 $result = mysqli_num_rows($sql);
     if($result)  {
                 while($row = mysqli_fetch_array($sql))
                 {
                   
-                  $nom = $row['nom'] ;
-                  $prenom = $row['prenom'] ;
-                  $mdps = $row['mdps'] ;
-                  $date_naiss = $row['date_naiss'] ;
-                  $telephone = $row['num_tele'] ;
-                  $email = $row['email'] ;
-                  $filiere = $row['filiere'] ;
-                  $adresse = $row['adresse'];
+                  $nom = $row['nom_user'] ;
+                  $prenom = $row['prenom_user'] ;
+                  $mdps = $row['mdps_user'] ;
+                  $date_naiss = $row['date_naiss_user'] ;
+                  $telephone = $row['num_tele_user'] ;
+                  $email = $row['email_user'] ;
+                  $filiere = $row['filiere_user'] ;
+                  $adresse = $row['adresse_user'];
 
                 }
 
@@ -81,9 +81,9 @@ $result = mysqli_num_rows($sql);
                 </style>
                 <?php 
                   if(isset($_GET['id'])){
-                    echo '<form action="traitement/modifyetd.php?code_massar='.$id.'" method="POST" id="formajout">';
+                    echo '<form action="traitement/modifyuser.php?id='.$id.'" method="POST" id="formajout">';
                   }else{
-                    echo '<form action="traitement/addetd.php" method="POST" id="formajout">';
+                    echo '<form action="traitement/adduser.php" method="POST" id="formajout">';
                   }
                 ?>
                 
@@ -110,7 +110,7 @@ $result = mysqli_num_rows($sql);
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
                   </div>
-                  <input type="password" name="mdps" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$mdps.'"'; }?>>
+                  <input type="text" name="mdps" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$mdps.'"'; }?>>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -136,7 +136,7 @@ $result = mysqli_num_rows($sql);
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">adresse</span>
                   </div>
-                  <input type="text" name="adresse" placeholder="ville" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$adresse.'"'; }?>>
+                  <input type="text" name="adresse" placeholder="Adresse..." class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$adresse.'"'; }?>>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">

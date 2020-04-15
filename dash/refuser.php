@@ -2,9 +2,9 @@
 
 include('connecteDB.php');
 
-$id = $_GET['code_massar'];
+$id = $_GET['id'];
 
-$query1="UPDATE demande set etat='0' where code_massar=".$id.";";
+$query1="UPDATE demande set etat='0' where id=".$id.";";
 $result1= mysqli_query($conn,$query1);
 
 if ($result1) {

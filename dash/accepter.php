@@ -2,14 +2,14 @@
 
 include('connecteDB.php');
 
-$id = $_GET['code_massar'];
+$id = $_GET['id'];
 
-$query1="UPDATE demande set etat='1' where code_massar=".$id.";";
+$query1="UPDATE demande set etat='1' where id=".$id.";";
 $result1= mysqli_query($conn,$query1);
 
 
 
-$query2 = "SELECT * FROM demande where code_massar=".$id." AND etat=\"1\";";
+$query2 = "SELECT * FROM demande where id=".$id." AND etat=\"1\";";
 
 
 $result2 = mysqli_query($conn,$query2);
@@ -19,18 +19,22 @@ if ($res) {
 	while($row = mysqli_fetch_array($result2))
             {
             	
-              
-              	if ($row['type_user']==="etudiant") {
-              		$query3 = 'INSERT INTO etudiant(nom,prenom,date_naiss,filiere,num_tele,adresse,email,mdps,type) values("'.$row['nom'].'","'.$row['prenom'].'","'.$row['date_naiss'].'","'.$row['filiere'].'"
-              		,'.$row['num_tele'].',"'.$row['adresse'].'","'.$row['email'].'","'.$row['mdps'].'","etudiant");';
-              	}
+                echo "nom  :  ".$row['nom']."<br>";
+                echo "prenom  : ".$row['prenom'];
+                echo "<br>date : ".$row['date_naiss'];
+                echo "<br>num_tele : ".$row['num_tele'];
+                echo "<br>filiere : ".$row['filiere'];
+                echo "<br> email : ".$row['email'];
+                echo "<br> mdps : ".$row['mdps'];
+                echo "<br> adresse : ".$row['adresse'];
+                echo "<br> type : ".$row['type_user']."<br>";
+              	
+              		$query3 = 'INSERT INTO user(nom_user,prenom_user,date_naiss_user,num_tele_user,filiere_user,email_user,mdps_user,adresse_user,type_user) 
+                  values("'.$row['nom'].'","'.$row['prenom'].'","'.$row['date_naiss'].'","'.$row['num_tele'].'"
+              		,"'.$row['filiere'].'","'.$row['email'].'","'.$row['mdps'].'","'.$row['adresse'].'","'.$row['type_user'].'");';
+              	
 
-              	if ($row['type_user']==="professeur") {
-              		
-              	$query3 = 'INSERT INTO professeur(nom,prenom,date_naiss,filiere,num_tele,email,mdps,type)
-              			 values("'.$row['nom'].'","'.$row['prenom'].'","'.$row['date_naiss'].'","'.$row['filiere'].'"
-              		,'.$row['num_tele'].',"'.$row['email'].'","'.$row['mdps'].'","professeur");';
-              	}
+              	
 
               	$result3 = mysqli_query($conn,$query3);
               	if ($result3) {

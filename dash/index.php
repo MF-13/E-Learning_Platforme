@@ -45,7 +45,7 @@ include("dashboard.php");
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Code Massar</th>
+                      <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
                       <th>Mot de passe</th>
@@ -61,7 +61,7 @@ include("dashboard.php");
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Code Massar</th>
+                      <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
                       <th>Mot de passe</th>
@@ -84,10 +84,10 @@ include("dashboard.php");
             while($row = mysqli_fetch_array($sql))
             {
 
-              echo '<td>'.$row['code_massar'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];
+              echo '<td>'.$row['id'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];
               echo '<td>'.$row['date_naiss'].'</td><td>'.$row['filiere'].'</td><td>'.$row['num_tele'].'</td><td>'.$row['adresse'].'</td><td>'.$row['email'].'</td><td>'.$row['type_user'].'</td>';
-              echo '<td><button type="button" class="btn btn-success" onclick=" window.location.href = \'accepter.php?code_massar='.$row['code_massar'].'\';">Accepter</button></td>';
-              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'refuser.php?code_massar='.$row['code_massar'].'\';">Refuser</button></td></tr>';
+              echo '<td><button type="button" class="btn btn-success" onclick=" window.location.href = \'accepter.php?id='.$row['id'].'\';">Accepter</button></td>';
+              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'refuser.php?id='.$row['id'].'\';">Refuser</button></td></tr>';
 
               
             }

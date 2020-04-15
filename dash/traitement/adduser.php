@@ -14,11 +14,21 @@ if (isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['mdps']) A
 	$email = $_POST['email'];
 	$mdps = $_POST['mdps'];
 	
+	$url = (string)$_SERVER['HTTP_REFERER'];
+	$tab = explode("/", $url);
+	print_r($tab);
+    if($tab[count($tab)-1]=="etudtrait.php"){
+		$type='etudiant';
+    }else{
+    		$type='professeur';
+    }
+	
+	
 
-	$query = "INSERT into etudiant(nom,prenom,date_naiss,filiere,num_tele,adresse,email,mdps,type) 
-				VALUES('".$nom."','".$prenom."','".$date_naiss."','".$filiere."',
-					".$telephone.",'".$adresse."','".$email."','".$mdps."',
-					'etudiant');";
+	$query = "INSERT into user(nom_user,prenom_user,date_naiss_user,num_tele_user,filiere_user,email_user,mdps_user,adresse_user,type_user) 
+				VALUES('".$nom."','".$prenom."','".$date_naiss."','".$telephone."',
+					'".$filiere."','".$email."','".$mdps."','".$adresse."',
+					'".$type."');";
 	$result = mysqli_query($conn,$query);
 
 	if ($result) {

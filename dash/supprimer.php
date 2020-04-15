@@ -34,6 +34,8 @@ include("dashboard.php");
 include("connecteDB.php");
 /*Pour obtenir l'id de lurl*/
 $id=$_GET['id'];
+
+
  ?>
  <!--Traitement pour detecter l'url-->
 <?php
@@ -43,11 +45,11 @@ $dernier = $tab[count($tab)-1];
 
 switch ($dernier) {
   case "etudiant.php":
-    include("traitement/supprimeretd.php");
+    include("traitement/supprimeruser.php");
     break;
     
   case "prof.php":
-    include("traitement/supprimerprof.php");
+    include("traitement/supprimeruser.php");
     break;
 
   case "filiere.php":

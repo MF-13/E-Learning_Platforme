@@ -41,6 +41,7 @@ include("dashboard.php");
                       <th>contenue</th>
                       <th>Etat</th>
                       <th>details</th>
+                      <th>Supprimer</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -50,10 +51,11 @@ include("dashboard.php");
                       <th>contenue</th>
                       <th>Etat</th>
                       <th>details</th>
+                      <th>Supprimer</th>
                     </tr>
                   </tfoot>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `message`where recepteur_id=1 and recepteur_type=\"admin\" ORDER BY id_msg DESC");
+                      $sql = mysqli_query($conn,"SELECT * FROM `message`where recepteur_type=\"admin\" ORDER BY id_msg DESC");
                       $result = mysqli_num_rows($sql);
                       if($result)  {
                         while($row = mysqli_fetch_array($sql))
@@ -64,10 +66,11 @@ include("dashboard.php");
                             $etat="Non vu";
                           }
                           echo '<td>'.$row['emetteur_nom'].'</td><td>'.$row['emetteur_type'].'</td><td>'.$row['message'].'</td><td>'.$etat.'</td><td>
-                              <button class="btn btn-warning" onclick="window.location.href = \'msg_details.php?id='.$row['id_msg'].'\';">Repondre</button>
-                              
-                              </div>
-                            </td></tr>';
+                              <button class="btn btn-warning" onclick="window.location.href = \'msg_details.php?id='.$row['id_msg'].'\';">Repondre</button></td>
+                              <td>
+                              <button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$row['id_msg'].'\';">supprimer</button></td>
+                            
+                            </tr>';
                         }
                       }?>
                   </tbody>

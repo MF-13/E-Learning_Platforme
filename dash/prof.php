@@ -47,7 +47,7 @@ include("connecteDB.php");
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>code massar professeur</th>
+                      <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
                       <th>Mot de passe</th>
@@ -55,13 +55,14 @@ include("connecteDB.php");
                       <th>Filiere</th>
                       <th>Telephone</th>
                       <th>Email</th>
+                      <th>Adresse</th>
                       <th>Modifier</th>
                       <th>Supprimer</th> 
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>code massar professeur</th>
+                      <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
                       <th>Mot de passe</th>
@@ -69,23 +70,24 @@ include("connecteDB.php");
                       <th>Filiere</th>
                       <th>Telephone</th>
                       <th>Email</th>
+                      <th>Adresse</th>
                       <th>Modifier</th>
                      <th>Supprimer</th> 
                     </tr>
                   </tfoot>
              <tbody>
                     <?php
-                      $sql = mysqli_query($conn,"SELECT * FROM `professeur`");
+                      $sql = mysqli_query($conn,"SELECT * FROM `user` where type_user='professeur'");
 
           $result = mysqli_num_rows($sql);
 
           if($result)  {
             while($row = mysqli_fetch_array($sql))
             {
-              echo '<td>'.$row['code_massar_prof'].'</td><td>'.$row['nom'].'</td><td>'.$row['prenom'].'</td><td>'.$row['mdps'];
-              echo '<td>'.$row['date_naiss'].'</td><td>'.$row['filiere'].'</td><td>'.$row['num_tele'].'</td><td>'.$row['email'].'</td>';
-              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'proftrait.php?id='.$row['code_massar_prof'].'\';">Modifier</button></td>';
-              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['code_massar_prof'].'\';">Supprimer</button></td></tr>';
+              echo '<td>'.$row['id_user'].'</td><td>'.$row['nom_user'].'</td><td>'.$row['prenom_user'].'</td><td>'.$row['mdps_user'];
+              echo '<td>'.$row['date_naiss_user'].'</td><td>'.$row['filiere_user'].'</td><td>'.$row['num_tele_user'].'</td><td>'.$row['email_user'].'</td><td>'.$row['adresse_user'].'</td>';
+              echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'proftrait.php?id='.$row['id_user'].'\';">Modifier</button></td>';
+              echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_user'].'\';">Supprimer</button></td></tr>';
             }
            // echo "</tr>";
           }

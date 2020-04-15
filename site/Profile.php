@@ -93,6 +93,10 @@ session_start();
                       echo '<a href="addcours-1.php" class="btn btn-info">Ajouter cours</a><br>';
                     }
 
+                    if ($typeresult==1) {
+                      echo '<a href="../dash/index.php" class="btn btn-info">Panel admin</a><br>';
+                    }
+
                   ?>
                   <a href="cours-espace.php" class="btn btn-info">cours disponible</a>
                   <a href="traitement/deconnexion.php" class="btn btn-danger">Déconnexion</a>
