@@ -8,3 +8,19 @@ CREATE EVENT drop_demande
 //
 delimiter ;
 ----------------------------------------
+create table user (
+id_user int auto_increment primary key,
+nom_user mediumtext not null,
+prenom_user mediumtext not null,
+date_naiss_user date not null,
+num_tele_user text not null,
+filiere_user varchar(6) not null,
+email_user text not null,
+mdps_user text not null,
+adresse_user text not null,
+type_user enum('etudiant','professeur','admin')
+);
+---------------------------------------------
+
+INSERT INTO `user` (`id_user`, `nom_user`, `prenom_user`, `date_naiss_user`, `num_tele_user`, `filiere_user`, `email_user`, `mdps_user`, `adresse_user`, `type_user`) 
+VALUES (NULL, 'omari', 'ayoub', '2020-05-12', '0697468521', 'tcc', 'ayoub.om@gmail.com', '1234', '25 sebata MEKNES', 'etudiant')

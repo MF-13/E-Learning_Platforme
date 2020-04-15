@@ -58,9 +58,9 @@
 <?php
 //cette partie de code sert a analyser s'il y a une connexion ou pas ! 
 //si le nom est vide svd qu ' il ya pas de connexion donx en dit deja connexte ! 
-if (!(isset($_SESSION['code_massar']))) {
+if (!(isset($_SESSION['id_user']))) {
     /*&nbsp est pour faire une tabulation*/
-  echo '<button type="button" class="btn btn-outline-success btnmarging" onclick="window.location.href = \'Login-1.php \'">Sign-in</button>&nbsp&nbsp&nbsp&nbsp';
+  echo '<button type="button" class="btn btn-outline-success btnmarging" onclick="window.location.href = \'login.php \'">Sign-in</button>&nbsp&nbsp&nbsp&nbsp';
   echo '<button type="button" class="btn btn-outline-success btnmarging" onclick="window.location.href = \'sing-up.php \'">Sign-up</button>&nbsp&nbsp&nbsp&nbsp';
 } 
 //else on fait une redirection a la page de connexion

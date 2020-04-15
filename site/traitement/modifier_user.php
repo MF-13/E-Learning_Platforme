@@ -1,9 +1,9 @@
 <?php
 
 /*Ajouter la connexion a lbase de donnes*/
-include("traitement/function.php");
+include("function.php");
 
-$_POST['code_massar']=$_GET['id'];
+$_POST['id_user']=$_GET['id'];
 
 
   if (isset($_POST['nom']) AND isset($_POST['prenom'])
@@ -17,32 +17,33 @@ $_POST['code_massar']=$_GET['id'];
 
 
               		if((!(empty($_POST['pass1'])) AND !(empty($_POST['pass2']))) AND ($_POST['pass1']==$_POST['pass2'])){
-                      	$query1 = 'UPDATE etudiant
-                      				set nom=?,
-                      				prenom=?,
-                      				date_naiss=?,
-                      				num_tele=?,
-                      				adresse=?,
-                      				email=?,
-                      				mdps=? 
-                      				WHERE code_massar=? ;';
-                                $values1 = array($_POST['nom'],$_POST['prenom'],$_POST['date_naiss'],
-                                  $_POST['telephone'],$_POST['adresse'],$_POST['email'],$_POST['pass1'],
-                                  $_POST['code_massar']);
+                      	     $query1 = 'UPDATE user
+                      				set nom_user=?,
+                      				prenom_user=?,
+                      				date_naiss_user=?,
+                      				num_tele_user=?,
+                              email_user=?,
+                              mdps_user=?,
+                      				adresse_user=?
+                      				WHERE id_user=? ;';
+                              $values1 = array($_POST['nom'],$_POST['prenom'],$_POST['date_naiss'],
+                                        $_POST['telephone'],$_POST['email'],$_POST['pass1']
+                                        , $_POST['adresse'],$_POST['id_user']);
               				}else{
-                              $query1 = 'UPDATE etudiant
-                                set nom=?,
-                                prenom=?,
-                                date_naiss=?,
-                                num_tele=?,
-                                adresse=?,
-                                email=? 
-                                WHERE code_massar=? ;';
-                            $values1 = array($_POST['nom'],$_POST['prenom'],$_POST['date_naiss'],
-                                  $_POST['telephone'],$_POST['adresse'],$_POST['email'],$_POST['code_massar']);
+                                $query1 = 'UPDATE user
+                              set nom_user=?,
+                              prenom_user=?,
+                              date_naiss_user=?,
+                              num_tele_user=?,
+                              email_user=?,
+                              adresse_user=?
+                              WHERE id_user=? ;';
+                              $values1 = array($_POST['nom'],$_POST['prenom'],$_POST['date_naiss'],
+                                  $_POST['telephone'],$_POST['email'],$_POST['adresse'],$_POST['id_user']);
                       }
               				
                       $result = PDO($query1,$values1);
+					
 					if($result) {
 		echo '		
           	<script>

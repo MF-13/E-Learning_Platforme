@@ -21,8 +21,9 @@ session_start();
 include("traitement/navbar.php");
 include("traitement/function.php");
 
-if (isset($_SESSION['code_massar'])) {
-  $typeresult = TypeUser($_SESSION['type']);
+if (isset($_SESSION['id_user'])) {
+
+$typeresult = TypeUser($_SESSION['type']);
 }
 
  ?>
@@ -38,23 +39,19 @@ if (isset($_SESSION['code_massar'])) {
 <!--Selection des fichiers a afficher-->
  <section class="Posts">
    <?php
-   if (isset($_SESSION['code_massar'])) {
+   if (isset($_SESSION['id_user'])) {
      # code...
    
-       if($typeresult==-1){
-        $query1 = "SELECT filiere FROM etudiant where code_massar=? ;";
-        }elseif($typeresult==0){
-          $query1 = "SELECT filiere FROM professeur where code_massar_prof=? ;";
-        }elseif($typeresult==1){
-          header("location: ../dash/index.php");
-        }
+       
+        $query1 = "SELECT filiere_user FROM user where id_user=? ;";
+        
 
-        $values = array($_SESSION['code_massar']);
+        $values = array($_SESSION['id_user']);
         $result = PDO($query1,$values);
 
         if($result->rowCount()!=0){
               while ($row = $result->fetch()) {
-                 $filiere = $row['filiere'];
+                 $filiere = $row['filiere_user'];
               }
             }
       }
@@ -124,10 +121,10 @@ echo "<div id=\"td\" class=\"tabcontent\">";
                                     ';
                               
            /*Cette partie sert a donner les buttons concerne a chaque utilisateur*/
-        if (isset($_SESSION['code_massar'])) {
+        if (isset($_SESSION['id_user'])) {
           
           if($typeresult==0){
-            if($code_prof==$_SESSION['code_massar']){
+            if($code_prof==$_SESSION['id_user']){
             echo '
                   <button type="button" class="btn btn-outline-danger btnmarging" 
                   onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';

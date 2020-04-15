@@ -20,7 +20,7 @@ session_start();
    include("traitement/navbar.php");
    include("traitement/function.php");
    
-    capterConnexion($_SESSION['code_massar']);
+    capterConnexion($_SESSION['id_user']);
     $typeresult = TypeUser($_SESSION['type']);
     ?>
     <!-- End NAV BAR -->
@@ -31,27 +31,24 @@ session_start();
     <!-- Path Section -->
     <?php
 
-        if($typeresult == -1){
-          $query = "SELECT * from etudiant where code_massar=?;";
-        }elseif($typeresult == 0){
-          $query = "SELECT * from professeur where code_massar_prof=?;";
-        }elseif ($typeresult == 1) {
-          header("location: ../dash/index.php");
-        }
-        $values = array($_SESSION['code_massar']);
+        
+          $query = "SELECT * from user where id_user=?;";
+        
+
+        $values = array($_SESSION['id_user']);
         $res=PDO($query,$values);
 
          if($res->rowCount()!=0){
               while ($row = $res->fetch()) {
-                $nom = $row['nom'];
-                $prenom =  $row['prenom'];
-                $date_naiss =   $row['date_naiss'];
-                $filiere = $row['filiere'];
-                $num_tele =  $row['num_tele'];
-                $adresse =  $row['adresse'];
-                $email =  $row['email'];
-                $mdps =  $row['mdps'];
-                $type =  $row['type'];
+                $nom = $row['nom_user'];
+                $prenom =  $row['prenom_user'];
+                $date_naiss =   $row['date_naiss_user'];
+                $filiere = $row['filiere_user'];
+                $num_tele =  $row['num_tele_user'];
+                $adresse =  $row['adresse_user'];
+                $email =  $row['email_user'];
+                $mdps =  $row['mdps_user'];
+                $type =  $row['type_user'];
               }
          }
     ?>
@@ -69,10 +66,10 @@ session_start();
                     <?php 
 
                       $path = "profileimage/".$type."/";
-                      $result = searchimage($path,$_SESSION['code_massar']);
+                      $result = searchimage($path,$_SESSION['id_user']);
 
                       if ($result == 1) {
-                        echo '<img src="'.$path.'/'.$_SESSION['code_massar'].'">';
+                        echo '<img src="'.$path.'/'.$_SESSION['id_user'].'">';
                       }else{
                         echo '<img src="'.$path.'/defaultpicture.png">';
                       }
@@ -108,7 +105,7 @@ session_start();
                   Information
                 </div>
                 <div class="card-body">
-                    <p class="text"><b>Code Massar : </b><?php  echo $_SESSION['code_massar'];?></p>
+                    <p class="text"><b>Code Massar : </b><?php  echo $_SESSION['id_user'];?></p>
                     <p class="text"><b>Nom : </b><?php  echo $nom;?></p>
                     <p class="text"><b>Prénom : </b> <?php  echo $prenom;?></p>
                     <p class="text"><b>Date Naissance : </b><?php  echo $date_naiss;?></p>
@@ -133,14 +130,8 @@ session_start();
                         <div class="modal-body">
 
                            <?php 
-                                if($typeresult== -1){
-                                  echo '<form action="traitement/modifier_etd.php?id='.$_SESSION['code_massar'].'"
-                                         method="POST">' ; 
-                                          }elseif($typeresult==0){
-                                  echo '<form action="traitement/modifier_prof.php?id='.$_SESSION['code_massar'].'"
-                                         method="POST">' ;
-                                          }
-
+                                  echo '<form action="traitement/modifier_user.php?id='.$_SESSION['id_user'].'"
+                                         method="POST">';            
                             ?>
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Nouveau mot de pass</label>

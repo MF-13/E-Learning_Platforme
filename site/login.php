@@ -4,7 +4,7 @@
 *confirmer les informations du Login a partir du fichier traitement/login.php
 *
 **/
-  include("traitement/logintrait.php");
+  include("traitement/login.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,13 +42,12 @@
            		   <div class="div">
            		    	<h5>Password</h5>
            		    	<input type="password" class="input" name="password" id="password">
-				   </div>
-				</div>
+				          </div>
+				      </div>
+              
 				<!------------------------------------------------------------------->
 				<div class="btn-group marging" role="group" aria-label="Basic example">
-					<button type="submit" class="btn btn-secondary" name="type" value="admin">Admin</button>
-					<button type="submit" class="btn btn-secondary" name="type" value="professeur">Professeur</button>
-					<button type="submit" class="btn btn-secondary" name="type" value="etudiant">Etudiant</button>
+					<button type="submit" class="btn btn-secondary" name="submit">Conneccter</button>
 				</div>
 				
 				<?php if(!empty($message)) : ?>

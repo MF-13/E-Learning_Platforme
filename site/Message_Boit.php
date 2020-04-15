@@ -20,7 +20,7 @@ session_start();
    include("traitement/navbar.php");
    include("traitement/function.php");
    
-    capterConnexion($_SESSION['code_massar']);
+    capterConnexion($_SESSION['id_user']);
     $typeresult = TypeUser($_SESSION['type']);
     ?>
     <!-- End NAV BAR -->
@@ -43,8 +43,8 @@ session_start();
                 </div>
                 <?php
  
-                  $values = array($_SESSION['code_massar'],$_SESSION['type']);
-                  $stm= dislay_message($values);
+                  $info = array($_SESSION['id_user'],$_SESSION['type']);
+                  $stm= dislay_message($info);
                       if(!empty($stm)){
                         
                           if($stm->rowCount()!=0){
@@ -90,7 +90,7 @@ session_start();
                   <?php 
                    echo '
                     <button type="button" class="btn btn-outline-danger btn-sm float-right" 
-                    onclick="window.location.href = \'traitement/dropallmsg.php?id='.$_SESSION['code_massar'].'\'" ><i class="fas fa-trash-alt"></i> Supprimer les messages</button>
+                    onclick="window.location.href = \'traitement/dropallmsg.php?id='.$_SESSION['id_user'].'\'" ><i class="fas fa-trash-alt"></i> Supprimer les messages</button>
                       ';
                     ?>
                 </div>

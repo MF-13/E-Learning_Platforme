@@ -1,9 +1,8 @@
 <?php
 session_start();
     include("function.php");
-    capterConnexion($_SESSION['code_massar']);
+    capterConnexion($_SESSION['id_user']);
     $typeresult = TypeUser($_SESSION['type']);
-    capterConnexion($_SESSION['code_massar']);
   ?>
   <!DOCTYPE html>
 <html lang="en">
@@ -85,14 +84,14 @@ session_start();
 
        /*construction du path */
        
-       $query1 = "SELECT filiere from professeur where code_massar_prof=?;";
+       $query1 = "SELECT filiere_user from user where id_user=?;";
 
-       $values1 = array($_SESSION['code_massar']);
+       $values1 = array($_SESSION['id_user']);
        $res = PDO($query1,$values1);
 
         if($res->rowCount()!=0){
               while ($row = $res->fetch()) {
-                $filiere = $row['filiere'];
+                $filiere = $row['filiere_user'];
               }
           }
 
@@ -136,7 +135,7 @@ session_start();
         $query3 = "INSERT INTO file(id_filiere,code_prof,commantaire,id_cour,type_cour,nom_pdf,pdf_lien,titre) 
                        VALUES(?,?,?,?,?,?,?,?);";   
 
-        $values3 = array($filiere,$_SESSION['code_massar'],$_POST['commentaire'],$id_cour,$_POST['type_cours'],$nom_file,$path,$_POST['titre_cour']);
+        $values3 = array($filiere,$_SESSION['id_user'],$_POST['commentaire'],$id_cour,$_POST['type_cours'],$nom_file,$path,$_POST['titre_cour']);
         $res3 = PDO($query3,$values3);
             
     ?>

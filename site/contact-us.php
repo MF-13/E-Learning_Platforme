@@ -24,23 +24,23 @@ include("traitement/function.php")
   <div class="contact-form">
     <form action="#" method="POST">
       <h1>Contact Us</h1>
-      <?php if(!isset($_SESSION['code_massar'])){
+      <?php if(!isset($_SESSION['id_user'])){
           
           echo '<div class="txtb">
             <label>Full Name :</label>
             <input type="text" name="nom" required placeholder="Enter Your Name"';
-             if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
+             if(isset($_SESSION['id_user'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
           echo '></div>';
           echo '<div class="txtb">
               <label>Telephone : </label>
               <input type="number" name="telephone" required placeholder="Enter you Phone number(without 0)"';
-              if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
+              if(isset($_SESSION['id_user'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
           echo '></div>';
 
           echo '<div class="txtb">
             <label>Email :</label>
             <input type="email" name="email" required placeholder="Enter Your Email" ';
-             if(isset($_SESSION['code_massar'])) { echo 'disabled="disabled" value='.$_SESSION['email'].'';}
+             if(isset($_SESSION['id_user'])) { echo 'disabled="disabled" value='.$_SESSION['email'].'';}
           echo '></div>';
       }
       ?>
@@ -56,42 +56,39 @@ include("traitement/function.php")
    <?php
         if (filter_has_var(INPUT_POST,"submit")) {
 
-          if(!(isset($_SESSION['code_massar'])))
+          if(!(isset($_SESSION['id_user'])))
             {
               $nom=$_POST['nom'];
               $email=$_POST['email'];
               $telephone=$_POST['telephone'];
               $message=$_POST['message'];
               $type="visiteur";
-              $code_massar=-1;
+              $id_user=-1;
             }else{
-                  if(TypeUser($_SESSION['type'])==0){
-                    $query1="select num_tele from professeur where code_massar_prof=? ;";
-                  }else{
-                    $query1="select num_tele from etudiant where code_massar =? ;";
-                  }
                   
-                  $values1 = array($_SESSION['code_massar']);
+                  $query1="select num_tele_user from user where id_user=? ;";
+                  $values1 = array($_SESSION['id_user']);
                   $res = PDO($query1,$values1);
 
                   if($res->rowCount()!=0){
                   while ($row = $res->fetch()) {
-                    $telephone=$row['num_tele'];
+                    $telephone=$row['num_tele_user'];
                   }
                 }
-                  $code_massar=$_SESSION['code_massar'];
+                  $id_user=$_SESSION['id_user'];
                   $nom=$_SESSION['nom'];
                   $email=$_SESSION['email'];
                   $message=$_POST['message'];
                   $type=$_SESSION['type'];
             }
-            $admin_id = "1";
-            $admin_email = 'ayman.elbou@gmail.com';
+
+            $admin_id = "100";
+            $admin_email = 'aiman.elbou@gmail.com';
             $admin_type = "admin";
             //traitement d insertion a la base de donnees
             $query2 = "INSERT INTO message(emetteur_id,emetteur_nom,emetteur_email,emetteur_telephone,emetteur_type,message,
             recepteur_id,recepteur_email,recepteur_type) values(?,?,?,?,?,?,?,?,?);";
-            $values2 = array($code_massar,$nom,$email,$telephone,$type,$message,$admin_id,$admin_email,$admin_type);
+            $values2 = array($id_user,$nom,$email,$telephone,$type,$message,$admin_id,$admin_email,$admin_type);
             PDO($query2,$values2);
         }
    ?>

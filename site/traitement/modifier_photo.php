@@ -1,9 +1,9 @@
 <?php
 session_start();
     include("function.php");
-    capterConnexion($_SESSION['code_massar']);
+    capterConnexion($_SESSION['id_user']);
     $typeresult = TypeUser($_SESSION['type']);
-    capterConnexion($_SESSION['code_massar']);
+
   ?>
   <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@ session_start();
     <!-- Path Section -->
       <?php 
     /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-    if ($typeresult!=0){
+    if ($typeresult!=0 || $typeresult!=1){
       echo "
       <script>
      if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
@@ -85,14 +85,14 @@ session_start();
 
        /*construction du path */
        
-       $query1 = "SELECT filiere from professeur where code_massar_prof=?;";
+       $query1 = "SELECT filiere_user from user where id_user=?;";
 
-       $values1 = array($_SESSION['code_massar']);
+       $values1 = array($_SESSION['id_user']);
        $res = PDO($query1,$values1);
 
         if($res->rowCount()!=0){
               while ($row = $res->fetch()) {
-                $filiere = $row['filiere'];
+                $filiere = $row['filiere_user'];
               }
           }
 
@@ -101,7 +101,7 @@ session_start();
           $ex = $tab[count($tab)-1];
           echo $ex;
        $userfile_name = $_FILES['userfile']['name'];
-       $path ="../profileimage/".$_SESSION['type']."/".$_SESSION['code_massar'].".".$ex;
+       $path ="../profileimage/".$_SESSION['type']."/".$_SESSION['id_user'].".".$ex;
 
        if(!move_uploaded_file($tmp_name,$path)){
               echo "Impossible de copier le fichier !";

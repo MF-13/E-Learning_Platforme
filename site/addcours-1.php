@@ -20,9 +20,10 @@ session_start();
     <?php 
     include("traitement/navbar.php");
     include("traitement/function.php");
-    capterConnexion($_SESSION['code_massar']);
+
+    capterConnexion($_SESSION['id_user']);
     $typeresult = TypeUser($_SESSION['type']);
-    capterConnexion($_SESSION['code_massar']);
+
     ?>
     <!-- End NAV BAR -->
     <!-- Path Section -->
@@ -74,14 +75,14 @@ session_start();
                             <label for="exampleFormControlSelect2">Cours</label>
                             <select name="cours" class="form-control" id="exampleFormControlSelect2">
                             <?php
-                                $query1 = "SELECT filiere from professeur where code_massar_prof=?;";
+                                $query1 = "SELECT filiere_user from user where id_user=?;";
 
-                                $values1 = array($_SESSION['code_massar']);
+                                $values1 = array($_SESSION['id_user']);
                                 $res1 = PDO($query1,$values1);
 
                                 if($res1->rowCount()!=0){
                                   while ($row = $res1->fetch()) {
-                                    $filiere = $row['filiere'];
+                                    $filiere = $row['filiere_user'];
                                   }
                                 }
 
