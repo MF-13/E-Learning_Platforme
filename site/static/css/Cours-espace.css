@@ -62,3 +62,7 @@ p.Text{
     margin: 5px 5px 5px 5px ;
 }
 /* End Section Post */
+.tablinks{
+    padding-left: 100px;
+    padding-right: 100px;
+}

@@ -10,8 +10,8 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/Cours-espace.css">
     <link rel="stylesheet" href="static/css/Index.css">
+    <link rel="stylesheet" href="static/css/Cours-espace.css">
     <title>Cours Espace</title>
 </head>
 <body>
@@ -44,7 +44,7 @@ session_start();
         }
 
     echo '<div class="pmedia" style=" text-align: center; ">
-          <iframe src="'.$path.'" width="400" height="400"></iframe>
+          <iframe src="'.$path.'" class="frame" ></iframe>
           <br><br>'; 
      echo "
                 <ul class=\"pmedia mylist\">
@@ -61,6 +61,21 @@ session_start();
 
   <?php
   include("traitement/footer.php");
-  ?>                                           
+  ?> 
+  <style>
+    .frame{
+      width: 800px;
+      height: 800px;
+    }
+    .pmedia{
+      margin-top: 50px;
+    }
+    @media (max-width: 575px) { 
+    .frame{
+      width: 300px;
+      height: 500px;
+    }
+ }
+  </style>                                        
       </body>
       </html>

@@ -42,29 +42,27 @@ $id=$_GET['id'];
 $url = (string)$_SERVER['HTTP_REFERER'];
 $tab = explode("/", $url);
 $dernier = $tab[count($tab)-1];
-
 switch ($dernier) {
   case "etudiant.php":
     include("traitement/supprimeruser.php");
     break;
-    
   case "prof.php":
     include("traitement/supprimeruser.php");
     break;
-
   case "filiere.php":
     include("traitement/supprimerfiliere.php");
     break;
   case "cours.php":
     include("traitement/supprimercours.php");
+  break;
   default:
     include("404.html");
-    break;
+  break;
 }
-
-
-
 ?>
+
+
+
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -75,10 +73,8 @@ switch ($dernier) {
         </div>
       </footer>
       <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
 

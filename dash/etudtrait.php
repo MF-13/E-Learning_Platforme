@@ -93,7 +93,7 @@ $result = PDO($sql,$value);
                 <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Code Professeur</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Code Etudiant</span>
                   </div>
                   <input type="number" name="code_massar" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$id.'"'; }?> disabled>
                 </div>

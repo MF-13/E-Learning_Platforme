@@ -10,8 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/Cours-espace.css">
     <link rel="stylesheet" href="static/css/Index.css">
+    <link rel="stylesheet" href="static/css/Cours-espace.css">
     <title>Cours Espace</title>
 </head>
 <body>
@@ -29,9 +29,9 @@
     <!-- Type Donnes Section -->
     <div class="tab">
       <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'cours')" id="defaultOpen" >Cours</button>
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'tp')" >TP</button>
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'td')" >TD</button>
+        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'cours')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
+        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
       </div>
     </div>    
     <!-- Type Donnes Section -->
@@ -89,7 +89,7 @@ foreach($type as $type_c){
                 <div class="card text-center cardpadding">
                   <div class="card-body">
                     <div class="media">
-                      <img src="static/img/Cours espace/pdf.png" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                      <img src="static/img/Cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
                         <div class="media-body">      
                         ';
         /*l'affichage ici*/
