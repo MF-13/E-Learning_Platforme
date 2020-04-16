@@ -7,7 +7,7 @@
           if($result)  {
           	echo '
           	<div class="alert alert-success">
-  				<strong>Success!</strong> Etudiant supprimer!
+  				<strong>Success!</strong> supprimer!
 			</div>
           	<script>
          setTimeout(function(){

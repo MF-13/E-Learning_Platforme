@@ -1,7 +1,7 @@
  <!-- Page Wrapper -->
   <?php
   session_start();
-  if (!(isset($_SESSION['id_user'])))
+  if (!(isset($_SESSION['id_user'])) || $_SESSION['type']=="professeur" || $_SESSION['type']=="etudiant")
         {
           header("Location: ../site/index.php");  
         }

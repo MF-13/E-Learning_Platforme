@@ -24,11 +24,7 @@ session_start();
     $typeresult = TypeUser($_SESSION['type']);
     ?>
     <!-- End NAV BAR -->
-    <!-- Path Section -->
-    <section class="sectionpath">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Profile </b></p>
-    </section>
-    <!-- Path Section -->
+    
     <?php
 
         

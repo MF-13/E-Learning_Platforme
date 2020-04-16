@@ -24,11 +24,8 @@
   $typeresult = TypeUser($_SESSION['type']);
 ?>
   <!--END Nav bar-->
-    <!-- Path Section -->
-    <section class="sectionpath" style="padding-top: 5.5%;">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Cours Espace</b></p>
-    </section>
-    <!-- Path Section -->
+   
+    
     <!-- Type Donnes Section -->
     <div class="tab">
       <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="static/css/Index.css">
     <link rel="stylesheet" href="static/css/filiere-1.css">
     
-    <title>Filiere Information</title>
+    <title>Filiere</title>
 </head>
 <body>
   <!--Begin of NavBar-->
@@ -18,11 +18,7 @@
  include("traitement/navbar.php");
  include("traitement/function.php");
  ?>
- <!-- Path Section -->
-    <section class="sectionpath" style="padding-top: 5.5%;">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Filiere</b></p>
-    </section>
-    <!-- Path Section -->
+ 
   <!--END Nav bar-->
     <div class="container" >
         <div class="row">

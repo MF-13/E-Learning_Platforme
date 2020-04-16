@@ -8,28 +8,21 @@
    
     switch($tab[4])
     {
-      case 'index.php'       :      $act['index.php'] = 'active'; $title = 'E - Learning';break;
-      case 'filiere-1.php'       :    $act['filiere-1.php'] = 'active'; $title = 'E - filiere';break;
-      case 'cours-espace.php'       : $act['cours-espace.php'] = 'active'; $title = 'E - Cours';break;
-      case 'contact-us.php'       : $act['contact-us.php'] = 'active'; $title = 'E - Contact';break;
+      case 'index.php'       :      $act['index.php'] = 'active'; $title = 'Index';break;
+      case 'filiere-1.php'       :    $act['filiere-1.php'] = 'active'; $title = 'Filiere';break;
+      case 'cours-espace.php'       : $act['cours-espace.php'] = 'active'; $title = 'Cours';break;
+      case 'contact-us.php'       : $act['contact-us.php'] = 'active'; $title = 'Contact';break;
       case 'addcours-1.php'       : $act['addcours-1.php'] = 'active'; $title = 'Ajouter cour';break;
       case 'biblio.php'       : $act['biblio.php'] = 'active'; $title = 'bibliotheque';break;
+      case 'Profile.php'       : $act['profile.php'] = 'active'; $title = 'Profile';break;
+      case 'Message_Boit.php'       : $act['biblio.php'] = 'active'; $title = 'Message';break;
+      case 'cours-detail.php'       : $act['cours-espace.php'] = 'active'; $title = 'Cours detail';break;
     }
 
 
  ?>
-  <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+  
 
-    
-    <title><?php echo $title; ?></title>
-</head>
-<body>
  <!-- Nav BAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="index.php"><img src="static/img/Index/logo.png" width="45" height="45" class="d-inline-block align-top" alt=""></a>
@@ -70,11 +63,24 @@ else{
             <a class="alien" href="Profile.php" style="color : #000000; text-decoration: none;"><i class="fas fa-user-graduate"></i>'.$_SESSION['nom'].'</a>
             &nbsp&nbsp
             <a class="btn btn-outline-danger" type="submit" href="traitement/deconnexion.php">Deconnexion</a>
-  </form>
+  </form><br>
   ';
 }
 ?>       
       </form>
     </div>
+    
   </nav>
+  <div>
+      <section class="sectionpath">
+        <?php 
+        if ($title!="Index") {
+          echo '<br><br><br><br><p><b><i class="fas fa-home"></i>&nbspAcceuil/'.$title.'</b></p>' ;
+        }
+        
+
+        ?>
+      </section>
+    </div>
+
   <!-- End NAV BAR -->

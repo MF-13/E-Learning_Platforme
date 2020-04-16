@@ -26,10 +26,7 @@ session_start();
 
     ?>
     <!-- End NAV BAR -->
-    <!-- Path Section -->
-    <section class="sectionpath">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Profile / Ajouter cours </b></p>
-    </section>
+    
     <?php 
     /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
     if ($typeresult==1) {

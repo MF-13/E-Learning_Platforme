@@ -21,12 +21,8 @@ session_start();
  include("traitement/function.php");
  ?>
   <!--END Nav bar-->
-    <!-- Path Section -->
-    <section class="sectionpath">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Cours Espace / Nom Filiére / Nom de Cours</b></p>
-    </section>
-    <br><br><br>
-    <!-- Path Section -->
+    
+    
     
    <?php
    /*Construire le path du fichier */

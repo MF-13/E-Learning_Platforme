@@ -29,11 +29,7 @@ $typeresult = TypeUser($_SESSION['type']);
  ?>
  
   <!--END Nav bar-->
-    <!-- Path Section -->
-    <section class="sectionpath" style="padding-top: 5.5%;">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Bibliotheque</b></p>
-    </section>
-    <!-- Path Section -->
+   
     <!-- Posts Section -->
    
 <!--Selection des fichiers a afficher-->
