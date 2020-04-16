@@ -61,7 +61,7 @@ session_start();
                             <label  for="exampleFormControlInput1">Titre cours</label>
                             <input type="text" name="titre_cour" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C" required>
                            
-                            <label for="exampleFormControlFile1" class="textleft"> Choisir le fichier(au format <strong>texte</strong> ou <strong>HTML</strong> )</label>
+                            <label for="exampleFormControlFile1" class="textleft"> Choisir le fichier(<strong>taille max :  500mb</strong>)</label>
                             <input name = "userfile" type="file" class="form-control-file " id="exampleFormControlFile1">
                             <br>
                            

@@ -60,7 +60,8 @@ session_start();
        }
      // on vérifie maintenant l'extension
      $tmp_type= $_FILES['userfile']['type'];
-     if(!strstr($tmp_type,'text/plain') && !strstr($tmp_type,'text/html') && !strstr($tmp_type,'pdf'))
+     if(!strstr($tmp_type,'text/plain') && !strstr($tmp_type,'text/html') && !strstr($tmp_type,'pdf') && !strstr($tmp_type,'png')
+      && !strstr($tmp_type,'jpg') && !strstr($tmp_type,'jpeg') && !strstr($tmp_type,'mp4') && !strstr($tmp_type,'mp3'))
      {
      echo "Votre format $tmp_type <br>";
      echo "Le fichier n'est pas en format <strong> .txt </strong> ni <strong>.html</strong>";
@@ -73,6 +74,12 @@ session_start();
          echo "Problème de téléchargement : taille du fichier nulle !";
          exit;
        }
+
+       if($userfile_size > 500){
+         echo "fichier too long";
+         exit;
+       }
+
 
        
        //test si le fichier $userfile a réellement été téléchargé et n'est pas
