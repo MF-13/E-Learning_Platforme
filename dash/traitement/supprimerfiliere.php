@@ -3,11 +3,11 @@
           $sql = "DELETE FROM `filiere` WHERE filiere_id=?" ;
           $value = array($id);
           $result = PDO($sql,$value);
-
+          
           if($result)  {
-          header("location: ../filiere.php?etat=true");
+          echo '<script language="Javascript"> document.location.replace("filiere.php?etat=true"); </script>';
           }
           else{
-             header("location: ../filiere.php?etat=false");
+             echo '<script language="Javascript"> document.location.replace("filiere.php?etat=false"); </script>';
           }
 ?>

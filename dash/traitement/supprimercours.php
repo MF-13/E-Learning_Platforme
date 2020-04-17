@@ -5,9 +5,9 @@
     $result = PDO($sql,$value);
 
           if($result)  {
-          	header("location: ../cours.php?etat=true");
+            echo '<script language="Javascript"> document.location.replace("cours.php?etat=true"); </script>';
           }
           else{
-          	header("location: ../cours.php?etat=false");
+            echo '<script language="Javascript"> document.location.replace("cours.php?etat=false"); </script>';
           }
 ?>
