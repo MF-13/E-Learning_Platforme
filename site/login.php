@@ -14,7 +14,7 @@ if (isset($_SESSION['id_user'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Connexion</title>
 	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
