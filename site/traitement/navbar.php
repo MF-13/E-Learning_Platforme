@@ -71,16 +71,16 @@ else{
     </div>
     
   </nav>
-  <div>
-      <section class="sectionpath">
+  
         <?php 
         if ($title!="Index") {
-          echo '<br><br><br><br><p><b><i class="fas fa-home"></i>&nbspAcceuil/'.$title.'</b></p>' ;
+          echo '<div>
+      <section class="sectionpath"><br><br><br><br><p><b><i class="fas fa-home"></i>&nbspAcceuil/'.$title.'</b></p></section>
+    </div>' ;
         }
         
 
         ?>
-      </section>
-    </div>
+      
 
   <!-- End NAV BAR -->
