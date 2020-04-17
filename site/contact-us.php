@@ -50,7 +50,7 @@ include("traitement/function.php")
         </div>
         <input type="submit" name="submit" class="btn" value="SEND">
   </form>
-    <a class="retourn" href="Index.php">Retourner a l'acceuil</a>
+    <a class="retourn" href="index.php">Retourner a l'acceuil</a>
   </div>
 
    <?php

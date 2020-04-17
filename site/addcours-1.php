@@ -32,16 +32,20 @@ session_start();
     if ($typeresult==1) {
       header("location: ../dash/index.php");
     }
-    if ($typeresult!=0 ){
-      echo "
-      <script>
-     if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
-        window.location.href = 'index.php';
+    
+
+    if (isset($_GET['etat'])) {
+      if ($_GET['etat']=="true"){
+        echo "<script>alert('ajouter avec succes');</script>";
       }else{
-        window.location.href = 'index.php';
+         echo "<script>alert('error dans l ajout ressayer svp')</script>";
       }
-      </script>";
+
+
     }
+
+
+    
     ?>
     <br>
     <!-- END Path Section -->

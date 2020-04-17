@@ -60,7 +60,7 @@ if (!(isset($_SESSION['id_user']))) {
 else{
   echo ' 
   <form class="form-inline my-2 my-lg-0">
-            <a class="alien" href="Profile.php" style="color : #000000; text-decoration: none;"><i class="fas fa-user-graduate"></i>'.$_SESSION['nom'].'</a>
+            <a class="alien" href="Profile.php" style="color : #000000; text-decoration: none;"><i class="fas fa-user-graduate"></i>'.strtoupper($_SESSION['nom']).'</a>
             &nbsp&nbsp
             <a class="btn btn-outline-danger" type="submit" href="traitement/deconnexion.php">Deconnexion</a>
   </form><br>
