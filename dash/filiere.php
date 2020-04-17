@@ -79,6 +79,14 @@ include("traitement/function.php");
               echo '<td>'.$row['filiere_id'].'</td><td>'.$row['filiere'].'</td><td>'.$row['filiere_description'].'</td><td>'.$row['departement'].'</td>';
                echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>';
               echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['filiere_id'].'\';">Supprimer</button></td></tr>';
+
+              /*verifier si le dossier de la filiere existe ! sinon on le cree */
+                $dir = "../site/file/".strtoupper($row['filiere_id']);
+                $is_dir = is_dir($dir);
+                if (!$is_dir) {
+                  mkdir($dir);
+                }
+
             }
            // echo "</tr>";
           }
