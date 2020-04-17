@@ -1,10 +1,15 @@
 <?php
+
 /**
 *
 *confirmer les informations du Login a partir du fichier traitement/login.php
 *
 **/
   include("traitement/login.php");
+
+if (isset($_SESSION['id_user'])) {
+  header("location: profile.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
