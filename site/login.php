@@ -52,7 +52,7 @@ if (isset($_SESSION['id_user'])) {
               
 				<!------------------------------------------------------------------->
 				<div class="btn-group marging" role="group" aria-label="Basic example">
-					<button type="submit" class="btn btn-secondary" name="submit">Conneccter</button>
+					<button type="submit" class="btn btn-secondary" name="submit">Connecter</button>
 				</div>
 				
 				<?php if(!empty($message)) : ?>

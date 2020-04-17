@@ -6,7 +6,7 @@ include("traitement/function.php")
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Contactez-Nous</title>
     
       <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,32 +23,32 @@ include("traitement/function.php")
   <!--END Nav bar-->
   <div class="contact-form">
     <form action="#" method="POST">
-      <h1>Contact Us</h1>
+      <h1>Contactez Nous</h1>
       <?php if(!isset($_SESSION['id_user'])){
           
           echo '<div class="txtb">
-            <label>Full Name :</label>
-            <input type="text" name="nom" required placeholder="Enter Your Name"';
+            <label>Nom Complet :</label>
+            <input type="text" name="nom" required placeholder="Enter Votre Nom"';
              if(isset($_SESSION['id_user'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
           echo '></div>';
           echo '<div class="txtb">
               <label>Telephone : </label>
-              <input type="number" name="telephone" required placeholder="Enter you Phone number(without 0)"';
+              <input type="number" name="telephone" required placeholder="Enter Votre Numero"';
               if(isset($_SESSION['id_user'])) { echo 'disabled="disabled" value='.$_SESSION['nom'].'';}
           echo '></div>';
 
           echo '<div class="txtb">
             <label>Email :</label>
-            <input type="email" name="email" required placeholder="Enter Your Email" ';
+            <input type="email" name="email" required placeholder="Enter Votre Email" ';
              if(isset($_SESSION['id_user'])) { echo 'disabled="disabled" value='.$_SESSION['email'].'';}
           echo '></div>';
       }
       ?>
         <div class="txtb">
           <label>Message :</label>
-          <textarea class="txttb" name="message" required placeholder="Enter your text here"></textarea>
+          <textarea class="txttb" name="message" required placeholder="Enter Votre Message"></textarea>
         </div>
-        <input type="submit" name="submit" class="btn" value="SEND">
+        <input type="submit" name="submit" class="btn" value="Envoyer">
   </form>
     <a class="retourn" href="index.php">Retourner a l'acceuil</a>
   </div>
