@@ -5,7 +5,7 @@ include("traitement/function.php");
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contact us</title>
+	<title>Demande</title>
 	<link rel="stylesheet" type="text/css" href="static/css/Sign-up.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
@@ -15,7 +15,7 @@ include("traitement/function.php");
 		<div class="contact-box">
 			<div class="left"></div>
 			<div class="right">
-				<h2>Sign up</h2>
+				<h2>Demande</h2>
 			<form method="POST" action="traitement/singup.php">
 			<!--<form method="POST" action="<?php $_SERVER['PHP_SELF']?>">-->
 				<input type="text" name="nom" class="field" placeholder="Nom" required="required">
