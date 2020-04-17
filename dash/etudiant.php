@@ -53,7 +53,6 @@ include("traitement/function.php");
                       <th>Date de naissance</th>   
                       <th>Filiere</th>
                       <th>Telephone</th>
-                      <th>Adresse</th>
                       <th>Email</th>
                       <th>Adresse</th>
                       <th>Modifier</th>
@@ -69,7 +68,6 @@ include("traitement/function.php");
                       <th>Date de naissance</th>   
                       <th>Filiere</th>
                       <th>Telephone</th>
-                      <th>Adresse</th>
                       <th>Email</th>
                       <th>Adresse</th>
                       <th>Modifier</th>
@@ -87,7 +85,7 @@ include("traitement/function.php");
             {
 
               echo '<td>'.$row['id_user'].'</td><td>'.$row['nom_user'].'</td><td>'.$row['prenom_user'].'</td><td>'.$row['mdps_user'];
-              echo '<td>'.$row['date_naiss_user'].'</td><td>'.$row['filiere_user'].'</td><td>'.$row['num_tele_user'].'</td><td>'.$row['adresse_user'].'</td><td>'.$row['email_user'].'</td><td>'.$row['adresse_user'].'</td>';
+              echo '<td>'.$row['date_naiss_user'].'</td><td>'.$row['filiere_user'].'</td><td>'.$row['num_tele_user'].'</td><td>'.$row['email_user'].'</td><td>'.$row['adresse_user'].'</td>';
               echo '<td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'etudtrait.php?id='.$row['id_user'].'\';">Modifier</button></td>';
               echo '<td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_user'].'\';">Supprimer</button></td></tr>';
 

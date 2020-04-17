@@ -143,10 +143,6 @@ session_start();
                                 <input type="password" class="form-control" id="recipient-name" name="pass2">
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">changer la photo</label>
-                                <input name = "userfile" type="file" class="form-control" id="recipient-name">
-                            </div>
-                            <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Nom</label>
                                 <input type="text" class="form-control" id="recipient-name" name="nom" 
                                 value=<?php echo $nom; ?>>

@@ -31,13 +31,12 @@ session_start();
 
     $path = $dir."/".$file;
 
-    $query2 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf,titre from file where  nom_pdf= ?;";
+    $query2 = "SELECT commantaire,date_ajoute,nom_pdf,titre from file where  nom_pdf= ?;";
     $values2 = array($file);
     $res2 = PDO($query2,$values2);
     if($res2->rowCount()!=0){
            while ($row = $res2->fetch()) {
             $comm = $row['commantaire'];
-            $nbr_telechargement= $row['nbr_telechargement'];
             $date_ajoute = $row['date_ajoute'];
             $nom = $row['titre'];
             }
@@ -49,16 +48,18 @@ session_start();
      echo "
                 <ul class=\"pmedia mylist\">
                   <li><b>Publier le :</b> ".$date_ajoute."</li>
-                    <li><b>Nbr de telechargement :</b>".$nbr_telechargement."</li>
                       <li><b>Commentaire : </b>".$comm."</li>
                 </ul><br><br>";
 
       echo '<a href="'.$path.'" download><button class="btn btn-danger">telecharger</button></a></div><br>';
+
+  
+
     ?>
 
-
+    
    <!--Fotter,script and Contact form-->
-
+   
   <?php
   include("traitement/footer.php");
   ?> 

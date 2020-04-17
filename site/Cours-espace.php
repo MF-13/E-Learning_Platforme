@@ -29,7 +29,7 @@
     <!-- Type Donnes Section -->
     <div class="tab">
       <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'cours')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
         <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
         <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
       </div>
@@ -46,10 +46,10 @@
                 while ($row = $result->fetch()) {
                   $filiere = $row['filiere_user'];
                 }}
-         echo "<p class=\"Text\"> Données pour filiere : ".$filiere."</p>";
+         echo "<p class=\"Text\"> Fichiers pour filiere : ".strtoupper($filiere)."</p>";
     ?>   
     <?php
-$type = array('cours','tp','td');
+$type = array('cour','tp','td');
 $index=0;
 foreach($type as $type_c){
       
@@ -71,17 +71,28 @@ foreach($type as $type_c){
         /**********************************************/
         /*si cest les dossier .. ou . on affiche rien */
         /**********************************************/  
-        $query2 = "SELECT commantaire,nbr_telechargement,date_ajoute,nom_pdf,titre from file where  nom_pdf=?;";
+        $query2 = "SELECT commantaire,id_cour,nbr_telechargement,date_ajoute,nom_pdf,titre from file where  nom_pdf=?;";
         $values2 = array($file);
         $res2 = PDO($query2,$values2);
         if($res2->rowCount()!=0){
            while ($row = $res2->fetch()) {
             $comm = $row['commantaire'];
+            $id_cour = $row['id_cour'];
             $nbr_telechargement= $row['nbr_telechargement'];
             $date_ajoute = $row['date_ajoute'];
             $nom = $row['titre'];
             }
         }
+
+        $query7 = "SELECT nom from cours where  id_cour=?;";
+        $values7 = array($id_cour);
+        $res7 = PDO($query7,$values7);
+        if($res7->rowCount()!=0){
+           while ($row = $res7->fetch()) {
+            $nom_cour = $row['nom'];
+            }
+        }
+
         echo '
           <div class="container">
             <div class="row">
@@ -97,9 +108,9 @@ foreach($type as $type_c){
         echo "<h4 class=\"mt-0\">".$nom."</h4>";
         echo "<p class=\"pmedia\">
                 <ul class=\"pmedia mylist\">
+                  <li><b>Nom Cour:</b> ".$nom_cour."</li>
+                  <li><b>commantaire:</b> ".$comm."</li>
                   <li><b>Publier le :</b> ".$date_ajoute."</li>
-                    <li><b>Nbr de telechargement :</b>".$nbr_telechargement."</li>
-                      <li><b>Commentaire : </b>".$comm."</li>
                       <br>
                       <A Href=\"cours-detail.php?file=".$file ."&dir=".$devdir."\">Consulter</A>
                 </ul></p>";

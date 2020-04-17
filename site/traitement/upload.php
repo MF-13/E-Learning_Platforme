@@ -75,10 +75,7 @@ session_start();
          exit;
        }
 
-       if($userfile_size > 500){
-         echo "fichier too long";
-         exit;
-       }
+       
 
 
        

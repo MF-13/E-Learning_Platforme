@@ -14,11 +14,11 @@ if (file_exists($file)) {
     header('Content-Length: ' . filesize($file));
     readfile($file);
     echo $file;
-
+/*
     $query1 = "UPDATE file set nbr_telechargement=nbr_telechargement+1 where nom_pdf=?;";
     $values1 = array($_GET['file']);
     
-    PDO($query1,$values1);
+    PDO($query1,$values1);*/
     exit;
 }
 

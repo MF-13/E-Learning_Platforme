@@ -97,7 +97,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
                     <div class="card text-center cardpadding">
                       <div class="card-body">
                         <div class="media">
-                          <img src="static/img/Cours espace/pdf.png" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                          <img src="static/img/Cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
                             <div class="media-body">      
                             ';
                           /*l'affichage ici*/
@@ -106,8 +106,6 @@ echo "<div id=\"td\" class=\"tabcontent\">";
                              echo "<p class=\"pmedia\">
                               <ul class=\"pmedia mylist\">
                               <li><b>Publier le :</b> ".$date_ajoute."</li>
-                              <li><b>Nbr de telechargement :</b>".$nbr_telechargement."</li>
-                              <li><b>Commentaire : </b>".$comm."</li>
                               <br>
                               <A Href=\"cours-detail.php?file=".$file ."&dir=".$devdir."\">Consulter</A>
                               </ul></p>";
@@ -123,7 +121,7 @@ echo "<div id=\"td\" class=\"tabcontent\">";
             if($code_prof==$_SESSION['id_user']){
             echo '
                   <button type="button" class="btn btn-outline-danger btnmarging" 
-                  onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'\'">Supprimer</button>';
+                  onclick="window.location.href = \'traitement/dropfile.php?file='.$file.'&dir='.$devdir.'&pre=biblio\'">Supprimer</button>';
              }
           }
         }else{

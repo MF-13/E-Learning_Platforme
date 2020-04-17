@@ -36,7 +36,7 @@ include("traitement/function.php");
 if(isset($_GET['id'])){
 $id = $_GET['id'];
 
-$sql = mysqli_query($conn,"SELECT * FROM `user` WHERE id_user=? and type_user='etudiant'");
+$sql = "SELECT * FROM `user` WHERE id_user=? and type_user='etudiant'";
 $value = array($id);
 
 $result = PDO($sql,$value);
@@ -95,7 +95,8 @@ $result = PDO($sql,$value);
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Code Etudiant</span>
                   </div>
-                  <input type="number" name="code_massar" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$id.'"'; }?> disabled>
+                  <input type="number" name="code_massar" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$id.'"'; }
+                  else{ echo 'placeholder="Auto" '; }?> disabled>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">

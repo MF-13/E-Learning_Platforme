@@ -30,8 +30,7 @@
  <?php
  /*Ajouter le Dashboard*/
 include("dashboard.php");
-/*Ajouter la connexion a lbase de donnes*/
-include("connecteDB.php");
+
 include("traitement/function.php");
  ?>
 <!--*************************************************************************************-->

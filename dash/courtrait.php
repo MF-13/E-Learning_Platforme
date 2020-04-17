@@ -91,7 +91,8 @@ $result = PDO($sql,$value);
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">id cour</span>
                   </div>
-                  <input type="number" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$id.'"'; }?> disabled>
+                  <input type="number" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" <?php if(isset($_GET['id'])){ echo 'value="'.$id.'"'; }
+                  else{ echo 'placeholder="Auto" '; }?> disabled>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
