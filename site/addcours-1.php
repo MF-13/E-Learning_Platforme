@@ -36,9 +36,25 @@ session_start();
 
     if (isset($_GET['etat'])) {
       if ($_GET['etat']=="true"){
-        echo "<script>alert('ajouter avec succes');</script>";
+        echo '<div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>Cour est <strong>Ajouter</strong> !
+            </div>
+            <script>
+               setTimeout(function(){
+                  window.location.href = \'addcours-1.php\';
+               }, 1000);
+            </script>';
       }else{
-         echo "<script>alert('error dans l ajout ressayer svp')</script>";
+         echo '
+          <div class="alert alert-danger"  style="margin-left: 20px; margin-right: 20px;">
+              <i class="far fa-check-square"></i> L\'opération n\'a  pas ete effectue!
+            </div>
+            <script>
+               setTimeout(function(){
+                  window.location.href = \'addcours-1.php\';
+               }, 1000);
+            </script>
+         ';
       }
 
 
