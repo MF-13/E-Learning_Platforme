@@ -4,51 +4,8 @@ session_start();
     capterConnexion($_SESSION['id_user']);
     $typeresult = TypeUser($_SESSION['type']);
   ?>
-  <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/Cours-espace.css">
-    <link rel="stylesheet" href="../static/css/Index.css">
-    <title>Cours Espace</title>
-</head>
-<body>
-   <!--Begin of NavBar-->
- <?php
- include("navbar.php");
- ?>
-  <!--END Nav bar-->
-    <!-- Path Section -->
-    <section class="sectionpath">
-        <p><b><i class="fas fa-home"></i>&nbspAcceuil / Cours Espace / Upload</b></p>
-    </section>
-    <!-- Path Section -->
-      <?php 
-    /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
-    if ($typeresult!=0){
-      echo "
-      <script>
-     if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
-        window.location.href = '../index.php';
-      }else{
-        window.location.href = '../index.php';
-      }
-      </script>";
-    }
-    ?>
-    <!-- Posts Section -->  
-    <style>
-      section.sectionpath{
-        margin-top: 100px;
-      }
-    </style>
 
-
+   
     <?php
 
        //Récupération de l'emplacement temporaire de stockage du fichier sur le serveur
@@ -115,7 +72,7 @@ session_start();
        }
 
 
-       echo '<center><H3>Fichier <font color="red">' . $_FILES['userfile']['name'] . '</font> déposé avec succes</H4></center>';
+       
         
         /*traitement pour tirer l'id du cour depuis la base de donnees*/
         if ($_POST['type_cours'] == "bibliotheque") {
@@ -142,8 +99,10 @@ session_start();
         $values3 = array($filiere,$_SESSION['id_user'],$_POST['commentaire'],$id_cour,$_POST['type_cours'],$nom_file,$path,$_POST['titre_cour']);
         $res3 = PDO($query3,$values3);
             
+        if ($res3) {
+          header("location: ../addcours-1.php?etat=true");
+        }else{
+          header("location: ../addcours-1.php?etat=false");
+        }
+        
     ?>
-
-  <center><A href="../cours-espace.php">Retour vers la page des cours</A></center>
-</body>
-</html>

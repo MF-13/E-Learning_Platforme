@@ -59,20 +59,25 @@ foreach($type as $type_c){
       echo "<hr>";   
       while ($file = readdir($dir)){
       //traitement pour ne pas afficher le dossier pere et le dossier de racine
-      $query1 = "SELECT type_cour from file where nom_pdf=?;";
-      $values1 = array($file);
+      $query1 = "SELECT type_cour from file where type_cour=? and nom_pdf=?;";
+      $values1 = array($type_c,$file);
       $res1 = PDO($query1,$values1);
       if($res1->rowCount()!=0){
         while ($row = $res1->fetch()) {
           $type_cour=$row['type_cour'];
         }
+      }else{
+          $type_cour="";
       }
+
+      
       if ($file != "." && $file != ".." && $type_cour==$type_c){ 
+        
         /**********************************************/
         /*si cest les dossier .. ou . on affiche rien */
         /**********************************************/  
-        $query2 = "SELECT commantaire,id_cour,nbr_telechargement,date_ajoute,nom_pdf,titre from file where  nom_pdf=?;";
-        $values2 = array($file);
+        $query2 = "SELECT commantaire,id_cour,nbr_telechargement,date_ajoute,nom_pdf,titre from file where type_cour=? and nom_pdf=?;";
+        $values2 = array($type_c,$file);
         $res2 = PDO($query2,$values2);
         if($res2->rowCount()!=0){
            while ($row = $res2->fetch()) {
@@ -172,14 +177,16 @@ foreach($type as $type_c){
         echo "<hr>";   
         while ($file = readdir($dir)){
         //traitement pour ne pas afficher le dossier pere et le dossier de racine
-            $query1 = "SELECT type_cour from file where nom_pdf=?;";
-            $values1 = array($file);
+            $query1 = "SELECT type_cour from file where type_cour = ? and nom_pdf=?;";
+            $values1 = array($type_c,$file);
             $res1 = PDO($query1,$values1);
 
             if($res1->rowCount()!=0){
               while ($row = $res1->fetch()) {
                 $type_cour=$row['type_cour'];
               }
+            }else{
+               $type_cour=" ";
             }
 
             if ($file != "." && $file != ".." && $type_cour==$type_c){ 

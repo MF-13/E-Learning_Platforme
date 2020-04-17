@@ -32,16 +32,36 @@ session_start();
     if ($typeresult==1) {
       header("location: ../dash/index.php");
     }
-    if ($typeresult!=0 ){
-      echo "
-      <script>
-     if(window.confirm(\"vous ne pouvez pas accedez a cette page \")){
-        window.location.href = 'index.php';
+    
+
+    if (isset($_GET['etat'])) {
+      if ($_GET['etat']=="true"){
+        echo '<div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>Cour est <strong>Ajouter</strong> !
+            </div>
+            <script>
+               setTimeout(function(){
+                  window.location.href = \'addcours-1.php\';
+               }, 1000);
+            </script>';
       }else{
-        window.location.href = 'index.php';
+         echo '
+          <div class="alert alert-danger"  style="margin-left: 20px; margin-right: 20px;">
+              <i class="far fa-check-square"></i> L\'opération n\'a  pas ete effectue!
+            </div>
+            <script>
+               setTimeout(function(){
+                  window.location.href = \'addcours-1.php\';
+               }, 1000);
+            </script>
+         ';
       }
-      </script>";
+
+
     }
+
+
+    
     ?>
     <br>
     <!-- END Path Section -->

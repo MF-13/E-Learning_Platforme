@@ -42,6 +42,35 @@ include("traitement/function.php");
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Filiere</h6>
+<?php
+      if (isset($_GET['etat'])) {
+        if($_GET['etat']=="true"){
+          echo '
+            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>professeur est <strong>Ajouter</strong> !
+            </div>
+            <script>
+               setTimeout(function(){
+                  window.location.href = \'filiere.php\';
+               }, 1000);
+            </script>
+            ';
+
+
+          }else{
+            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+                      <i class="fas fa-times"></i> <strong>Error !<strong> l\'hors de l\'opération ! .
+                  </div>
+                  <script>
+                     setTimeout(function(){
+                        window.location.href = \'filiere.php\';
+                     }, 1000);
+                  </script>
+                  ';
+
+          }
+      }
+?>
             </div>
             <div class="card-body">
               <div class="table-responsive">
