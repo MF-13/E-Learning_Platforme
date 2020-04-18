@@ -70,7 +70,7 @@ $result = PDO($sql,$value);
         if($_GET['etat']=="true"){
           echo '
             <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
-              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>Cour est <strong>Ajouter</strong> !
+              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>
             </div>
             <script>
                setTimeout(function(){

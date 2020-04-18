@@ -19,16 +19,18 @@ $_POST['id']=$_GET['id'];
 					      $result = PDO($query,$value);
                 
 					if($result) {
-		echo '		
-          	<script>
-          	alert("Modifier avec succes ! ");
-         setTimeout(function(){
-            window.location.href = \'../filiere.php\';
-         }, 1000);
-      </script>';
+                  echo '<script language="Javascript"> document.location.replace("../filiere.php?etat=true"); </script>';
+		// echo '		
+      //     	<script>
+      //     	alert("Modifier avec succes ! ");
+      //    setTimeout(function(){
+      //       window.location.href = \'../filiere.php\';
+      //    }, 1000);
+      // </script>';
 	}
 	else{
-		echo "error hors de l insertion a la base de donnes";
+      echo '<script language="Javascript"> document.location.replace("../filiere.php?etat=false"); </script>';
+		//echo "error hors de l insertion a la base de donnes";
 	}
 
               }
