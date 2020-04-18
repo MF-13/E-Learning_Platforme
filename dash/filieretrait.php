@@ -75,12 +75,12 @@ $result = PDO($sql,$value);
         if($_GET['etat']=="true"){
           echo '
             <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
-              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>Filiere est <strong>Ajouter</strong> !
+              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>
             </div>
             <script>
                setTimeout(function(){
                   window.location.href = \'filieretrait.php\';
-               }, 1000);
+               }, 3000);
             </script>
             ';
 
@@ -92,7 +92,7 @@ $result = PDO($sql,$value);
                   <script>
                      setTimeout(function(){
                         window.location.href = \'filieretrait.php\';
-                     }, 1000);
+                     }, 2000);
                   </script>
                   ';
 

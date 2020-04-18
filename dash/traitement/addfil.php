@@ -19,14 +19,16 @@ if (isset($_POST['filiere_id']) AND isset($_POST['filiere']) AND isset($_POST['d
 	$result = PDO($query,$value);
 
 	if ($result) {
-		  header("location: ../filieretrait.php?etat=true");
+		//header("location: ../filieretrait.php?etat=true");
+		echo '<script language="Javascript"> document.location.replace("../filieretrait.php?etat=true"); </script>';
 	}
 	else{
-		header("location: ../filieretrait.php?etat=false");
+		///header("location: ../filieretrait.php?etat=false");
+		echo '<script language="Javascript"> document.location.replace("../filieretrait.php?etat=false"); </script>';
 	}
 
 }else{
-
-header("location: ../filieretrait.php?etat=false");
+// header("location: ../filieretrait.php?etat=false");
+echo '<script language="Javascript"> document.location.replace("../filieretrait.php?etat=false"); </script>';
 }
 ?>
