@@ -1,8 +1,6 @@
 <?php
 include("function.php");
-?>
 
-<?php
 $score=0;
 $q = 1;
 $id_quiz =  $_GET['id'];
