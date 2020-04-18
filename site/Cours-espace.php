@@ -27,13 +27,114 @@
    
     
     <!-- Type Donnes Section -->
-    <div class="tab">
+    <ul class="nav nav-pills nav-fill tab">
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
+      </li>
+    </ul>
+    <!-- <div class="tab">
       <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
       </div>
-    </div>    
+    </div> -->
+<!---------------------------Quiz Post version etudiant---------------------->        
+    <div class="container">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card text-center cardpadding">
+                  <div class="card-body">
+                    <div class="media">
+                      <img src="static/img/Cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                        <div class="media-body"> 
+                          <h4 class="mt-0">Quiz : Nom de quiz</h4>";
+                          <p class="pmedia">
+                            <ul class="pmedia mylist">
+                              <li><b>Réaliser par :</b> Nom de professeur</li>
+                              <li><b>Publier le :</b> 18/04/2020</li>
+                              <li><b>Dérniére date a rendre :</b> 18/04/2020</li>
+                                  <br>
+                                <A Href="#">Consulter</A>
+                            </ul>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<!---------------------------Quiz Post version etudiant---------------------->  
+<!---------------------------Quiz Post version professeur----------------------> 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="card text-center cardpadding">
+        <div class="card-body">
+          <div class="media">
+            <img src="static/img/Cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+              <div class="media-body"> 
+                <button type="button" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
+                <h4 class="mt-0">Quiz : Nom de quiz</h4>
+                
+                <p class="pmedia">
+                  <ul class="pmedia mylist">
+                    <li><b>Publier le :</b> 18/04/2020</li>
+                    <li><b>Dérniére date a rendre :</b> 18/04/2020</li>
+                        <br>
+                      <A Href="#">Consulter</A>
+                  </ul>
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <i class="fas fa-sort-down fa-2x" style="padding-bottom: 10px;"></i> Etudiants Résultas
+                  </button>
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                      <table class="table">
+                        <thead>
+                          <tr style="background-color: #393e46; color: white;">
+                            <th scope="col" style="text-align: center;">Nom d'etudiant</th>
+                            <th scope="col" style="text-align: center;">Nombre des réponce correcte</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>EL KHABBAZ Mohamed</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>Auman Bouadi</td>
+                            <td>12</td>
+                          </tr>
+                          <tr>
+                            <td>Rabiee ZAmel</td>
+                            <td>7</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!---------------------------Quiz Post version professeur---------------------->  
+                        
     <!-- Type Donnes Section -->
     <!--Selection des fichiers a afficher-->
   <section class="Posts">
@@ -101,7 +202,7 @@ foreach($type as $type_c){
         echo '
           <div class="container">
             <div class="row">
-              <div class="col-lg-12">
+              <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card text-center cardpadding">
                   <div class="card-body">
                     <div class="media">
@@ -218,7 +319,7 @@ foreach($type as $type_c){
                   echo '
                     <div class="container">
                       <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                           <div class="card text-center cardpadding">
                             <div class="card-body">
                               <div class="media">
@@ -272,6 +373,8 @@ foreach($type as $type_c){
                   .tab {
                   overflow: hidden;
                   background-color: #222831;
+                  color: white;
+                  text-decoration: none;
                   }
                 /* Style the buttons inside the tab */
                 .tab button {
@@ -284,16 +387,27 @@ foreach($type as $type_c){
                   transition: 0.3s;
                   font-size: 20px;
                   text-align: center;
+                  color: white;
+                  text-decoration: none;
                 }
-
+                
                 /* Change background color of buttons on hover */
                 .tab button:hover {
                   background-color: #57585a;
+                  color: white;
+                  text-decoration: none;
                 }
 
                 /* Create an active/current tablink class */
-                .tab button.active {
+                .tab button:active {
                   background-color: #57585a;
+                  color: white;
+                  text-decoration: none;
+                }
+                .tab button:focus{
+                  background-color: #57585a;
+                  color: white;
+                  text-decoration: none;
                 }
     </style>
     <script>
@@ -314,14 +428,14 @@ foreach($type as $type_c){
     </script>
     <script>
               function openCity(evt, cityName) {
-                var i, tabcontent, tablinks;
+                var i, tabcontent, ;
                 tabcontent = document.getElementsByClassName("tabcontent");
                 for (i = 0; i < tabcontent.length; i++) {
                   tabcontent[i].style.display = "none";
                 }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+                 = document.getElementsByClassName("");
+                for (i = 0; i < .length; i++) {
+                  [i].className = [i].className.replace(" active", "");
                 }
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";

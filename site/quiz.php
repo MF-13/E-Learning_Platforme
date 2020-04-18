@@ -20,17 +20,22 @@ session_start();
  	<br>
  	<br>
  	<br>
+ 	<!-- <br>
  	<br>
  	<br>
  	<br>
  	<br>
- 	<br>
- 	<br>
+ 	<br> -->
 <!---------------------------------------------------------------------------------------------------->
-
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="card-body">
 <?php
 
 $id_quiz = '1';
+
 
 
 echo '<form action="traitement/quiztrait.php?id='.$id_quiz.'" method="post">';
@@ -38,7 +43,7 @@ echo '<form action="traitement/quiztrait.php?id='.$id_quiz.'" method="post">';
   
   
 $q=1;
-echo "Nom quiz : test ";
+echo '<h5 class="card-title">Nom quiz : test </h5>';
 while($q<=10){
   $query = "SELECT * from question_quiz where id_quiz = ? and n_question = ?" ;
     
@@ -54,13 +59,12 @@ while($q<=10){
       array_push($rep, $row['rep_3']);
 
       shuffle($rep);
-      echo '<div>
-          <p>Question '.$q.' : '.$question.' : </p>';
+      echo'
+          <p class="card-text">Question '.$q.' : '.$question.' : </p>';
       foreach ($rep as $r) {
-        echo '<input type="radio" value="'.$r.'"  name="'.$q.'"  >'.$r.'<br>';
-        
+        echo '<input type="radio" value="'.$r.'"  name="'.$q.'" style="margin-left: 20px; margin-bottom: 8px;"  >'.$r.'<br>';
       }
-      echo '</div>
+      echo '
       <br><hr>';
 
     }
@@ -71,14 +75,19 @@ $q++;
   
   
   ?>
-  
-    <input type="submit" name="submit">
+    <br>
+    <input type="submit" name="submit" class="btn btn-success float-right">
 </form>
 
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 
-
+<br>
 
 
 <!---------------------------------------------------------------------------------------------------->
