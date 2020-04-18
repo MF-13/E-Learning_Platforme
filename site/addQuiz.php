@@ -38,6 +38,7 @@ session_start();
                     <div class="card-body">
                         Question 1 :
                     </div>
+                    <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Question">
                     <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Réponce correcte">
                     <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Réponce 2">
                     <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Réponce 3">

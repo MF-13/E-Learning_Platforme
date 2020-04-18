@@ -75,7 +75,7 @@ $result = PDO($sql,$value);
             <script>
                setTimeout(function(){
                   window.location.href = \'courtrait.php\';
-               }, 1000);
+               }, 2000);
             </script>
             ';
 
@@ -87,7 +87,7 @@ $result = PDO($sql,$value);
                   <script>
                      setTimeout(function(){
                         window.location.href = \'courtrait.php\';
-                     }, 1000);
+                     }, 2000);
                   </script>
                   ';
 

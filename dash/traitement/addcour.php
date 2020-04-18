@@ -1,6 +1,6 @@
 <?php
  /*Ajouter le Dashboard*/
-include("../dashboard.php");
+// include("../dashboard.php");
 /*Ajouter la connexion a lbase de donnes*/
 include("function.php");
 
@@ -14,13 +14,15 @@ if (isset($_POST['nom']) AND isset($_POST['description'])  AND isset($_POST['fil
 	$result = PDO($query,$value);
 
 	if ($result){
-		header("location: ../courtrait.php?etat=true");
+		// header("location: ../courtrait.php?etat=true");
+		echo '<script language="Javascript"> document.location.replace("../courtrait.php?etat=true"); </script>';
 	}
 	else{
-		header("location: ../courtrait.php?etat=false");
+		// header("location: ../courtrait.php?etat=false");
+		echo '<script language="Javascript"> document.location.replace("../courtrait.php?etat=false"); </script>';
 	}
 }
 else{
-header("location: ../courtrait.php?etat=false");	
+	echo '<script language="Javascript"> document.location.replace("../courtrait.php?etat=false"); </script>';	
 }
 ?>
