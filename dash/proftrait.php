@@ -80,7 +80,7 @@ $result = PDO($sql,$value);
             <script>
                setTimeout(function(){
                   window.location.href = \'proftrait.php\';
-               }, 5000);
+               }, 2000);
             </script>
             ';
 
@@ -92,7 +92,7 @@ $result = PDO($sql,$value);
                   <script>
                      setTimeout(function(){
                         window.location.href = \'proftrait.php\';
-                     }, 5000);
+                     }, 2000);
                   </script>
                   ';
 

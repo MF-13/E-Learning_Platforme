@@ -80,7 +80,7 @@ $result = PDO($sql,$value);
             <script>
                setTimeout(function(){
                   window.location.href = \'filieretrait.php\';
-               }, 2000);
+               }, 3000);
             </script>
             ';
 

@@ -52,7 +52,7 @@ include("traitement/function.php");
             <script>
                setTimeout(function(){
                   window.location.href = \'filiere.php\';
-               }, 1000);
+               }, 2000);
             </script>
             ';
 
@@ -64,7 +64,7 @@ include("traitement/function.php");
                   <script>
                      setTimeout(function(){
                         window.location.href = \'filiere.php\';
-                     }, 1000);
+                     }, 2000);
                   </script>
                   ';
 

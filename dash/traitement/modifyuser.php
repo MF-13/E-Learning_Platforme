@@ -28,6 +28,7 @@ $url = (string)$_SERVER['HTTP_REFERER'];
 			$result = PDO($query,$value);
 			$id = $_POST['id_user'];
 			//print_r($id);
+//////////////////////////////////////modufier user			
 			if($result) {
 				if($dernier=="etudtrait.php?=$id"){
 				echo '<script language="Javascript"> document.location.replace("../etudiant.php?etat=true"); </script>';
