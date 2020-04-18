@@ -38,10 +38,10 @@ echo '<form action="traitement/quiztrait.php?id='.$id_quiz.'" method="post">';
   
   
 $q=1;
-
+echo "Nom quiz : test ";
 while($q<=10){
   $query = "SELECT * from question_quiz where id_quiz = ? and n_question = ?" ;
-
+    
   $value = array($id_quiz,$q);
   $res = PDO($query,$value);
 
@@ -60,7 +60,8 @@ while($q<=10){
         echo '<input type="radio" value="'.$r.'"  name="'.$q.'"  >'.$r.'<br>';
         
       }
-      echo '</div><br><hr>';
+      echo '</div>
+      <br><hr>';
 
     }
   }
@@ -68,14 +69,9 @@ while($q<=10){
 $q++;
 }
   
-
-
-  
-  
   
   ?>
   
-
     <input type="submit" name="submit">
 </form>
 

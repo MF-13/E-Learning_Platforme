@@ -7,7 +7,9 @@ $_POST['id_user']=$_GET['id'];
 $url = (string)$_SERVER['HTTP_REFERER'];
 	$tab = explode("/", $url);
 	$dernier = $tab[count($tab)-1];
-	
+	$tab2 = explode("?",$dernier);
+	$dernier2 = $tab2[0];
+
   if (isset($_POST['id_user']) AND isset($_POST['nom']) AND isset($_POST['prenom']) AND
     isset($_POST['mdps']) AND isset($_POST['date_naiss']) AND isset($_POST['filiere']) AND 
     isset($_POST['telephone']) AND isset($_POST['adresse']) AND isset($_POST['email'])) {
@@ -26,11 +28,11 @@ $url = (string)$_SERVER['HTTP_REFERER'];
               		WHERE id_user=? ;';
             $value = array($_POST['nom'],$_POST['prenom'],$_POST['date_naiss'],$_POST['telephone'],$_POST['filiere'],$_POST['email'],$_POST['mdps'],$_POST['adresse'],$_POST['id_user']);			
 			$result = PDO($query,$value);
-			$id = $_POST['id_user'];
-			//print_r($id);
-//////////////////////////////////////modufier user			
-			if($result) {
-				if($dernier=="etudtrait.php?=$id"){
+			$etudiant = "etudtrait.php";
+			
+		
+			if($result->rowCount()!=0) {
+				if($dernier2==$etudiant){
 				echo '<script language="Javascript"> document.location.replace("../etudiant.php?etat=true"); </script>';
 				}
 				else{
@@ -38,7 +40,7 @@ $url = (string)$_SERVER['HTTP_REFERER'];
 				}
 			}
 			else{
-				if($dernier=="etudtrait.php?=$id"){
+				if($dernier2==$etudiant){
 					echo '<script language="Javascript"> document.location.replace("../etudiant.php?etat=false"); </script>';
 					}
 					else{
@@ -52,7 +54,7 @@ $url = (string)$_SERVER['HTTP_REFERER'];
 
   }
   else{
-	if($dernier=="etudtrait.php?=$id"){
+	if($dernier2==$etudiant){
 		echo '<script language="Javascript"> document.location.replace("../etudiant.php?etat=false"); </script>';
 		}
 		else{

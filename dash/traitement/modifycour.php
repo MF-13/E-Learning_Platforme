@@ -20,14 +20,7 @@ $_POST['id']=$_GET['id'];
                 
 					if($result) {
             echo '<script language="Javascript"> document.location.replace("../cours.php?etat=true"); </script>';
-	// 	echo '		
-  //         	<script>
-  //         	alert("Modifier avec succes ! ");
-  //        setTimeout(function(){
-  //           window.location.href = \'../etudiant.php\';
-  //        }, 1000);
-  //     </script>';
-	// }
+	 }
 	else{
     echo '<script language="Javascript"> document.location.replace("../cours.php?etat=false"); </script>';
 		//echo "error hors de l insertion a la base de donnes";
