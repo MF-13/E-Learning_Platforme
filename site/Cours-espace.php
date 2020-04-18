@@ -27,14 +27,28 @@
    
     
     <!-- Type Donnes Section -->
-    <div class="tab">
+    <ul class="nav nav-pills nav-fill tab">
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
+      </li>
+    </ul>
+    <!-- <div class="tab">
       <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
-        <button type="button" class="btn btn-secondary tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
+        <button type="button" class="btn btn-link " onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
       </div>
-    </div>
+    </div> -->
 <!---------------------------Quiz Post version etudiant---------------------->        
     <div class="container">
             <div class="row">
@@ -359,6 +373,8 @@ foreach($type as $type_c){
                   .tab {
                   overflow: hidden;
                   background-color: #222831;
+                  color: white;
+                  text-decoration: none;
                   }
                 /* Style the buttons inside the tab */
                 .tab button {
@@ -371,16 +387,27 @@ foreach($type as $type_c){
                   transition: 0.3s;
                   font-size: 20px;
                   text-align: center;
+                  color: white;
+                  text-decoration: none;
                 }
-
+                
                 /* Change background color of buttons on hover */
                 .tab button:hover {
                   background-color: #57585a;
+                  color: white;
+                  text-decoration: none;
                 }
 
                 /* Create an active/current tablink class */
-                .tab button.active {
+                .tab button:active {
                   background-color: #57585a;
+                  color: white;
+                  text-decoration: none;
+                }
+                .tab button:focus{
+                  background-color: #57585a;
+                  color: white;
+                  text-decoration: none;
                 }
     </style>
     <script>
@@ -401,14 +428,14 @@ foreach($type as $type_c){
     </script>
     <script>
               function openCity(evt, cityName) {
-                var i, tabcontent, tablinks;
+                var i, tabcontent, ;
                 tabcontent = document.getElementsByClassName("tabcontent");
                 for (i = 0; i < tabcontent.length; i++) {
                   tabcontent[i].style.display = "none";
                 }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+                 = document.getElementsByClassName("");
+                for (i = 0; i < .length; i++) {
+                  [i].className = [i].className.replace(" active", "");
                 }
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
