@@ -1,4 +1,5 @@
 <?php
+/*afficher les resultats du quiz*/
 include("fun.php");
 ?>
 <?php

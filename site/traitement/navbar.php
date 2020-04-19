@@ -9,6 +9,7 @@
     switch($tab[4])
     {
       case 'index.php'       :      $act['index.php'] = 'active'; $title = 'Index';break;
+      case ''       :      $act['index.php'] = 'active'; $title = 'Index';break;
       case 'filiere-1.php'       :    $act['filiere-1.php'] = 'active'; $title = 'Filiere';break;
       case 'cours-espace.php'       : $act['cours-espace.php'] = 'active'; $title = 'Cours';break;
       case 'contact-us.php'       : $act['contact-us.php'] = 'active'; $title = 'Contact';break;

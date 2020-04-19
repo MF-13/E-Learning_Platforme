@@ -20,7 +20,7 @@
 
 
 	function capterConnexion($code){
-			/*On donne en parametre le code massar : $_SESSION['code_massar']*/
+			/*On donne en parametre le code massar : $_SESSION['id_user']*/
 		  /*cette partie de code sert a capte les non-user pour ne pas acceder a la page des cours*/
 		    if (!(isset($code)))
 		    {

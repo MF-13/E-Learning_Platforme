@@ -1,12 +1,28 @@
 <?php
-include("function.php");
+session_start();
 
+include("function.php");
 $score=0;
 $q = 1;
+
 $id_quiz =  $_GET['id'];
 $rep_correcte = "";
 $rep_incorrecte = "";
-while ($q<= 10) {
+
+
+$query3 = "select count(id_quiz) as nbr from question_quiz where id_quiz = ?";
+$values3 = array($id_quiz);
+$stm = PDO($query3,$values3);
+
+if ($stm->rowCount()!=0) {
+  while ($row = $stm->fetch()) {
+    $nbr_qst = $row['nbr'];
+  }
+}
+
+
+
+while ($q<= $nbr_qst) {
 
 
 	if (isset($_POST[$q])) {
@@ -44,12 +60,9 @@ while ($q<= 10) {
 $q++;	
 }
 
-echo "votre score est : ".$score."/10<br>";
-echo "correcte ".$rep_correcte."<br>";
-echo "incorrecte ".$rep_incorrecte;
-$id_etd = '1';
+
 $query2 = "insert into resultat_quiz values(?,?,?,?,?)";
-$values2 = array($id_quiz,$id_etd,$score,$rep_correcte,$rep_incorrecte);
+$values2 = array($id_quiz,$_SESSION['id_user'],$score,$rep_correcte,$rep_incorrecte);
 PDO($query2,$values2);
 
 ?>

@@ -1,4 +1,6 @@
 <?php
+/*insertion du quiz a la base de donnes*/
+
 for ($i=1; $i <=$_GET['qst'] ; $i++) { 
 	
 if (isset($_POST['question'.$i]) && isset($_POST['repcorrques'.$i]) && isset($_POST['rep2ques'.$i]) && isset($_POST['rep3ques'.$i])) {

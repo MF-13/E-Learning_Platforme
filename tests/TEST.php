@@ -12,7 +12,7 @@ $id_quiz = '1';
 
 echo '<form action="affiche.php?id='.$id_quiz.'" method="post">';
 	
-	
+	/*affichage du quiz*/
 	
 $q=1;
 

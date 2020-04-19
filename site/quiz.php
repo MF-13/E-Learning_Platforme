@@ -34,9 +34,18 @@ session_start();
           <div class="card-body">
 <?php
 
-$id_quiz = '1';
+$id_quiz = $_GET['id'];
 
 
+$query = "select count(id_quiz) as nbr from question_quiz where id_quiz = ?";
+$values = array($id_quiz);
+$stm = PDO($query,$values);
+
+if ($stm->rowCount()!=0) {
+  while ($row = $stm->fetch()) {
+    $nbr_qst = $row['nbr'];
+  }
+}
 
 echo '<form action="traitement/quiztrait.php?id='.$id_quiz.'" method="post">';
   
@@ -44,7 +53,7 @@ echo '<form action="traitement/quiztrait.php?id='.$id_quiz.'" method="post">';
   
 $q=1;
 echo '<h5 class="card-title">Nom quiz : test </h5>';
-while($q<=10){
+while($q<=$nbr_qst){
   $query = "SELECT * from question_quiz where id_quiz = ? and n_question = ?" ;
     
   $value = array($id_quiz,$q);

@@ -29,7 +29,7 @@
     <!-- Type Donnes Section -->
     <ul class="nav nav-pills nav-fill tab">
       <li class="nav-item">
-        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'cour')"  style="padding-left: 50px; padding-right: 50px;">Cours</button>
       </li>
       <li class="nav-item">
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
@@ -38,7 +38,7 @@
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
       </li>
       <li class="nav-item">
-        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'quiz')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
       </li>
     </ul>
     <!-- <div class="tab">
@@ -278,6 +278,157 @@ foreach($type as $type_c){
 }
 
   ?> 
+
+  <?php  /*quiz traitement*/
+      echo "<div id=\"quiz\" class=\"tabcontent\">";
+        echo "Espace Quiz<br>";
+        /*etudiant*/
+if ($typeresult==-1) {
+
+          $query = "select filiere_user from user where id_user = ?";
+          $values = array($_SESSION['id_user']);
+          $stm = PDO($query,$values);
+          if($stm->rowCount()!=0){
+            while($row = $stm->fetch()){
+              $filiere_user = $row['filiere_user'];
+            }
+            
+          }
+
+          $query8 = "select * from quiz where id_filiere= ? order by id_quiz desc";
+          $values8 = array($filiere_user);
+          $stm8 = PDO($query8,$values8);
+          if ($stm8->rowCount()!=0) {
+            while ($row = $stm8->fetch()) {
+              echo'
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="card text-center cardpadding">
+                        <div class="card-body">
+                          <div class="media">
+                            <img src="static/img/Cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                              <div class="media-body"> 
+                                <h4 class="mt-0">Quiz : '.$row['nom_quiz'].'</h4>
+                                <p class="pmedia">
+                                  <ul class="pmedia mylist">';
+                                  $q = "SELECT concat(nom_user,' ',prenom_user) as nom_prof from user where id_user = ?";
+                                  $v = array($row['id_prof']);
+                                  $r = PDO($q,$v);
+                                  if ($r->rowCount()!=0) {
+                                    while($rw = $r->fetch()){
+                                      $nom_prof = $rw['nom_prof'];
+                                    }
+                                  }
+                           echo '<li><b>Réaliser par :</b> '.$nom_prof.'</li>
+                                    <li><b>Publier le :</b>'.$row['date_pub'].'</li>
+                                    <li><b>Dérniére date a faire :</b> '.$row['dernier_delai'].'</li>
+                                        <br>
+                                      <A Href="quiz.php?id='.$row['id_quiz'].'">Realiser le Quiz</A>
+                                  </ul>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              ';
+            }
+          }
+
+        
+}
+/*professeur*/
+if ($typeresult==0) {
+          $query8 = "select * from quiz where id_prof = ?  order by id_quiz desc";
+          $values8 = array($_SESSION['id_user']);
+          $stm8 = PDO($query8,$values8);
+          if ($stm8->rowCount()!=0) {
+            while ($row = $stm8->fetch()) {
+  echo'
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="card text-center cardpadding">
+        <div class="card-body">
+          <div class="media">
+            <img src="static/img/Cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+              <div class="media-body"> 
+                <button type="button" class="btn btn-danger float-right" onclick="document.location.href =\'traitement/dropquiz.php?id='.$row['id_quiz'].'\' "><i class="far fa-trash-alt"></i></button>
+                <h4 class="mt-0">Quiz : '.$row['nom_quiz'].'</h4>
+                
+                <p class="pmedia">
+                  <ul class="pmedia mylist">
+                    <li><b>Publier le :</b>'.$row['date_pub'].'</li>
+                    <li><b>Dérniére date a rendre :</b>'.$row['dernier_delai'].'</li>
+                        <br>
+                      <A Href="quiz.php?id='.$row['id_quiz'].'">Consulter</A>
+                  </ul>
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#'.$row['id_quiz'].'"
+                   aria-expanded="false" aria-controls="collapseExample">
+                    <i class="fas fa-sort-down fa-2x" style="padding-bottom: 10px;"></i> Etudiants Résultas
+                  </button>';
+                    /*result start : */
+                 echo  '<div class="collapse" id="'.$row['id_quiz'].'">
+                            <div class="card card-body">
+                            <table class="table">
+                                  <thead>
+                                    <tr style="background-color: #393e46; color: white;">
+                                      <th scope="col" style="text-align: center;">Nom d\'etudiant</th>
+                                      <th scope="col" style="text-align: center;">Nombre des reponses correcte</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  
+                  ';
+                  $qr = "SELECT * from resultat_quiz where id_quiz=?";
+                  $val = array($row['id_quiz']);
+                  $stm = PDO($qr,$val);
+                  if ($stm->rowCount()!=0) {
+                    while($row = $stm->fetch()){
+                                  $id_etd = $row['id_etudiant'];
+                                  $q = "SELECT concat(nom_user,' ',prenom_user) as nom_etd from user where id_user = ?";
+                                  $v = array($id_etd);
+                                  $r = PDO($q,$v);
+                                  if ($r->rowCount()!=0) {
+                                    while($rw = $r->fetch()){
+                                      $nom_etd = $rw['nom_etd'];
+                                    }
+                                  }
+
+                              echo '<tr>
+                                    <td>'.$nom_etd.'</td>
+                                    <td>'.$row['resultat'].'</td>
+                                    ';
+                    }
+                  }else{
+                    echo "<td>acune resultat est disponible pour le moment</td>";
+                  }
+
+                  
+                echo '
+                      </tbody>
+                      </table>
+                      </div>
+                      </div>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  ';
+     }
+    }
+}
+        /*traitement si c'est un proffesseur*/
+      echo "</div>";
+  ?>
 
   <!--Fotter,script and Contact form-->
   </section>

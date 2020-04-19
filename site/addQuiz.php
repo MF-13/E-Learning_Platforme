@@ -17,44 +17,92 @@ session_start();
       include("traitement/navbar.php");
       include("traitement/function.php");
  	?>
-<!---------------------------------------------------------------------------------------------------->   
-    <br>
+<!---------------------------------------------------------------------------------------------------->  
+<?php
+echo '
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card">
                     <h5 class="card-header">Ajouter le Quiz</h5>
                     <div class="card-body">
-                    <form>
-                    <div class="form-group row">
+    ';
+
+
+if (isset($_GET['number'])) {
+    if (empty($_GET['number'])) {
+        header("location: addQuiz.php");
+    }
+    $n = $_GET['number'];
+    
+    echo'<form action="traitement/insertqst.php?qst='.$n.'" method="post">';
+    echo'<div class="form-group row">
                         <label for="inputTitre" class="col-sm-2 col-form-label">Titre Quiz</label>
                         <div class="col-sm-8">
-                        <input type="password" class="form-control" id="inputPassword">
+                        <input type="text" name="titre" class="form-control" id="inputtitre">
                         </div>
-                    </div>
-                    <!-- Question area -->
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="card">
-                    <div class="card-body">
-                        Question 1 :
-                    </div>
-                    <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Question">
-                    <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Réponce correcte">
-                    <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Réponce 2">
-                    <input type="text" style="margin: 10px;" class="form-control" id="exampleFormControlInput1" placeholder="Réponce 3">
-                    </div>
-                    </div>
-                    <!-- End Question area -->
-                    </form>
-                    </div>
+         </div>';
+         /*Question area*/
+    echo '<div class="col-lg-12 col-md-12 col-sm-12">
+          
+          ';
+
+    for ($i=1; $i <=$n ; $i++) { 
+        
+        echo'<div class="card">
+                <div class="card-body">
+                    Question '.$i.' :
+                </div>
+                 <input type="text" style="margin: 10px;" name="question'.$i.'" class="form-control" id="exampleFormControlInput1" placeholder="Question">
+                  <input type="text" style="margin: 10px;" name="repcorrques'.$i.'" class="form-control" id="exampleFormControlInput1" placeholder="Reponse correcte">
+                  <input type="text" style="margin: 10px;" name="rep2ques'.$i.'" class="form-control" id="exampleFormControlInput1" placeholder="Réponce 2">
+                  <input type="text" style="margin: 10px;" name="rep3ques'.$i.'" class="form-control" id="exampleFormControlInput1" placeholder="Réponce 3">
+            </div>
+        ';
+
+    }
+        echo ' 
+                </div>';
+        /*End Question area*/
+
+     echo '<input type="submit" value="submit" >';
+echo '</form>';
+
+
+}else{
+echo '
+<form>  
+Enter No:<input type="text" id="number" name="number"/><br/>  
+<input type="submit" value="submit" onclick="numberquestion()"/>  
+</form> 
+';
+
+
+}
+echo '              </div>
                 </div>
             </div>
         </div>
     </div>
-    <br>
+
+';
+
+
+?>
+<!---------------------------------------------------------------------------------------------------->  
+
+ 
 <!---------------------------------------------------------------------------------------------------->
-<!---------------------------------------------------------------------------------------------------->
- 	<?php
+ 	<script type="text/javascript">  
+        function numberquestion(){  
+
+        var number=document.getElementById("number").value; 
+
+        document.location.replace("random.php?"+number);
+
+        }  
+    </script> 
+    <?php
 	  include("traitement/footer.php");
 	?> 
 

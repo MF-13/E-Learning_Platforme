@@ -5,6 +5,7 @@
 </head>
 <body>
 <?php
+/*pour le proff pour entrez le quiz*/
 if (isset($_GET['number'])) {
 	$n = $_GET['number'];
 	echo'<form action="quizbd.php?qst='.$n.'" method="post">
@@ -23,7 +24,7 @@ echo '</form>';
 echo '
 <form>  
 Enter No:<input type="text" id="number" name="number"/><br/>  
-<input type="submit" value="submit" onclick="getcube()"/>  
+<input type="submit" value="submit" onclick="numberquestion()"/>  
 </form> 
 ';
 
@@ -35,7 +36,7 @@ Enter No:<input type="text" id="number" name="number"/><br/>
 	
 
 <script type="text/javascript">  
-function getcube(){  
+function numberquestion(){  
 
 var number=document.getElementById("number").value; 
 
