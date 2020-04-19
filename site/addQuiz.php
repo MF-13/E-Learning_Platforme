@@ -19,6 +19,35 @@ session_start();
  	?>
 <!---------------------------------------------------------------------------------------------------->  
 <?php
+      if (isset($_GET['etat'])) {
+        if($_GET['etat']=="true"){
+          echo '
+            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+              <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>
+            </div>
+            <script>
+               setTimeout(function(){
+                  window.location.href = \'addQuiz.php\';
+               }, 2000);
+            </script>
+            ';
+
+
+          }else{
+            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+                      <i class="fas fa-times"></i> <strong>Error !<strong> l\'hors de l\'opération ! .
+                  </div>
+                  <script>
+                     setTimeout(function(){
+                        window.location.href = \'addQuiz.php\';
+                     }, 2000);
+                  </script>
+                  ';
+
+          }
+      }
+?>
+<?php
 echo '
     <div class="container">
         <div class="row">
@@ -40,6 +69,12 @@ if (isset($_GET['number'])) {
                         <label for="inputTitre" class="col-sm-2 col-form-label">Titre Quiz</label>
                         <div class="col-sm-8">
                         <input type="text" name="titre" class="form-control" id="inputtitre">
+                        </div>
+         </div>
+         <div class="form-group row">
+                        <label for="inputTitre" class="col-sm-2 col-form-label">Dérnier date de délai</label>
+                        <div class="col-sm-8">
+                        <input type="date" name="titre" class="form-control" id="inputtitre">
                         </div>
          </div>';
          /*Question area*/
@@ -65,18 +100,24 @@ if (isset($_GET['number'])) {
                 </div>';
         /*End Question area*/
 
-     echo '<input type="submit" value="submit" >';
+     echo '<input type="submit" value="Ajouter" class="btn btn-info float-right" >';
 echo '</form>';
 
 
 }else{
 echo '
-<form>  
-Enter No:<input type="text" id="number" name="number"/><br/>  
-<input type="submit" value="submit" onclick="numberquestion()"/>  
+<form> 
+<div class="form-group row">
+                        <label for="inputTitre" class="col-sm-2 col-form-label">Entrez le Nombre des question : </label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control"  id="number" name="number"">
+                        </div>
+         </div> 
+
+<input type="submit" value="Suivant" class="btn btn-info float-right" onclick="numberquestion()"/>  
 </form> 
 ';
-
+// Enter No:<input type="text" id="number" name="number"/> 
 
 }
 echo '              </div>

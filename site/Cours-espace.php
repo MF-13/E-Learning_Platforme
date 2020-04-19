@@ -281,7 +281,7 @@ foreach($type as $type_c){
 
   <?php  /*quiz traitement*/
       echo "<div id=\"quiz\" class=\"tabcontent\">";
-        echo "Espace Quiz<br>";
+        //echo "Espace Quiz<br>";
         /*etudiant*/
 if ($typeresult==-1) {
 

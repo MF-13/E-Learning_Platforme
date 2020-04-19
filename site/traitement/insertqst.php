@@ -70,8 +70,16 @@ if (isset ($_POST['titre']) && isset($_POST['question'.$i]) && isset($_POST['rep
 			}
 			/*****************************/
 			/*insertion de quiz*/
-			PDO($query3,$values3);
+			$result=PDO($query3,$values3);
 			/***********************/
+			if ($result) {
+				echo '<script language="Javascript"> document.location.replace("../addQuiz.php?etat=true"); </script>';
+		}else{
+		
+			echo '<script language="Javascript"> document.location.replace("../addQuiz.php?etat=false"); </script>';
+		
+			}
+		
 
 
 ?>
