@@ -13,7 +13,7 @@ $id_quiz = '1';
 echo '<form action="affiche.php?id='.$id_quiz.'" method="post">';
 	
 	/*affichage du quiz*/
-	
+/
 $q=1;
 
 while($q<=10){
@@ -57,8 +57,8 @@ $q++;
 	
 	
 	?>
-	
-
+<form action="affiche.php" method="post">
+		<input type="datetime-local" name="delai">
 		<input type="submit" name="submit">
 </form>
 

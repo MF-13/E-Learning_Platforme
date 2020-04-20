@@ -12,7 +12,7 @@ if (isset($_GET['id'])){
 	PDO($query1,$values);
 	PDO($query2,$values);
 	PDO($query3,$values);
-
+	header("location: ../cours-espace.php");
 
 
 

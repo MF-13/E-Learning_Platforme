@@ -6,8 +6,8 @@ $score=0;
 $q = 1;
 
 $id_quiz =  $_GET['id'];
-$rep_correcte = "";
-$rep_incorrecte = "";
+$rep_correcte = " ";
+$rep_incorrecte = " ";
 
 
 $query3 = "select count(id_quiz) as nbr from question_quiz where id_quiz = ?";
@@ -61,8 +61,15 @@ $q++;
 }
 
 
-$query2 = "insert into resultat_quiz values(?,?,?,?,?)";
+$query2 = "INSERT into resultat_quiz values(?,?,?,?,?)";
 $values2 = array($id_quiz,$_SESSION['id_user'],$score,$rep_correcte,$rep_incorrecte);
-PDO($query2,$values2);
+$result = PDO($query2,$values2);
 
+if ($result) {
+				echo '<script language="Javascript"> document.location.replace("../cours-espace.php?etat=true"); </script>';
+		}else{
+		
+			echo '<script language="Javascript"> document.location.replace("../cours-espace.php?etat=false"); </script>';
+		
+			}
 ?>

@@ -24,7 +24,35 @@
   $typeresult = TypeUser($_SESSION['type']);
 ?>
   <!--END Nav bar-->
-   
+   <?php
+      if (isset($_GET['etat'])) {
+        if($_GET['etat']=="true"){
+          echo '
+            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+              <i class="far fa-check-square"></i> Quiz terminer avec <strong>Success!</strong>
+            </div>
+            <script>
+               setTimeout(function(){
+                  window.location.href = \'Cours-espace.php\';
+               }, 2000);
+            </script>
+            ';
+
+
+          }else{
+            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+                      <i class="fas fa-times"></i> <strong>Erreur !<strong> l\'hors de l\'opération ! .
+                  </div>
+                  <script>
+                     setTimeout(function(){
+                        window.location.href = \'Cours-espace.php\';
+                     }, 2000);
+                  </script>
+                  ';
+
+          }
+      }
+?>
     
     <!-- Type Donnes Section -->
     <ul class="nav nav-pills nav-fill tab">
@@ -41,15 +69,17 @@
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'quiz')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
       </li>
     </ul>
-    <!-- <div class="tab">
-      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-link " onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
-        <button type="button" class="btn btn-link " onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
-        <button type="button" class="btn btn-link " onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
-        <button type="button" class="btn btn-link " onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">Quiz</button>
-      </div>
-    </div> -->
+    <?php
+      if ($typeresult==0) {
+        echo '<div style="padding-left: 40%">
+                <br>
+                <a href="addquiz.php" class="btn btn-info" >Ajouter Quiz</a>&nbsp';
+        echo '  <a href="addcours-1.php" class="btn btn-info">Ajouter cours</a>
+                <br>
+              </div>';
+      }
 
+    ?>
     <!-- Type Donnes Section -->
     <!--Selection des fichiers a afficher-->
   <section class="Posts">
@@ -126,7 +156,7 @@ foreach($type as $type_c){
                         ';
         /*l'affichage ici*/
         /*Au lieu de consulter on va selectioner la description du fichier depuis la base de donnes*/
-        echo "<h4 class=\"mt-0\">".$nom."</h4>";
+        echo "<h4 class=\"mt-0\">".strtoupper($type_c)." : ".$nom."</h4>";
         echo "<p class=\"pmedia\">
                 <ul class=\"pmedia mylist\">
                   <li><b>Nom Cour:</b> ".$nom_cour."</li>
@@ -279,10 +309,14 @@ foreach($type as $type_c){
 
   ?> 
 
-  <?php  /*quiz traitement*/
+  <?php
+
+  /***********************************************************/
+  /*                traitement pour QUIZ                    */
+  /*********************************************************/
       echo "<div id=\"quiz\" class=\"tabcontent\">";
-        //echo "Espace Quiz<br>";
-        /*etudiant*/
+        
+        /* si c'est un etudiant*/
 if ($typeresult==-1) {
 
           $query = "select filiere_user from user where id_user = ?";
@@ -292,7 +326,6 @@ if ($typeresult==-1) {
             while($row = $stm->fetch()){
               $filiere_user = $row['filiere_user'];
             }
-            
           }
 
           $query8 = "select * from quiz where id_filiere= ? order by id_quiz desc";
@@ -300,6 +333,11 @@ if ($typeresult==-1) {
           $stm8 = PDO($query8,$values8);
           if ($stm8->rowCount()!=0) {
             while ($row = $stm8->fetch()) {
+              $dateserveur = new DateTimeImmutable('', new DateTimeZone('Africa/Casablanca'));
+              $date_delai = $row['dernier_delai'];
+
+              if ($dateserveur < $date_delai || $date_delai==null) {
+
               echo'
                 <div class="container">
                   <div class="row">
@@ -322,8 +360,15 @@ if ($typeresult==-1) {
                                   }
                            echo '<li><b>Réaliser par :</b> '.$nom_prof.'</li>
                                     <li><b>Publier le :</b>'.$row['date_pub'].'</li>
-                                    <li><b>Dérniére date a faire :</b> '.$row['dernier_delai'].'</li>
-                                        <br>
+                                ';
+                            if(empty($row['dernier_delai'])){
+                              echo '<li><b>Dérniére date a faire :</b> Pas definie par le Proffeseur</li>';
+                              }else{
+                                echo '<li><b>Dérniére date a faire :</b> '.$row['dernier_delai'].'</li>';
+                              }
+
+
+                              echo '  <br>
                                       <A Href="quiz.php?id='.$row['id_quiz'].'">Realiser le Quiz</A>
                                   </ul>
                                 </p>
@@ -335,12 +380,13 @@ if ($typeresult==-1) {
                     </div>
               </div>
               ';
+              }
             }
           }
 
         
 }
-/*professeur*/
+/*si c'est un professeur*/
 if ($typeresult==0) {
           $query8 = "select * from quiz where id_prof = ?  order by id_quiz desc";
           $values8 = array($_SESSION['id_user']);

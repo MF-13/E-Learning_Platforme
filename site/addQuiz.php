@@ -72,9 +72,9 @@ if (isset($_GET['number'])) {
                         </div>
          </div>
          <div class="form-group row">
-                        <label for="inputTitre" class="col-sm-2 col-form-label">Dérnier date de délai</label>
+                        <label for="inputTitre" class="col-sm-2 col-form-label">Dérnier délai <br>(vide si il n\'ya pas de limit)</label>
                         <div class="col-sm-8">
-                        <input type="date" name="titre" class="form-control" id="inputtitre">
+                        <input type="datetime-local" name="delai" class="form-control" id="inputtitre">
                         </div>
          </div>';
          /*Question area*/
@@ -108,9 +108,9 @@ echo '</form>';
 echo '
 <form> 
 <div class="form-group row">
-                        <label for="inputTitre" class="col-sm-2 col-form-label">Entrez le Nombre des question : </label>
+                        <label for="inputTitre" class="col-sm-2 col-form-label">Nombre des questions : </label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control"  id="number" name="number"">
+                        <input type="number" class="form-control"  id="number" name="number" placeholder="ex: 4">
                         </div>
          </div> 
 

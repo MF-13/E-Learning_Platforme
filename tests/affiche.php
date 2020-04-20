@@ -1,6 +1,23 @@
 <?php
 /*afficher les resultats du quiz*/
 include("fun.php");
+
+$dateserveur = new DateTimeImmutable('', new DateTimeZone('Africa/Casablanca'));
+$date_delai = new DateTime('2020-04-20 10:35:00');
+
+if ($dateserveur < $date_delai) {
+	echo "afficher";
+}else{
+	echo "pas afficher";
+}
+
+
+
+$dt = new DateTime($_POST['delai']);
+$dt->format('Y-m-d h:i:s');
+
+print_r($dt);
+
 ?>
 <?php
 $score=0;
@@ -25,7 +42,7 @@ while ($q<= 10) {
 
 		if ($reponse==$_POST[$q]) {
 			/*reponse correcte*/
-			$rep_correcte.=$q;
+		    $rep_correcte.=$q;
 			$rep_correcte.= " ";
 			$score++;
 		}else{

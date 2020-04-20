@@ -25,7 +25,8 @@ if ($stm2->rowCount()!=0) {
 /***************************/
 /*dernier delai */
 if (isset($_POST['delai'])) {
-	$dernier_delai = $_POST['delai'];
+	$dernier_delai= new DateTime($_POST['delai']);
+    $dernier_delai->format('Y-m-d h:i:s');
 }else{
 	$dernier_delai = null;
 }
