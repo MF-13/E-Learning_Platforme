@@ -34,4 +34,38 @@ function connecte(){
 					return $stm;	
 				}
 
+	function test_input($data) {
+  
+		  $data = trim($data); // Supprime les espaces (ou d'autres caractères) en début et fin de chaîne*/
+		  $data = stripslashes($data); // Supprime les antislashs d'une chaîne
+		  $data = htmlspecialchars($data,ENT_QUOTES,'UTF-8'); //Convertit les caractères spéciaux en entités HTML
+		  return $data;
+
+    }
+	
+
+	function test_email($email) {
+
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) { //verifie les emails
+		    return 1;
+		} else {
+		    return 0;
+		}
+
+	}
+
+	function check_existe_email($email){
+
+		$query = "SELECT email_user from user where email_user=?";
+		$value = array($email);
+		$res = PDO($query,$value);
+		if ($res->rowCount()!=0) {
+			/*s'il exist*/
+			return 0;
+		}
+		/*s'il n'existe pas*/
+		return 1;
+
+	}
+
 ?>

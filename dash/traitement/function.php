@@ -52,7 +52,7 @@
   
 		  $data = trim($data); // Supprime les espaces (ou d'autres caractères) en début et fin de chaîne
 		  $data = stripslashes($data); // Supprime les antislashs d'une chaîne
-		  $data = htmlspecialchars($data); //Convertit les caractères spéciaux en entités HTML
+		  $data = htmlspecialchars($data,ENT_QUOTES,'UTF-8'); //Convertit les caractères spéciaux en entités HTML
 		  return $data;
 
     }
@@ -66,6 +66,62 @@
 		} else {
 		    return 0;
 		}
+
+	}
+
+	function check_existe_email($email){
+
+		$query = "SELECT email_user from user where email_user=?";
+		$value = array($email);
+		$res = PDO($query,$value);
+		if ($res->rowCount()!=0) {
+			/*s'il exist*/
+			return 0;
+		}
+		/*s'il n'existe pas*/
+		return 1;
+
+	}
+
+	function check_existe_phone($num){
+
+		$query = "SELECT telephone_user from user where telephone_user=?";
+		$value = array($num);
+		$res = PDO($query,$value);
+		if ($res->rowCount()!=0) {
+			/*s'il exist*/
+			return 0;
+		}
+		/*s'il n'existe pas*/
+		return 1;
+
+	}
+
+	function check_existe_filiere_id($filiere_id){
+
+		$query = "SELECT filiere_id from user where filiere_id=?";
+		$value = array($filiere_id);
+		$res = PDO($query,$value);
+		if ($res->rowCount()!=0) {
+			/*s'il exist*/
+			return 0;
+		}
+		/*s'il n'existe pas*/
+		return 1;
+
+	}
+
+	function check_existe_filiere_nom($filiere){
+
+		$query = "SELECT filiere from user where filiere=?";
+		$value = array($filiere);
+		$res = PDO($query,$value);
+		if ($res->rowCount()!=0) {
+			/*s'il exist*/
+			return 0;
+		}
+		/*s'il n'existe pas*/
+		return 1;
 
 	}
 ?>
