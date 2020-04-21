@@ -6,7 +6,7 @@ include("traitement/function.php");
 <html>
 <head>
 	<title>Demande</title>
-	<link rel="stylesheet" type="text/css" href="static/css/Sign-up.css">
+	<link rel="stylesheet" type="text/css" href="static/css/sign-up.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 </head>

@@ -10,8 +10,8 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/Profile.css">
-    <link rel="stylesheet" href="static/css/Index.css">
+    <link rel="stylesheet" href="static/css/profile.css">
+    <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="static/css/addcours.css">
     <title>Ajouter un cour</title>
   </head>

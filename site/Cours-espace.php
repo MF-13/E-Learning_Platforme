@@ -10,8 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/Index.css">
-    <link rel="stylesheet" href="static/css/Cours-espace.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/cours-espace.css">
     <title>Cours Espace</title>
 </head>
 <body>
@@ -33,7 +33,7 @@
             </div>
             <script>
                setTimeout(function(){
-                  window.location.href = \'Cours-espace.php\';
+                  window.location.href = \'cours-espace.php\';
                }, 2000);
             </script>
             ';
@@ -45,7 +45,7 @@
                   </div>
                   <script>
                      setTimeout(function(){
-                        window.location.href = \'Cours-espace.php\';
+                        window.location.href = \'cours-espace.php\';
                      }, 2000);
                   </script>
                   ';
