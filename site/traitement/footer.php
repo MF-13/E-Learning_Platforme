@@ -35,6 +35,17 @@
             <a href="http://https://www.enssup.gov.ma/fr" style="color : #ecf0f1; text-decoration: none;" target="_blank">Ministere de l'education</a>
           </li>                                                 
         </ul>                                                 
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-4 ">
+        <div>
+          <h5>Donnés Votre Commentaire</h5>
+        </div>
+        <ul class="mylist fixUl">
+          <li><input type="text" class="form-control" placeholder="Votre Nom"></li><br>
+          <li><input type="text" class="form-control" placeholder="Votre Gmail"></li><br>                                  
+          <li><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Votre Opinion ..."></textarea></li><br>
+          <li><button type="button" class="btn btn-warning float-right" style="color: #ecf0f1;">Envoyer</button></li><br>               
+        </ul>                      
       </div>                                                                                        
       </div>
       <div>
