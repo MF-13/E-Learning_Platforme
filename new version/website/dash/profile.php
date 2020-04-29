@@ -21,6 +21,8 @@
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -70,7 +72,7 @@ $result = PDO($sql,$value);
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
+                <!-- <style>
                   #datatable {
                   text-align: center;
                   font-size: 17px;
@@ -79,12 +81,12 @@ $result = PDO($sql,$value);
                 sup{
                    color: red;
                 }
-                </style>
+                </style> -->
                 
              <?php echo '<form action="traitement/modifyuser.php?id='.$id.'" method="POST" id="formajout">'?>
                   
                 
-                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                <p class="sup2"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Id</span>

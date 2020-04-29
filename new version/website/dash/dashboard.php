@@ -1,3 +1,6 @@
+<head>
+  <link href="css/style.css" rel="stylesheet">
+</head>
 <?php
   session_start();
   if (!(isset($_SESSION['id_user'])) || $_SESSION['type']=="professeur" || $_SESSION['type']=="etudiant")
@@ -8,14 +11,14 @@
   <div id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-      <style type="text/css">
+      <!-- <style type="text/css">
         /*la couleur de la bare du dash*/
         #accordionSidebar{
           background-color: #da1b3e;
           background-image: linear-gradient(90deg, rgba(46,46,46,1) 0%, rgba(46,46,46,1) 35%, rgba(46,46,46,1) 100%);
           background-size: cover;
         }
-      </style>
+      </style> -->
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-text mx-3">EST-Learning</div>
@@ -150,7 +153,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo "<strong>".strtoupper($_SESSION['nom'])."</strong>"; ?> </span>
-                <i class="fas fa-user-shield fa-1x" style="color : black"></i>
+                <i class="fas fa-user-shield fa-1x fa-style"></i>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

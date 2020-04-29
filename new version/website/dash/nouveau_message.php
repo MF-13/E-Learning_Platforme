@@ -21,6 +21,8 @@
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -46,7 +48,7 @@ include("traitement/function.php");
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
+                <!-- <style>
                   #datatable {
                   text-align: center;
                   font-size: 17px;
@@ -55,7 +57,7 @@ include("traitement/function.php");
                 sup{
                    color: red;
                 }
-                </style>
+                </style> -->
                 
              <form action="#" method="POST" id="formajout">
                 

@@ -21,6 +21,8 @@
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -44,7 +46,7 @@ include("traitement/function.php");
       if (isset($_GET['etat'])) {
         if($_GET['etat']=="true"){
           echo '
-            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+            <div class="alert alert-success">
               <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>
             </div>
             <script>
@@ -54,7 +56,7 @@ include("traitement/function.php");
             </script>
             ';
           }else{
-            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+            echo '<div class="alert alert-danger">
                       <i class="fas fa-times"></i> <strong>Error !<strong> l\'hors de l\'opération ! .
                   </div>
                   <script>

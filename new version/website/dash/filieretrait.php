@@ -21,6 +21,8 @@
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 
@@ -74,7 +76,7 @@ $result = PDO($sql,$value);
       if (isset($_GET['etat'])) {
         if($_GET['etat']=="true"){
           echo '
-            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+            <div class="alert alert-success">
               <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>
             </div>
             <script>
@@ -86,7 +88,7 @@ $result = PDO($sql,$value);
 
 
           }else{
-            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+            echo '<div class="alert alert-danger">
                       <i class="fas fa-times"></i> <strong>Error !<strong> l\'hors de l\'opération ! .
                   </div>
                   <script>
@@ -102,7 +104,7 @@ $result = PDO($sql,$value);
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
+                <!-- <style>
                   #datatable {
                   text-align: center;
                   font-size: 17px;
@@ -111,7 +113,7 @@ $result = PDO($sql,$value);
                 sup{
                    color: red;
                 }
-                </style>
+                </style> -->
                 <?php 
                   if(isset($_GET['id'])){
                     echo '<form action="traitement/modifyfiliere.php?id='.$id.'" method="POST" id="formajout">';
@@ -119,7 +121,7 @@ $result = PDO($sql,$value);
                     echo '<form action="traitement/addfil.php" method="POST" id="formajout">';
                   }
                 ?>
-                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  
+                  <p class="sup2"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Filiére ID</span>
