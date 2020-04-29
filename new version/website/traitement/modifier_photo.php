@@ -88,7 +88,7 @@ session_start();
 
     <!-- Posts Section -->  
 
-    <style>
+    <!-- <style>
 
       section.sectionpath{
 
@@ -96,7 +96,7 @@ session_start();
 
       }
 
-    </style>
+    </style> -->
 
 
 

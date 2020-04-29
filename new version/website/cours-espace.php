@@ -58,7 +58,7 @@
 
           echo '
 
-            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+            <div class="alert alert-success alertstyle">
 
               <i class="far fa-check-square"></i> Quiz terminer avec <strong>Success!</strong>
 
@@ -82,7 +82,7 @@
 
           }else{
 
-            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+            echo '<div class="alert alert-danger alertstyle">
 
                       <i class="fas fa-times"></i> Erreur ! l\'hors de l\'opération ! .
 
@@ -116,25 +116,25 @@
 
       <li class="nav-item">
 
-        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" >Cours</button>
 
       </li>
 
       <li class="nav-item">
 
-        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'tp')"  >TP</button>
 
       </li>
 
       <li class="nav-item">
 
-        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" >TD</button>
 
       </li>
 
       <li class="nav-item">
 
-        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'quiz')"  style="padding-left: 50px; padding-right: 50px;">Quiz</button>
+        <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'quiz')" >Quiz</button>
 
       </li>
 
@@ -144,7 +144,7 @@
 
       if ($typeresult==0) {
 
-        echo '<div style="padding-left: 40%">
+        echo '<div class="divstyle">
 
                 <br>
 
@@ -856,7 +856,7 @@ if ($typeresult==0) {
 
                    aria-expanded="false" aria-controls="collapseExample">
 
-                    <i class="fas fa-sort-down fa-2x" style="padding-bottom: 10px;"></i> Etudiants Résultas
+                    <i class="fas fa-sort-down fa-2x" class="padding-bottom"></i> Etudiants Résultas
 
                   </button>';
 
@@ -870,11 +870,11 @@ if ($typeresult==0) {
 
                                   <thead>
 
-                                    <tr style="background-color: #393e46; color: white;">
+                                    <tr class="trst">
 
-                                      <th scope="col" style="text-align: center;">Nom d\'etudiant</th>
+                                      <th scope="col" class="center">Nom d\'etudiant</th>
 
-                                      <th scope="col" style="text-align: center;">Nombre des reponses correcte</th>
+                                      <th scope="col" class="center">Nombre des reponses correcte</th>
 
                                     </tr>
 
@@ -990,9 +990,9 @@ if ($typeresult==0) {
 
     ?> 
 
-    <style type="text/css">
+    <!-- <style type="text/css">
 
-                  .tab {
+                  /* .tab {
 
                   overflow: hidden;
 
@@ -1068,75 +1068,76 @@ if ($typeresult==0) {
 
                   text-decoration: none;
 
-                }
+                } 
 
-    </style>
+    </style> -->
+
+    <!-- <script>
+
+            // var acc = document.getElementsByClassName("accordion");
+
+            // var i;
+
+
+
+            // for (i = 0; i < acc.length; i++) {
+
+            //   acc[i].addEventListener("click", function() {
+
+            //     this.classList.toggle("active");
+
+            //     var panel = this.nextElementSibling;
+
+            //     if (panel.style.display === "block") {
+
+            //       panel.style.display = "none";
+
+            //     } else {
+
+            //       panel.style.display = "block";
+
+            //     }
+
+            //   });
+
+            // }
+
+    </script>
 
     <script>
 
-            var acc = document.getElementsByClassName("accordion");
+              // function openCity(evt, cityName) {
 
-            var i;
+              //   var i, tabcontent, tablinks;
 
+              //   tabcontent = document.getElementsByClassName("tabcontent");
 
+              //   for (i = 0; i < tabcontent.length; i++) {
 
-            for (i = 0; i < acc.length; i++) {
+              //     tabcontent[i].style.display = "none";
 
-              acc[i].addEventListener("click", function() {
+              //   }
 
-                this.classList.toggle("active");
+              //   tablinks = document.getElementsByClassName("tablinks");
 
-                var panel = this.nextElementSibling;
+              //   for (i = 0; i < tablinks.length; i++) {
 
-                if (panel.style.display === "block") {
+              //     tablinks[i].className = tablinks[i].className.replace(" active", "");
 
-                  panel.style.display = "none";
+              //   }
 
-                } else {
+              //   document.getElementById(cityName).style.display = "block";
 
-                  panel.style.display = "block";
+              //   evt.currentTarget.className += " active";
 
-                }
+              // }
 
-              });
+              // // Get the element with id="defaultOpen" and click on it
 
-            }
+              // document.getElementById("defaultOpen").click();
 
-    </script>
-
-    <script>
-
-              function openCity(evt, cityName) {
-
-                var i, tabcontent, tablinks;
-
-                tabcontent = document.getElementsByClassName("tabcontent");
-
-                for (i = 0; i < tabcontent.length; i++) {
-
-                  tabcontent[i].style.display = "none";
-
-                }
-
-                tablinks = document.getElementsByClassName("tablinks");
-
-                for (i = 0; i < tablinks.length; i++) {
-
-                  tablinks[i].className = tablinks[i].className.replace(" active", "");
-
-                }
-
-                document.getElementById(cityName).style.display = "block";
-
-                evt.currentTarget.className += " active";
-
-              }
-
-              // Get the element with id="defaultOpen" and click on it
-
-              document.getElementById("defaultOpen").click();
-
-    </script>
+    </script> -->
+    <script src="static/js/cours-espace.js"></script>
 
 </body>
 

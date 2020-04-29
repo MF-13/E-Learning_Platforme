@@ -10,11 +10,13 @@
 
     <link rel="stylesheet" href="../static/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="static/css/Style_NF.css">
+
+    <!-- <link rel="stylesheet" href="../static/css/index.css"> -->
 
 </head>
 
-<body>
+<footer>
 
 <!-- Footer -->
 
@@ -34,13 +36,13 @@
 
           <ul class="mylist fixUl">
 
-            <li><a href="filiere-1.php" style="color : #ecf0f1; text-decoration: none;">Filiére</a></li><br>
+            <li><a href="filiere-1.php" class="aa" >Filiére</a></li><br>
 
-            <li><a href="cours-espace.php" style="color : #ecf0f1; text-decoration: none;">Cours</a></li><br>                                  
+            <li><a href="cours-espace.php"  class="aa" >Cours</a></li><br>                                  
 
-            <li><a href="contact-us.php" style="color : #ecf0f1; text-decoration: none;">Contact</a></li><br>
+            <li><a href="contact-us.php" class="aa" >Contact</a></li><br>
 
-            <li><a href="profile.php" style="color : #ecf0f1; text-decoration: none;">Profile</a></li><br>               
+            <li><a href="profile.php" class="aa" >Profile</a></li><br>               
 
           </ul>                      
 
@@ -54,19 +56,19 @@
 
           <li>
 
-            <a href="http://www.est-umi.ac.ma" style="color : #ecf0f1; text-decoration: none;" target="_blank">ESTM</a>
+            <a href="http://www.est-umi.ac.ma" class="aa"  target="_blank">ESTM</a>
 
           </li><br>          
 
           <li>
 
-            <a href="http://www.umi.ac.ma" style="color : #ecf0f1; text-decoration: none;" target="_blank">UMI</a>
+            <a href="http://www.umi.ac.ma" class="aa" target="_blank">UMI</a>
 
           </li><br>
 
           <li>
 
-            <a href="http://https://www.enssup.gov.ma/fr" style="color : #ecf0f1; text-decoration: none;" target="_blank">Ministere de l'education</a>
+            <a href="http://https://www.enssup.gov.ma/fr" class="aa" target="_blank">Ministere de l'education</a>
 
           </li>                                                 
 
@@ -81,7 +83,7 @@
           <li><input type="text" class="form-control" placeholder="Votre Nom"></li><br>
           <li><input type="text" class="form-control" placeholder="Votre Gmail"></li><br>                                  
           <li><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Votre Opinion ..."></textarea></li><br>
-          <li><button type="button" class="btn btn-warning float-right" style="color: #ecf0f1;">Envoyer</button></li><br>               
+          <li><button type="button" class="btn btn-warning float-right" class="aa">Envoyer</button></li><br>               
         </ul>                      
       </div>                                                                                        
 
@@ -117,124 +119,8 @@
 
     <script src="static/js/bootstrap.js"></script>
 
-    <script>
-
-      var sections = $('section,header')
-
-      , nav = $('nav')
-
-      , nav_height = nav.outerHeight();
-
-          
-
-      $(window).on('scroll', function () {
-
-        var cur_pos = $(this).scrollTop();
-
-       
-
-        sections.each(function() {
-
-        var top = $(this).offset().top - nav_height,
-
-        bottom = top + $(this).outerHeight();
-
-          
-
-        if (cur_pos >= top && cur_pos <= bottom) {
-
-        nav.find('a').removeClass('active');
-
-        sections.removeClass('active');
-
-          
-
-        $(this).addClass('active');
-
-        nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
-
-        }
-
-        });
-
-        });
-
-    </script>
+    <script src="static/js/footer.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script>
-
-      $(document).ready(function(){
-
-      $("a").on('click', function(event) {
-
-               
-
-      if (this.hash !== "") {
-
-      event.preventDefault();
-
-      var hash = this.hash;
-
-      $('html, body').animate({
-
-      scrollTop: $(hash).offset().top
-
-      }, 800, function(){
-
-      window.location.hash = hash;
-
-      });
-
-      } 
-
-      });
-
-      });
-
-    </script>
-
-    <script>
-
-      window.onscroll = function(){
-
-        scrollFunction();
-
-      };
-
-      function scrollFunction(){
-
-        if(document.body.scrollTop > 20 || document.documentElement.scrollTop>20){
-
-          document.getElementById("btnScroll").style.display = "block";
-
-
-
-        }else{
-
-          document.getElementById("btnScroll").style.display = "none";
-
-        }
-
-        //changer les couleurs du button de scroll
-
-         document.getElementById("btnScroll").style.color = "black";
-
-         document.getElementById("btnScroll").style.background= "#00adb5";
-
-      } 
-
-
-
-      function toUp(){
-
-        document.body.scrollTop = 0;
-
-        document.documentElement.scrollTop=0;
-
-      }
-
-      </script>
-
-</body>
+  
+  </footer>

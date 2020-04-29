@@ -90,7 +90,7 @@ session_start();
 
 
 
-    echo '<div class="pmedia" style=" text-align: center; ">
+    echo '<div class="pmedia center">
 
           <iframe src="'.$path.'" class="frame" ></iframe>
 
@@ -98,7 +98,7 @@ session_start();
 
      echo "
 
-                <ul class=\"pmedia mylist\">
+                <ul class=\"pmedia mylist center \">
 
                   <li><b>Publier le :</b> ".$date_ajoute."</li>
 
@@ -108,7 +108,7 @@ session_start();
 
 
 
-      echo '<a href="'.$path.'" download><button class="btn btn-danger">telecharger</button></a></div><br>';
+      echo '<a href="'.$path.'" download><button class="btn btn-danger center">telecharger</button></a></div><br>';
 
 
 
@@ -134,7 +134,7 @@ session_start();
 
   <style>
 
-    .frame{
+    /* .frame{
 
       width: 800px;
 
@@ -158,7 +158,7 @@ session_start();
 
     }
 
- }
+ } */
 
   </style>                                        
 

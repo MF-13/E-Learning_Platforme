@@ -20,7 +20,7 @@ session_start();
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/quiz.css">
 
 	<title>Ajouter Quiz</title>
 
@@ -46,7 +46,7 @@ session_start();
 
           echo '
 
-            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+            <div class="alert alert-success" >
 
               <i class="far fa-check-square"></i> L\'opération s\'effectue avec <strong>Success!</strong>
 
@@ -70,7 +70,7 @@ session_start();
 
           }else{
 
-            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+            echo '<div class="alert alert-danger" >
 
                       <i class="fas fa-times"></i> <strong>Error !<strong> l\'hors de l\'opération ! .
 

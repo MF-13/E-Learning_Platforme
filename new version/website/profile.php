@@ -50,7 +50,7 @@ session_start();
 
           echo '
 
-            <div class="alert alert-success"  style="margin-left: 20px; margin-right: 20px;">
+            <div class="alert alert-success">
 
               <i class="far fa-check-square"></i> Changer avec succes
 
@@ -74,7 +74,7 @@ session_start();
 
           }else{
 
-            echo '<div class="alert alert-danger" style="margin-left: 20px; margin-right: 20px;">
+            echo '<div class="alert alert-danger">
 
                       <i class="fas fa-times"></i> Erreur c\'est produit ! verifier votre informations
 
@@ -209,7 +209,7 @@ session_start();
 
                       <br>
 
-                      <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
+                      <button type="button" class="btn btn-outline-success btn-sm btnmaeg" data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button>
 
                     </div>
 

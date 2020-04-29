@@ -70,7 +70,7 @@ if($result2->rowCount()!=0){
 
 
 
-    echo '<div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">';
+    echo '<div class="card">';
 
     echo '<button class="accordion"><h3 class="titre">'.strtoupper(test_input($row['departement'])).'</h3> </button>
 
@@ -169,8 +169,8 @@ if($result2->rowCount()!=0){
 </footer>
 
 
-
-<script>
+<script src="static/js/filiere.js"></script>
+<!-- <script>
 
           var acc = document.getElementsByClassName("accordion");
 
@@ -200,6 +200,6 @@ if($result2->rowCount()!=0){
 
           }
 
-          </script>
+          </script> -->
 
 </html>

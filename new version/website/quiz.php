@@ -20,7 +20,7 @@ session_start();
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/quiz.css">
 
 	<title>Quiz</title>
 
@@ -147,7 +147,7 @@ while($q<=$nbr_qst){
 
       foreach ($rep as $r) {
 
-        echo '<input type="radio" value="'.$r.'"  name="'.$q.'" style="margin-left: 20px; margin-bottom: 8px;"  >'.$r.'<br>';
+        echo '<input type="radio" value="'.$r.'"  name="'.$q.'" class="quizs">'.$r.'<br>';
 
       }
 
