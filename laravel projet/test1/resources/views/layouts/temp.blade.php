@@ -71,7 +71,12 @@
 
   <div class="status">
     {{-- Traitement pour ajouter la partie de alert de succes ou de  error --}}
+    @if(session()->has('status'))
+       <p class="alert alert-succes">{{ session()->get('status') }}</p>
+    @endif
+  
   </div>
+
 
   <div class="body mt-5" >
   
