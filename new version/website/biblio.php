@@ -1,4 +1,4 @@
-test_input()<?php
+<?php
 
 session_start();
 
