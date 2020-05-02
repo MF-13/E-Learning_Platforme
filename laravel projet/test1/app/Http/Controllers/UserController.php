@@ -19,7 +19,7 @@ class UserController extends Controller
     {
        
         return view('users.index', 
-                    ['users'=> User::orderBy('id', 'DESC')->get()   ] );
+                    ['users' => User::orderBy('id', 'DESC')->get()   ] );
     }
 
     /**
@@ -110,7 +110,7 @@ class UserController extends Controller
     {
         
         return view('users.show', 
-                    ['user'=>   User::find($id) ] );
+                    ['user' =>   User::find($id) ] );
         
     }
 
@@ -125,7 +125,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
 
-        return view('users.edit', ['user'=> $user ]);
+        return view('users.edit', ['user' => $user ]);
     }
 
     /**
@@ -160,8 +160,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy(Request $request , $id)
+    {   
+        User::destroy($id);
+        // $user = User::findOrFail($id);
+        // $user->delete();
+
+        $request->session()->flash('status','supprimer avec succes');
+        return redirect('/user');
         
     }
 
