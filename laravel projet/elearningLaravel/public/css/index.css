@@ -1,0 +1,324 @@
+/* pour : modifierphoto cours-detai cours-espace filiere index message-boit profile  */
+.sectionpath{
+
+  background-color: #fe9a8b !important;
+
+  padding-bottom: 3px;
+
+}
+
+/* .alien{
+
+    color: #000000;
+
+}
+
+.alien:hover {
+
+    color: #ff9a9e;
+
+    text-decoration: none;
+
+} */
+
+.myBtoo{
+
+    padding-bottom: 60px;
+
+}
+
+.myText{
+
+    text-align: center;
+
+}
+
+.mylist{
+
+    list-style-type: none;
+
+}
+
+.fixUl{
+
+    padding-left:0;
+
+}
+
+.mysize{
+
+    width: 100px;
+
+    height: 600px;
+
+}
+
+/* #btnScroll{
+
+    display: none;
+
+    position: fixed;
+
+    bottom: 30px;
+
+    right: 40px;
+
+    z-index: 99;
+
+    cursor: pointer;
+
+    padding: 16px;
+
+
+
+} */
+
+@media (max-width: 575px) { 
+
+    h1{
+
+        font-size: 16px;
+
+    }
+
+    p{
+
+        font-size: 16px;
+
+    }
+
+ }
+
+@media (max-width: 767px) { 
+
+    
+
+    h1{
+
+        font-size: 16px;
+
+    }
+
+    p{
+
+        font-size: 16px;
+
+    }
+
+ }
+
+
+
+@media (max-width: 991px) {
+
+    
+
+    h1{
+
+        font-size: 16px;
+
+    }
+
+    p{
+
+        font-size: 16px;
+
+    }
+
+ }
+
+@media (max-width: 1199px) {
+
+    h1{
+
+        font-size: 16px;
+
+    }
+
+    p{
+
+        font-size: 16px;
+
+    }
+
+ }
+
+ /* caracteristique section*/
+
+.caracteristique{
+
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+
+    /*background-color: #393e46;*/
+
+    color: #ececec;
+
+    padding-top: 15px;
+
+    padding-bottom: 15px;
+
+}
+
+.caracteristique p {
+
+    color: #ececec;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+}
+
+.pstyle{
+
+    font-size: 20px;
+
+    padding-left: 0px;
+
+    font-weight: bold;
+
+}
+
+.rowmarging{
+
+    margin-bottom: 10px;
+
+}
+
+/* end caracteristique section*/
+
+/* relation section */
+
+.relation{
+
+    background-color: #ececec;
+
+}
+
+.relationrow{
+
+    padding-top: 10px;
+
+    padding-bottom: 10px;
+
+}
+
+.imgcentrer img{
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    display: block;
+
+}
+
+.font-weight-bold{
+
+    text-align: center;
+
+}
+
+.relationpara{
+
+    padding-top: 35px;
+
+}
+
+/* relation section end */
+
+/* Departement section */
+
+.Departement{
+
+    background-color: #393e46;
+
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+
+}
+
+.white{
+
+    color: white;
+
+}
+
+.cardbody{
+
+    padding-bottom: 40px;
+
+}
+
+.card{
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* Departement section end */
+
+/* Contact section */
+
+.contact{
+
+    padding-top: 50px;
+
+    background-color: #ecf0f1;
+
+}
+
+/* Contact section end */
+
+/* footer
+
+.footer{
+
+    padding-top: 80px;
+
+    padding-bottom: 20px;
+
+    background-color: #34495e;
+
+    color: #ecf0f1;
+
+} */
+
+/* end footer */
+
+.frame{
+
+    width: 800px;
+
+    height: 800px;
+
+  }
+
+  .pmedia{
+
+    margin-top: 50px;
+
+  }
+
+  @media (max-width: 575px) { 
+
+  .frame{
+
+    width: 300px;
+
+    height: 500px;
+
+  }
+
+}
+.alert{
+    margin-left: 20px; margin-right: 20px;
+}
+.paddingcara{
+    padding-top: 17px;
+}

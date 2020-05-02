@@ -1,0 +1,264 @@
+/* Pour : modifierphoto courdetai  */
+body{
+
+    background-color: #dfe4ea;
+
+}
+
+.alien{
+
+    color: #ffffff;
+
+}
+
+.alien:hover {
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+}
+
+/* Section Path */
+
+.sectionpath{
+
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+
+    padding-top: 10px;
+
+    padding-bottom: 1px;
+
+    padding-left: 20px;
+
+}
+
+/* End Section Path */
+
+/* Section Post */
+
+.posts{
+
+    padding-top: 10px;
+
+}
+
+p.Text{
+
+    text-indent: 50px;
+
+    font-weight: bold;
+
+    font-size: 35px;
+
+    padding-top: 10px;
+
+}
+
+@media (max-width: 575px){
+
+    p.Text{
+
+        font-size: 25px;
+
+    }
+
+}
+
+@media (max-width: 450px){
+
+    p.Text{
+
+        font-size: 20px;
+
+    }
+
+}
+
+.cardpadding{
+
+    margin-bottom: 20px;
+
+}
+
+.pdfsize{
+
+    width: 64px;
+
+    height: 64px;
+
+}
+
+.pmedia{
+
+    text-align: left;
+
+    padding-left: 20px;
+
+}
+
+.mylist{
+
+    list-style-type: none;
+
+}
+
+.formbutton{
+
+    text-align: right;
+
+}
+
+@media (max-width: 450px){
+
+    .formbutton{
+
+        text-align: left;
+
+    }
+
+}
+
+.btnmarging{
+
+    margin: 5px 5px 5px 5px ;
+
+}
+
+/* End Section Post */
+
+.tablinks{
+
+    padding-left: 100px;
+
+    padding-right: 100px;
+
+}
+.center{
+    text-align: center;
+}
+
+.frame{
+
+    width: 800px;
+
+    height: 800px;
+
+  }
+
+  .pmedia{
+
+    margin-top: 50px;
+
+  }
+
+  @media (max-width: 575px) { 
+
+  .frame{
+
+    width: 300px;
+
+    height: 500px;
+
+  }
+
+}
+.alertstyle{
+    margin-left: 20px; margin-right: 20px;
+}
+.tablinks{
+    padding-left: 50px; padding-right: 50px;
+}
+.tab {
+
+    overflow: hidden;
+
+    background-color: #222831;
+
+    color: white;
+
+    text-decoration: none;
+
+    }
+
+  /* Style the buttons inside the tab */
+
+  .tab button {
+
+    background-color: inherit;
+
+    float: left;
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    padding: 5px 16px;
+
+    transition: 0.3s;
+
+    font-size: 20px;
+
+    text-align: center;
+
+    color: white;
+
+    text-decoration: none;
+
+  }
+
+  
+
+  /* Change background color of buttons on hover */
+
+  .tab button:hover {
+
+    background-color: #57585a;
+
+    color: white;
+
+    text-decoration: none;
+
+  }
+
+
+
+  /* Create an active/current tablink class */
+
+  .tab button.active {
+
+    background-color: #57585a;
+
+    color: white;
+
+    text-decoration: none;
+
+  }
+
+  .tab button:focus{
+
+    background-color: #57585a;
+
+    color: white;
+
+    text-decoration: none;
+
+  }
+
+.divstyle{
+    padding-left: 40%
+}
+.padding-bottom{
+    padding-bottom: 10px;
+}
+.trst{
+    background-color: #393e46; color: white;
+}
+
+section.sectionpath{
+
+    margin-top: 100px;
+
+  }
