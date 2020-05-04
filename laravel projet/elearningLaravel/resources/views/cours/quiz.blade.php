@@ -1,7 +1,7 @@
 @extends('layouts.temp')
 
 @section('css')
-    <link rel="stylesheet" href={{ asset("css/quiz.css") }}>
+    <link rel="stylesheet" href={{ asset("css/site/quiz.css") }}>
 @endsection
 
 @section('title')

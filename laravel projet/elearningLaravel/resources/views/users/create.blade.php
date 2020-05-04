@@ -1,8 +1,8 @@
  @extends('layouts.temp')
 
 @section('css')
-    <link rel="stylesheet" href={{ asset("css/index.css") }}>
-    <link rel="stylesheet" href={{ asset("css/Style_NF.css") }}>
+    <link rel="stylesheet" href={{ asset("css/site/index.css") }}>
+    <link rel="stylesheet" href={{ asset("css/site/Style_NF.css") }}>
 @endsection
 
 @section('title')
