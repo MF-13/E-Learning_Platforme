@@ -12,4 +12,11 @@ class User extends Authenticatable
                             'mdps_user','adresse_user','type_user'];
 
 
+
+     public function field(){
+
+       return $this->belongsTo('App\Field');
+
+     }
+
 }

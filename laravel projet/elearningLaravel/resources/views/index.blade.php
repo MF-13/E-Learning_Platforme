@@ -22,109 +22,40 @@
 
 <div class="carousel-inner">
 
-<?php
+
+
+{{-- WALL TRAITEMENT : inporter les images depuis le dossier public et les affichers ici --}}
+
+
+    {{-- Cursor pour naviger entre les images du WALL --}}
 
 
 
-//ajouter les images du wall  /img/wall/ 
-/*
- $dir = opendir("static/img/index/wall/");
+    </div>
 
- $i=1;
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
 
- while ($file = readdir($dir)){
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-     if ($file != "." && $file != ".."){
+        <span class="sr-only">Previous</span>
 
-          if($i==1){
+      </a>
 
-            echo '<div class="carousel-item active">
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
 
-            <img src="static/img/index/wall/'.$file.'" class="d-block w-100 mysize" alt="...">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-                <div class="carousel-caption d-none d-md-block">
+        <span class="sr-only">Next</span>
 
-                  <h4>Palataforme E Learning</h4>
+      </a>
 
-                  <p>L\'université Moulay Ismail lance sa plateforme d\'enseignement à distance . </p>
+    </div>
 
-                </div>
-
-           </div>';
-
-          }else{
-
-          echo '<div class="carousel-item">
-
-                  <img src="static/img/index/wall/'.$file.'" class="d-block w-100 mysize" alt="...">
-
-                </div>';
-
-          }
-
-          $i++;
-
-      }
-
- }
-
-*/
-
-?>
-
-<?php
-
-/*les curseurs pour passer le images */
-
-$j=1;
-/*
-echo '<ol class="carousel-indicators">';
-
-while($j<$i){
-
-  if ($j==1) {
-
-    echo '<li data-target="#carouselExampleCaptions" data-slide-to="1" class="active"></li>';
-
-  }
-
-  else {
-
-    echo '<li data-target="#carouselExampleCaptions" data-slide-to="'.$j.'" class="active"></li>';
-
-  }
-
-  $j++;
-
-}
-
-echo '</ol>';
-*/
-?>
-
-</div>
-
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-    <span class="sr-only">Previous</span>
-
-  </a>
-
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
-    <span class="sr-only">Next</span>
-
-  </a>
-
-</div>
+    {{-- END cursor TRAITEMENT --}}
 
 </article>
 
-<!-- End wall -->
+<!-- End wall WALL TRAITEMENT-->
 
 <!-- Carctéristique --> 
 
@@ -191,7 +122,7 @@ echo '</ol>';
 <!-- End Carctéristique -->
 
 <!-- Relation -->
-
+                              {{-- iL FAUT AJOUTER LE CHEMIN DES IMAGES : indiquer par path--}}
 <section class="relation">
 
 <div class="container">
@@ -200,7 +131,7 @@ echo '</ol>';
 
   <div class="col-lg-3 col-md-3 col-sm-12 imgcentrer">
 
-    <img src="static/img/index/logo-est-meknès.png" alt="EST MEKNES" width="170" height="170">
+    <img src="path : logo est meknes" alt="EST MEKNES" width="170" height="170">
 
   </div>
 
@@ -212,7 +143,7 @@ echo '</ol>';
 
   <div class="col-lg-3 col-md-3 col-sm-12 imgcentrer">
 
-    <img src="static/img/index/logo.png" alt="E Learning logo" width="120" height="140">
+    <img src="path : logo.png" alt="E Learning logo" width="120" height="140">
 
   </div>
 
@@ -246,7 +177,7 @@ echo '</ol>';
 
     <div class="card">
 
-      <img class="card-img-top" src="static/img/index/filiére/techniques de commercialisation et de communication.png" alt="TCC" height="70">
+      <img class="card-img-top" src="path : techniques de commercialisation et de communication" alt="TCC" height="70">
 
       <div class="card-body">
 
@@ -276,7 +207,7 @@ echo '</ol>';
 
     <div class="card">
 
-      <img class="card-img-top" src="static/img/index/filiére/genie electrique.png" alt="GE" height="70">
+      <img class="card-img-top" src="path : genie electrique" alt="GE" height="70">
 
       <div class="card-body">
 
@@ -312,7 +243,7 @@ echo '</ol>';
 
     <div class="card">
 
-      <img class="card-img-top" src="static/img/index/filiére/genie informatique.png" alt="GI" height="70">
+      <img class="card-img-top" src="path : genie informatique" alt="GI" height="70">
 
       <div class="card-body">
 
@@ -350,7 +281,7 @@ echo '</ol>';
 
     <div class="card">
 
-      <img class="card-img-top" src="static/img/index/filiére/techniques de management.png" alt="TM" height="70">
+      <img class="card-img-top" src="path : techniques de management" alt="TM" height="70">
 
       <div class="card-body cardbody">
 
@@ -433,26 +364,6 @@ echo '</ol>';
 </div>
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @endsection

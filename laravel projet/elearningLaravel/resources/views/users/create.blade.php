@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
+ @extends('layouts.temp')
+
+@section('css')
+    <link rel="stylesheet" href={{ asset("css/index.css") }}>
+    <link rel="stylesheet" href={{ asset("css/Style_NF.css") }}>
+@endsection
+
+@section('title')
+    ADD NEW USER
+@endsection
+
+
+@section('content')
     <form action="{{ route('user.store') }}" method="POST">
         
         {{-- c'est la methode /create dans le controller UserController --}}
@@ -19,6 +22,4 @@
             <button type="submit" name="submit">envoyer</button>
         
     </form>
-
-</body>
-</html>
+@endsection  

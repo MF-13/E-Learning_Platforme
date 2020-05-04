@@ -110,7 +110,8 @@ class UserController extends Controller
     {
         
         return view('users.show', 
-                    ['user' =>   User::find($id) ] );
+                    ['user' =>   User::find($id)
+                    ] );
         
     }
 
