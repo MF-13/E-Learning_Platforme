@@ -339,6 +339,7 @@
 
 
   </section>
-
+  
+  <script src={{ asset("js/site/cours-espace.js") }}></script>
 
   @endsection

@@ -95,9 +95,9 @@
 
         </div>
 
-    </div>
-
-    <script type="text/javascript" src="static/js/main.js"></script>
+	</div>
+	
+    <script src={{ asset("js/site/main.js") }}></script>
 
 </body>
 

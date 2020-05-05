@@ -124,7 +124,24 @@
         </div>
 
     </div>
+    
+    <script type="text/javascript">  
 
+        function numberquestion(){  
+
+
+
+        var number=document.getElementById("number").value; 
+
+
+
+        document.location.replace("random.php?"+number);
+
+
+
+        }  
+
+    </script> 
 
 
 
