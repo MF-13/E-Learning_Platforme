@@ -37,15 +37,19 @@
                       <th>Supprimer</th>
                     </tr>
                   </tfoot>
+                  @foreach ($messages as $message)
+                      
+                  
                     <tr>
-                          <td>hassan elakali</td>
-                          <td>professeur</td>
-                          <td>un message</td>
-                          <td>non lue</td>
+                          <td>{{$message->emetteur_nom}}</td>
+                          <td>{{$message->recepteur_type}}</td>
+                          <td>{{$message->message}}</td>
+                          <td>{{$message->etat}}</td>
                          <td><button class="btn btn-warning" onclick="window.location.href = '{{ '/messages/' . $message->id}}';">Repondre</button></td>
                           <td><button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$row['id_msg'].'\';">supprimer</button></td>
                             
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

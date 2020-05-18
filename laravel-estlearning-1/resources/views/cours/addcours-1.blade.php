@@ -27,13 +27,13 @@
 
                 <div class="card-body">
 
-                    <form  method = "post" action ="traitement/upload.php" enctype = "multipart/form-data">
-
+                <form  method = "POST" action ="{{route('cour.store')}}" enctype = "multipart/form-data">
+                    @csrf
                         <div class="form-group">
 
-                            <label  for="exampleFormControlInput1">Titre cours</label>
+                            <label  for="nom">Titre cours</label>
 
-                            <input type="text" name="titre_cour" class="form-control" id="exampleFormControlInput1" placeholder="ex. langage C" required>
+                            <input type="text" name="nom" class="form-control" id="nom" placeholder="ex. langage C" required>
 
                            
 
@@ -72,9 +72,9 @@
 
                             </select>
 
-                            <label for="exampleFormControlTextarea1">Commentaire</label>
+                            <label for="description">Commentaire</label>
 
-                            <textarea name="commentaire" required="required" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="description" required="required" class="form-control" id="description" rows="3"></textarea>
 
                             </div>
 

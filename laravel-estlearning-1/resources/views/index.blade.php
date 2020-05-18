@@ -131,7 +131,7 @@
 
   <div class="col-lg-3 col-md-3 col-sm-12 imgcentrer">
 
-    <img src="path : logo est meknes" alt="EST MEKNES" width="170" height="170">
+    <img src="\images\img\index\logo-est-meknГЁs.png" alt="EST MEKNES" width="170" height="170">
 
   </div>
 
@@ -143,7 +143,7 @@
 
   <div class="col-lg-3 col-md-3 col-sm-12 imgcentrer">
 
-    <img src="path : logo.png" alt="E Learning logo" width="120" height="140">
+    <img src="\images\img\index\logo.png" alt="E Learning logo" width="120" height="140">
 
   </div>
 
@@ -177,7 +177,7 @@
 
     <div class="card">
 
-      <img class="card-img-top" src="path : techniques de commercialisation et de communication" alt="TCC" height="70">
+      <img class="card-img-top" src="\images\img\index\filiere\techniques de commercialisation et de communication.png" alt="TCC" height="70">
 
       <div class="card-body">
 
@@ -207,7 +207,7 @@
 
     <div class="card">
 
-      <img class="card-img-top" src="path : genie electrique" alt="GE" height="70">
+      <img class="card-img-top" src="\images\img\index\filiere\genie electrique.png" alt="GE" height="70">
 
       <div class="card-body">
 
@@ -243,7 +243,7 @@
 
     <div class="card">
 
-      <img class="card-img-top" src="path : genie informatique" alt="GI" height="70">
+      <img class="card-img-top" src="\images\img\index\filiere\genie informatique.png" alt="GI" height="70">
 
       <div class="card-body">
 
@@ -281,7 +281,7 @@
 
     <div class="card">
 
-      <img class="card-img-top" src="path : techniques de management" alt="TM" height="70">
+      <img class="card-img-top" src="\images\img\index\filiere\techniques de management.png" alt="TM" height="70">
 
       <div class="card-body cardbody">
 

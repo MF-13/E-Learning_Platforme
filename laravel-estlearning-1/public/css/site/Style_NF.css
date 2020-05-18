@@ -37,6 +37,9 @@
 .aa{
     color : #ecf0f1; text-decoration: none;
 }
+.aa:hover{
+    color : #ecf0f1; text-decoration: none;
+}
 .myText{
 
     text-align: center;

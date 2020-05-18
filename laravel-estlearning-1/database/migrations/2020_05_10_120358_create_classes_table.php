@@ -14,7 +14,7 @@ class CreateClassesTable extends Migration
     public function up()
     {
         Schema::create('classes', function (Blueprint $table) {
-            $table->integer('id_cour', true);
+            $table->integer('id', true);
 			$table->text('nom');
 			$table->text('description');
 			$table->string('id_filiere', 4)->index('id_filiere');

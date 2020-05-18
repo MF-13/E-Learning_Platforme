@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Field extends Model
 {
     //
-    protected $primarykey = 'id_msg' ;
+    protected $primarykey = 'filiere_id' ;
 }

@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','Indexcontroller@index');
-Route::get('/filiere','Filierecontroller@filiere');
-Route::get('/cour','Courcontroller@index');//
+// Route::get('/filiere','Filierecontroller@index');
+// Route::get('/cour','Courcontroller@index');//
 Route::get('/bibliotheque','Bibliothequecontroller@index');//
 Route::get('/contact','Contactcontroller@index');//
 
@@ -25,6 +25,9 @@ Route::get('/contact','Contactcontroller@index');//
 
 Route::resource('/user','Usercontroller');
 
+Route::resource('/cour','Courcontroller');
+
+Route::resource('/filiere','Filierecontroller');
 
 
 //Route::resource('/user','Usercontroller')->only(['index','show']); pour utiliser seulement les methodes definire dans only

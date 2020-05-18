@@ -12,7 +12,7 @@
 
 @section('content')
 
-    
+<p class="Text"> Nom du cour : {{$classes->nom}}</p>
     <div class="pmedia" style=" text-align: center; ">
 
           <iframe src="path du fichier" class="frame" ></iframe>
@@ -23,9 +23,9 @@
 
                 <ul class="pmedia mylist">
 
-                  <li><b>Publier le :</b> date_ajoute</li>
+                  <li><b>Publier le :</b> {{$classes->created_at}}</li>
 
-                      <li><b>Commentaire : </b>commanteire</li>
+                      <li><b>Commentaire : </b>{{$classes->description}}</li>
 
                 </ul><br><br>
 

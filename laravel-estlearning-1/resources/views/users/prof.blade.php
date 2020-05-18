@@ -49,8 +49,20 @@
                     </tr>
                   </tfoot>
              <tbody>
+               @foreach ($users as $user)
+                   
+               
                     <tr>
-                      <td>5</td>
+                      <td>{{$user->id}}</td>
+                      <td>{{$user->nom_user}}</td>
+                      <td>{{$user->prenom_user}}</td>
+                      <td>{{$user->mdps_user}}</td>
+                      <td>{{$user->date_naiss_user}}</td>
+                      <td>{{$user->filiere_user}}</td>
+                      <td>{{$user->num_tele_user}}</td>
+                      <td>{{$user->email_user}}</td>
+                      <td>{{$user->adresse_user}}</td>
+                      {{-- <td>5</td>
                       <td>elbouayadi</td>
                       <td>aiman</td>
                       <td>4444</td>
@@ -58,10 +70,11 @@
                       <td>gi</td>
                       <td>0588888</td>
                       <td>aiman@gmail.com</td>
-                      <td>rabat</td>
+                      <td>rabat</td> --}}
                       <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'proftrait.php?id='.$row['id_user'].'\';">Modifier</button></td>
                       <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_user'].'\';">Supprimer</button></td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

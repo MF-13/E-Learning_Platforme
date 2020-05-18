@@ -24,17 +24,18 @@
 
 				<h2>Demande</h2>
 
-			<form method="POST" action="#">
+			<form method="POST" action="{{route('user.store')}}">
+				@csrf
 
 			<!--<form method="POST" action="<?php $_SERVER['PHP_SELF']?>">-->
 
-				<input type="text" name="nom" class="field" placeholder="Nom" >
+				<input type="text" name="nom_user" class="field" placeholder="Nom" >
 
-				<input type="text" name="prenom" class="field" placeholder="Prenom" >
+				<input type="text" name="prenom_user" class="field" placeholder="Prenom" >
 
-				<input type="date" name="date_naiss" class="field" placeholder="Date Naissance" >
+				<input type="date" name="date_naiss_user" class="field" placeholder="Date Naissance" >
 
-				<select class="field" name="filiere" >
+				<select class="field" name="filiere_user" >
 
 					<option>gi</option>
 					<option>tm</option>
@@ -43,7 +44,7 @@
 
 				</select>
 
-				<select class="field" name="type" >
+				<select class="field" name="type_user" >
 
 					<option>etudiant</option>
 
@@ -51,13 +52,13 @@
 
 				</select>
 
-				<input type="email" name="email" class="field" placeholder="Email" >
+				<input type="email" name="email_user" class="field" placeholder="Email" >
 
-				<input type="text" class="field" name="adresse" placeholder="Adresse" >
+				<input type="text" class="field" name="adresse_user" placeholder="Adresse" >
 
-				<input type="text" class="field" name="telephone" placeholder="telephone" >
+				<input type="text" class="field" name="num_tele_user" placeholder="telephone" >
 
-				<input type="password" name="pass" class="field" placeholder="Mot de passe" >
+				<input type="password" name="mdps_user" class="field" placeholder="Mot de passe" >
 
 				<input type="submit" name="submit" class="btn btn-danger">
 				

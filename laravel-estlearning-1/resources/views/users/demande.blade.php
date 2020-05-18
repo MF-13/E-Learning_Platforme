@@ -52,21 +52,25 @@
                       <th>Refuser</th>
                     </tr>
                   </tfoot>
+                  @foreach ($users as $user)
+                      
+                  
                     <tr>
-                      <td>45</td>
-                      <td>elkhebaz</td>
-                      <td>mohammed</td>
-                      <td>5478</td>
-                      <td>2020-07-07</td>
-                      <td>gi</td>
-                      <td>054789632</td>
-                      <td>meknes</td>
-                      <td>khebbaz@gmail.com</td>
-                      <td>admin</td>
+                      <td>{{$user->id}}</td>
+                      <td>{{$user->nom_user}}</td>
+                      <td>{{$user->prenom_user}}</td>
+                      <td>{{$user->mdps_user}}</td>
+                      <td>{{$user->date_naiss_user}}</td>
+                      <td>{{$user->filiere_user}}</td>
+                      <td>{{$user->num_tele_user}}</td>
+                      <td>{{$user->adresse_user}}</td>
+                      <td>{{$user->email_user}}</td>
+                      <td>{{$user->type_user}}</td>
+                      
                     <td><button type="button" class="btn btn-success" onclick=" window.location.href = \'accepter.php?id='.$row['id'].'\';">Accepter</button></td>
                     <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'refuser.php?id='.$row['id'].'\';">Refuser</button></td>
                   </tr>
-
+                  @endforeach
               
                   </tbody>
                 </table>

@@ -47,9 +47,9 @@
 
                    
 
-                  <p class="card-text"><b>Nom et prenom</b></p>
+                  <p class="card-text"><b>Nom et prenom: </b>{{$user->id}}</p>
 
-                  <p class="card-text"><b>email</b></p>
+                  <p class="card-text"><b>Email: </b>{{$user->email_user}}</p>
 
                   
 
@@ -78,7 +78,7 @@
 
                     
 
-                  <a href="cours-espace.php" class="btn btn-info">cours disponible</a>
+                      <a href="{{route('cour.index')}}" class="btn btn-info">cours disponible</a>
 
                   <a href="traitement/deconnexion.php" class="btn btn-danger">Déconnexion</a>
 
@@ -100,21 +100,21 @@
 
                 <div class="card-body">
 
-                    <p class="text"><b>Code Massar : code</p>
+                    <p class="text"><b>Code Massar : </b>{{$user->id}}</p>
 
-                    <p class="text"><b>Nom : </b>nom</p>
+                    <p class="text"><b>Nom : </b>{{$user->nom_user}}</p>
 
-                    <p class="text"><b>Prénom : </b> prnom</p>
+                    <p class="text"><b>Prénom : </b> {{$user->prenom_user}}</p>
 
-                    <p class="text"><b>Date Naissance : date naiss</p>
+                    <p class="text"><b>Date Naissance : </b>{{$user->date_naiss_user}}</p>
 
-                    <p class="text"><b>Filiére : </b>filiere</p>
+                    <p class="text"><b>Filiére : </b>{{$user->filiere_user}}</p>
 
-                    <p class="text"><b>Adresse : </b>adresse</p>
+                    <p class="text"><b>Adresse : </b>{{$user->adresse_user}}</p>
 
-                    <p class="text"><b>Telephone : </b>num tele</p>
+                    <p class="text"><b>Telephone : </b>{{$user->num_tele_user}}</p>
 
-                    <p class="text"><b>Type : </b>type user (prof , admin , etudiant) </p>
+                    <p class="text"><b>{{$user->type_user}} </p>
 
                 </div>
 
@@ -150,11 +150,12 @@
                           <!-- form pour changer les informations du user , dans ce qu'as il faut remplire les input avec le nom prenom ... de l'utilisateur avec l attribue :  value="la valeur" -->
                            
 
-                        <form action="traitement/modifier_user.php" method="POST">         
-
+                        <form action="{{route('user.update',['user'=>$user->id])}}" method="POST">         
+                          @csrf
+                          @method('PUT')
                             
                             
-                            <input type="hidden" name="id" value="user id">
+                            <input type="hidden" name="id" value="{{ old('nom_user', $user->nom_user ?? null  ) }}" >
 
 
                             <div class="form-group">
@@ -179,7 +180,7 @@
 
                                 <label for="recipient-name" class="col-form-label">Nom</label>
 
-                                <input type="text" class="form-control" id="recipient-name" name="nom">
+                                <input type="text" class="form-control" id="recipient-name" name="nom" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
 
                             </div>
 
@@ -187,7 +188,7 @@
 
                                 <label for="recipient-name" class="col-form-label">prenom</label>
 
-                                <input type="text" class="form-control" id="recipient-name" name="prenom">
+                                <input type="text" class="form-control" id="recipient-name" name="prenom" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
 
                             </div>
 
@@ -195,7 +196,7 @@
 
                                 <label for="recipient-name" class="col-form-label">date Naissance</label>
 
-                                <input type="date" class="form-control" id="recipient-name" name="date_naiss">
+                                <input type="date" class="form-control" id="recipient-name" name="date_naiss" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
 
                             </div>
 
@@ -203,7 +204,7 @@
 
                                 <label for="recipient-name" class="col-form-label">Email</label>
 
-                                <input type="text" class="form-control" id="recipient-name" name="email">
+                                <input type="text" class="form-control" id="recipient-name" name="email" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
 
                             </div>
 
@@ -211,7 +212,7 @@
 
                                 <label for="recipient-name" class="col-form-label">Adresse</label>
 
-                                <input type="text" class="form-control" id="recipient-name" name="adresse">
+                                <input type="text" class="form-control" id="recipient-name" name="adresse" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
 
                             </div>
 
@@ -219,7 +220,7 @@
 
                                 <label for="recipient-name" class="col-form-label">Telephone</label>
 
-                                <input type="number" class="form-control" id="recipient-name" name="telephone">
+                                <input type="number" class="form-control" id="recipient-name" name="telephone" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
 
                             </div>
 

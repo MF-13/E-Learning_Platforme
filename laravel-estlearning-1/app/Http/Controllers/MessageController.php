@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
-use App\classe;
 
-class CourController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,10 @@ class CourController extends Controller
      */
     public function index()
     {
-        $classes = classe::all();
-        return view('cours.cours-espace' , [
-            'classes'=>classe::all()
+        //
+        return view('message.message_boit' , [
+            'messages'=>Message::all()
         ]);
-        // dd(\App\classe::all());
     }
 
     /**
@@ -29,7 +28,7 @@ class CourController extends Controller
     public function create()
     {
         //
-        return view('cours.addcours-1') ;
+        return view('message.nouveau_message') ;
     }
 
     /**
@@ -41,17 +40,10 @@ class CourController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-
-            'nom' =>  'required|max:200',
-            'description' => 'required|max:500'
-        ]);
-
-        $classes = new classe() ;
-        $classes->nom =  $request->nom ;
-        $classes->description =  $request->description ;
-        $classes->id_filiere =  $request->id_filiere ;
-        $classes->save();
+        $messages = new Message() ;
+        $messages->recepteur_email =  $request->recepteur_email ;
+        $messages->message =  $request->message ;
+        $messages->save();
 
         return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
@@ -65,8 +57,7 @@ class CourController extends Controller
     public function show($id)
     {
         //
-        // $classes = classe::findOrFail($id_cour);
-        return view('cours.cours-detail', ['classes' => classe::findOrFail($id)]);
+        return view('message.msg_details', ['messages' => Message::findOrFail($id)]);
     }
 
     /**
@@ -78,8 +69,6 @@ class CourController extends Controller
     public function edit($id)
     {
         //
-        $classes=classe::findOrFail($id);
-        return view('cours.courtrait',['classe'=>$classes]);
     }
 
     /**
@@ -92,20 +81,6 @@ class CourController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request->validate([
-
-            'title' =>  'required|max:200',
-            'body' => 'required|max:500'
-        ]);
-
-        $classes = classe::findOrFail($id) ;
-        $classes->nom =  $request->nom ;
-        $classes->description =  $request->description ;
-        $classes->id_filiere =  $request->id_filiere ;
-
-        $classes->save();
-
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
 
     /**
@@ -117,8 +92,5 @@ class CourController extends Controller
     public function destroy($id)
     {
         //
-        $classes = classe::findOrFail($id) ;
-        $classes->delete();
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
 }

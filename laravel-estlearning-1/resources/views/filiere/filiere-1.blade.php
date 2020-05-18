@@ -24,6 +24,8 @@
 
             <!-- card -->
 
+                  @foreach ($fields as $field)
+                      
                   
 
 <div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">';
@@ -32,14 +34,14 @@
 
             <div class="panel">
 
-              <img src="static/img/index/filiere/nom du departement.png" class="card-img-top" alt="...">';
+              <img src="static/img/index/filiere/{{$field->filiere}}.png" class="card-img-top" alt="...">';
 
 
-        <div class="card-body">';
+        <div class="card-body">
 
-          <h5 class="card-title">filiere nom</h5>
+        <h5 class="card-title">{{$field->filiere}}</h5>
 
-            <p class="card-text">description de la filiere</p>
+            <p class="card-text">{{$field->filiere_description}}</p>
 
                <p class="card-text"><strong>Cours de la filiere : </strong></p>
 
@@ -58,7 +60,7 @@
             
     </div>
 </div>
-
+@endforeach
 <!-- end card -->
 
               

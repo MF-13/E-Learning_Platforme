@@ -49,7 +49,7 @@
                 <br>
                   <!-- pour le professeur -->
                 <a href="{{url('/cours/addquiz')}}" class="btn btn-info" >Ajouter Quiz</a>
-                <a href="{{url('/cours/addcours-1')}}" class="btn btn-info">Ajouter cours</a>
+                <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a>
 
                 
 
@@ -62,13 +62,13 @@
     <p class="Text"> Fichiers pour filiere : nom filiere</p>
 
     
-      
+     
 
       <div id="type_cour" class="tabcontent">
 
       <hr>
 
-
+        @foreach ($classes as $classe)
 
           <div class="container">
 
@@ -88,23 +88,23 @@
 
                         
                           <!-- traitement depuis la base de donnes -->
-        <h4 class="mt-0">type cour : nom cour</h4>
-
+      
+        <h4 class="mt-0">type cour : </h4>
         <p class="pmedia">
 
                 <ul class="pmedia mylist">
 
-                  <li><b>Nom Cour:</b> nom cour</li>
+                  <li><b>Nom Cour:</b>{{$classe->nom}}</li>
 
-                  <li><b>commantaire:</b> commantaire</li>
+                  <li><b>commantaire:</b> {{$classe->description}}</li>
 
-                  <li><b>Publier le :</b> date_ajoute</li>
+                  <li><b>Publier le :</b> {{$classe->create_at}}</li>
                     <!-- devdir = direction du fichier \\\  file = nom du fichier -->
                       <br>
                       <form class="formbutton" method="post" action="cours-detail.php">
                         <input type="hidden" name="file" value=".$file.">
                         <input type="hidden" name="dir" value=".$devdir.">
-                        <button type="submit" class="btn btn-outline-primary btnmarging">Consulter...</button>
+                      <a href="{{route('cour.show',['classe'=>$classe->id])}}" class="btn btn-outline-primary btnmarging">Consulter...</a>
                       
                       </form>
                 </ul></p>
@@ -145,7 +145,7 @@
 
           <hr></div>
 
-
+          @endforeach      
  
 
   

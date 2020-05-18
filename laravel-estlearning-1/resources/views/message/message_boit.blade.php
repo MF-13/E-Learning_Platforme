@@ -27,19 +27,21 @@
 
                
                           
-
+              @foreach ($messages as $message)
+                    
+                
              <div class="card-body">
                 <div class="card">
                    <div class="card-body textleft">
 
-                   <h5 class="card-title">L\'expéditeur : {{$message->emetteur_nom}}</h5>
+                   <h5 class="card-title">L'expéditeur : {{$message->emetteur_nom}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"> {{$message->emetteur_email}}</h6><br>
 
                         <p class="card-text">Message : {{$message->message}}</p>
                         <form method="post" action="traitement/dropmsg.php">
                             <!-- input hidden pour envoyer l'id du msg en tout securiter et la valeur c'est l'id du message-->
 
-                              <input type="hidden" name="id_msg" value="id msg">
+                              <input type="hidden" name="id_msg" value="{{$message->id_msg}}">
 
                               <button type="submit" class="btn btn-danger float-right"><i class="fas fa-trash-alt"></i> Supprimer</button>
 
@@ -49,7 +51,7 @@
                      </div>
                    </div>
                  </div>
-
+                 @endforeach
 
                     <!-- si la boite message et vide on affiche le contenue suivant -->
                      <div class="card-body">
@@ -60,7 +62,7 @@
 
                                       <h5 class="card-title"> Vide</h5>
 
-                                      <p class="card-text">Vous n\'avez aucun message pour le moment !</p>
+                                      <p class="card-text">Vous n'avez aucun message pour le moment !</p>
 
                               </div>
 

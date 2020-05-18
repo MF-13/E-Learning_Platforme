@@ -42,14 +42,18 @@
                     </tr>
                   </tfoot>
              <tbody>
+               @foreach ($fields as $field)
+                   
+               
                     <tr>
-                      <td>gi</td>
-                      <td>genie informatique</td>
-                      <td>une filiere genie informatique</td>
-                      <td>genie informatique</td>
+                      <td>{{$field->filiere_id}}</td>
+                      <td>{{$field->filiere}}</td>
+                      <td>{{$field->filiere_description}}</td>
+                      <td>{{$field->departement}}</td>
                       <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>
                       <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['filiere_id'].'\';">Supprimer</button></td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

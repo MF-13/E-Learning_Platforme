@@ -26,14 +26,15 @@
                 }
                 </style>
                 
-             <form action="#" method="POST" id="formajout">
-                
+              <form action="{{route('message.update',['message'=>$message->$id])}}" method="POST" id="formajout">
+                @csrf
+                @method('PUT')
                 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                   </div>
-                  <input type="text" name="email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="text" name="recepteur_email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
 
                 
