@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','Indexcontroller@index');
+Route::get('/','Indexcontroller@index')->name('index');
 // Route::get('/filiere','Filierecontroller@index');
 // Route::get('/cour','Courcontroller@index');//
 Route::get('/bibliotheque','Bibliothequecontroller@index');//
@@ -31,3 +32,11 @@ Route::resource('/filiere','Filierecontroller');
 
 
 //Route::resource('/user','Usercontroller')->only(['index','show']); pour utiliser seulement les methodes definire dans only
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('index');
+
+
+// Route::get('/poste' , function (){
+//     return view('users.login');
+// });

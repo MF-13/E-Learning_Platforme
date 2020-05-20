@@ -107,13 +107,13 @@
 
 				{{-- <a href="forget_pass.php">Mot de passe oublié?</a> --}}
 				@if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="text-decoration: none; color: #999">
                                         {{ __('Mot de passe oublié??') }}
                                     </a>
                                 @endif
 
 				{{-- <a class="lienindex" href="index.php">Page d'acceuil</a> --}}
-				<a class="btn btn-link" href="{{ route('index') }}">
+				<a class="btn btn-link" href="{{ route('index') }}" style="text-decoration: none; color: #999">
 					{{ __('Page d\'acceuil') }}
 				</a>
 
