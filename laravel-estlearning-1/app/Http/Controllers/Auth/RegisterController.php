@@ -50,9 +50,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nom_user' => ['required', 'string', 'max:255'],
+            'prenom_user' => ['required', 'string', 'max:255'],
+            'date_naiss_user' => ['required'],
+            'num_tele_user' => ['required'],
+            'filiere_user' => ['required'],
+            'email_user' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'mdps_user' => ['required', 'string', 'min:8'],
+            'adresse_user' => ['required'],
+            'type_user' => ['required'],
         ]);
     }
 
@@ -65,9 +71,16 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'nom_user' => $data['nom_user'],
+            'prenom_user' => $data['prenom_user'],
+            'date_naiss_user' => $data['date_naiss_user'],
+            'num_tele_user' => $data['num_tele_user'],
+            'filiere_user' => $data['filiere_user'],
+            'email_user' => $data['email_user'],
+            'mdps_user' => Hash::make($data['mdps_user']),
+            'adresse_user' => $data['adresse_user'],
+            'type_user' => $data['type_user'],
         ]);
+
     }
 }

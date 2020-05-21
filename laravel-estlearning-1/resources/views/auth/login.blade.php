@@ -108,7 +108,7 @@
 				{{-- <a href="forget_pass.php">Mot de passe oublié?</a> --}}
 				@if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}" style="text-decoration: none; color: #999">
-                                        {{ __('Mot de passe oublié??') }}
+                                        {{ __('Mot de passe oublié?') }}
                                     </a>
                                 @endif
 

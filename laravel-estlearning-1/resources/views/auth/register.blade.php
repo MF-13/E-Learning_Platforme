@@ -1,77 +1,129 @@
-@extends('layouts.app')
+<!DOCTYPE html>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<html>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+<head>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+	<title>Demande</title>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <link rel="stylesheet" href={{ asset("css/site/sign-up.css") }}>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 
-                                @error('name')
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="contact-box">
+
+			<div class="left"></div>
+
+			<div class="right">
+
+				<h2>Demande</h2>
+
+			<form method="POST" action="{{route('register')}}">
+				@csrf
+
+			{{-- <!--<form method="POST" action="<?php $_SERVER['PHP_SELF']?>">--> --}}
+
+				{{-- <input type="text" name="nom_user" class="field" placeholder="Nom" > --}}
+				<input id="nom_user" type="text" class="field form-control @error('nom_user') is-invalid @enderror" name="nom_user" value="{{ old('nom_user') }}" required autocomplete="nom_user" autofocus placeholder="Nom">
+
+                                @error('nom_user')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+				{{-- <input type="text" name="prenom_user" class="field" placeholder="Prenom" > --}}
+				<input id="prenom_user" type="text" class="field form-control @error('prenom_user') is-invalid @enderror" name="prenom_user" value="{{ old('prenom_user') }}" required autocomplete="prenom_user" placeholder="Prenom">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
+                                @error('prenom_user')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+				{{-- <input type="date" name="date_naiss_user" class="field" placeholder="Date Naissance" > --}}
+				<input id="date_naiss_user" type="date" class="field form-control @error('date_naiss_user') is-invalid @enderror" name="date_naiss_user" value="{{ old('date_naiss_user') }}" required autocomplete="date_naiss_user" placeholder="Date Naissance">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
+                                @error('date_naiss_user')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+				<select class="field" name="filiere_user" required >
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
+					<option>gi</option>
+					<option>tm</option>
+					<option>gc</option>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+
+				</select>
+
+				<select class="field" name="type_user" required>
+
+					<option>etudiant</option>
+
+					<option>professeur</option>
+
+				</select>
+
+				{{-- <input type="email" name="email_user" class="field" placeholder="Email" > --}}
+				<input id="email_user" type="email" class="field form-control @error('email_user') is-invalid @enderror" name="email_user" value="{{ old('email_user') }}" required autocomplete="email_user" placeholder="Email">
+
+                                @error('email_user')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+				{{-- <input type="text" class="field" name="adresse_user" placeholder="Adresse" > --}}
+				<input id="adresse_user" type="text" class="field form-control @error('adresse_user') is-invalid @enderror" name="adresse_user" value="{{ old('adresse_user') }}" required autocomplete="adresse_user" placeholder="Adresse">
+
+                                @error('adresse_user')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+				{{-- <input type="text" class="field" name="num_tele_user" placeholder="telephone" > --}}
+				<input id="num_tele_user" type="text" class="field form-control @error('num_tele_user') is-invalid @enderror" name="num_tele_user" value="{{ old('num_tele_user') }}" required autocomplete="num_tele_user" placeholder="Numéro de téléphone">
+
+                                @error('num_tele_user')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+				{{-- <input type="password" name="mdps_user" class="field" placeholder="Mot de passe" > --}}
+				<input id="mdps_user" type="password" class="field form-control @error('mdps_user') is-invalid @enderror" name="mdps_user" required autocomplete="new-password" placeholder="Mot De Passe">
+
+                                @error('mdps_user')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+				<input type="submit" name="submit" class="btn btn-danger">
+				
+
+			</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!--Traitement d ajoute-->
+
+
+
+</body>
+
+</html>
