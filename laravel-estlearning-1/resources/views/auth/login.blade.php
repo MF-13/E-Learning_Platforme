@@ -95,7 +95,7 @@
 				<div class="btn-group marging" role="group" aria-label="Basic example">
 
 					{{-- <button type="submit" class="btn btn-secondary" name="submit">Connecter</button> --}}
-					<button type="submit" class="btn btn-secondary">
+					<button type="submit" name="submit" class="btn btn-secondary">
 						{{ __('Connecter') }}
 					</button>
 

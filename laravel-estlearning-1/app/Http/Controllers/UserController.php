@@ -105,7 +105,7 @@ class UserController extends Controller
     public function show($id)
     {
         
-        return view('users.show', 
+        return view('users.profileuser', 
                     ['user' =>   User::find($id)
                     ] );
         
@@ -134,7 +134,9 @@ class UserController extends Controller
      */
     public function update(StoreUser $request, $id)
     {
+        
         $user = User::findOrFail($id);
+        // dd($user);
         $user->nom_user = $request->input('nom_user');
         $user->prenom_user = $request->input('prenom_user');
         $user->date_naiss_user = $request->input('date_naiss_user');
@@ -143,7 +145,7 @@ class UserController extends Controller
         $user->email_user = $request->input('email_user');
         $user->mdps_user = $request->input('mdps_user');
         $user->adresse_user = $request->input('adresse_user');
-        $user->type_user = $request->input('type_user');
+        // $user->type_user = $request->input('type_user');
 
         $user->save();
         $request->session()->flash('status','User modifier avec succes');

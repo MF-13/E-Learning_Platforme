@@ -36,7 +36,7 @@
                    <!-- si l'utilisateur n'a pas une photo on utilise une photo par defaul <img src="path/defaultpicture.png"> -->
                    <!-- path est le path vers le dossier profile image + type user + id user -->
 
-                    <img src="path de la photo">
+                    <img src="\images\img\profileimage\etudiant\defaultpicture.png">
 
 
                       <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
@@ -47,7 +47,7 @@
 
                    
 
-                  <p class="card-text"><b>Nom et prenom: </b>{{$user->id}}</p>
+                  <p class="card-text"><b>Nom et prenom: </b>{{$user->nom_user}} {{$user->prenom_user}}</p>
 
                   <p class="card-text"><b>Email: </b>{{$user->email_user}}</p>
 
@@ -155,78 +155,78 @@
                           @method('PUT')
                             
                             
-                            <input type="hidden" name="id" value="{{ old('nom_user', $user->nom_user ?? null  ) }}" >
+                            <input type="hidden" name="id" value="{{ old('nom_user', $user->id ?? null  ) }}" >
 
 
                             <div class="form-group">
 
-                                <label for="recipient-name" class="col-form-label">Nouveau mot de pass</label>
+                                <label for="mdps_user" class="col-form-label">Nouveau mot de pass</label>
 
-                                <input type="password" class="form-control" id="recipient-name" name="pass1"
+                                <input type="password" class="form-control" id="mdps_user" name="mdps_user"
 
                                 >
 
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
 
                                 <label for="recipient-name" class="col-form-label">Confirme mot de pass</label>
 
                                 <input type="password" class="form-control" id="recipient-name" name="pass2">
 
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
 
-                                <label for="recipient-name" class="col-form-label">Nom</label>
+                                <label for="nom_user" class="col-form-label">Nom</label>
 
-                                <input type="text" class="form-control" id="recipient-name" name="nom" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="recipient-name" class="col-form-label">prenom</label>
-
-                                <input type="text" class="form-control" id="recipient-name" name="prenom" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
+                                <input type="text" class="form-control" id="nom_user" name="nom_user" value="{{ old('nom_user', $user->nom_user ?? null  ) }}">
 
                             </div>
 
                             <div class="form-group">
 
-                                <label for="recipient-name" class="col-form-label">date Naissance</label>
+                                <label for="prenom_user" class="col-form-label">Prenom</label>
 
-                                <input type="date" class="form-control" id="recipient-name" name="date_naiss" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="recipient-name" class="col-form-label">Email</label>
-
-                                <input type="text" class="form-control" id="recipient-name" name="email" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
+                                <input type="text" class="form-control" id="prenom_user" name="prenom_user" value="{{ old('prenom_user', $user->prenom_user ?? null  ) }}">
 
                             </div>
 
                             <div class="form-group">
 
-                                <label for="recipient-name" class="col-form-label">Adresse</label>
+                                <label for="date_naiss_user" class="col-form-label">Date Naissance</label>
 
-                                <input type="text" class="form-control" id="recipient-name" name="adresse" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
+                                <input type="date" class="form-control" id="date_naiss_user" name="date_naiss_user" value="{{ old('date_naiss_user', $user->date_naiss_user ?? null  ) }}">
 
                             </div>
 
                             <div class="form-group">
 
-                                <label for="recipient-name" class="col-form-label">Telephone</label>
+                                <label for="email_user" class="col-form-label">Email</label>
 
-                                <input type="number" class="form-control" id="recipient-name" name="telephone" value="{{ old('nom_user', $user->nom_user ?? null  ) }}>
+                                <input type="text" class="form-control" id="email_user" name="email_user" value="{{ old('email_user', $user->email_user ?? null  ) }}">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="adresse_user" class="col-form-label">Adresse</label>
+
+                                <input type="text" class="form-control" id="adresse_user" name="adresse_user" value="{{ old('adresse_user', $user->adresse_user ?? null  ) }}">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="num_tele_user" class="col-form-label">Telephone</label>
+
+                                <input type="number" class="form-control" id="num_tele_user" name="num_tele_user" value="{{ old('num_tele_user', $user->num_tele_user ?? null  ) }}">
 
                             </div>
 
                             <div class="modal-footer">
 
-                            <input type="submit" class="btn btn-primary btn-sm" value="Enregistrer">
+                            <input type="submit" name="submit" class="btn btn-primary btn-sm" value="Enregistrer">
 
                              </div>
                              
