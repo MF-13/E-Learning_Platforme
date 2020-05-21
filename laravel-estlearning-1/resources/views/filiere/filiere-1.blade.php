@@ -28,13 +28,13 @@
                       
                   
 
-<div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">';
+<div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">
 
     <button class="accordion"><h3 class="titre">Departement de la filiere</h3> </button>
 
             <div class="panel">
 
-              <img src="static/img/index/filiere/{{$field->filiere}}.png" class="card-img-top" alt="...">';
+              <img src="static/img/index/filiere/{{$field->filiere}}.png" class="card-img-top" alt="...">
 
 
         <div class="card-body">
