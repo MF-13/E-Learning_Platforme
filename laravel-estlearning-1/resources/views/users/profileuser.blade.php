@@ -114,8 +114,7 @@
 
                     <p class="text"><b>Telephone : </b>{{$user->num_tele_user}}</p>
 
-                    <p class="text"><b>{{$user->type_user}} </p>
-
+                    <p class="text"><b>Type User : </b>{{$user->type_user}} </p>
                 </div>
 
                 <div class="card-footer text-muted">
@@ -150,12 +149,12 @@
                           <!-- form pour changer les informations du user , dans ce qu'as il faut remplire les input avec le nom prenom ... de l'utilisateur avec l attribue :  value="la valeur" -->
                            
 
-                        <form action="{{route('user.update',['user'=>$user->id])}}" method="POST">         
+                        <form action="{{ route('user.update', ['user' => $user->id ]) }}" method="POST">         
                           @csrf
                           @method('PUT')
                             
                             
-                            <input type="hidden" name="id" value="{{ old('nom_user', $user->id ?? null  ) }}" >
+                            {{-- <input type="hidden" id="type_user" name="type_user" value="{{ old('type_user', $user->type_user ?? null  ) }}" > --}}
 
 
                             <div class="form-group">
@@ -223,7 +222,13 @@
                                 <input type="number" class="form-control" id="num_tele_user" name="num_tele_user" value="{{ old('num_tele_user', $user->num_tele_user ?? null  ) }}">
 
                             </div>
+                            <div class="form-group">
 
+                                  <label for="type_user" class="col-form-label">Type User</label>
+
+                                  <input type="text" class="form-control" id="type_user" name="type_user" value="{{ old('type_user', $user->type_user ?? null  ) }}" disabled>
+
+                            </div>
                             <div class="modal-footer">
 
                             <input type="submit" name="submit" class="btn btn-primary btn-sm" value="Enregistrer">
@@ -235,7 +240,7 @@
 
                         </div>
 
-                        
+    
 
                         </div>
 
