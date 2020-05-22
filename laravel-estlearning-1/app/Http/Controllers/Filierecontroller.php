@@ -55,4 +55,10 @@ class Filierecontroller extends Controller
         return redirect('/filiere/filieretrait')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
 
+    public function findCours($id){
+
+        $query = "select nom from classes where id_filiere=".$id.";";
+
+    }
+
 }
