@@ -34,7 +34,9 @@ Route::resource('/filiere','Filierecontroller');
 //Route::resource('/user','Usercontroller')->only(['index','show']); pour utiliser seulement les methodes definire dans only
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('index');
+Route::get('/home', 'HomeController@index');
+
+
 
 
 // Route::get('/poste' , function (){
