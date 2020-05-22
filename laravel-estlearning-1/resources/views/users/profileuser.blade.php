@@ -36,7 +36,7 @@
                    <!-- si l'utilisateur n'a pas une photo on utilise une photo par defaul <img src="path/defaultpicture.png"> -->
                    <!-- path est le path vers le dossier profile image + type user + id user -->
 
-                    <img src="\images\img\profileimage\etudiant\defaultpicture.png">
+                    <img src="..\images\img\profileimage\etudiant\defaultpicture.png">
 
 
                       <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
