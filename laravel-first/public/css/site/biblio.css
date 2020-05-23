@@ -1,0 +1,116 @@
+/* pour biblio */
+body{
+
+    background-color: #dfe4ea;
+
+}
+.sectionpath{
+
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+
+    padding-top: 10px;
+
+    padding-bottom: 1px;
+
+    padding-left: 20px;
+
+}
+
+
+
+
+.posts{
+
+    padding-top: 10px;
+
+}
+p.Text{
+
+    text-indent: 50px;
+
+    font-weight: bold;
+
+    font-size: 35px;
+
+    padding-top: 10px;
+
+}
+
+@media (max-width: 575px){
+
+    p.Text{
+
+        font-size: 25px;
+
+    }
+
+}
+
+@media (max-width: 450px){
+
+    p.Text{
+
+        font-size: 20px;
+
+    }
+
+}
+.pdfsize{
+
+    width: 64px;
+
+    height: 64px;
+
+}
+.pmedia{
+
+    text-align: left;
+
+    padding-left: 20px;
+
+}
+
+.mylist{
+
+    list-style-type: none;
+
+}
+.btnmarging{
+
+    margin: 5px 5px 5px 5px ;
+
+}
+.formbutton{
+
+    text-align: right;
+
+}
+
+@media (max-width: 450px){
+
+    .formbutton{
+
+        text-align: left;
+
+    }
+
+}
+/* #btnScroll{
+
+    display: none;
+
+    position: fixed;
+
+    bottom: 30px;
+
+    right: 40px;
+
+    z-index: 99;
+
+    cursor: pointer;
+
+    padding: 16px;
+
+
+
+} */

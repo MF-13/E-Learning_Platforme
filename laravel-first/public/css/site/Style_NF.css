@@ -1,0 +1,66 @@
+/* pour : index footer  */
+/*This Style for nav bar and footer*/
+.alien{
+    color : #000000; text-decoration: none;
+}
+.alien:hover {
+
+    color: #ff9a9e;
+
+    text-decoration: none;
+
+}
+
+
+.footer{
+
+    padding-top: 80px;
+
+    padding-bottom: 20px;
+
+    background-color: #34495e;
+
+    color: #ecf0f1;
+
+}
+.mylist{
+
+    list-style-type: none;
+
+}
+
+.fixUl{
+
+    padding-left:0;
+
+}
+.aa{
+    color : #ecf0f1; text-decoration: none;
+}
+.aa:hover{
+    color : #ecf0f1; text-decoration: none;
+}
+.myText{
+
+    text-align: center;
+
+}
+#btnScroll{
+
+    display: none;
+
+    position: fixed;
+
+    bottom: 30px;
+
+    right: 40px;
+
+    z-index: 99;
+
+    cursor: pointer;
+
+    padding: 16px;
+
+
+
+}

@@ -150,7 +150,10 @@ class UserController extends Controller
         $user->save();
         $request->session()->flash('status','User modifier avec succes');
                     
-        return redirect('/user');
+        // return redirect('/user/user->id');
+        return view('users.profileuser', 
+                    ['user' =>   User::find($id)
+                    ] );
     }
 
     /**

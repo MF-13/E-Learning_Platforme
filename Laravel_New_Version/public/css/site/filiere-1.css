@@ -1,0 +1,133 @@
+/* pour filiere */
+body{
+
+    background-color: #eeeeee ;
+
+}
+
+.sectionpath{
+
+  background-color: #fe9a8b ;
+
+  padding-bottom: 3px;
+
+}
+
+
+
+.card{
+
+    margin: 0px;
+
+    margin-top: 30px;
+
+    margin-bottom: 10px;
+
+    margin-top: 100px; background-color: #eeeeee; border-style: none;
+}
+
+.table{
+
+    margin-left: 10px;
+
+    margin-right: 20px;
+
+    padding-right: 20px;
+
+}
+
+.tt{
+
+    margin-right: 50px;
+
+}
+
+hr{
+
+    color: black;
+
+    size: 20px;
+
+}
+
+/*
+
+.footer{
+
+    padding-top: 80px;
+
+    padding-bottom: 20px;
+
+    background-color: #34495e;
+
+    color: #ecf0f1;
+
+}*/
+
+.margingbottom{
+
+    margin-bottom: 40px;
+
+}
+
+.accordion {
+
+  background-color: #393e46;
+
+  cursor: pointer;
+
+  padding: 6px;
+
+  width: 100%;
+
+  border: none;
+
+  text-align: left;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition: 0.4s;
+
+  border-style: none;
+
+  color: #eeeeee;
+
+}
+
+
+
+.accordion:hover {
+
+  background-color: #34495e; 
+
+  color: #eeeeee;
+
+}
+
+
+
+.panel {
+
+  padding: 0 18px;
+
+  display: none;
+
+  background-color: white;
+
+  overflow: hidden;
+
+}
+
+/*button kbira*/
+
+.titre{
+
+    text-align: center;
+
+    padding: 20px;
+
+
+
+}
