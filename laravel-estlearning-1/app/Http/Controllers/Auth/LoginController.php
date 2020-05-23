@@ -39,4 +39,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function eloginUsername()
+    // {
+    //     return 'email_user';
+    // }
+    
+    // public function mdps_user()
+    // {
+    //     return 'mdps_user';
+    // }
+
 }
