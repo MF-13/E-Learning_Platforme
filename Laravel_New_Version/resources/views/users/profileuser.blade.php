@@ -49,7 +49,7 @@
 
                   <p class="card-text"><b>Nom et prenom: </b>{{$user->nom_user}} {{$user->prenom_user}}</p>
 
-                  <p class="card-text"><b>Email: </b>{{$user->email_user}}</p>
+                  <p class="card-text"><b>Email: </b>{{$user->email}}</p>
 
                   
 
@@ -80,7 +80,12 @@
 
                       <a href="{{route('cour.index')}}" class="btn btn-info">cours disponible</a>
 
-                  <a href="traitement/deconnexion.php" class="btn btn-danger">Déconnexion</a>
+                  {{-- <a href="traitement/deconnexion.php" class="btn btn-danger">Déconnexion</a> --}}
+                  <a class="btn btn-danger" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Déconnexion') }}
+                    </a>
 
                 </div>
 
@@ -237,7 +242,7 @@
                              {{-- </div> --}}
                               
                              
-                             <button type="submit" name="submit">Update</button>
+                             <button type="submit" class="btn btn-primary btn-sm" name="submit">Enregistrer</button>
                            </form>
 
                         </div>

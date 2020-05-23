@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/','Indexcontroller@index')->name('index');
 // Route::get('/filiere','Filierecontroller@index');
 // Route::get('/cour','Courcontroller@index');//
-Route::get('/bibliotheque','Bibliothequecontroller@index');//
+Route::get('/bibliotheque','FileController@indexbibl');//
 Route::get('/contact','Contactcontroller@index');//
 
 

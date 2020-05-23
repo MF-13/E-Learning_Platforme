@@ -86,7 +86,7 @@ p.Text{
 
 }
 
-@media (max-width: 450px){
+/* @media (max-width: 450px){
 
     .formbutton{
 
@@ -94,7 +94,7 @@ p.Text{
 
     }
 
-}
+} */
 /* #btnScroll{
 
     display: none;

@@ -32,13 +32,17 @@
 
                   <div class="col-lg-12">
 
+                    @foreach ($files as $file)
+                        
+                    
+
                     <div class="card text-center cardpadding">
 
                       <div class="card-body">
 
                         <div class="media">
 
-                          <img src="static/img/cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                          <img src="\images\img\cours espace\pdf.png" class="align-self-start mr-3 pdfsize" alt="pdf png image">
 
                             <div class="media-body">      
 
@@ -47,42 +51,42 @@
                          <!--  /*l'affichage ici*/ -->
 
 
-                             <h4 class="mt-0">Nom fichier</h4>
+                            <h4 class="mt-0">{{$file->titre}}</h4>
 
                              <p class="pmedia">
 
                               <ul class="pmedia mylist">
 
-                              <li><b>Publier le :</b> date_ajoute</li>
+                              <li><b>Publier le :</b>{{$file->date_ajoute}}</li>
 
                               <br>
                               <form class="formbutton" method="post" action="cours-detail.php">
                                 <input type="hidden" name="file" value=".$file.">
                                 <input type="hidden" name="dir" value=".$devdir.">
-                                <button type="submit" class="btn btn-outline-primary btnmarging">Consulter...</button>
+                                <li><button type="submit" class="btn btn btn-primary btn-sm float-left">Consulter...</button></li>
                               </form>
 
                               </ul></p>
 
                               <!-- /*Telecharger le fichier*/ -->
-
-                             
-                                      <form class="formbutton" action="traitement/downloadfile.php" method="post">
-                                          <input type="hidden" name="file" value="'.$file.'">
-                                          <input type="hidden" name="dir" value="'.$devdir.'">
-                                          <button type="submit" class="btn btn-outline-primary btnmarging"> Telecharger</button>
-                                     </form>
-
+                              
+                                <form class="formbutton" action="traitement/downloadfile.php" method="post">
+                                  <input type="hidden" name="file" value="'.$file.'">
+                                  <input type="hidden" name="dir" value="'.$devdir.'">
+                                  <button type="submit" class="btn btn-outline-success btnmarging"><i class="fas fa-download"></i> Telecharger</button>
+                                </form>
+                                <!-- si c'est un professeur -->
+                                <form class="formbutton" action="traitement/dropfile.php" method="post">
+                                  <input type="hidden" name="file" value="'.$file.'">
+                                  <input type="hidden" name="dir" value="'.$devdir.'">
+                                  <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
+                                </form>       
+                              
 
                               
 
-           <!-- si c'est un professeur -->
-              <form class="formbutton" action="traitement/dropfile.php" method="post">
-                  <input type="hidden" name="file" value="'.$file.'">
-                  <input type="hidden" name="dir" value="'.$devdir.'">
-                  <button type="submit" class="btn btn-outline-danger btnmarging">Supprimer</button>
-              </form> 
-
+           
+                             
                   </div>
 
                   </div>
@@ -97,6 +101,7 @@
 
                   </div>
                   <hr></div>
+                  @endforeach
 
 
 

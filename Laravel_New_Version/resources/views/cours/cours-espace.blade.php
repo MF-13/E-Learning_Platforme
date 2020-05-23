@@ -68,14 +68,14 @@
 
       <hr>
 
-        @foreach ($classes as $classe)
+        
 
           <div class="container">
 
             <div class="row">
 
               <div class="col-lg-12 col-md-12 col-sm-12">
-
+              @foreach ($classes as $classe)
                 <div class="card text-center cardpadding">
 
                   <div class="card-body">
