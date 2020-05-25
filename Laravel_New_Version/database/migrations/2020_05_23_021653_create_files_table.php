@@ -14,7 +14,7 @@ class CreateFilesTable extends Migration
     public function up()
     {
         Schema::create('files', function (Blueprint $table) {
-            $table->integer('id_pdf', true);
+            $table->integer('id', true);
 			$table->string('id_filiere', 4)->index('id_filiere');
 			$table->integer('code_prof')->index('code_prof');
 			$table->text('commantaire', 65535);

@@ -13,6 +13,7 @@ class File extends Model
      * @var array
      */
     protected $fillable = [
-        'id_pdf','id_filiere', 'code_prof', 'commantaire', 'id_cour','type_cour','nbr_telechargement','date_ajoute','nom_pdf','pdf_lien','titre'
+        'id','id_filiere', 'code_prof', 'commantaire', 'id_cour','type_cour','nbr_telechargement','date_ajoute','nom_pdf','pdf_lien','titre'
     ];
+
 }

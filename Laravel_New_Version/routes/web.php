@@ -32,6 +32,6 @@ Route::get('/contact','Contactcontroller@index');//
 
 Route::resource('/user','Usercontroller');
 
-Route::resource('/cour','Courcontroller');
+Route::resource('/cour','FileController');
 
-Route::resource('/filiere','Filierecontroller');
+Route::resource('/filiere','Fieldcontroller');

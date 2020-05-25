@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="type_user" class="col-form-label">type</label>
-            <input type="text" name="type_user" id="type_user" class="form-control" value="{{ old('type_user', $user->type_user ?? null  ) }}">
+            <input type="text" name="type_user" id="type_user" class="form-control" value="{{ old('type_user', $user->type_user ?? null  ) }}" disabled>
         </div>
 
         {{-- Pour afficher les messages d'error --}}

@@ -30,7 +30,7 @@
 
                 <div class="row">
 
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
 
                     @foreach ($files as $file)
                         
@@ -58,7 +58,7 @@
                               <ul class="pmedia mylist">
 
                               <li><b>Publier le :</b>{{$file->date_ajoute}}</li>
-
+{{-- Consulter button ?????????????????????? --}}
                               <br>
                               <form class="formbutton" method="post" action="cours-detail.php">
                                 <input type="hidden" name="file" value=".$file.">
@@ -69,7 +69,7 @@
                               </ul></p>
 
                               <!-- /*Telecharger le fichier*/ -->
-                              
+        {{-- $file $devdir ?????????????????                       --}}
                                 <form class="formbutton" action="traitement/downloadfile.php" method="post">
                                   <input type="hidden" name="file" value="'.$file.'">
                                   <input type="hidden" name="dir" value="'.$devdir.'">
@@ -81,7 +81,7 @@
                                   <input type="hidden" name="dir" value="'.$devdir.'">
                                   <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
                                 </form>       
-                              
+        {{-- $file $devdir ?????????????????                       --}}                     
 
                               
 
@@ -102,8 +102,11 @@
                   </div>
                   <hr></div>
                   @endforeach
-
-
+{{-- @php
+    $devdir = "file/".Auth::user()->prenom_user;
+    echo "$devdir";
+@endphp --}}
+                  
 
 <!--Fotter,script and Contact form-->
 

@@ -262,3 +262,11 @@ section.sectionpath{
     margin-top: 100px;
 
   }
+
+.warningsection{
+    margin: 50px;
+    text-align: center;
+}
+.wlien{
+    text-decoration: none;
+}

@@ -11,143 +11,98 @@
 
 
 @section('content')
-
-
-
+    @auth
+        
+    
     <!-- Type Donnes Section -->
-
     <ul class="nav nav-pills nav-fill tab">
-
       <li class="nav-item">
-
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'cour')" id="defaultOpen" style="padding-left: 50px; padding-right: 50px;">Cours</button>
-
       </li>
-
       <li class="nav-item">
-
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'tp')" style="padding-left: 50px; padding-right: 50px;" >TP</button>
-
       </li>
-
       <li class="nav-item">
-
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'td')" style="padding-left: 50px; padding-right: 50px;">TD</button>
-
       </li>
-
       <li class="nav-item">
-
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'quiz')"  style="padding-left: 50px; padding-right: 50px;">Quiz</button>
-
       </li>
-
     </ul>
-
+@if (Auth::user()->type_user == 'professeur')
+<!-- pour le professeur -->
     <div style="padding-left: 40%">
-
                 <br>
-                  <!-- pour le professeur -->
                 <a href="{{url('/cours/addquiz')}}" class="btn btn-info" >Ajouter Quiz</a>
                 <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a>
-
-                
-
+    </div>            
+@endif
     <!-- Type Donnes Section -->
 
     <!--Selection des fichiers a afficher-->
 
   <section class="Posts">
 
-    <p class="Text"> Fichiers pour filiere : nom filiere</p>
-
-    
-     
-
-      <div id="type_cour" class="tabcontent">
-
-      <hr>
-
-        
-
-          <div class="container">
-
-            <div class="row">
-
-              <div class="col-lg-12 col-md-12 col-sm-12">
-              @foreach ($classes as $classe)
-                <div class="card text-center cardpadding">
-
-                  <div class="card-body">
-
-                    <div class="media">
-
-                      <img src="static/img/cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
-
-                        <div class="media-body">      
-
-                        
-                          <!-- traitement depuis la base de donnes -->
-      
-        <h4 class="mt-0">type cour : </h4>
-        <p class="pmedia">
-
+  <p class="Text"> Fichiers pour filiere : {{strtoupper(Auth::user()->filiere_user)}}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+@foreach ($files as $file) 
+  <div id="{{$file->type_cour}}" class="tabcontent">
+  {{-- <hr> --}}       
+        <div class="card text-center cardpadding">
+          <div class="card-body">
+            <div class="media">
+              <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+              <div class="media-body">      
+<!-- traitement depuis la base de donnes -->
+              @php
+                 echo"<h4 class=\"mt-0\">Type de cour : ".strtoupper($file->type_cour)."</h4>"
+              @endphp
+                <p class="pmedia">
                 <ul class="pmedia mylist">
 
-                  <li><b>Nom Cour:</b>{{$classe->nom}}</li>
+                  <li><b>Nom Cour:</b>{{$file->titre}}</li>
 
-                  <li><b>commantaire:</b> {{$classe->description}}</li>
+                  <li><b>commantaire:</b> {{$file->commantaire}}</li>
 
-                  <li><b>Publier le :</b> {{$classe->create_at}}</li>
+                  <li><b>Publier le :</b> {{$file->date_ajoute}}</li>
                     <!-- devdir = direction du fichier \\\  file = nom du fichier -->
                       <br>
                       <form class="formbutton" method="post" action="cours-detail.php">
                         <input type="hidden" name="file" value=".$file.">
                         <input type="hidden" name="dir" value=".$devdir.">
-                      <a href="{{route('cour.show',['classe'=>$classe->id])}}" class="btn btn-outline-primary btnmarging">Consulter...</a>
-                      
+                      {{-- <a href="{{route('cour.show',['file'=>$file->id])}}" class="btn btn-outline-primary btnmarging">Consulter...</a> --}}
                       </form>
                 </ul></p>
-
                <!-- /*Telecharger le fichier*/ -->
-
-             <form class="formbutton" action="traitement/downloadfile.php" method="post">
-                  <input type="hidden" name="file" value="'.$file.'">
-                  <input type="hidden" name="dir" value="'.$devdir.'">
-                  <button type="submit" class="btn btn-outline-primary btnmarging"> Telecharger</button>
-             </form>
-
-        ';
-
-        
-
-        <!-- si c est un professeur -->
-        <form class="formbutton" action="traitement/dropfile.php" method="post">
-            <input type="hidden" name="file" value="'.$file.'">
-            <input type="hidden" name="dir" value="'.$devdir.'">
-        <button type="submit" class="btn btn-outline-danger btnmarging">Supprimer</button>
-        </form>
- 
+{{-- ????????????????????????????????????????????????????????????????????????? --}}
+                  <form class="formbutton" action="traitement/downloadfile.php" method="post">
+                    <input type="hidden" name="file" value="'.$file.'">
+                    <input type="hidden" name="dir" value="'.$devdir.'">
+                    <button type="submit" class="btn btn-outline-success btnmarging"><i class="fas fa-download"></i> Telecharger</button>
+                  </form>
+{{-- ????????????????????????????????????????????????????????????????????????? --}}
+            @if (Auth::user()->type_user == 'professeur')
+            <!-- si c est un professeur -->
+            <form class="formbutton" action="traitement/dropfile.php" method="post">
+              <input type="hidden" name="file" value="'.$file.'">
+              <input type="hidden" name="dir" value="'.$devdir.'">
+              <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
+            </form>
+            @endif
 
               </div>
-
               </div>
-
               </div>
-
               </div>
-
+              <hr>
               </div>
-
+              @endforeach
               </div>
-
+              </div> 
               </div>  
-
-          <hr></div>
-
-          @endforeach      
- 
-
+              </div>
   
 
 
@@ -158,7 +113,7 @@
 
  *******************************************-->
 
-      <div id="quiz" class="tabcontent">";
+      <div id="quiz" class="tabcontent">
 
         
 
@@ -341,5 +296,15 @@
   </section>
   
   <script src={{ asset("js/site/cours-espace.js") }}></script>
-
+  @else
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="alert alert-warning warningsection" role="alert">
+          <i class="fas fa-exclamation-triangle fa-1x"></i>  <a class="wlien" href="{{ route('login') }}">Connecter</a> pour consulter les cours disponibles . Si vous n'avez pas un compte , <a class="wlien" href="{{ route('register') }}">créer</a> 
+        </div>
+      </div>
+    </div>
+  </div>
+  @endauth
   @endsection

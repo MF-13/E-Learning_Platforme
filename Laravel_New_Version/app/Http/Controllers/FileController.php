@@ -12,6 +12,20 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        // //$user = User::findOrFail($id);
+        // $type = $user->filiere_user ;
+        // return view('cours.cours-espace', 
+        //             ['files' => File::where('id_filiere', $type)->get()   ] );
+        return view('cours.cours-espace', 
+                    ['files' => File::all()   ] );
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexbibl()
     {
         //
@@ -49,6 +63,7 @@ class FileController extends Controller
     public function show($id)
     {
         //
+        return view('cours.cours-detail', ['files' => File::findOrFail($id)]);
     }
 
     /**

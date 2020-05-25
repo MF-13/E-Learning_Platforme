@@ -46,6 +46,7 @@
         <li class="nav-item">
 
           <a class="nav-link" href=" {{ url('/cour') }} ">Cours</a>
+          {{-- <a class="nav-link" href=" {{ route('cour.index' ['id'=>Auth::user()->id]) }} ">Cours</a> --}}
 
         </li>
 
