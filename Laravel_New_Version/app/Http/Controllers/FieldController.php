@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\classe;
 use Illuminate\Http\Request;
 use APP\Field;
 
 class FieldController extends Controller
 {
     //
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function field()
-    {
-        return view('pages.filiere');
+    // /**
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function field()
+    // {
+    //     return view('pages.filiere');
 
-    }
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +27,6 @@ class FieldController extends Controller
     public function index()
     {
         //
-        $fields=Field::all();
         return view('filiere.filiere-1',['fields'=>Field::all()]);
     }
 
@@ -66,9 +66,11 @@ class FieldController extends Controller
         return redirect('/filiere/filieretrait')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
 
-    public function findCours($id){
+    public function findCours($filiere_id){
+        $classes = classe::where('id_filiere', $filiere_id)->get() ;
 
-        $query = "select nom from classes where id_filiere=".$id.";";
+        return view('filiere.filiere-1',['classes'=> $classes]);
+
 
     }
 }

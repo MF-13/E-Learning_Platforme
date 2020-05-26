@@ -31,34 +31,39 @@
 
   <div class="contact-form">
 
-  <form action="{{route('messages.store')}}" method="POST">
+  <form action="{{route('contact.store')}}" method="POST">
       @csrf
-
+      
+          
+      
       <h1>Contactez Nous</h1>
-
+      
         <div class="txtb">
+          {{-- les donnes de ladmin --}}
+          <input type="hidden" name="id_admin" required  value="1">
+          <input type="hidden" name="email_admin" required  value="admin@gmail.com">
+        @auth
+            <label>Nom Complet : </label>
 
-            <label>Nom Complet :</label>
-
-            <input type="text" name="nom" required placeholder="Enter Votre Nom">
+            <input type="hidden" name="id" required  value="{{ Auth::user()->id }}">
+            
+            <input type="text" name="nom" required placeholder="Enter Votre Nom" value="{{ Auth::user()->nom_user }} {{ Auth::user()->prenom_user }}">
         </div>
 
         <div class="txtb">
 
               <label>Telephone : </label>
 
-              <input type="number" name="telephone" required placeholder="Enter Votre Numero">
-        </div>';
-
-
+              <input type="number" name="telephone" required placeholder="Enter Votre Numero" value="{{ Auth::user()->num_tele_user }}">
+        </div>
 
         <div class="txtb">
 
             <label>Email :</label>
 
-            <input type="email" name="email" required placeholder="Enter Votre Email">
+            <input type="email" name="email" required placeholder="Enter Votre Email" value="{{ Auth::user()->email }}">
         </div>
-
+        
         <div class="txtb">
 
           <label>Message :</label>
@@ -66,14 +71,44 @@
           <textarea class="txttb" name="message" required placeholder="Enter Votre Message"></textarea>
 
         </div>
+        @else
+        <div class="txtb">
 
+          <label>Nom Complet : </label>
+
+          <input type="text" name="nom" required placeholder="Enter Votre Nom">
+      </div>
+
+      <div class="txtb">
+
+            <label>Telephone : </label>
+
+            <input type="number" name="telephone" required placeholder="Enter Votre Numero">
+      </div>
+
+      <div class="txtb">
+
+          <label>Email :</label>
+
+          <input type="email" name="email" required placeholder="Enter Votre Email"">
+      </div>
+      
+      <div class="txtb">
+
+        <label>Message :</label>
+
+        <textarea class="txttb" name="message" required placeholder="Enter Votre Message"></textarea>
+
+      </div>
+        @endauth
         <input type="submit" name="submit" class="btn" value="Envoyer">
 
   </form>
 
-    <a class="retourn" href="{{url('/index')}}">Retourner a l'acceuil</a>
+    <a class="retourn" href="{{ route('index') }}">Retourner a l'acceuil</a>
 
   </div>
+  
 
 
   </body>

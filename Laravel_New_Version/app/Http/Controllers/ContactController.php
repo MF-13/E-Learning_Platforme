@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
 
 class ContactController extends Controller
 {
@@ -37,14 +38,17 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //
-        $message = new message();
+        $message = new Message();
+        $message->emetteur_id = $request->input('id');
+        $message->recepteur_id = $request->input('id_admin');
+        $message->recepteur_email = $request->input('email_admin');
         $message->emetteur_nom = $request->input('nom');
         $message->emetteur_telephone = $request->input('telephone');
         $message->emetteur_email = $request->input('email');
         $message->message = $request->input('message');
 
         $message->save();
-        return redirect('index')->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect(route('index'))->with('status', 'L\'opération s\'effectues avec successe  !');
     }
 
     /**
@@ -90,7 +94,7 @@ class ContactController extends Controller
     public function destroy($id)
     {
         //
-        $message = message::findOrFail($id) ;
+        $message = Message::findOrFail($id) ;
         $message->delete();
         return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
     }

@@ -24,7 +24,7 @@ Route::get('/','Indexcontroller@index')->name('index');
 // Route::get('/filiere','Filierecontroller@index');
 // Route::get('/cour','Courcontroller@index');//
 Route::get('/bibliotheque','FileController@indexbibl');//
-Route::get('/contact','Contactcontroller@index');//
+// Route::get('/contact','Contactcontroller@index');//
 
 
 
@@ -35,3 +35,5 @@ Route::resource('/user','Usercontroller');
 Route::resource('/cour','FileController');
 
 Route::resource('/filiere','Fieldcontroller');
+
+Route::resource('/contact','Contactcontroller');
