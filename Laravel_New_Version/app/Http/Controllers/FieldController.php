@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\classe;
 use Illuminate\Http\Request;
-use APP\Field;
+use App\Field;
 
 class FieldController extends Controller
 {
@@ -67,7 +66,7 @@ class FieldController extends Controller
     }
 
     public function findCours($filiere_id){
-        $classes = classe::where('id_filiere', $filiere_id)->get() ;
+        // $classes = classe::where('id_filiere', $filiere_id)->get() ;
 
         return view('filiere.filiere-1',['classes'=> $classes]);
 

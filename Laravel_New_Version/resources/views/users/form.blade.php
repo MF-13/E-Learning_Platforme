@@ -31,8 +31,8 @@
             <input type="text" name="adresse_user" id="adresse_user" class="form-control" value="{{ old('adresse_user', $user->adresse_user ?? null  ) }}">
         </div>
         <div class="form-group">
-            <label for="type_user" class="col-form-label">Type Du Utilisateur</label>
-            <input type="text" name="type_user" id="type_user" class="form-control" value="{{ old('type_user', $user->type_user ?? null  ) }}" disabled>
+            {{-- <label for="type_user" class="col-form-label">Type Du Utilisateur</label> --}}
+            <input type="hidden" name="type_user" id="type_user" class="form-control" value="{{ old('type_user', $user->type_user) }}" >
         </div>
 
         {{-- Pour afficher les messages d'error --}}

@@ -34,6 +34,6 @@ Route::resource('/user','Usercontroller');
 
 Route::resource('/cour','FileController');
 
-Route::resource('/filiere','Fieldcontroller');
+Route::resource('/Field','Fieldcontroller');
 
 Route::resource('/contact','Contactcontroller');

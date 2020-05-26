@@ -39,7 +39,7 @@
 
         <li class="nav-item">
 
-          <a class="nav-link" href=" {{ url('/filiere') }} ">Filiére</a>
+          <a class="nav-link" href=" {{ url('/Field') }} ">Filiére</a>
 
         </li>
 
