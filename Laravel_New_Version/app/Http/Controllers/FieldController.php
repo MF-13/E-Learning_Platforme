@@ -25,8 +25,18 @@ class FieldController extends Controller
      */
     public function index()
     {
-        //
-        return view('filiere.filiere-1',['fields'=>Field::all()]);
+        $fil = Field::select('departement')->distinct()->get();
+
+        // foreach($fil as $f){
+        //     $filiere[]= '';
+            
+        //     $res[] = Field::select('filiere')->where('departement',$f->departement)->distinct()->get();
+        //     array_push($filiere,$res);
+            
+        // }
+        $filiere[] = Field::select('filiere')->where('departement','genie informatique')->get();
+
+        return view('filiere.filiere-1',['fields'=>$fil , 'filiere'=>$filiere]);
     }
 
  
