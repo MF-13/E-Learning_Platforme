@@ -26,6 +26,7 @@ class FieldController extends Controller
     public function index()
     {
         //
+        // return view('filiere.filiere-1',['fields'=>Field::all()]);
         return view('filiere.filiere-1',['fields'=>Field::select('departement')->distinct()->get()]);
     }
 
