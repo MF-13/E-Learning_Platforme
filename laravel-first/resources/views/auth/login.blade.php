@@ -37,7 +37,7 @@
 				<img src="\images\img\login\avatar.svg">
 
 				<h2 class="title">Bonjour</h2>
-
+				<h2 class="title">Bonjour</h2>
            		<div class="input-div one">
 
            		   <div class="i">
