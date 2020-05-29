@@ -24,3 +24,5 @@ Route::get('/poste' , function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dashbord', 'AdminController@index')->name('dashbord');
