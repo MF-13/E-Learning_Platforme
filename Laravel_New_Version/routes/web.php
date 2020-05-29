@@ -26,7 +26,7 @@ Route::get('/','Indexcontroller@index')->name('index');
 Route::get('/bibliotheque','FileController@indexbibl');//
 // Route::get('/contact','Contactcontroller@index');//
 
-Route::get('/dashbord','AdminController@index')->name('dashbord');
+Route::resource('/dashbord','AdminController');
 
 //pour ne pas declarer tous les routes , il faut utiliser resource au lieu de get
 

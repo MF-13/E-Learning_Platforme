@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
   <p>Profile Admine</p>

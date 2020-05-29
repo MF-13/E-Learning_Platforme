@@ -1,12 +1,12 @@
 
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
   <p>Etudiant</p>
 @endsection
 
 @section('content')
-
+{{-- ['users' => User::where('type_user','etudiant')->get()   ] ); --}}
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- DataTales Example -->
@@ -49,17 +49,15 @@
                     </tr>
                   </tfoot>
                   @foreach ($users as $user)
-                      
-                 
                     <tr>
                       <td>{{$user->id}}</td>
                       <td>{{$user->nom_user}}</td>
                       <td>{{$user->prenom_user}}</td>
-                      <td>{{$user->mdps_user}}</td>
+                      <td>{{$user->password}}</td>
                       <td>{{$user->date_naiss_user}}</td>
                       <td>{{$user->filiere_user}}</td>
                       <td>{{$user->num_tele_user}}</td>
-                      <td>{{$user->email_user}}</td>
+                      <td>{{$user->email}}</td>
                       <td>{{$user->adresse_user}}</td>
                       {{-- <td>5</td>
                       <td>elbouayadi</td>

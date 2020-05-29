@@ -103,7 +103,7 @@ class FieldController extends Controller
     public function findCours($filiere_id){
         // $classes = classe::where('id_filiere', $filiere_id)->get() ;
 
-        return view('filiere.filiere-1',['classes'=> $classes]);
+        // return view('filiere.filiere-1',['classes'=> $classes]);
 
 
     }

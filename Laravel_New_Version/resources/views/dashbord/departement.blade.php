@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
-  <p>departement</p>
+  departement
 @endsection
 
 @section('content')
@@ -33,11 +33,13 @@
                     </tr>
                   </tfoot>
              <tbody>
-            <tr>
-                <td>departement genie informatique</td>
-                 <td><button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button></td>
-             </tr>
-            
+            @foreach ($departements as $departement)
+                <tr>
+                <td>{{$departement}}</td>
+                {{-- traitement de Modification de photo --}}
+                  <td><button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button></td>
+                </tr>
+            @endforeach
                   
                   </tbody>
                 </table>

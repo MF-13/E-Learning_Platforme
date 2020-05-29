@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
   <p>Message</p>
@@ -37,7 +37,7 @@
                       <th>Supprimer</th>
                     </tr>
                   </tfoot>
-                  @foreach ($messages as $message)
+                  {{-- @foreach ($messages as $message)
                       
                   
                     <tr>
@@ -49,7 +49,7 @@
                           <td><button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$row['id_msg'].'\';">supprimer</button></td>
                             
                     </tr>
-                    @endforeach
+                    @endforeach --}}
                   </tbody>
                 </table>
               </div>
