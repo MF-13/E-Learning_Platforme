@@ -13,8 +13,16 @@ class Field extends Model
      * @var array
      */
     protected $fillable = [
-        'filiere_id','filiere','filiere_description','departement'
+        'id','filiere','filiere_description','departement'
     ];
     
-    protected $primarykey = 'filiere_id' ;
+
+    public function classes(){
+        return $this->hasMany('App\classe');
+    }
+
+    public function users(){
+        return $this->hasMany('App\User');
+    }
+
 }

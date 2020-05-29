@@ -17,7 +17,7 @@ class CreateClassesTable extends Migration
             $table->integer('id', true);
 			$table->text('nom');
 			$table->text('description');
-			$table->string('id_filiere', 4)->index('id_filiere');
+			$table->string('field_id', 4)->index('id_filiere');
 			$table->timestamps();
         });
     }

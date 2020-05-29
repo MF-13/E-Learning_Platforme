@@ -14,7 +14,7 @@ class CreateFieldsTable extends Migration
     public function up()
     {
         Schema::create('fields', function (Blueprint $table) {
-            $table->string('filiere_id', 4)->primary();
+            $table->string('id', 4)->primary();
 			$table->string('filiere', 50)->nullable();
 			$table->text('filiere_description');
 			$table->text('departement');

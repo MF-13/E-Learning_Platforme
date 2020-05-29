@@ -26,7 +26,7 @@
                             
                             @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
                                 <div class="panel">
-                                    <img src="static/img/index/filiere/{{$filiere[$inc][$dept->departement][$i]}}.png" class="card-img-top" alt="...">
+                                    <img src="\images\img\index\filiere\{{$filiere[$inc][$dept->departement][$i]}}.png" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
                                         <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
