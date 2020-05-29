@@ -12,50 +12,50 @@
 
 
 @section('content')
-    <div class="container" >
+    <div class="container">
         <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
+              {{-- hadi katsed hiya lewla 9bel mn div li class dialha card hya li dayra lmochkil --}}
+          <div class="col-lg-12 col-md-12 col-sm-12"> 
             <!-- card -->
             {{-- the first foreach for the departements --}}
             <?php $inc=0; ?>
             @while($inc < $dept_nbr)
                 @foreach ($fields as $dept)
-                
-                <div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">
-                <button class="accordion"><h3 class="titre">{{strtoupper($dept->departement)}}</h3> </button>
-                
+                    
+                    <div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">
+                        <button class="accordion"><h3 class="titre">{{strtoupper($dept->departement)}}</h3> </button>
+
+                    {{-- @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
+                    {{$filiere[$inc][$dept->departement][$i]}}<br>
+                    {{$description[$inc][$dept->departement][$i]}}<br><hr>
+                    @endfor --}}
 
                     @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
                     
-                        <div class="panel">
-                            <img src="static/img/index/filiere/{{$filiere[$inc][$dept->departement][$i]}}.png" class="card-img-top" alt="...">
-                            <div class="card-body">
+                                <img src="static/img/index/filiere/{{$filiere[$inc][$dept->departement][$i]}}.png" class="card-img-top" alt="...">
+                                <div class="card-body">
                                     <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
-                                   <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
+                                    <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
                                     <p class="card-text"><strong>Cours de la filiere : </strong></p>
-                                    <ul>
-                                            {{-- cours from classes 
-                                            ???????????????????????????????? --}}
-                                         <li>cours n1</li>
-                                        <li>cours n2</li>
-                                        <li>cours n3</li>
-                                    </ul>
-                                    <br><hr>
-                            </div>
-                        </div>
+                                        <ul>
+                                            <li>cours n1</li>
+                                            <li>cours n2</li>
+                                            <li>cours n3</li>
+                                        </ul>
+                                        <br><hr>
+                                </div>
+                            
 
                     @endfor
-
-                </div>
-                
-                <?php $inc++; ?>
-                 @endforeach
+                    
+                    
+                    <?php $inc++; ?>
+                @endforeach
             @endwhile
-<!-- end card -->
+            </div>
           </div>
-        </div>
-    </div>     
-
+        </div>     
+<!-- end card -->
 <script src={{ asset("js/site/filiere.js") }}></script>
 
 @endsection
