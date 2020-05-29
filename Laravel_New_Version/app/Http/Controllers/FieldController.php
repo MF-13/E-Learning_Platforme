@@ -35,27 +35,33 @@ class FieldController extends Controller
 
         foreach($dept as $f){
                 //ici on selectionne tous les filiere de chaque departement            
-            $temp_filiere[] = Field::select('filiere')->where('departement',$f->departement)->distinct()->get();
+            $temp_filiere[] = Field::select('filiere','filiere_description')->where('departement',$f->departement)->distinct()->get();
 
-
+            
             $nbr = Field::select('filiere')->where('departement',$f->departement)->count();
             $fil_nbr[] = $nbr;
             for ($i=0; $i < $nbr; $i++) { 
                 $arr[] = Arr::get($temp_filiere,'0.'.$i.'.filiere') ;
+                $de[] = Arr::get($temp_filiere,'0.'.$i.'.filiere_description') ;
+
             }
-            
+                //pour envoyer les filieres
             $filieres[] = [$f->departement => $arr ];
+                //pour envoyer les descriptions des filieres
+            $desc[] = [$f->departement => $de ];
+
 
                 //Pour vider le tableau arr et temp_filiere avant de commancer un nouvel traitement
             $arr = array();
+            $de= array();
             $temp_filiere = array();
             
-           // dd($filieres);
+           
             
         }
        
         
-        return view('filiere.filiere-1',['fields'=>$dept , 'filiere'=>$filieres, 'dept_nbr'=> $dept_nbr , 'fil_nbr'=>$fil_nbr]);
+        return view('filiere.filiere-1',['fields'=>$dept , 'filiere'=>$filieres,'description'=>$desc  , 'dept_nbr'=> $dept_nbr , 'fil_nbr'=>$fil_nbr]);
     }
 
  

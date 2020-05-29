@@ -31,7 +31,7 @@
                             <img src="static/img/index/filiere/{{$filiere[$inc][$dept->departement][$i]}}.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                     <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
-                                   {{-- <p class="card-text">{{$field->filiere_description}}</p> --}}
+                                   <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
                                     <p class="card-text"><strong>Cours de la filiere : </strong></p>
                                     <ul>
                                             {{-- cours from classes 
