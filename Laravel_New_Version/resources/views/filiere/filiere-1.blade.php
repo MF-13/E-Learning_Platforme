@@ -17,53 +17,44 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <!-- card -->
             {{-- the first foreach for the departements --}}
-             @foreach ($fields as $dept)
-
+            <?php $inc=0; ?>
+            @while($inc < $dept_nbr)
+                @foreach ($fields as $dept)
+                
                 <div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">
                 <button class="accordion"><h3 class="titre">{{strtoupper($dept->departement)}}</h3> </button>
                 
-                {{-- {{ print_r($filiere['filiere'])  }} --}}
-                <?php 
-                    $i=0;
-                ?>
-                @foreach ($filiere as $ff)
-                    
-                    <?php 
-                        dd($filiere);
-                        echo $ff[0][$i]['filiere'];
-                        $i++;
-                    ?>
 
-                @endforeach  
-                         
+                    @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
                     
-                    {{-- @foreach ($fil as $field)
                         <div class="panel">
-                            <img src="static/img/index/filiere/{{$field->filiere}}.png" class="card-img-top" alt="...">
+                            <img src="static/img/index/filiere/{{$filiere[$inc][$dept->departement][$i]}}.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">{{$field->filiere}}</h5>
-                                    <p class="card-text">{{$field->filiere_description}}</p>
+                                    <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
+                                   {{-- <p class="card-text">{{$field->filiere_description}}</p> --}}
                                     <p class="card-text"><strong>Cours de la filiere : </strong></p>
                                     <ul>
-                                {{-- cours from classes --}}
-                                {{-- ???????????????????????????????? --}}
-                                        {{-- <li>cours n1</li>
+                                            {{-- cours from classes 
+                                            ???????????????????????????????? --}}
+                                         <li>cours n1</li>
                                         <li>cours n2</li>
                                         <li>cours n3</li>
                                     </ul>
                                     <br><hr>
                             </div>
                         </div>
-                    @endforeach --}} 
+
+                    @endfor
 
                 </div>
-
-            @endforeach
+                
+                <?php $inc++; ?>
+                 @endforeach
+            @endwhile
 <!-- end card -->
           </div>
         </div>
     </div>     
-
 
 <script src={{ asset("js/site/filiere.js") }}></script>
 
