@@ -69,6 +69,7 @@
         <div class="txtb">
 
           <label>Nom Complet : </label>
+          <input type="hidden" name="id" required  value="0">
 
           <input type="text" name="nom" required placeholder="Enter Votre Nom">
       </div>
@@ -77,7 +78,8 @@
 
             <label>Telephone : </label>
 
-            <input type="number" name="telephone" required placeholder="Enter Votre Numero">
+            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type = "number" maxlength = "9" name="telephone" placeholder="Entrer votre numero">
       </div>
 
       <div class="txtb">
