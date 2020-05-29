@@ -17,7 +17,7 @@ class AdminController extends Controller
     
     public function index()
     {
-       
+      
         return view('dashbord.profileadmin');
     }
 
@@ -28,15 +28,13 @@ class AdminController extends Controller
         return view('dashbord.dapartement',['departements'=>$departements]);
     }
 
-    public function affEtud()
+    public function affcher_etudiant()
     {
-        return view('dashbord.etudiant', 
-                    ['users' => User::where('typr_user','etudiant')->get()   ] );
+        return view('dashbord.etudiant',  ['users' => User::where('type_user','etudiant')->get()   ] );
     }
 
-    public function affProf()
+    public function afficher_professeur()
     {
-        return view('dashbord.prof', 
-                    ['users' => User::where('typr_user','professeur')->get()   ] );
+        return view('dashbord.prof', ['users' => User::where('type_user','professeur')->get()   ] );
     }
 }
