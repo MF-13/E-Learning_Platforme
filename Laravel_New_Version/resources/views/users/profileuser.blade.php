@@ -76,11 +76,10 @@
 
                         <a href="dash/index.php" class="btn btn-info">Panel admin</a><br> -->
 
-                    
-
-                      <a href="{{route('cour.index')}}" class="btn btn-info">cours disponible</a>
-
-                  {{-- <a href="traitement/deconnexion.php" class="btn btn-danger">Déconnexion</a> --}}
+                  @if (Auth::user()->type_user=='admin')
+                    <a href="{{route('dashbord.index')}}" class="btn btn-info">Panel Admin</a> 
+                  @endif
+                  <a href="{{route('cour.index')}}" class="btn btn-info">cours disponible</a> 
                   <a class="btn btn-danger" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
