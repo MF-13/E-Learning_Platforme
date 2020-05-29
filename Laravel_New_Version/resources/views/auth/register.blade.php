@@ -57,11 +57,9 @@
                                 @enderror
 
 				<select class="field" name="filiere_user" required >
-
-					<option>gi</option>
-					<option>tm</option>
-					<option>gc</option>
-
+					@foreach ($fields as $field)
+						<option>{{strtolower($field)}}</option>
+					@endforeach
 
 				</select>
 
@@ -70,6 +68,9 @@
 					<option>etudiant</option>
 
 					<option>professeur</option>
+
+					<option>admin</option>
+
 
 				</select>
 

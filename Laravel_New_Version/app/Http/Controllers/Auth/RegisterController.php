@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Field;
+use Illuminate\Support\Arr;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -85,4 +87,22 @@ class RegisterController extends Controller
 
         return $user ;
     }
+        //Pour envoyer les filiere ID depuis ce controller vers VIEW register
+    public function showRegistrationForm(){
+
+        $temp_field = Field::select('filiere_id')->get();
+        $nbr = $temp_field->count();
+
+
+        for ($i=0; $i < $nbr; $i++) { 
+            $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
+
+        }
+
+        
+        return view('auth.register',['fields'=>$field]);
+                  
+    }
+
+
 }
