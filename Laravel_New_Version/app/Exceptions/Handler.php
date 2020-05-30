@@ -56,9 +56,16 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
 {
     if ($this->isHttpException($exception)) {
+            //error 404 page not found
         if ($exception->getStatusCode() == 404) {
             return response()->view('404', [], 404);
         }
+            //acces denied statue
+        if ($exception->getStatusCode() == 403) {
+            return redirect('/');
+        }
+
+            //add any other exepction using the if statement with changing the statue code and the redirect URL
     }
  
     return parent::render($request, $exception);

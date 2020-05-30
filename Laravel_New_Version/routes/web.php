@@ -20,15 +20,16 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 //From the last version
+
 Route::get('/','Indexcontroller@index')->name('index');
-// Route::get('/filiere','Filierecontroller@index');
-// Route::get('/cour','Courcontroller@index');//
-Route::get('/bibliotheque','FileController@indexbibl');//
-// Route::get('/contact','Contactcontroller@index');//
+
+
+Route::get('/bibliotheque','FileController@indexbibl');
+
+Route::get('/etudiant', 'AdminController@affcher_etudiant');
 
 Route::resource('/dashbord','AdminController');
 
-Route::get('/etudiant', 'AdminController@affcher_etudiant');
 
 //pour ne pas declarer tous les routes , il faut utiliser resource au lieu de get
 
