@@ -28,7 +28,7 @@ class AdminController extends Controller
         return view('dashbord.dapartement',['departements'=>$departements]);
     }
 
-    public function affcher_etudiant()
+    public function afficher_etudiant()
     {
         return view('dashbord.etudiant',  ['users' => User::where('type_user','etudiant')->get() , 'type'=>'etudiant'   ] );
     }
@@ -36,5 +36,15 @@ class AdminController extends Controller
     public function afficher_professeur()
     {
         return view('dashbord.prof', ['users' => User::where('type_user','professeur')->get()   ] );
+    } 
+
+    public function destroy(Request $request , $id)
+    {   
+        User::destroy($id);
+        // $user = User::findOrFail($id);
+        // $user->delete();
+        $request->session()->flash('status','L\'utilisateur est Supprimer');
+        return redirect('/dashbord');
+        
     }
 }

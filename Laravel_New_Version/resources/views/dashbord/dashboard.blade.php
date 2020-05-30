@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  
   <link rel="stylesheet" href={{ asset("js/dash/vendor/fontawesome-free/css/all.min.css") }}>
   <link rel="stylesheet" href={{ asset("css/dash/css/sb-admin-2.min.css") }}>
   <link rel="stylesheet" href={{ asset("js/dash/vendor/datatables/dataTables.bootstrap4.min.css") }}>
@@ -55,7 +55,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="etudiant.php">Afficher</a>
+                  <a class="collapse-item" href="{{url('/etudiant')}}">Afficher</a>
                     <a class="collapse-item" href="etudtrait.php">Ajouter</a>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="prof.php">Afficher</a>
+                    <a class="collapse-item" href="{{url('/professeur')}}">Afficher</a>
                     <a class="collapse-item" href="proftrait.php">Ajouter</a>
                   </div>
                 </div>
@@ -166,7 +166,7 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><strong>{{ Auth::user()->nom_user }} {{ Auth::user()->prenom_user }}</strong> </span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><strong>{{ Auth::user()->nom_user }}&nbsp;{{ Auth::user()->prenom_user }}</strong> </span>
                         <i class="fas fa-user-shield fa-1x" style="color : black"></i>
                       </a>
                       <!-- Dropdown - User Information -->
@@ -201,7 +201,9 @@
     <div class="status">
         {{-- Traitement pour ajouter la partie de alert de succes ou de  error --}}
         @if(session()->has('status'))
-           <p class="alert alert-succes">{{ session()->get('status') }}</p>
+          <div class="alert alert-success">
+            <i class="far fa-check-square"></i> L'opération s'effectue avec <strong>Success!</strong>&nbsp;{{session()->get('status')}}
+          </div>
         @endif
       
     </div>
@@ -243,7 +245,7 @@
   
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
-      <span>Copyright &copy; EST-LEARNING 2019</span>
+      <span>Copyright &copy; EST-LEARNING 2020</span>
     </div>
   </div>
 

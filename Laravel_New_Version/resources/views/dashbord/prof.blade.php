@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
   <p>Professeur</p>
@@ -56,11 +56,11 @@
                       <td>{{$user->id}}</td>
                       <td>{{$user->nom_user}}</td>
                       <td>{{$user->prenom_user}}</td>
-                      <td>{{$user->mdps_user}}</td>
+                      <td>{{$user->password}}</td>
                       <td>{{$user->date_naiss_user}}</td>
                       <td>{{$user->filiere_user}}</td>
                       <td>{{$user->num_tele_user}}</td>
-                      <td>{{$user->email_user}}</td>
+                      <td>{{$user->email}}</td>
                       <td>{{$user->adresse_user}}</td>
                       {{-- <td>5</td>
                       <td>elbouayadi</td>
@@ -72,7 +72,16 @@
                       <td>aiman@gmail.com</td>
                       <td>rabat</td> --}}
                       <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'proftrait.php?id='.$row['id_user'].'\';">Modifier</button></td>
-                      <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_user'].'\';">Supprimer</button></td>
+                      {{-- <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_user'].'\';">Supprimer</button></td> --}}
+                      {{-- Supprimer button --}}
+                      <td>
+                        <form action="{{ route('dashbord.destroy', ['dashbord' => $user->id ]) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" name="submit" class="btn btn-danger" style="display: inline;">Supprimer</button>
+                        </form>
+                      </td>
+                      {{-- END Supprimer button --}}
                     </tr>
                     @endforeach
                   </tbody>

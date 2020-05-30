@@ -176,7 +176,7 @@ class UserController extends Controller
         // $user->delete();
 
         $request->session()->flash('status','supprimer avec succes');
-        return redirect('/user');
+        return redirect('/dashbord');
         
     }
 

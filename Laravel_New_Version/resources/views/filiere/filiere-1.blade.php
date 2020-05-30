@@ -38,8 +38,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            @endfor
-
+                           @endfor
                         </div>
                         @php
                             $inc++;

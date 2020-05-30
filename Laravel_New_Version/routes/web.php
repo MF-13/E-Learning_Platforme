@@ -26,7 +26,9 @@ Route::get('/','Indexcontroller@index')->name('index');
 
 Route::get('/bibliotheque','FileController@indexbibl');
 
-Route::get('/etudiant', 'AdminController@affcher_etudiant');
+Route::get('/etudiant', 'AdminController@afficher_etudiant')->name('etudiant');
+Route::get('/professeur', 'AdminController@afficher_professeur')->name('professeur');
+
 
 Route::resource('/dashbord','AdminController');
 
