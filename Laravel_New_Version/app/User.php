@@ -42,4 +42,10 @@ class User extends Authenticatable
     public function field(){
         return $this->belongsTo('App\Field');
     }
+
+    public function files(){
+        return $this->hasMany('App\File');
+    }
+
+
 }

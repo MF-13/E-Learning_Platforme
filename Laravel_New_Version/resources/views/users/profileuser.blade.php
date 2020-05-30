@@ -36,9 +36,9 @@
                    <!-- si l'utilisateur n'a pas une photo on utilise une photo par defaul <img src="path/defaultpicture.png"> -->
                    <!-- path est le path vers le dossier profile image + type user + id user -->
 
-                    <img src="..\images\img\profileimage\etudiant\defaultpicture.png">
+                      <img src="..\images\profileimage\etudiant\defaultpicture.png">
 
-
+                      <br>
                       <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
 
                     </div>
@@ -57,7 +57,7 @@
 
                   <button type="button" class="btn btn-primary btn-sm btn-block" onclick="window.location.href='message_boit.php'"><i class="fas fa-envelope-open"></i> Boite Message</button>
 
-<!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->               
+<!------------------------END TO MESSAGE-------------------------------------------------------------------------------------------->               
 
                 </div>
 
@@ -65,16 +65,14 @@
 
                   
 
-                    <!-- verifier c'est c'est un etudiant ou professeur pour ajouter le button d'aller au page d ajoute de cours
+                    <!-- si c'est un  professeur on ajouter le button d'aller au page d ajoute de cours/quiz -->
+                      @if (Auth::user()->type_user=='professeur')
+                         <a href="addquiz.php" class="btn btn-info">Ajouter Quiz</a>
 
-                      <a href="addquiz.php" class="btn btn-info">Ajouter Quiz</a>
-
-                      <a href="addcours-1.php" class="btn btn-info">Ajouter cours</a><br> -->
-
+                      <a href="addcours-1.php" class="btn btn-info">Ajouter cours</a><br>
+                       @endif
                     
-                      <!-- si c'est un admin on affiche le button pour aller au panel
-
-                        <a href="dash/index.php" class="btn btn-info">Panel admin</a><br> -->
+                      <!-- si c'est un admin on affiche le button pour aller au panel -->
 
                   @if (Auth::user()->type_user=='admin')
                     <a href="{{route('dashbord.index')}}" class="btn btn-info">Panel Admin</a> 
