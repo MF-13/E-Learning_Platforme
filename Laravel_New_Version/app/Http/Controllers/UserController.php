@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\StoreUser;
+use Auth;
 
 class UserController extends Controller
 {
@@ -105,11 +106,16 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        // if(Auth::user()->id==$id){
+            
+        // }
+        // else {
+        //     return view
+        // }
         
         return view('users.profileuser', 
-                    ['user' =>   User::find($id)
-                    ] );
-        
+                                ['user' =>   User::find(Auth::user()->id)
+                                ] );
     }
 
     /**
