@@ -28,6 +28,8 @@ Route::get('/bibliotheque','FileController@indexbibl');//
 
 Route::resource('/dashbord','AdminController');
 
+Route::get('/etudiant', 'AdminController@affcher_etudiant');
+
 //pour ne pas declarer tous les routes , il faut utiliser resource au lieu de get
 
 Route::resource('/user','Usercontroller');

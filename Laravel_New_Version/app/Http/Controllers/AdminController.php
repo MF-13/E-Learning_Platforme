@@ -30,7 +30,7 @@ class AdminController extends Controller
 
     public function affcher_etudiant()
     {
-        return view('dashbord.etudiant',  ['users' => User::where('type_user','etudiant')->get()   ] );
+        return view('dashbord.etudiant',  ['users' => User::where('type_user','etudiant')->get() , 'type'=>'etudiant'   ] );
     }
 
     public function afficher_professeur()
