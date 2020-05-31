@@ -1,7 +1,11 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
-  traitement Etudiant
+  @if(empty($user))  
+    Ajouter User
+  @else 
+      {{strtoupper($user->type_user)}} traitement
+  @endif
 @endsection
 
 @section('content')
@@ -12,7 +16,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i> Etudiants</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i> @if(empty($user))  Ajouter User  @else {{strtoupper($user->type_user)}} @endif</h6>
 
             </div>
             <div class="card-body">
@@ -28,64 +32,69 @@
                 }
                 </style>
                 
-            <form action="traitement/adduser.php" method="POST" id="formajout">
-                
+              @if(empty($user))
+                  <form action="store" method="POST" id="formajout">
+                  @method('PUT')
+              @else  
+                  <form action="create" method="POST" id="formajout">
+                  
+              @endif
                 <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Code Etudiant</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
                   </div>
-                  <input type="number" name="code_massar" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  disabled>
+                  <input type="number" value="{{$user->id ?? null}}" name="code_massar" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  disabled>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
                   </div>
-                  <input type="text" name="nom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  <input type="text" name="nom" value="{{$user->nom_user ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Prenom</span>
                   </div>
-                  <input type="text" name="prenom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="text" name="prenom" value="{{$user->prenom_user ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
                   </div>
-                  <input type="text" name="mdps" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="text" name="mdps" value="{{$user->password ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
                   </div>
-                  <input type="date" name="date_naiss" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="date" name="date_naiss" value="{{$user->date_naiss_user ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                   
                 <div class="input-group mb-3">
                         <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Filiere</span>
                         </div>
-                        <input type="text" name="filiere" placeholder="ex : GI" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                        <input type="text" name="filiere" value="{{$user->filiere_user ?? null}}" placeholder="ex : GI" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                   
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
                   </div>
-                  <input type="number" name="telephone" placeholder="06********" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="number" name="telephone" value="{{$user->num_tele_user ?? null}}" placeholder="06********" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">adresse</span>
                   </div>
-                  <input type="text" name="adresse" placeholder="Adresse..." class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="text" name="adresse" value="{{$user->adresse_user ?? null}}" placeholder="Adresse..." class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                   </div>
-                  <input type="email" name="email" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="email" name="email" value="{{$user->email ?? null}}" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>

@@ -72,6 +72,19 @@ class AdminController extends Controller
         return view('dashbord.message',  ['messages' => Message::where('recepteur_type','admin')->orderBy('date_env', 'desc')->get()   ] );
     }
 
+    public function user_traitement()
+    {
+
+        return view('dashbord.user_trait');
+
+    }
+
+    public function filiere_traitement()
+    {
+
+        return view('dashbord.filiere_trait');
+
+    }
 
     public function destroy(Request $request , $id)
     {   

@@ -1,7 +1,11 @@
 @extends('dashbord.dashboard')
 
 @section('title')
-  Cours traitement
+  @if(empty($field))  
+    Ajouter cours
+  @else 
+   Cours traitement  
+  @endif
 @endsection
 
 
@@ -14,7 +18,12 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i> Filiere</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i>  @if(empty($field))  
+                    Ajouter cours
+                  @else 
+                  Cours traitement  
+                  @endif
+              </h6>
 
             </div>
             <div class="card-body">
@@ -29,13 +38,14 @@
                    color: red;
                 }
                 </style>
-                @if($cour)
+                @if(empty($cour))
                     <form action="store" method="POST" id="formajout">
                     @method('PUT')
                 @else  
                     <form action="create" method="POST" id="formajout">
                     
                 @endif
+
                   @csrf
                   
                   <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  

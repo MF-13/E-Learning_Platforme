@@ -45,9 +45,9 @@
                   <i class="fas fa-fw fa-sliders-h"></i>
                   <span>Demande</span></a>
               </li>
-            
               <!-- Divider -->
               <hr class="sidebar-divider">
+
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -58,12 +58,13 @@
                   <div class="bg-white py-2 collapse-inner rounded">
                   <a class="collapse-item" href="{{url('/etudiant')}}">Etudiant</a>
                   <a class="collapse-item" href="{{url('/professeur')}}">Professeur</a>
-                    <a class="collapse-item" href="etudtrait.php">Ajouter</a>
+                    <a class="collapse-item" href="{{url('/user_traitement')}}">Ajouter</a>
                   </div>
                 </div>
               </li>
               <!-- Divider -->
               <hr class="sidebar-divider">
+
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
@@ -73,11 +74,12 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{url('/filiere')}}">Afficher</a>
-                    <a class="collapse-item" href="filieretrait.php">Ajouter</a>
+                    <a class="collapse-item" href="{{url('/filiere_traitement')}}">Ajouter</a>
                   </div>
                 </div>
               </li>
               <hr class="sidebar-divider">
+
                <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
@@ -92,6 +94,7 @@
                 </div>
               </li>
               <hr class="sidebar-divider">
+
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
@@ -104,6 +107,7 @@
                   </div>
                 </div>
               </li>
+              
               <!-- Sidebar Toggler (Sidebar) -->
               <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
