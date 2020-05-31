@@ -38,9 +38,6 @@ class UserController extends Controller
      */
     public function store(StoreUser $request)
     {
-        
-        
-            
         $data = $request->only(['nom_user','prenom_user','date_naiss_user',
                                 'num_tele_user','filiere_user','email',
                                 'password','adresse_user','type_user']);
@@ -76,8 +73,6 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-
-
         return view('users.edit', ['user' => $user ]);
     }
 
@@ -104,8 +99,7 @@ class UserController extends Controller
 
         $user->save();
         $request->session()->flash('status','User modifier avec succes');
-                    
-        // return redirect('/user/user->id');
+        
         return view('users.profileuser', 
                     ['user' =>   User::find($id)
                     ] );

@@ -14,10 +14,6 @@
 @section('content')
     
     <form action="{{ route('user.update', ['user' => $user->id ]) }}" method="POST">
-
-        {{-- c'est la methode /create dans le controller UserController --}}
-
-       
         @csrf
         @method('PUT')
         

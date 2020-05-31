@@ -7,6 +7,8 @@ use App\Field;
 use App\User;
 use App\classe;
 use App\Message;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreUser;
 
 
 
@@ -86,11 +88,50 @@ class AdminController extends Controller
 
     }
 
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('dashbord.user_trait', ['dashbord' => $user ]);
+    }
+
+    public function store(StoreUser $request)
+    {
+        $data = $request->only(['nom_user','prenom_user','date_naiss_user',
+                                'num_tele_user','filiere_user','email',
+                                'password','adresse_user','type_user']);
+
+        $user = User::create($data);
+                                
+            $request->session()->flash('status','User ajouter avec succes');
+                    
+            return redirect('/user');
+    }
+
+    public function show()
+    {
+        return view('dashbord.profileadmin',  ['user' =>   User::find(Auth::user()->id)] );
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->nom_user = $request->input('nom_user');
+        $user->prenom_user = $request->input('prenom_user');
+        $user->date_naiss_user = $request->input('date_naiss_user');
+        $user->num_tele_user = $request->input('num_tele_user');
+        $user->filiere_user = $request->input('filiere_user');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->adresse_user = $request->input('adresse_user');
+        $user->type_user = $request->input('type_user');
+        $user->save();
+        $request->session()->flash('status','User modifier avec succes');
+        return view('dashbord.demande' , ['users' => User::orderBy('id', 'DESC')->get()   ]);
+    }
+
     public function destroy(Request $request , $id)
     {   
         User::destroy($id);
-        // $user = User::findOrFail($id);
-        // $user->delete();
         $request->session()->flash('status','L\'utilisateur est Supprimer');
         return redirect('/dashbord');
         

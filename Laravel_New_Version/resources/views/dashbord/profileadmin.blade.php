@@ -24,10 +24,10 @@
                    color: red;
                 }
                 </style>
-                
-             {{-- <?php echo '<form action="traitement/modifyuser.php?id='.$id.'" method="POST" id="formajout">'?> --}}
-                  
-                
+                     
+              <form action="{{ route('dashbord.update', ['dashbord' => Auth::user()->id]) }}" method="POST">
+                @csrf
+                @method('PUT') 
                 <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
                 <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
@@ -51,7 +51,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
                   </div>
-                  <input type="password" name="mdps_user" placeholder="entrez le nouveau mot de passe (sinon votre mdps ) " class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="password" name="password" placeholder="entrez le nouveau mot de passe (sinon votre mdps ) " class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -83,7 +83,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                   </div>
-                  <input type="email" name="email_user" value="{{Auth::user()->email}}" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="email" name="email" value="{{Auth::user()->email}}" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>

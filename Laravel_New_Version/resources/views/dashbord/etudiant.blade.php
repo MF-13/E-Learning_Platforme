@@ -68,7 +68,7 @@
                       <td>0588888</td>
                       <td>aiman@gmail.com</td>
                       <td>rabat</td> --}}
-                      <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'etudtrait.php?id='.$row['id_user'].'\';">Modifier</button></td>
+                      <td><a href="{{ route('dashbord.edit' , ['dashbord' => $user->id] ) }}" class="btn btn-warning" >Modifier</a></td>
                       {{-- <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_user'].'\';">Supprimer</button></td> --}}
                       {{-- Supprimer button --}}
                       <td>
