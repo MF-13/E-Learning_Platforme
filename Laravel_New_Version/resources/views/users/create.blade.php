@@ -1,3 +1,4 @@
+ {{-- Pour Supprimer men ba3d --}}
  @extends('layouts.temp')
 
 @section('css')

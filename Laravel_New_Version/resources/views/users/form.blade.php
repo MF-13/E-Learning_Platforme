@@ -30,15 +30,14 @@
             <label for="adresse_user" class="col-form-label">Adresse</label>
             <input type="text" name="adresse_user" id="adresse_user" class="form-control" value="{{ old('adresse_user',  $user->adresse_user ?? null  ) }}">
         </div>
-        <div class="form-group">
-            {{-- <label for="type_user" class="col-form-label">Type Du Utilisateur</label> --}}
+        <div class="form-group" hidden>
             <input type="text" name="type_user" id="type_user" class="form-control" value="{{ old('type_user',  $user->type_user ?? null ) }}" >
         </div>
 
+        
         {{-- Pour afficher les messages d'error --}}
-
         @if($errors->any())
-            <ul>
+            <ul style="color: red">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach

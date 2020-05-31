@@ -11,97 +11,54 @@
 
 
 @section('content')
+<div class="container">
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="card text-center">
+        <div class="card-header">Bonjour</div>
+          <div class="card-body">
+            <div class="textcenter">
+              <!-- la photo de profile-->
+                <!-- si l'utilisateur n'a pas une photo on utilise une photo par defaul <img src="path/defaultpicture.png"> -->
+                <img src="..\images\profileimage\etudiant\defaultpicture.png">
+                <br>
+                <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
+            </div>
+            <br>
+            <p class="card-text"><b>Nom et prenom: </b>{{$user->nom_user}} {{$user->prenom_user}}</p>
+            <p class="card-text"><b>Email: </b>{{$user->email}}</p>
 
-   
-
-    <div class="container">
-
-        <div class="row" style="margin-top: 100px;">
-
-          <div class="col-lg-4 col-md-4 col-sm-12">
-
-            <div class="card text-center">
-
-                <div class="card-header">
-
-                  Bonjour
-
-                </div>
-
-                <div class="card-body">
-
-                   <div class="textcenter">
-
-                   <!-- la photo de profile-->
-                   <!-- si l'utilisateur n'a pas une photo on utilise une photo par defaul <img src="path/defaultpicture.png"> -->
-                   <!-- path est le path vers le dossier profile image + type user + id user -->
-
-                      <img src="..\images\profileimage\etudiant\defaultpicture.png">
-
-                      <br>
-                      <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
-
-                    </div>
-
-                    <br>
-
-                   
-
-                  <p class="card-text"><b>Nom et prenom: </b>{{$user->nom_user}} {{$user->prenom_user}}</p>
-
-                  <p class="card-text"><b>Email: </b>{{$user->email}}</p>
-
-                  
-
-<!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->
-
-                  {{-- <a  class="btn btn-primary btn-sm btn-block" href="{{route('message.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a> --}}
-
-
-<!------------------------END TO MESSAGE-------------------------------------------------------------------------------------------->               
-
-                </div>
-
-                <div class="card-footer text-muted">
-
-                  
-
-                    <!-- si c'est un  professeur on ajouter le button d'aller au page d ajoute de cours/quiz -->
-                      @if (Auth::user()->type_user=='professeur')
-                         <a href="{{route('quiz.create')}}" class="btn btn-info">Ajouter Quiz</a>
-
-                      <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a><br>
-                       @endif
-                    
-                      <!-- si c'est un admin on affiche le button pour aller au panel -->
-
-                  @if (Auth::user()->type_user=='admin')
-                    <a href="{{route('dashbord.index')}}" class="btn btn-info">Panel Admin</a> 
-                  @endif
-                  <a href="{{route('cour.index')}}" class="btn btn-info">cours disponible</a> 
-                  <a class="btn btn-danger" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Déconnexion') }}
-                  </a>
-
-                </div>
-
-              </div>
-
+            <!------------------------Go TO MESSAGE-------------------------------------------------------------------------------------------->
+            {{-- <a  class="btn btn-primary btn-sm btn-block" href="{{route('message.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a> --}}
+            <!------------------------END TO MESSAGE-------------------------------------------------------------------------------------------->               
           </div>
+          <div class="card-footer text-muted">
+          <!-- si c'est un  professeur on ajouter le button d'aller au page d ajoute de cours/quiz -->
+          @if (Auth::user()->type_user=='professeur')
+            <a href="{{route('quiz.create')}}" class="btn btn-info">Ajouter Quiz</a>
+            <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a><br>
+          @endif
+          <!-- si c'est un admin on affiche le button pour aller au panel -->
+          @if (Auth::user()->type_user=='admin')
+            <a href="{{route('dashbord.index')}}" class="btn btn-info">Panel Admin</a> 
+          @endif
+          <a href="{{route('cour.index')}}" class="btn btn-info">cours disponible</a> 
+          <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">   
+            {{ __('Déconnexion') }}
+          </a>
+        </div>
+      </div>
+    </div>
+    {{-- Formation card --}}
+    <div class="col-lg-8 col-md-8 col-sm-12">
+      <div class="card text-center">
+        <div class="card-header">Votre Information</div>
+<div class="card-body">
+                  
 
-          <div class="col-lg-8 col-md-8 col-sm-12">
+                
 
-            <div class="card text-center">
-
-                <div class="card-header">
-
-                  Information
-
-                </div>
-
-                <div class="card-body">
+                
 
                     <p class="text"><b>Code Massar : </b>{{$user->id}}</p>
 
