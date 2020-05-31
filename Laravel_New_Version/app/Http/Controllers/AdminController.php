@@ -40,11 +40,15 @@ class AdminController extends Controller
 
     public function afficher_demande()
     {
-       
+       // il faut faire le traitement a partie de la table Request
         return view('dashbord.demande',  ['users' => User::orderBy('id', 'DESC')->get()   ] );
     }
 
-
+    public function afficher_filiere()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.filiere',  ['fields' => Field::orderBy('filiere_id', 'DESC')->get()   ] );
+    }
     public function destroy(Request $request , $id)
     {   
         User::destroy($id);

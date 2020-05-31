@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
-  <p>Filiere</p>
+  Filiere
 @endsection
 
 @section('content')

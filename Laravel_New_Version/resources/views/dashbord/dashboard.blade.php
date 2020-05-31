@@ -41,7 +41,7 @@
               <hr class="sidebar-divider my-0">
               <!-- Nav Item - Dashboard -->
               <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="{{url('/demande')}}">
                   <i class="fas fa-fw fa-sliders-h"></i>
                   <span>Demande</span></a>
               </li>
@@ -83,7 +83,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="filiere.php">Afficher</a>
+                    <a class="collapse-item" href="{{url('/filiere')}}">Afficher</a>
                     <a class="collapse-item" href="filieretrait.php">Ajouter</a>
                   </div>
                 </div>
@@ -97,7 +97,7 @@
                 </a>
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="cours.php">Afficher</a>
+                    <a class="collapse-item" href="{{url('/cours')}}">Afficher</a>
                     <a class="collapse-item" href="courtrait.php">Ajouter</a>
                   </div>
                 </div>
@@ -111,7 +111,7 @@
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="departement.php">Afficher</a>
+                    <a class="collapse-item" href="{{url('/departement')}}">Afficher</a>
                   </div>
                 </div>
               </li>
