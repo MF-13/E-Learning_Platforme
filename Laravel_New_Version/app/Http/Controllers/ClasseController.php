@@ -39,7 +39,7 @@ class ClasseController extends Controller
     {   
         // pour afficher les filieres
         $fields = Field::select('filiere_id')->distinct()->get();
-        
+
         // variable class c'est pour traiter les donnees s il existe
         if($class){
 
@@ -48,8 +48,8 @@ class ClasseController extends Controller
         }else{
             $cours= array();
         }
-
-        return view('dashbord.cours_trait',['fields'=>$fields,'cours'=>$cours]);
+        
+        return view('dashbord.cours_trait',['fields'=>$fields,'cour'=>$cours]);
     }
 
     /**

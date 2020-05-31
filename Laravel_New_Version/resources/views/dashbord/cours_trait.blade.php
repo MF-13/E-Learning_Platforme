@@ -1,7 +1,7 @@
 @extends('dashbord.dashboard')
 
 @section('title')
-  Filiere traitement
+  Cours traitement
 @endsection
 
 
@@ -37,23 +37,23 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Cours ID</span>
                   </div>
-                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="">
+                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{$cour->id ?? null}}">
               </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Cours Nom </span>
                   </div>
-                  <input type="text" name="nom" placeholder="EX : Programmation" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="">
+                  <input type="text" name="nom" placeholder="EX : Programmation" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{$cour->nom ?? null}}">
               </div>
               <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
                   </div>
-                  <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="">
+                  <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{$cour->description ?? null}}">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <select class="input-group-text" id="inputGroup-sizing-default" value="">
+                    <select class="input-group-text" id="inputGroup-sizing-default" value="{{$cour->id_filiere ?? null}}">
                         @foreach($fields as $field)
                             <option>{{$field->filiere_id}}</option>
                         @endforeach
