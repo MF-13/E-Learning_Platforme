@@ -45,35 +45,24 @@
                   <i class="fas fa-fw fa-sliders-h"></i>
                   <span>Demande</span></a>
               </li>
+            
               <!-- Divider -->
               <hr class="sidebar-divider">
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                   <i class="fas fa-fw fa-sliders-h"></i>
-                  <span class="glyphicon glyphicon-search" aria-hidden="true">Etudiant</span>
+                  <span class="glyphicon glyphicon-search" aria-hidden="true">User</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="{{url('/etudiant')}}">Afficher</a>
+                  <a class="collapse-item" href="{{url('/etudiant')}}">Etudiant</a>
+                  <a class="collapse-item" href="{{url('/professeur')}}">Professeur</a>
                     <a class="collapse-item" href="etudtrait.php">Ajouter</a>
                   </div>
                 </div>
               </li>
-              <hr class="sidebar-divider">
-              <!-- Nav Item - Utilities Collapse Menu -->
-              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                  <i class="fas fa-fw fa-sliders-h"></i>
-                  <span>Professeur</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                  <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="{{url('/professeur')}}">Afficher</a>
-                    <a class="collapse-item" href="proftrait.php">Ajouter</a>
-                  </div>
-                </div>
-              </li>
+              <!-- Divider -->
               <hr class="sidebar-divider">
               <!-- Nav Item - Pages Collapse Menu -->
               <li class="nav-item">
