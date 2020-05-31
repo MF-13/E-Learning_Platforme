@@ -41,7 +41,7 @@
               <hr class="sidebar-divider my-0">
               <!-- Nav Item - Dashboard -->
               <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="{{url('/demande')}}">
                   <i class="fas fa-fw fa-sliders-h"></i>
                   <span>Demande</span></a>
               </li>
@@ -83,7 +83,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="filiere.php">Afficher</a>
+                    <a class="collapse-item" href="{{url('/filiere')}}">Afficher</a>
                     <a class="collapse-item" href="filieretrait.php">Ajouter</a>
                   </div>
                 </div>
@@ -97,7 +97,7 @@
                 </a>
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="cours.php">Afficher</a>
+                    <a class="collapse-item" href="{{url('/cours')}}">Afficher</a>
                     <a class="collapse-item" href="courtrait.php">Ajouter</a>
                   </div>
                 </div>
@@ -111,7 +111,7 @@
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="departement.php">Afficher</a>
+                    <a class="collapse-item" href="{{url('/departement')}}">Afficher</a>
                   </div>
                 </div>
               </li>
@@ -166,30 +166,31 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><strong>{{ Auth::user()->nom_user }}&nbsp;{{ Auth::user()->prenom_user }}</strong> </span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><strong>{{ strtoupper(Auth::user()->nom_user) }}&nbsp;{{ strtoupper(Auth::user()->prenom_user) }}</strong> </span>
                         <i class="fas fa-user-shield fa-1x" style="color : black"></i>
                       </a>
                       <!-- Dropdown - User Information -->
                       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{{route('index')}}">
+                        <a class="dropdown-item" href="{{url('/')}}">
                           <i class="fas fa-chalkboard fa-sm fa-fw mr-2 text-gray-400"></i><!--Aller au profile-->
                           retourner au site
                         </a>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{url('/dashbord')}}">
                           <i class="fas fa-id-card-alt fa-sm fa-fw mr-2 text-gray-400"></i><!--Aller au profile-->
                           Profile
                         </a>
-                        <a class="dropdown-item" href="message.php">
+                        <a class="dropdown-item" href="{{url('/message')}}">
                           <i class="fas fa-envelope-square fa-sm fa-fw mr-2 text-gray-400"></i><!--Aller au profile-->
                           Message
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Déconnexion') }}>
-                          {{-- <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> --}}
-                          
-                        </a> <!-- revenir a l'acceuil-->
+                        
+                          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            {{ __('Déconnexion') }}
+                          </a> 
+                        
                       </div>
                     </li>
                   </ul>

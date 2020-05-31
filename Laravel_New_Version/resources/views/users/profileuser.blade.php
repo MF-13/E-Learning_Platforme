@@ -55,7 +55,8 @@
 
 <!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->
 
-                  <button type="button" class="btn btn-primary btn-sm btn-block" onclick="window.location.href='message_boit.php'"><i class="fas fa-envelope-open"></i> Boite Message</button>
+                  <a  class="btn btn-primary btn-sm btn-block" href="{{route('message.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
+
 
 <!------------------------END TO MESSAGE-------------------------------------------------------------------------------------------->               
 
@@ -120,13 +121,13 @@
                 </div>
 
                 <div class="card-footer text-muted">
-
-                    <div class="textright">
-
-                    <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Modifier</button>
-
-                    </div> 
-
+                  <div class="textright">
+                      @if (Auth::user()->type_user=='admin')
+                          <a href="{{route('dashbord.index')}}" class="btn btn-info">Modifier le profile</a> 
+                      @else
+                        <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Modifier</button>
+                      @endif
+                  </div>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                      <div class="modal-dialog" role="document">

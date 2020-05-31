@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
-  Filiere traitement
+  Cours traitement
 @endsection
 
 
@@ -29,34 +29,39 @@
                    color: red;
                 }
                 </style>
-                <form action="{{route('filiere.update',['fields'=>$field->id])}}" method="POST" id="formajout">
+                <form action="#" method="POST" id="formajout">
                   @csrf
                   @method('PUT')
                   <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére ID</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Cours ID</span>
                   </div>
-                  <input type="text" name="filiere_id" class="form-control" placeholder="ex : GI" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{old('field',$field->filiere_id)}}">
+                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{$cour->id ?? null}}">
               </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Filiére Nom </span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Cours Nom </span>
                   </div>
-                  <input type="text" name="filiere" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{old('field',$field->filiere)}}">
+                  <input type="text" name="nom" placeholder="EX : Programmation" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{$cour->nom ?? null}}">
               </div>
               <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">departement</span>
-                  </div>
-                  <input type="text" name="departement" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="ex : genie informatique" value="{{old('field',$field->departement)}}">
-              </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
                   </div>
-                  <input type="text" name="filiere_description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{old('field',$field->filiere_description)}}">
+                  <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{$cour->description ?? null}}">
               </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <select class="input-group-text" id="inputGroup-sizing-default" value="{{$cour->id_filiere ?? null}}">
+                        @foreach($fields as $field)
+                            <option>{{$field->filiere_id}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                    
+
+            </div>
               <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>

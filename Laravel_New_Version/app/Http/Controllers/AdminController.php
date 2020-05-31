@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Field;
 use App\User;
+use App\classe;
+use App\Message;
+
+
 
 
 class AdminController extends Controller
@@ -37,6 +41,37 @@ class AdminController extends Controller
     {
         return view('dashbord.prof', ['users' => User::where('type_user','professeur')->get()   ] );
     } 
+
+    public function afficher_demande()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.demande',  ['users' => User::orderBy('id', 'DESC')->get()   ] );
+    }
+
+    public function afficher_filiere()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.filiere',  ['fields' => Field::orderBy('filiere_id', 'DESC')->get()   ] );
+    }
+
+    public function afficher_cours()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.cours',  ['classes' => Classe::orderBy('id', 'ASC')->get()   ] );
+    }
+
+    public function afficher_departement()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.departement',  ['departements' => Field::select('departement')->distinct()->get()   ] );
+    }
+
+    public function afficher_message()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.message',  ['messages' => Message::where('recepteur_type','admin')->orderBy('date_env', 'desc')->get()   ] );
+    }
+
 
     public function destroy(Request $request , $id)
     {   
