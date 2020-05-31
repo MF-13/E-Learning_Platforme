@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Field;
 use App\User;
+use App\classe;
+
 
 
 class AdminController extends Controller
@@ -49,6 +51,15 @@ class AdminController extends Controller
        // il faut faire le traitement a partie de la table Request
         return view('dashbord.filiere',  ['fields' => Field::orderBy('filiere_id', 'DESC')->get()   ] );
     }
+
+    public function afficher_cours()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.cours',  ['classes' => Classe::orderBy('id', 'ASC')->get()   ] );
+    }
+
+
+
     public function destroy(Request $request , $id)
     {   
         User::destroy($id);
