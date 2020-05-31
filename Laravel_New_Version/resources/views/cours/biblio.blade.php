@@ -92,24 +92,17 @@
                   </div>
 
                   </div>
-
-                  </div>
-
-                  </div>
-
-                  </div>
-
-                  </div>
-                  <hr></div>
+                </div>
+                <hr>
                   @endforeach
-{{-- @php
-    $devdir = "file/".Auth::user()->prenom_user;
-    echo "$devdir";
-@endphp --}}
-                  
 
-<!--Fotter,script and Contact form-->
+</div>
 
+</div>
+
+</div>
+
+</div>
 </section>
 
        

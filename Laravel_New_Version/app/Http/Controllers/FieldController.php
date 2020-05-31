@@ -56,14 +56,14 @@ class FieldController extends Controller
             $de= array();
             $temp_filiere = array();
             
+            
            
             
         }
        
-        
+        // dd($desc);
         return view('filiere.filiere-1',['fields'=>$dept , 'filiere'=>$filieres,'description'=>$desc  , 'dept_nbr'=> $dept_nbr , 'fil_nbr'=>$fil_nbr]);
-            // $fields = Field::with('classes')->get();
-            // return view('filiere.filiere-1',['fields'=>$fields]);
+            
     }
 
  

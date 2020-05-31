@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
             <label for="password" class="col-form-label">Mot De Passe</label>
-            <input type="password" name="password" id="password" class="form-control" value="{{ old('password', $user->password ?? null  ) }}">
+            <input type="password" name="password" id="password" class="form-control" placeholder="entrez le nouveau mot de passe (sinon votre mdps ) ">
         </div>
         <div class="form-group">
             <label for="adresse_user" class="col-form-label">Adresse</label>

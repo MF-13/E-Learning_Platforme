@@ -156,92 +156,10 @@
                           @csrf
                           @method('PUT')
                             
-                            
-                            {{-- <input type="hidden" id="type_user" name="type_user" value="{{ old('type_user', $user->type_user ?? null  ) }}" > --}}
-
-
-                            {{-- <div class="form-group">
-
-                                <label for="mdps_user" class="col-form-label">Nouveau mot de pass</label>
-
-                                <input type="password" class="form-control" id="mdps_user" name="mdps_user"
-
-                                >
-
-                            </div>
-
-                            {{-- <div class="form-group">
-
-                                <label for="recipient-name" class="col-form-label">Confirme mot de pass</label>
-
-                                <input type="password" class="form-control" id="recipient-name" name="pass2">
-
-                            </div> --}}
-
-                            {{-- <div class="form-group">  --}}
-
-                                {{-- <label for="nom_user" class="col-form-label">Nom</label>
-
-                                <input type="text" class="form-control" id="nom_user" name="nom_user" value="{{ old('nom_user', $user->nom_user ?? null  ) }}">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="prenom_user" class="col-form-label">Prenom</label>
-
-                                <input type="text" class="form-control" id="prenom_user" name="prenom_user" value="{{ old('prenom_user', $user->prenom_user ?? null  ) }}">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="date_naiss_user" class="col-form-label">Date Naissance</label>
-
-                                <input type="date" class="form-control" id="date_naiss_user" name="date_naiss_user" value="{{ old('date_naiss_user', $user->date_naiss_user ?? null  ) }}">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="email_user" class="col-form-label">Email</label>
-
-                                <input type="text" class="form-control" id="email_user" name="email_user" value="{{ old('email_user', $user->email_user ?? null  ) }}">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="adresse_user" class="col-form-label">Adresse</label>
-
-                                <input type="text" class="form-control" id="adresse_user" name="adresse_user" value="{{ old('adresse_user', $user->adresse_user ?? null  ) }}">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="num_tele_user" class="col-form-label">Telephone</label>
-
-                                <input type="number" class="form-control" id="num_tele_user" name="num_tele_user" value="{{ old('num_tele_user', $user->num_tele_user ?? null  ) }}">
-
-                            </div>
-                            <div class="form-group">
-
-                                  <label for="type_user" class="col-form-label">Type User</label>
-
-                                  <input type="text" class="form-control" id="type_user" name="type_user" value="{{ old('type_user', $user->type_user ?? null  ) }}" disabled>
-
-                            </div>
-                            <div class="modal-footer"> --}}
                               @include('users.form')
 
-                            {{-- <input type="submit" name="submit" class="btn btn-primary btn-sm" value="Enregistrer"> --}}
-
-                             {{-- </div> --}}
-                              
-                             
                              <button type="submit" class="btn btn-primary btn-sm" name="submit">Enregistrer</button>
-                           </form>
+                        </form>
 
                         </div>
 

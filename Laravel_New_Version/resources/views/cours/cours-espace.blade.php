@@ -29,81 +29,86 @@
         <button type="button" class="btn btn-link tablinks" onclick="openCity(event, 'quiz')"  style="padding-left: 50px; padding-right: 50px;">Quiz</button>
       </li>
     </ul>
+
 @if (Auth::user()->type_user == 'professeur')
-<!-- pour le professeur -->
+<!-- affichage des buttons pour les professeurs -->
     <div style="padding-left: 40%">
                 <br>
                 <a href="{{url('/cours/addquiz')}}" class="btn btn-info" >Ajouter Quiz</a>
                 <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a>
     </div>            
 @endif
-    <!-- Type Donnes Section -->
+    
 
-    <!--Selection des fichiers a afficher-->
-
-  <section class="Posts">
+<section class="Posts">
 
   <p class="Text"> Fichiers pour filiere : {{strtoupper(Auth::user()->filiere_user)}}</p>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-@foreach ($files as $file) 
-  <div id="{{$file->type_cour}}" class="tabcontent">
-  {{-- <hr> --}}       
-        <div class="card text-center cardpadding">
-          <div class="card-body">
-            <div class="media">
-              <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
-              <div class="media-body">      
-<!-- traitement depuis la base de donnes -->
-              @php
-                 echo"<h4 class=\"mt-0\">Type de cour : ".strtoupper($file->type_cour)."</h4>"
-              @endphp
-                <p class="pmedia">
-                <ul class="pmedia mylist">
 
-                  <li><b>Nom Cour:</b>{{$file->titre}}</li>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
 
-                  <li><b>commantaire:</b> {{$file->commantaire}}</li>
+      @php
+        $types=['cour','td','tp'];
+      @endphp
 
-                  <li><b>Publier le :</b> {{$file->date_ajoute}}</li>
-                    <!-- devdir = direction du fichier \\\  file = nom du fichier -->
-                      <br>
-                      <form class="formbutton" method="post" action="cours-detail.php">
-                        <input type="hidden" name="file" value=".$file.">
-                        <input type="hidden" name="dir" value=".$devdir.">
-                      {{-- <a href="{{route('cour.show',['file'=>$file->id])}}" class="btn btn-outline-primary btnmarging">Consulter...</a> --}}
-                      </form>
-                </ul></p>
-               <!-- /*Telecharger le fichier*/ -->
-{{-- ????????????????????????????????????????????????????????????????????????? --}}
-                  <form class="formbutton" action="traitement/downloadfile.php" method="post">
-                    <input type="hidden" name="file" value="'.$file.'">
-                    <input type="hidden" name="dir" value="'.$devdir.'">
-                    <button type="submit" class="btn btn-outline-success btnmarging"><i class="fas fa-download"></i> Telecharger</button>
-                  </form>
-{{-- ????????????????????????????????????????????????????????????????????????? --}}
-            @if (Auth::user()->type_user == 'professeur')
-            <!-- si c est un professeur -->
-            <form class="formbutton" action="traitement/dropfile.php" method="post">
-              <input type="hidden" name="file" value="'.$file.'">
-              <input type="hidden" name="dir" value="'.$devdir.'">
-              <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
-            </form>
-            @endif
+      @foreach($types as $type)
+        <div id="{{$type}}" class="tabcontent">
+          @foreach ($files as $file)
+            @if($file->type_cour==$type) 
+              <div class="card text-center cardpadding">
+                <div class="card-body">
+                  <div class="media">
+                    <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                    <div class="media-body">
+                      
+                      
+                                  <!-- taffichage du contenue -->
+                          @php
+                            echo"<h4 class=\"mt-0\">Type de cour : ".strtoupper($file->type_cour)."</h4>"
+                          @endphp
+                        
+                          <p class="pmedia">
+                              <ul class="pmedia mylist">
 
-              </div>
-              </div>
-              </div>
+                                <li><b>Nom Cour:</b>{{$file->titre}}</li>
+
+                                <li><b>commantaire:</b> {{$file->commantaire}}</li>
+
+                                <li><b>Publier le :</b> {{$file->date_ajoute}}</li>
+                                    <br>
+                              </ul>
+                          </p>
+                                    <!-- Telecharger le fichier et les buttons-->
+                                  <!-- devdir = direction du fichier \\\  file = nom du fichier -->
+
+                            <form class="formbutton" action="traitement/downloadfile.php" method="post">
+                              <input type="hidden" name="file" value="'.$file.'">
+                              <input type="hidden" name="dir" value="'.$devdir.'">
+                              <button type="submit" class="btn btn-outline-success btnmarging"><i class="fas fa-download"></i> Telecharger</button>
+                            </form>
+
+                            @if (Auth::user()->type_user == 'professeur')
+                            <!-- si c est un professeur -->
+                            <form class="formbutton" action="traitement/dropfile.php" method="post">
+                              <input type="hidden" name="file" value="'.$file.'">
+                              <input type="hidden" name="dir" value="'.$devdir.'">
+                              <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
+                            </form>
+                            @endif
+
+                    </div>
+                  </div>
+                </div>
               </div>
               <hr>
-              </div>
-              @endforeach
-              </div>
-              </div> 
-              </div>  
-              </div>
-  
+             @endif 
+          @endforeach
+        </div>
+      @endforeach
+    </div>
+  </div> 
+</div> 
 
 
 
@@ -119,7 +124,7 @@
 
        <!--  /* si c'est un etudiant*/ -->
 
-
+        @if(Auth::user()->type_user=='etudiant' || Auth::user()->type_user=='admin')
                 <div class="container">
 
                   <div class="row">
@@ -171,13 +176,13 @@
 
               </div>
 
-        
+            @endif
 
 
 
 <!-- /*si c'est un professeur*/ -->
 
-
+@if(Auth::user()->type_user=='professeur' || Auth::user()->type_user=='admin')
   <div class="container">
 
   <div class="row">
@@ -290,6 +295,7 @@
 
 </div>
 
+@endif
 </div>
 
 

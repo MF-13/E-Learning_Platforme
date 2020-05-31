@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Message;
+use App\User;
+use Auth;
+
+
+
 
 class ContactController extends Controller
 {
@@ -36,16 +40,39 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   $email_admin = "admin@gmail.com";
+        $id_admin = "-1";
+        $admin_type = "admin";
+
+        if(Auth::user())
+        {
+            $emetteur_id = Auth::user()->id ;
+            $emetteur_type = Auth::user()->type_user  ;
+        }
+
+        else
+        {
+            $emetteur_id = -1 ;
+            $emetteur_type = 'visiteur'  ;
+        }
+
+
+
         $message = new Message();
-        $message->emetteur_id = $request->input('id');
-        $message->recepteur_id = $request->input('id_admin');
-        $message->recepteur_email = $request->input('email_admin');
+
+        $message->emetteur_id = $emetteur_id;
         $message->emetteur_nom = $request->input('nom');
-        $message->emetteur_telephone = $request->input('telephone');
         $message->emetteur_email = $request->input('email');
+        $message->emetteur_telephone = $request->input('telephone');
+        $message->emetteur_type = $emetteur_type;
+
         $message->message = $request->input('message');
+
+        $message->recepteur_id = $id_admin;
+        $message->recepteur_email = $email_admin;
+        $message->recepteur_type = $admin_type;
+
+        
 
         $message->save();
         return redirect(route('index'))->with('status', 'L\'opération s\'effectues avec successe  !');

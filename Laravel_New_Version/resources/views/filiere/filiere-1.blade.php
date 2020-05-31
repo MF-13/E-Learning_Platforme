@@ -23,10 +23,10 @@
                     @foreach ($fields as $dept)
                         <div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">
                             <button class="accordion"><h3 class="titre">{{strtoupper($dept->departement)}}</h3></button>
-                            
+                            <div class="panel">
+                            <img src="\images\img\index\filiere\{{$dept->departement}}.png" class="card-img-top" alt="...">
                             @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
-                                <div class="panel">
-                                    <img src="\images\img\index\filiere\{{$filiere[$inc][$dept->departement][$i]}}.png" class="card-img-top" alt="...">
+                                
                                     <div class="card-body">
                                         <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
                                         <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
@@ -37,8 +37,9 @@
                                             <li>cours n3</li>
                                         </ul>
                                     </div>
-                                </div>
+                                
                            @endfor
+                           </div>
                         </div>
                         @php
                             $inc++;

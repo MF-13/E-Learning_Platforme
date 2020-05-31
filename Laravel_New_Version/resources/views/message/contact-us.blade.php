@@ -35,59 +35,53 @@
       @csrf
       
       <h1>Contactez Nous</h1>
-        <div class="txtb" hidden>
-          
-          {{-- les donnes de ladmin --}}
-          <input type="hidden" name="id_admin" required  value="1">
-          <input type="hidden" name="email_admin" required  value="admin@gmail.com">
-        </div>
+        
         @auth
 
-        <div class="txtb" hidden>
-              <label hidden>Nom Complet : </label>
-
-              <input type="hidden" name="id" required  value="{{ Auth::user()->id }}">
+            <div class="txtb" hidden>
+                  <label hidden>Nom Complet : </label>
+                
+                  <input type="text" name="nom" hidden required placeholder="Enter Votre Nom" value="{{ Auth::user()->nom_user }} {{ Auth::user()->prenom_user }}">
+            </div>
             
-              <input type="text" name="nom" hidden required placeholder="Enter Votre Nom" value="{{ Auth::user()->nom_user }} {{ Auth::user()->prenom_user }}">
-        </div>
-        
 
-        <div class="txtb" hidden>
+            <div class="txtb" hidden>
 
-              <label>Telephone : </label>
+                  <label>Telephone : </label>
 
-              <input type="number" name="telephone" required placeholder="Enter Votre Numero" value="{{ Auth::user()->num_tele_user }}">
-        </div>
+                  <input type="number" name="telephone" required placeholder="Enter Votre Numero" value="{{ Auth::user()->num_tele_user }}">
+            </div>
 
-        <div class="txtb" hidden>
+            <div class="txtb" hidden>
 
-            <label>Email :</label>
+                <label>Email :</label>
 
-            <input type="email" name="email" required placeholder="Enter Votre Email" value="{{ Auth::user()->email }}">
-        </div>
+                <input type="email" name="email" required placeholder="Enter Votre Email" value="{{ Auth::user()->email }}">
+            </div>
+
         @else
-        <div class="txtb">
 
-          <label>Nom Complet : </label>
-          <input type="hidden" name="id" required  value="0">
+            <div class="txtb">
 
-          <input type="text" name="nom" required placeholder="Enter Votre Nom">
-      </div>
+              <label>Nom Complet : </label>
 
-      <div class="txtb">
+              <input type="text" name="nom" required placeholder="Enter Votre Nom">
+            </div>
 
-            <label>Telephone : </label>
+            <div class="txtb">
 
-            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            type = "number" maxlength = "9" name="telephone" placeholder="Entrer votre numero">
-      </div>
+                <label>Telephone : </label>
 
-      <div class="txtb">
+                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "number" maxlength = "9" name="telephone" placeholder="Entrer votre numero">
+            </div>
 
-          <label>Email :</label>
+            <div class="txtb">
 
-          <input type="email" name="email" required placeholder="Enter Votre Email"">
-      </div>
+              <label>Email :</label>
+
+              <input type="email" name="email" required placeholder="Enter Votre Email"">
+            </div>
       
         @endauth
 
@@ -98,6 +92,7 @@
           <textarea class="txttb" name="message" required placeholder="Enter Votre Message"></textarea>
   
         </div>
+        
         <input type="submit" name="submit" class="btn" value="Envoyer">
 
   </form>
