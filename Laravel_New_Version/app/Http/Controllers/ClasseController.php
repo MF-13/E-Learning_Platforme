@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\classe;
+use App\Field;
+
+use Request;
 
 class ClasseController extends Controller
 {
@@ -33,11 +35,21 @@ class ClasseController extends Controller
         return view('cours.addcours-1') ;
     }
 
-    public function create_cours()
-    {
+    public function create_cours(classe $class)
+    {   
+        // pour afficher les filieres
+        $fields = Field::select('filiere_id')->distinct()->get();
+        
+        // variable class c'est pour traiter les donnees s il existe
+        if($class){
 
+            $cours = $class;
 
-        return view('dashbord.cours_trait');
+        }else{
+            $cours= array();
+        }
+
+        return view('dashbord.cours_trait',['fields'=>$fields,'cours'=>$cours]);
     }
 
     /**

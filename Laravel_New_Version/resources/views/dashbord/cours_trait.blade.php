@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
   Filiere traitement
@@ -37,26 +37,29 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Cours ID</span>
                   </div>
-                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{old('cours',$cours->id)}}">
+                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="">
               </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Cours Nom </span>
                   </div>
-                  <input type="text" name="nom" placeholder="EX : Programmation" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{old('cours',$cours->om)}}">
+                  <input type="text" name="nom" placeholder="EX : Programmation" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="">
               </div>
               <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
                   </div>
-                  <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{old('cours',$cours->cours_description)}}">
+                  <input type="text" name="description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <select class="input-group-text" id="inputGroup-sizing-default" value="{{old('cours',$cours->id_filiere)}}>Filiere</select>
+                    <select class="input-group-text" id="inputGroup-sizing-default" value="">
+                        @foreach($fields as $field)
+                            <option>{{$field->filiere_id}}</option>
+                        @endforeach
+                    </select>
                 </div>
-                    <option>Test 1</option>
-                    <option>Test 2</option>
+                    
 
             </div>
               <input type="submit" name="submit" class="btn btn-info float-right">
