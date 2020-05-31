@@ -38,6 +38,13 @@ class AdminController extends Controller
         return view('dashbord.prof', ['users' => User::where('type_user','professeur')->get()   ] );
     } 
 
+    public function afficher_demande()
+    {
+       
+        return view('dashbord.demande',  ['users' => User::orderBy('id', 'DESC')->get()   ] );
+    }
+
+
     public function destroy(Request $request , $id)
     {   
         User::destroy($id);
