@@ -108,17 +108,17 @@
 
   <!-- End NAV BAR -->
 
-  <div class="status">
-    {{-- Traitement pour ajouter la partie de alert de succes ou de  error --}}
-    @if(session()->has('status'))
-       <p class="alert alert-succes">{{ session()->get('status') }}</p>
-    @endif
-  
-  </div>
+ 
 
 
   <div class="body mt-5" >
-  
+    <div class="status" style="margin-top: 50px;">
+      {{-- Traitement pour ajouter la partie de alert de succes ou de  error --}}
+      @if(session()->has('status'))
+        <p class="alert alert-succes">{{ session()->get('status') }}</p>
+      @endif
+    
+    </div>
      @yield('content') 
   
   </div>
@@ -148,14 +148,14 @@
 
           <ul class="mylist fixUl">
 
-            <li><a href="filiere-1.php" class="aa" >Filiére</a></li><br>
+            <li><a href="{{url('/Field')}}" class="aa" >Filiére</a></li><br>
 
-            <li><a href="cours-espace.php"  class="aa" >Cours</a></li><br>                                  
+            <li><a href="{{url('/cour')}}"  class="aa" >Cours</a></li><br>                                  
 
-            <li><a href="contact-us.php" class="aa" >Contact</a></li><br>
-
-            <li><a href="profile.php" class="aa" >Profile</a></li><br>               
-
+            <li><a href="{{url('/contact')}}" class="aa" >Contact</a></li><br>
+            @auth
+            <li><a href="{{route('user.show',['user'=>Auth::user()->id])}}" class="aa" >Profile</a></li><br>               
+            @endauth
           </ul>                      
 
         </div>                                        

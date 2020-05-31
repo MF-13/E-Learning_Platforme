@@ -98,7 +98,7 @@
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{url('/cours')}}">Afficher</a>
-                    <a class="collapse-item" href="courtrait.php">Ajouter</a>
+                  <a class="collapse-item" href="{{url('/cours_traitement')}}">Ajouter</a>
                   </div>
                 </div>
               </li>
@@ -249,7 +249,7 @@
       <span>Copyright &copy; EST-LEARNING 2020</span>
     </div>
   </div>
-
+    {{-- linear-gradient(90deg, rgba(46,46,46,1) 0%, rgba(46,46,46,1) 35%, rgba(46,46,46,1) 100%) --}}
   {{-- Script --}}
 
   <script src={{ asset("js/dash/vendor/jquery/jquery.min.js") }}></script>

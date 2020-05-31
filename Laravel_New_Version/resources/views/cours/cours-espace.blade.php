@@ -55,7 +55,7 @@
       @foreach($types as $type)
         <div id="{{$type}}" class="tabcontent">
           @foreach ($files as $file)
-            @if($file->type_cour==$type) 
+            @if($file->type_cour==$type && $file->id_filiere==Auth::user()->filiere_user) 
               <div class="card text-center cardpadding">
                 <div class="card-body">
                   <div class="media">

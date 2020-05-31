@@ -29,11 +29,11 @@
                   
                 
                 <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text"  id="inputGroup-sizing-default">Id</span>
                   </div>
-                  <input type="number" name="id" value="{{Auth::user()->id}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  disabled>
+                  <input type="number" name="id" value="{{Auth::user()->id}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" hidden>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -51,7 +51,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
                   </div>
-                  <input type="text" name="mdps_user" value="{{Auth::user()->password}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="password" name="mdps_user" placeholder="entrez le nouveau mot de passe (sinon votre mdps ) " class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">

@@ -39,55 +39,13 @@ class UserController extends Controller
     public function store(StoreUser $request)
     {
         
-        // methode  1
-        // $user = new User();
-
-        // $user->nom_user = $request->input('nom_user');
-        // $user->prenom_user = $request->input('prenom_user');
-        // $user->date_naiss_user = $request->input('date_naiss_user');
-        // $user->num_tele_user = $request->input('num_tele_user');
-        // $user->filiere_user = $request->input('filiere_user');
-        // $user->email = $request->input('email');
-        // $user->password = $request->input('password');
-        // $user->adresse_user = $request->input('adresse_user');
-        // $user->type_user = $request->input('type_user');
-
-        // $exist_email = self::is_email_exist($request->input('email'));
-        // $exist_numero = self::is_numero_exist($request->input('num_tele_user'));
-
-
-        // if($exist_email)
-        //     {
-        //             echo 'email already exist<br>';
-        // }else{
-        //             echo 'email not  exist<br>';
-        //     }
         
-        // if($exist_numero)
-        //     {
-        //             echo 'num already exist<br>' ;
-        // }else{
-        //             echo 'num not  exist<br>';
-        //     }
-
-
-        // if($exist_numero && $exist_email)
-        // {
-        //     $user->save();
-
-        //     $request->session()->flash('status','User jouter avec succes');
-                    
-        //     return redirect('/user');
-
-        // }
-            // methode 2 
             
         $data = $request->only(['nom_user','prenom_user','date_naiss_user',
                                 'num_tele_user','filiere_user','email',
                                 'password','adresse_user','type_user']);
 
-        // exemple de champs genere automatiquement  
-        // $data['type_user'] = 'professeur';
+        
 
         $user = User::create($data);
                                 
@@ -104,18 +62,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        // if(Auth::user()->id==$id){
-            
-        // }
-        // else {
-        //     return view
-        // }
-        
-        return view('users.profileuser', 
-                                ['user' =>   User::find(Auth::user()->id)
-                                ] );
+        return view('users.profileuser',  ['user' =>   User::find(Auth::user()->id)] );
     }
 
     /**

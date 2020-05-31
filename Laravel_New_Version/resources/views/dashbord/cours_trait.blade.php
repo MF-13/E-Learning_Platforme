@@ -29,11 +29,17 @@
                    color: red;
                 }
                 </style>
-                <form action="#" method="POST" id="formajout">
+                @if($cour)
+                    <form action="store" method="POST" id="formajout">
+                    @method('PUT')
+                @else  
+                    <form action="create" method="POST" id="formajout">
+                    
+                @endif
                   @csrf
-                  @method('PUT')
+                  
                   <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>  
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Cours ID</span>
                   </div>
