@@ -58,7 +58,11 @@ class AdminController extends Controller
         return view('dashbord.cours',  ['classes' => Classe::orderBy('id', 'ASC')->get()   ] );
     }
 
-
+    public function afficher_departement()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.departement',  ['departements' => Field::select('departement')->distinct()->get()   ] );
+    }
 
     public function destroy(Request $request , $id)
     {   

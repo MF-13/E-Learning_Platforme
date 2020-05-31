@@ -35,7 +35,7 @@
              <tbody>
             @foreach ($departements as $departement)
                 <tr>
-                <td>{{$departement}}</td>
+                <td>{{strtoupper($departement->departement)}}</td>
                 {{-- traitement de Modification de photo --}}
                   <td><button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button></td>
                 </tr>

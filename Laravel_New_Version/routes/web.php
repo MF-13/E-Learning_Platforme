@@ -31,7 +31,7 @@ Route::get('/professeur', 'AdminController@afficher_professeur')->name('professe
 Route::get('/demande', 'AdminController@afficher_demande')->name('demande');
 Route::get('/filiere', 'AdminController@afficher_filiere')->name('filiere');
 Route::get('/cours', 'AdminController@afficher_cours')->name('cours');
-
+Route::get('/departement', 'AdminController@afficher_departement')->name('departement');
 
 
 Route::resource('/dashbord','AdminController');
