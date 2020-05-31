@@ -82,7 +82,7 @@
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                         {{ __('Déconnexion') }}
-                    </a>
+                  </a>
 
                 </div>
 
