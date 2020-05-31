@@ -90,9 +90,9 @@
 
                             @if (Auth::user()->type_user == 'professeur')
                             <!-- si c est un professeur -->
-                            <form class="formbutton" action="traitement/dropfile.php" method="post">
-                              <input type="hidden" name="file" value="'.$file.'">
-                              <input type="hidden" name="dir" value="'.$devdir.'">
+                            <form class="formbutton" action="{{ route('cour.destroy', ['cour' => $file->id ]) }}" method="POST"">
+                              @csrf
+                              @method('DELETE')
                               <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
                             </form>
                             @endif
