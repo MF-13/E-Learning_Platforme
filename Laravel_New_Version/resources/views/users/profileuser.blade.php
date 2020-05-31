@@ -55,7 +55,7 @@
 
 <!------------------------TO MESSAGE-------------------------------------------------------------------------------------------->
 
-                  <a  class="btn btn-primary btn-sm btn-block" href="{{route('message.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
+                  {{-- <a  class="btn btn-primary btn-sm btn-block" href="{{route('message.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a> --}}
 
 
 <!------------------------END TO MESSAGE-------------------------------------------------------------------------------------------->               
