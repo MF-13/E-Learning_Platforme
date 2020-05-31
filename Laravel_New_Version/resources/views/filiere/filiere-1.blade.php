@@ -18,6 +18,9 @@
 
                 @php
                     $inc=0;
+                    $c = 0;
+                    // $j = 0 ;
+                    $count=0;
                 @endphp
                 @while ($inc < $dept_nbr)
                     @foreach ($fields as $dept)
@@ -26,18 +29,28 @@
                             <div class="panel">
                             <img src="\images\img\index\filiere\{{$dept->departement}}.png" class="card-img-top" alt="...">
                             @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
-                                
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
-                                        <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
-                                        <p class="card-text"><strong>Cours de la filiere : </strong></p>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
+                                    <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
+                                    <p class="card-text"><strong>Cours de la filiere : </strong></p>
                                         <ul>
-                                            <li>cours n1</li>
-                                            <li>cours n2</li>
-                                            <li>cours n3</li>
+                                            {{-- @for ($c = 0; $c < $cour_nbr[$count]; $c++) --}}
+                                            @php
+                                                $j=0;
+                                            @endphp
+                                            @while($j<$cour_nbr[$count])
+                                                <li>{{$cours[$c]}}</li>    
+                                                @php
+                                                    $c++;
+                                                    $j++;
+                                                @endphp    
+                                            @endwhile
                                         </ul>
-                                    </div>
-                                
+                                </div>
+
+                                @php
+                                    $count++;
+                                @endphp
                            @endfor
                            </div>
                         </div>
@@ -46,7 +59,9 @@
                         @endphp
                     @endforeach
                 @endwhile
-
+                @php
+                    // dd($count++);
+                @endphp
                 {{-- END CARD --}}
             </div>
         </div>
