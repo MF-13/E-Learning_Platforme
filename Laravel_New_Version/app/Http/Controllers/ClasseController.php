@@ -29,8 +29,15 @@ class ClasseController extends Controller
      */
     public function create()
     {
-        //
+        //dans le site
         return view('cours.addcours-1') ;
+    }
+
+    public function create_cours()
+    {
+
+
+        return view('dashbord.cours_trait');
     }
 
     /**
