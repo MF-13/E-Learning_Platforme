@@ -53,45 +53,12 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-{{-- <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-
-<div class="carousel-inner">
-
-
-
-{{-- WALL TRAITEMENT : inporter les images depuis le dossier public et les affichers ici --}}
-
-
-    {{-- Cursor pour naviger entre les images du WALL --}}
-
-
-
-    {{-- </div>
-
-      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-        <span class="sr-only">Previous</span>
-
-      </a>
-
-      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
-        <span class="sr-only">Next</span>
-
-      </a>
-
-    </div> --}} 
-
     {{-- END cursor TRAITEMENT --}}
 
 </article>
-
 <!-- End wall WALL TRAITEMENT-->
+
+
 
 <!-- Carctéristique --> 
 
@@ -157,8 +124,9 @@
 
 <!-- End Carctéristique -->
 
+
 <!-- Relation -->
-                              {{-- iL FAUT AJOUTER LE CHEMIN DES IMAGES : indiquer par path--}}
+
 <section class="relation">
 
 <div class="container">
@@ -208,143 +176,42 @@
 <div class="container">
 
 <div class="row">
+@php
+     $inc=0;
+@endphp
+@while ($inc < $dept_nbr)
+  @foreach($fields as $dept)
+    <div class="col-lg-3 col-md-6 col-sm-12" style="min-width: 100%;  ">
 
-  <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card">
 
-    <div class="card">
+        <img class="card-img-top" src="\images\img\index\filiere\{{$dept->departement}}.png" alt="TCC" height="150">
 
-      <img class="card-img-top" src="\images\img\index\filiere\techniques de commercialisation et de communication.png" alt="TCC" height="70">
+        <div class="card-body">
 
-      <div class="card-body">
+          <h5 class="card-title">{{strtoupper($dept->departement)}}</h5>
 
-        <h5 class="card-title">Techniques de Commercialisation et de Communication</h5>
+          <p class="card-text">Filiére :<br>
+            @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
+                <ul>
+                  <li>{{$filiere[$inc][$dept->departement][$i]}}</li>
+                </ul> 
+              @endfor
 
-        <p class="card-text">Filiére :<br>
+          </p>
 
-          <ul>
+        <p class="card-text"><button type="button" class="btn btn-link"><a href="{{url('/Field')}}" >Plus...</a></button></p>
 
-            <li>Techniques de Commercialisation et de Communication</li>
-
-            <li>Commercialisation des Produits Agroalimentaires</li>
-
-          </ul> 
-
-        </p>
-
-        <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_tcc.php" target="blank">Plus...</a></button></p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="col-lg-3 col-md-6 col-sm-12">
-
-    <div class="card">
-
-      <img class="card-img-top" src="\images\img\index\filiere\genie electrique.png" alt="GE" height="70">
-
-      <div class="card-body">
-
-        <h5 class="card-title">Génie éléctrique</h5>
-
-        <p class="card-text">Filiére :<br>
-
-          <ul>
-
-            <li>Génie Electrique</li>
-
-            <li>Génie Thermique et Energetique</li>
-
-            <li>Génie Industriel et Maintenance</li>
-
-            <li>Génie Civil</li>
-
-          </ul> 
-
-          <br>
-
-        </p>
-
-        <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_genie_electrique.php" target="blank">Plus...</a></button></p>
+        </div>
 
       </div>
 
     </div>
-
-  </div>
-
-  <div class="col-lg-3 col-md-6 col-sm-12">
-
-    <div class="card">
-
-      <img class="card-img-top" src="\images\img\index\filiere\genie informatique.png" alt="GI" height="70">
-
-      <div class="card-body">
-
-        <h5 class="card-title">Génie Informatique</h5>
-
-        <p class="card-text">Filiére :<br>
-
-          <ul>
-
-            <li>Génie Informatique</li>
-
-            <li>Techniques du Son et de l'Image</li>
-
-          </ul> 
-
-          <br>
-
-          <br>
-
-          <br>
-
-          <br>
-
-        </p>
-
-        <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_informatique.php" target="blank">Plus...</a></button></p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="col-lg-3 col-md-6 col-sm-12">
-
-    <div class="card">
-
-      <img class="card-img-top" src="\images\img\index\filiere\techniques de management.png" alt="TM" height="70">
-
-      <div class="card-body cardbody">
-
-        <h5 class="card-title">Technique de managment</h5>
-
-        <p class="card-text">Filiére :<br>
-
-          <ul>
-
-            <li>Techniques de Management</li>
-
-            <li>Finance, Banque et Assurance</li>
-
-            <li>Gestion des ressources humaines</li>
-
-          </ul> 
-
-        </p>
-
-        <p class="card-text"><button type="button" class="btn btn-link"><a href="http://www.est-umi.ac.ma/departement_technique_de_management.php" target="blank">Plus...</a></button></p>
-
-      </div>
-
-    </div>
-
-  </div>
-
+    @php
+        $inc++;
+    @endphp
+  @endforeach
+@endwhile
 </div>
 
 </div>

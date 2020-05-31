@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 //From the last version
@@ -38,8 +35,6 @@ Route::get('/demande', 'AdminController@afficher_demande')->name('demande');
 
 Route::get('/filiere', 'AdminController@afficher_filiere')->name('filiere');
 Route::get('/filiere_traitement', 'AdminController@filiere_traitement');
-
-
 
 
 Route::get('/departement', 'AdminController@afficher_departement')->name('departement');
