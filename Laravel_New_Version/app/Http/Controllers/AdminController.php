@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Field;
 use App\User;
 use App\classe;
+use App\Message;
+
 
 
 
@@ -63,6 +65,13 @@ class AdminController extends Controller
        // il faut faire le traitement a partie de la table Request
         return view('dashbord.departement',  ['departements' => Field::select('departement')->distinct()->get()   ] );
     }
+
+    public function afficher_message()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.message',  ['messages' => Message::where('recepteur_type','admin')->orderBy('date_env', 'desc')->get()   ] );
+    }
+
 
     public function destroy(Request $request , $id)
     {   

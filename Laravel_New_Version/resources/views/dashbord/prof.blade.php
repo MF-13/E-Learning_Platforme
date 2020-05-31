@@ -1,7 +1,7 @@
 @extends('dashbord.dashboard')
 
 @section('title')
-  <p>Professeur</p>
+  Professeur
 @endsection
 
 @section('content')

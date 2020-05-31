@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-  <p>cours</p>
+  Filiere traitement
 @endsection
 
 

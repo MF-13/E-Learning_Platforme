@@ -32,6 +32,8 @@ Route::get('/demande', 'AdminController@afficher_demande')->name('demande');
 Route::get('/filiere', 'AdminController@afficher_filiere')->name('filiere');
 Route::get('/cours', 'AdminController@afficher_cours')->name('cours');
 Route::get('/departement', 'AdminController@afficher_departement')->name('departement');
+Route::get('/message', 'AdminController@afficher_message')->name('message');
+
 
 
 Route::resource('/dashbord','AdminController');
@@ -46,3 +48,6 @@ Route::resource('/cour','FileController');
 Route::resource('/Field','Fieldcontroller');
 
 Route::resource('/contact','Contactcontroller');
+
+Route::resource('/Message_boite','Messagecontroller');
+

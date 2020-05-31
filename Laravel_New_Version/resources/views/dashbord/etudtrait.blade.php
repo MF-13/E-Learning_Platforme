@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-  <p>traitement Etudiant</p>
+  traitement Etudiant
 @endsection
 
 @section('content')
