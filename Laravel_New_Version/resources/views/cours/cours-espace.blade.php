@@ -137,10 +137,7 @@
                         <li><b>Publier le : </b>{{$quizze->date_pub}}</li>
                         <li><b>Dérniére date a faire : </b>{{$quizze->dernier_delai}}</li>
                         <br>
-                        <form class="formbutton" method="post" action="quiz.php">
-                          <input type="hidden" name="id" value="id du quiz">
-                          <button type="submit" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i> Réaliser le Quiz</button>
-                        </form>
+                          <a href="{{ route('quiz.show',['quiz'=> $quizze->id_quiz ])}}" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i> Réaliser le Quiz</a>
                       </ul>
                       </p>
                     </div>
