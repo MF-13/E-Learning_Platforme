@@ -26,6 +26,10 @@ Route::get('/','Indexcontroller@index')->name('index');
 
 Route::get('/bibliotheque','FileController@indexbibl');
 
+/* path de coter admin */
+Route::get('/cours', 'AdminController@afficher_cours')->name('cours');
+Route::get('/cours_traitement', 'classeController@create_cours')->name('Cours Traitement');
+
 Route::get('/etudiant', 'AdminController@afficher_etudiant')->name('etudiant');
 
 Route::get('/professeur', 'AdminController@afficher_professeur')->name('professeur');
@@ -34,8 +38,7 @@ Route::get('/demande', 'AdminController@afficher_demande')->name('demande');
 
 Route::get('/filiere', 'AdminController@afficher_filiere')->name('filiere');
 
-Route::get('/cours', 'AdminController@afficher_cours')->name('cours');
-Route::get('/cours_traitement', 'classeController@create_cours')->name('Cours Traitement');
+
 
 Route::get('/departement', 'AdminController@afficher_departement')->name('departement');
 
