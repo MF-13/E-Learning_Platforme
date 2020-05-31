@@ -58,3 +58,5 @@ Route::resource('/contact','Contactcontroller');
 
 Route::resource('/Message_boite','Messagecontroller');
 
+Route::resource('/cour/quiz','Quizcontroller');
+

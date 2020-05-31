@@ -34,7 +34,7 @@
 <!-- affichage des buttons pour les professeurs -->
     <div style="padding-left: 40%">
                 <br>
-                <a href="{{url('/cours/addquiz')}}" class="btn btn-info" >Ajouter Quiz</a>
+                <a href="{{route('quiz.create')}}" class="btn btn-info" >Ajouter Quiz</a>
                 <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a>
     </div>            
 @endif
@@ -118,188 +118,104 @@
 
  *******************************************-->
 
-      <div id="quiz" class="tabcontent">
-
-        
-
-       <!--  /* si c'est un etudiant*/ -->
-
+<div id="quiz" class="tabcontent">
+    
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
         @if(Auth::user()->type_user=='etudiant' || Auth::user()->type_user=='admin')
-                <div class="container">
-
-                  <div class="row">
-
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-
-                      <div class="card text-center cardpadding">
-
-                        <div class="card-body">
-
-                          <div class="media">
-
-                            <img src="static/img/cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
-
-                              <div class="media-body"> 
-
-                                <h4 class="mt-0">Quiz : nom quiz</h4>
-
-                                <p class="pmedia">
-
-                                  <ul class="pmedia mylist">
-
-                                      <li><b>Réaliser par :</b> $nom_prof</li>
-
-                                      <li><b>Publier le :</b>date_publication</li>
-
-                                      <li><b>Dérniére date a faire :</b> dernier delai</li>
-
-                                 <br>
-                                    <form method="post" action="quiz.php">
-                                      <input type="hidden" name="id" value="id du quiz">
-                                      <button type="submit" class="btn btn-outline-danger btnmarging">Realiser le Quiz</button>
-                                    </form>
-                                  </ul>
-
-                                </p>
-
-                              </div>
-
-                            </div>
-
-                          </div>
-
-                        </div>
-
-                      </div>
-
+          @foreach ($quizzes as $quizze)
+            <div class="card text-center cardpadding">
+              <div class="card-body">
+                <div class="media">
+                  <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                    <div class="media-body"> 
+                      <h4 class="mt-0">Quiz : {{$quizze->nom_quiz}}</h4>
+                      <p class="pmedia">
+                      <ul class="pmedia mylist">
+                        <li><b>Réaliser par : </b> $nom_prof</li>
+                        <li><b>Publier le : </b>{{$quizze->date_pub}}</li>
+                        <li><b>Dérniére date a faire : </b>{{$quizze->dernier_delai}}</li>
+                        <br>
+                        <form class="formbutton" method="post" action="quiz.php">
+                          <input type="hidden" name="id" value="id du quiz">
+                          <button type="submit" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i> Réaliser le Quiz</button>
+                        </form>
+                      </ul>
+                      </p>
                     </div>
-
+                  </div>
+                </div>
               </div>
-
-            @endif
-
-
-
+          @endforeach
+        @endif
+      </div>
+    </div>
+  </div>
+    
 <!-- /*si c'est un professeur*/ -->
 
 @if(Auth::user()->type_user=='professeur' || Auth::user()->type_user=='admin')
   <div class="container">
-
-  <div class="row">
-
-    <div class="col-lg-12 col-md-12 col-sm-12">
-
-      <div class="card text-center cardpadding">
-
-        <div class="card-body">
-
-          <div class="media">
-
-            <img src="static/img/cours espace/undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
-
-              <div class="media-body"> 
-               
-                <h4 class="mt-0">Quiz : nom quiz</h4>
-
-                
-
-                <p class="pmedia">
-
-                  <ul class="pmedia mylist">
-
-                    <li><b>Publier le :</b>date publication</li>
-
-                    <li><b>Dérniére date a rendre :</b>dernier_delai</li>
-
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        @foreach ($quizzes as $quizze)
+        <div class="card text-center cardpadding">
+          <div class="card-body">
+            <div class="media">
+              <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                <div class="media-body"> 
+                  <h4 class="mt-0">Quiz : {{$quizze->nom_quiz}}</h4>
+                    <p class="pmedia">
+                      <ul class="pmedia mylist">
+                        <li><b>Publier le :</b> {{$quizze->date_pub}}</li>
+                        <li><b>Dérniére date a rendre :</b> {{$quizze->dernier_delai}}</li>
                         <br>
-                    <form method="post" action="quiz.php">
-                
-                      <input type="hidden" name="id" value="id quiz">
-                      <button type="submit" class="btn btn-outline-danger btnmarging">Consulter</button>
-                                  
-                   </form>
-                      
-
-                  </ul>
-
-
-                  <form method="post" action="traitement/dropquiz.php">
-                
-                      <input type="hidden" name="id" value="id quiz">
-                      <button type="submit" class="btn btn-outline-danger btnmarging">Supprimer</button>
-                                  
-                   </form>
-
-
-                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#'.$row['id_quiz'].'"
-
-                   aria-expanded="false" aria-controls="collapseExample">
-
-                    <i class="fas fa-sort-down fa-2x" style="padding-bottom: 10px;"></i> Etudiants Résultas
-
-                  </button>';
-
-                    <!-- /*result des etudiants  */ -->
-
-                      <div class="collapse" id="id quiz">
-
+                        <form class="formbutton" method="post" action="quiz.php">
+                          <input type="hidden" name="id" value="id quiz">
+                          <button type="submit" class="btn btn-outline-secondary btnmarging"><i class="fas fa-eye"></i> Consulter...</button>
+                        </form>
+                      </ul>
+                      <form class="formbutton" action="{{ route('quiz.destroy', ['quiz' => $quizze->id_quiz ]) }}" method="POST"">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
+                      </form>
+                      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fas fa-sort-down fa-2x" style="padding-bottom: 10px;"></i> Etudiants Résultas
+                      </button>
+                      {{-- Tableau qui sort --}}
+                          <div class="collapse" id="collapseExample">
                             <div class="card card-body">
-
-                            <table class="table">
-
-                                  <thead>
-
-                                    <tr style="background-color: #393e46; color: white;">
-
-                                      <th scope="col" style="text-align: center;">Nom d\'etudiant</th>
-
-                                      <th scope="col" style="text-align: center;">Nombre des reponses correcte</th>
-
-                                    </tr>
-
-                                  </thead>
-
-                                  <tbody>
-
+                              <table class="table">
+                                <thead>
+                                  <tr style="background-color: #393e46; color: white;">
+                                    <th scope="col" style="text-align: center;">Nom d'etudiant</th>
+                                    <th scope="col" style="text-align: center;">Nombre des reponses correcte</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
                                   <tr>
-
-                                    <td>nom etudiant</td>
-
-                                    <td>resultat</td>
-
-                           <!--si aucun etudian n' pas encore repondue <td>acune resultat est disponible pour le moment</td> -->
-
-                  
-
-                      </tbody>
-
-                      </table>
-
-                      </div>
-
-                      </div>
-
-                </p>
-
+                                    <td>Nom Etudiant</td>
+                                    <td>Résultat</td>
+                          <!--si aucun etudian n' pas encore repondue <td>acune resultat est disponible pour le moment</td> -->
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        {{-- END Tableau qui sort --}}
+                      </p>
+                    </div>
               </div>
-
             </div>
-
           </div>
-
+        @endforeach
         </div>
-
       </div>
-
     </div>
-
+  @endif
 </div>
-
-@endif
-</div>
-
-
-  </section>
+</section>
   
   <script src={{ asset("js/site/cours-espace.js") }}></script>
   @else

@@ -10,48 +10,28 @@
 
 
 @section('content')
-
     <div class="container">
-
         <div class="row">
-
             <div class="col-lg-12 col-md-12 col-sm-12">
-
                 <div class="card">
-
                     <h5 class="card-header">Ajouter le Quiz</h5>
+                        <div class="card-body">
 
-                    <div class="card-body">
-
-    
-
-    <form action="traitement/insertqst.php" method="post">
-          <input type="hidden" name="qst" value="'.$n.'">
-
-
-      <div class="form-group row">
-
-                        <label for="inputTitre" class="col-sm-2 col-form-label">Titre Quiz</label>
-
-                        <div class="col-sm-8">
-
-                        <input type="text" name="titre" class="form-control" id="inputtitre">
-
-                        </div>
-
-         </div>
-
-         <div class="form-group row">
-
-                        <label for="inputTitre" class="col-sm-2 col-form-label">Dérnier délai <br>(vide si il n\'ya pas de limit)</label>
-
-                        <div class="col-sm-8">
-
-                        <input type="datetime-local" name="delai" class="form-control" id="inputtitre">
-
-                        </div>
-
-         </div>
+        <form action="traitement/insertqst.php" method="post">
+        @csrf
+            <input type="hidden" name="qst" value="'.$n.'">
+            <div class="form-group row">
+                <label for="nom_quiz" class="col-sm-2 col-form-label">Titre Quiz</label>
+                <div class="col-sm-8">
+                    <input type="text" name="nom_quiz" class="form-control" id="nom_quiz">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dernier_delai" class="col-sm-2 col-form-label">Dérnier délai <br>(vide si il n\'ya pas de limit)</label>
+                <div class="col-sm-8">
+                    <input type="datetime-local" name="dernier_delai" class="form-control" id="dernier_delai">
+                </div>
+            </div>
 
        <!--   /*Question area*/ -->
 

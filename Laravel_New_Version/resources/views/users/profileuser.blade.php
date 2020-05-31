@@ -70,7 +70,7 @@
                       @if (Auth::user()->type_user=='professeur')
                          <a href="addquiz.php" class="btn btn-info">Ajouter Quiz</a>
 
-                      <a href="addcours-1.php" class="btn btn-info">Ajouter cours</a><br>
+                      <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a><br>
                        @endif
                     
                       <!-- si c'est un admin on affiche le button pour aller au panel -->

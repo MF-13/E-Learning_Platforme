@@ -92,7 +92,6 @@ class UserController extends Controller
     {
         
         $user = User::findOrFail($id);
-       //  dd($user);
         $user->nom_user = $request->input('nom_user');
         $user->prenom_user = $request->input('prenom_user');
         $user->date_naiss_user = $request->input('date_naiss_user');

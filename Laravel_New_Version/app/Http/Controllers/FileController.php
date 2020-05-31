@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\File;
+use App\Quizze;
+use App\User;
 
 class FileController extends Controller
 {
@@ -14,12 +16,8 @@ class FileController extends Controller
      */
     public function index()
     {
-        // //$user = User::findOrFail($id);
-        // $type = $user->filiere_user ;
-        // return view('cours.cours-espace', 
-        //             ['files' => File::where('id_filiere', $type)->get()   ] );
         return view('cours.cours-espace', 
-                    ['files' => File::all()   ] );
+                    ['files' => File::all() ,'quizzes' => Quizze::all()] );
     }
     /**
      * Display a listing of the resource.
