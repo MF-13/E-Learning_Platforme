@@ -68,7 +68,7 @@
 
                     <!-- si c'est un  professeur on ajouter le button d'aller au page d ajoute de cours/quiz -->
                       @if (Auth::user()->type_user=='professeur')
-                         <a href="addquiz.php" class="btn btn-info">Ajouter Quiz</a>
+                         <a href="{{route('quiz.create')}}" class="btn btn-info">Ajouter Quiz</a>
 
                       <a href="{{route('cour.create')}}" class="btn btn-info">Ajouter cours</a><br>
                        @endif

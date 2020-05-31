@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\StoreUser;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
@@ -16,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
        
-        return view('users.etudiant', 
+        return view('users.index', 
                     ['users' => User::orderBy('id', 'DESC')->get()   ] );
     }
 
@@ -38,13 +40,20 @@ class UserController extends Controller
      */
     public function store(StoreUser $request)
     {
-        $data = $request->only(['nom_user','prenom_user','date_naiss_user',
-                                'num_tele_user','filiere_user','email',
-                                'password','adresse_user','type_user']);
+        $user = User::create([
+            'nom_user' => $request['nom_user'],
+            'prenom_user' => $request['prenom_user'],
+            'date_naiss_user' => $request['date_naiss_user'],
+            'num_tele_user' => $request['num_tele_user'],
+            'filiere_user' => $request['filiere_user'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'adresse_user' => $request['adresse_user'],
+            'type_user' => $request['type_user'],
+        ]);
+        $user->attachRole('user');
 
-        
-
-        $user = User::create($data);
+        $user->save();
                                 
             $request->session()->flash('status','User ajouter avec succes');
                     
@@ -93,7 +102,7 @@ class UserController extends Controller
         $user->num_tele_user = $request->input('num_tele_user');
         $user->filiere_user = $request->input('filiere_user');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = Hash::make($request->input('password'));
         $user->adresse_user = $request->input('adresse_user');
         $user->type_user = $request->input('type_user');
 

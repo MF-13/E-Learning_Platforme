@@ -58,7 +58,7 @@
                   <div class="bg-white py-2 collapse-inner rounded">
                   <a class="collapse-item" href="{{url('/etudiant')}}">Etudiant</a>
                   <a class="collapse-item" href="{{url('/professeur')}}">Professeur</a>
-                    <a class="collapse-item" href="{{url('/user_traitement')}}">Ajouter</a>
+                    <a class="collapse-item" href="{{route('dashbord.create')}}">Ajouter</a>
                   </div>
                 </div>
               </li>
