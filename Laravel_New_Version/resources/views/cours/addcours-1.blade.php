@@ -31,50 +31,43 @@
                     @csrf
                         <div class="form-group">
 
-                            <label  for="nom">Titre cours</label>
+                            <input type="hidden" name="code_prof" value="{{Auth::user()->id}}" class="form-control" required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" hidden>
 
-                            <input type="text" name="nom" class="form-control" id="nom" placeholder="ex. langage C" required>
+                            <label  for="titre">Titre cours</label>
+
+                            <input type="text" name="titre" class="form-control" id="titre" placeholder="ex. langage C" required>
 
                            
 
-                            <label for="exampleFormControlFile1" class="textleft"> Choisir le fichier(<strong>taille max :  500mb</strong>)</label>
+                            <label for="userfile" class="textleft"> Choisir le fichier(<strong>taille max :  500mb</strong>)</label>
 
-                            <input name = "userfile" type="file" class="form-control-file " id="exampleFormControlFile1">
+                            <input name = "userfile" type="file" class="form-control-file " id="userfile">
 
                             <br>
 
                            
 
-                            <select name="type_cours" class="form-control" id="exampleFormControlSelect1">
-
+                            <select name="type_cour" class="form-control" id="exampleFormControlSelect1">
                                 <option>cour</option>
-
                                 <option>tp</option>
-
                                 <option>td</option>
-
                                 <option>bibliotheque</option>
-
                             </select>
 
          <!--specifier le cour dans le quelle on va importer ce fichier-->
 
-                            <label for="exampleFormControlSelect2">Cours</label>
-
-                            <select name="cours" class="form-control" id="exampleFormControlSelect2">
-
-                                <option>nom de cour 1 </option>
-                                <option>nom de cour 2 </option>
-                                <option>nom de cour 3 </option>
-                                <option>bibliotheque </option>
-
-                          
-
+                    {{-- fonction pour les filiere existe --}}
+                            <label for="id_filiere">Cours</label>
+                            <select name="id_filiere" class="form-control" id="id_filiere">
+                                <option>gi</option>
+                                <option>tm</option>
+                                <option>tcc</option>
+                                <option>bibliotheque</option>
                             </select>
 
-                            <label for="description">Commentaire</label>
+                            <label for="commentaire">Commentaire</label>
 
-                            <textarea name="description" required="required" class="form-control" id="description" rows="3"></textarea>
+                            <textarea name="commentaire" required="required" class="form-control" id="commentaire" rows="3"></textarea>
 
                             </div>
 

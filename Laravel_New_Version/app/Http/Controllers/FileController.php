@@ -41,6 +41,7 @@ class FileController extends Controller
     public function create()
     {
         //
+        return view('cours.addcours-1');
     }
 
     /**
@@ -52,6 +53,43 @@ class FileController extends Controller
     public function store(Request $request)
     {
         //
+        // *******************************traitement de fichier *****************************
+
+        $this->validate($request, [
+            'titre' => 'required',
+            'id_filiere' => 'required',
+            'type_cour' => 'required',
+            'userfile' => 'required|max:1999'
+        ]);
+
+        // Handle File Upload
+        if($request->hasFile('userfile')){
+            $filiereName = $request->id_filiere ;
+            // Get filename with the extension
+            $filenameWithExt = $request->file('userfile')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('userfile')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'.'.$extension;
+            // Upload Image
+            $path = $request->file('userfile')->storeAs('public/file', $filiereName.'/'.$fileNameToStore);
+        } 
+        // Le ficher est ajouter dans C:\wamp\www\PFE\Laravel_New_Version\storage\app\public\file\
+
+        // Create Post
+        $file = new File;
+        $file->code_prof = $request->input('code_prof');
+        $file->titre = $request->input('titre');
+        $file->id_filiere = $request->input('id_filiere');
+        $file->type_cour = $request->input('type_cour');
+        $file->commantaire = $request->input('commentaire');
+        $file->nom_pdf = $fileNameToStore;
+        $file->pdf_lien = $path;
+        $file->save();
+
+        return redirect('/cour')->with('success', 'cour Created');
     }
 
     /**

@@ -30,7 +30,7 @@
       </li>
     </ul>
 
-@if (Auth::user()->type_user == 'professeur')
+@if (Auth::user()->type_user == 'professeur' || Auth::user()->type_user == 'admin')
 <!-- affichage des buttons pour les professeurs -->
     <div style="padding-left: 40%">
                 <br>
