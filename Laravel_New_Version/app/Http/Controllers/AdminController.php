@@ -90,6 +90,21 @@ class AdminController extends Controller
 
     }
 
+    public function Cour_Add()
+    {
+
+        $temp_field = Field::select('filiere_id')->get();
+        $nbr = $temp_field->count();
+
+
+        for ($i=0; $i < $nbr; $i++) { 
+            $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
+
+        }
+        return view('dashbord.addcour',['fields'=>$field]) ;
+
+    }
+
     public function edit($id)
     {
         $user = User::findOrFail($id);

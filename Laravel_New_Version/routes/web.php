@@ -36,6 +36,7 @@ Route::get('/demande', 'AdminController@afficher_demande')->name('demande');
 Route::get('/filiere', 'AdminController@afficher_filiere')->name('filiere');
 Route::get('/filiere_traitement', 'AdminController@filiere_traitement');
 
+Route::get('/Cour_Add', 'AdminController@Cour_Add');
 
 Route::get('/departement', 'AdminController@afficher_departement')->name('departement');
 
