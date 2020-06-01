@@ -95,7 +95,7 @@ class ContactController extends Controller
     public function edit($id)
     {
         //
-        
+
     }
 
     /**
@@ -121,6 +121,6 @@ class ContactController extends Controller
         //
         $message = Message::findOrFail($id) ;
         $message->delete();
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect('/message')->with('status', 'Le Message est Supprimer');
     }
 }

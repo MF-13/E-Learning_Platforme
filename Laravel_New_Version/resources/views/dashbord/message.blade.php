@@ -51,7 +51,15 @@
                           <td>{{$message->date_env}}</td>
                           {{-- Need Traitement --}}
                           <td><a href="{{ route('Message_boite.edit' , ['Message_boite' => $message->id] ) }}" class="btn btn-warning" >Répondre</a></td>
-                          <td><button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$row['id_msg'].'\';">supprimer</button></td>                    
+                          {{-- Supprimer button --}}
+                      <td>
+                        <form action="{{ route('contact.destroy', ['contact' => $message->id ]) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" name="submit" class="btn btn-danger" style="display: inline;">Supprimer</button>
+                        </form>
+                      </td>
+                      {{-- END Supprimer button --}}
                         </tr>
                     @endforeach
                   </tbody>
