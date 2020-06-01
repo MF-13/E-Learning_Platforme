@@ -51,22 +51,19 @@
                               <ul class="pmedia mylist">
 
                               <li><b>Publier le :</b>{{$file->date_ajoute}}</li>
-{{-- Consulter button ?????????????????????? --}}
-                              {{-- <br>
-                              <form class="formbutton" method="post" action="cours-detail.php">
-                                <input type="hidden" name="file" value=".$file.">
-                                <input type="hidden" name="dir" value=".$devdir.">
-                                <li><button type="submit" class="btn btn btn-primary btn-sm float-left">Consulter...</button></li>
-                              </form>
 
-                              </ul></p> --}}
                             {{-- Need Traitement --}}
                               <!-- /*Telecharger le fichier*/ -->
-                                <form class="formbutton" action="traitement/downloadfile.php" method="post">
-                                  <input type="hidden" name="file" value="'.$file.'">
-                                  <input type="hidden" name="dir" value="'.$devdir.'">
-                                  <button type="submit" class="btn btn-outline-success btnmarging"><i class="fas fa-download"></i> Telecharger</button>
-                                </form>
+                                <div class="formbutton">
+                                  <a href="{{$file->pdf_lien}}" download>
+                                    <button type="submit" class="btn btn-outline-success btnmarging">
+                                      <i class="fas fa-download"></i> Telecharger
+                                    </button>
+                                </a>
+                                </div>
+                                  
+                                
+                                
                                 <!-- si L'utilisateur est un professeur -->
                                 @if (Auth::user()->type_user == 'professeur')
                                     <!-- L'accées De Supprimer le fichier -->

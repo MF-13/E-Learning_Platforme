@@ -58,7 +58,7 @@
                                         @foreach ($fields as $field)
                                         <option>{{strtolower($field)}}</option>
       	                                @endforeach
-                                        <option>bibliotheque</option>
+                                        <option value="bibl">bibliotheque</option>
                                     </select>
 
                                     <label for="commentaire">Commentaire</label>

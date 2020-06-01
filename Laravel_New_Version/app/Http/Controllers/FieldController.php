@@ -74,7 +74,7 @@ class FieldController extends Controller
                         $filiere = $filieres[$inc][$d][$j];
                         $id = strtoupper($ids[$inc][$d][$j]);
                         
-                        $temp_cour = classe::select('nom')->where('field_id',$id)->get();
+                        $temp_cour = classe::select('nom')->where('id_filiere',$id)->get();
                         $nbr = $temp_cour->count();
                         $cour_nbr[] = $nbr;
                         

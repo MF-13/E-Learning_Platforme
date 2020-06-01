@@ -18,7 +18,6 @@
                 @php
                     $inc=0;
                     $c = 0;
-                    // $j = 0 ;
                     $count=0;
                 @endphp
                 @while ($inc < $dept_nbr)
@@ -33,7 +32,6 @@
                                     <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
                                     <p class="card-text"><strong>Cours de la filiere : </strong></p>
                                         <ul>
-                                            {{-- @for ($c = 0; $c < $cour_nbr[$count]; $c++) --}}
                                             @php
                                                 $j=0;
                                             @endphp
