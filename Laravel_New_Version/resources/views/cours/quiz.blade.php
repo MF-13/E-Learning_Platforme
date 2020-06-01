@@ -31,11 +31,15 @@
                    @foreach($questions as $question)
                       
                         <p class="card-text">Question {{$nbr+1}} : {{$question['question']}} </p>
-                        
-                        <input type="radio" value="{{$question['rep_correcte']}}"  name="{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$question['rep_correcte']}}<br>
-                        <input type="radio" value="{{$question['rep_2']}}"  name="{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$question['rep_2']}}<br>
-                        <input type="radio" value="{{$question['rep_3']}}"  name="{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$question['rep_3']}}<br>
-                       
+                        @php // inverser l ordre des reponse 
+                            $reps= [$question['rep_correcte'],$question['rep_2'],$question['rep_3']];
+                            shuffle($reps);
+                        @endphp
+
+                        @foreach ($reps as $rep)
+                        <input type="radio" value="{{$rep}}"  name="{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$rep}}<br>
+                        @endforeach
+
                        @php
                             $nbr++;
                         @endphp
