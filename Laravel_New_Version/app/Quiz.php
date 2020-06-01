@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Quizze extends Model
+class Quiz extends Model
 {
     //
     protected $fillable = [

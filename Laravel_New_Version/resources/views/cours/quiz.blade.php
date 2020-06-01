@@ -21,44 +21,36 @@
 
           <div class="card-body">
 
+              <form action="traitement/quiztrait.php" method="post">
 
+              <input type="hidden"  name="id" value="{{$quiz[0]['id_quiz']}}" >
+              <h5 class="card-title">Nom quiz : {{$quiz[0]['nom_quiz']}} </h5>
+                    @php
+                      $nbr=0;
+                    @endphp
+                   @foreach($questions as $question)
+                      
+                        <p class="card-text">Question {{$nbr+1}} : {{$question['question']}} </p>
+                        
+                        <input type="radio" value="{{$question['rep_correcte']}}"  name="{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$question['rep_correcte']}}<br>
+                        <input type="radio" value="{{$question['rep_2']}}"  name="{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$question['rep_2']}}<br>
+                        <input type="radio" value="{{$question['rep_3']}}"  name="{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$question['rep_3']}}<br>
+                       
+                       @php
+                            $nbr++;
+                        @endphp
+                  @endforeach
+                  <input type="submit" name="submit" class="btn btn-success float-right">
 
+              </form>
 
+        </div>
 
+      </div>
 
-<form action="traitement/quiztrait.php" method="post">
+    </div>
 
-  
-  <input type="hidden"  name="id" value="id du quiz" >
-  
-
-  
-
-<!-- ajouter dans le php $q=1 pour parcourir les questions de la base de donnes --> 
-
-<h5 class="card-title">Nom quiz : test </h5>
-
-          <p class="card-text">Question $q : question : </p>
-            <!-- $r c'est la reponse qu'on a extraite de la base de donnes  -->
-      <input type="radio" value="'.$r.'"  name="'.$q.'" style="margin-left: 20px; margin-bottom: 8px;"  >$r<br>
-      <input type="radio" value="'.$r.'"  name="'.$q.'" style="margin-left: 20px; margin-bottom: 8px;"  >$r<br>
-      <input type="radio" value="'.$r.'"  name="'.$q.'" style="margin-left: 20px; margin-bottom: 8px;"  >$r<br>
-      
-    <br>
-
-    <input type="submit" name="submit" class="btn btn-success float-right">
-
-</form>
-
-
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 

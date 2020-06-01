@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Quiz;
 use App\Question;
+use Illuminate\Http\Request;
 
-class Quizcontroller extends Controller
+class QuestionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,7 @@ class Quizcontroller extends Controller
     public function index()
     {
         //
-        return view('cours.cours-espace' , ['quizs' => Quizze::all()   ]);
     }
-    // protected $fillable = [
-    //     'id_quiz','nom_quiz', 'id_prof', 'id_filiere', 'dernier_delai'
-    // ];
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +25,6 @@ class Quizcontroller extends Controller
     public function create()
     {
         //
-        return view('cours.addquiz');
     }
 
     /**
@@ -47,35 +41,21 @@ class Quizcontroller extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Question $question)
     {
-            //select des informations du quiz
-        $quiz=Quiz::where('id_quiz',$id)->get();
-            //select des questions du quiz
-        $questions = Question::where('id_quiz',$id)->get();
-            // count le nombre de question par quiz
-        $question_nbr = $questions->count();
-
-        // for ($i=1; $i < $question_nbr; $i++) { 
-        //     dd($questions[$i]);
-        // }
-        
-
-
-
-        return view('cours.quiz',  ['quiz' => $quiz, 'questions'=>$questions,'question_nbr'=>$question_nbr] );
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Question $question)
     {
         //
     }
@@ -84,10 +64,10 @@ class Quizcontroller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Question $question)
     {
         //
     }
@@ -95,14 +75,11 @@ class Quizcontroller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Question $question)
     {
         //
-        Quiz::destroy($id);
-        // 
-        return redirect('/dashbord');
     }
 }

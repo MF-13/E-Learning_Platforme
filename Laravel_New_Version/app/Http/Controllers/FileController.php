@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\File;
-use App\Quizze;
 use App\User;
 use App\Field;
 use Illuminate\Support\Arr;
+use App\Quiz;
 
 
 class FileController extends Controller
@@ -20,7 +20,7 @@ class FileController extends Controller
     public function index()
     {
         return view('cours.cours-espace', 
-                    ['files' => File::all() ,'quizzes' => Quizze::all()] );
+                    ['files' => File::all() ,'quizzes' => Quiz::all()] );
     }
     /**
      * Display a listing of the resource.
