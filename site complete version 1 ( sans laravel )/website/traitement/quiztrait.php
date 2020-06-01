@@ -127,7 +127,7 @@ $q++;
 
 
 
-
+//insertion a la base
 
 $query2 = "INSERT into resultat_quiz values(?,?,?,?,?)";
 

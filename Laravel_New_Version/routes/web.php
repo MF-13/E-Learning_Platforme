@@ -60,3 +60,6 @@ Route::resource('/Message_boite','Messagecontroller');
 
 Route::resource('/cour/quiz','Quizcontroller');
 
+Route::resource('/result','Resultcontroller');
+
+
