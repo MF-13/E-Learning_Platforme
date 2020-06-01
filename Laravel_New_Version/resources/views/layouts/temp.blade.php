@@ -162,10 +162,13 @@
             <h5>Donnés Votre Commentaire</h5>
           </div>
           <ul class="mylist fixUl">
-            <li><input type="text" class="form-control" placeholder="Votre Nom"></li><br>
-            <li><input type="text" class="form-control" placeholder="Votre Gmail"></li><br>                                  
-            <li><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Votre Opinion ..."></textarea></li><br>
-            <li><button type="button" class="btn btn-warning float-right" class="aa">Envoyer</button></li><br>               
+          <form action="{{route('comment.store')}}" method="POST">
+            @csrf
+            <li><input type="text" name="nom" class="form-control" placeholder="Votre Nom"></li><br>
+            <li><input type="text" name="email" class="form-control" placeholder="Votre Gmail"></li><br>                                  
+            <li><textarea class="form-control" name="opinion" id="exampleFormControlTextarea1" rows="3" placeholder="Votre Opinion ..."></textarea></li><br>
+            <li><button type="submit" name="submit" class="btn btn-warning float-right" class="aa">Envoyer</button></li><br>               
+          </form>
           </ul>                      
         </div>                                                                                        
       </div>

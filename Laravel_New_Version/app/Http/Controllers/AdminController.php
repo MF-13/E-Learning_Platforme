@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Field;
 use App\User;
 use App\classe;
+use App\Comment;
 use App\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -74,6 +75,12 @@ class AdminController extends Controller
     {
        // il faut faire le traitement a partie de la table Request
         return view('dashbord.message',  ['messages' => Message::where('recepteur_type','admin')->orderBy('date_env', 'desc')->get()   ] );
+    }
+
+    public function afficher_comment()
+    {
+       // il faut faire le traitement a partie de la table Request
+        return view('dashbord.comment',  ['comments' => Comment::all() ] );
     }
 
     public function user_traitement()

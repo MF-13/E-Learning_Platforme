@@ -20,7 +20,6 @@ Auth::routes();
 
 Route::get('/','Indexcontroller@index')->name('index');
 
-
 Route::get('/bibliotheque','FileController@indexbibl');
 
 /* path de coter admin */
@@ -41,6 +40,8 @@ Route::get('/Cour_Add', 'AdminController@Cour_Add');
 Route::get('/departement', 'AdminController@afficher_departement')->name('departement');
 
 Route::get('/message', 'AdminController@afficher_message')->name('message');
+
+Route::get('/Comments', 'AdminController@afficher_comment')->name('comment');
 
 Route::resource('/classe','ClasseController');
 
@@ -64,4 +65,4 @@ Route::resource('/cour/quiz','Quizcontroller');
 
 Route::resource('/result','Resultcontroller');
 
-
+Route::resource('/comment','CommentController');

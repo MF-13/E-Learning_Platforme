@@ -107,6 +107,21 @@
                   </div>
                 </div>
               </li>
+              <hr class="sidebar-divider">
+
+              <!-- Nav Item - Pages Collapse Menu -->
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                  <i class="fas fa-fw fa-sliders-h"></i>
+                  <span>Opinion</span>
+                </a>
+                <div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordionSidebar">
+                  <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{url('/Comments')}}">Afficher</a>
+                  </div>
+                </div>
+              </li>
+              <hr class="sidebar-divider">
               
               <!-- Sidebar Toggler (Sidebar) -->
               <div class="text-center d-none d-md-inline">
