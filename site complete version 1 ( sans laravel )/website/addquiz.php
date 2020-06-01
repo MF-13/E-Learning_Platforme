@@ -113,11 +113,6 @@ echo '
                     <div class="card-body">
 
     ';
-
-
-
-
-
 if (isset($_POST['number'])) {
 
     if (empty($_POST['number'])) {

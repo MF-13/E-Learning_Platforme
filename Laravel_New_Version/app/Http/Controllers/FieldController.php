@@ -59,9 +59,6 @@ class FieldController extends Controller
             $id=array();
             $temp_filiere = array();
             
-            
-           
-            
         }
         //enregitrer les cours
         $inc=0;
@@ -100,7 +97,6 @@ class FieldController extends Controller
             
     }
 
- 
 
     /**
      * Show the form for editing the specified resource.
@@ -131,18 +127,45 @@ class FieldController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $fields = Field::where('filiere_id',$id)->get() ;
-        foreach($fields as $field){
+        $field = Field::where('filiere_id',$id)->first() ;
 
-        }
-        // dd($field);
+        
+        // foreach($fields as $field){
+
+        // }
+        // dd($fields);
+        $field->filiere_id = $request->filiere_id;
         $field->filiere =  $request->filiere ;
-        $field->description =  $request->description ;
+        $field->departement =  $request->departement ;
+        $field->filiere_description =  $request->filiere_description ;
+// dd($fields);
+        // $field->save()->where('filiere_id',$id);
+        $field->save();
+
+        return redirect('/filiere')->with('status', 'La Filiére est Modifier');
+    }
+
+    public function store(Request $request)
+    {
+        //
+        $request->validate([
+
+            'filiere_id' =>  'required|max:4',
+            'filiere' => 'required|max:500',
+            'departement' => 'required',
+            'filiere_description' => 'required'
+        ]);
+        
+        $field = new Field();
+        $field->filiere_id = $request->filiere_id;
+        $field->filiere =  $request->filiere ;
+        $field->departement =  $request->departement ;
         $field->filiere_description =  $request->filiere_description ;
 
-        $field->save()->where('filiere_id',$id);
+        $field->save();
 
-        return redirect('/filiere/filieretrait')->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect('/filiere')->with('status', 'La Filiere est Ajouter');
+    
     }
 
     public function destroy($id)

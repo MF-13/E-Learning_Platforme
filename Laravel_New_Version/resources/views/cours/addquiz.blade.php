@@ -17,7 +17,13 @@
                 <div class="card">
                     <h5 class="card-header">Ajouter le Quiz</h5>
                         <div class="card-body">
-
+    @php
+        if(isset($_POST['number'])){
+            if (empty($_POST['number'])){
+                redirect('/user');
+            }
+        }
+    @endphp
         <form action="traitement/insertqst.php" method="post">
         @csrf
             <input type="hidden" name="qst" value="'.$n.'">
@@ -123,7 +129,7 @@
         }  
 
     </script> 
-
+@endphp
 
 
 @endsection
