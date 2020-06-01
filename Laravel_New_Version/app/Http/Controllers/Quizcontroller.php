@@ -16,7 +16,7 @@ class Quizcontroller extends Controller
     public function index()
     {
         //
-        return view('cours.cours-espace' , ['quizs' => Quizze::all()   ]);
+        return view('cours.cours-espace' , ['quizs' => Quiz::all()   ]);
     }
     // protected $fillable = [
     //     'id_quiz','nom_quiz', 'id_prof', 'id_filiere', 'dernier_delai'
@@ -42,6 +42,11 @@ class Quizcontroller extends Controller
     public function store(Request $request)
     {
         //
+        $quiz = new Quiz();
+        $quiz->id_prof = $request->id_prof;
+        $quiz->id_filiere = $request->id_filiere;
+        $quiz->nom_quiz = $request->nom_quiz;
+        $quiz->dernier_delai = $request->dernier_delai;
     }
 
 
