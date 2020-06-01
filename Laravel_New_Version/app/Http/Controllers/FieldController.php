@@ -111,8 +111,13 @@ class FieldController extends Controller
     public function edit($id)
     {
         //
-        $fields=Field::findOrFail($id);
-        return view('dashbord.filiere_trait',['fields'=>$fields]);
+        $fields=Field::where('filiere_id',$id)->get();
+
+        foreach ($fields as $field) {
+            // dd($field);
+        }
+        
+        return view('dashbord.filiere_trait',['fields'=>$field]);
     }
 
 
