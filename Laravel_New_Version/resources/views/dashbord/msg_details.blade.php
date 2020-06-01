@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
   @section('title')
     Message details
@@ -28,64 +28,76 @@
                 }
                 </style>
                 
-             <form action="{{route('messages.show', ['id' => $message->id])}}"" method="POST" id="formajout">
+                <form action="{{ route('Message_boite.update',  ['Message_boite' => $message->id ]) }}" method="POST" id="formajout">
+                  @csrf
+                  @method('PUT')
                 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Message ID</span>
                   </div>
-                  <input type="number" name="msg_id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  disabled>
+                  <input type="number" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('id',  $message->id ?? null  ) }}" hidden >
                 </div>
+
                 <div class="input-group mb-3">
-                  <div class="input-group-prepend">
+                  <div class="input-group-prepend" hidden>
                     <span class="input-group-text" id="inputGroup-sizing-default">Code emetteur</span>
                   </div>
-                  <input type="text" name="emetteur_id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  >
+                  <input type="text" name="emetteur_id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_id',  $message->emetteur_id ?? null  ) }}" >
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Nom du Emetteur</span>
+                  </div>
+                  <input type="text" name="emetteur_nom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_nom',  $message->emetteur_nom ?? null  ) }}" >
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email du Emetteur</span>
+                  </div>
+                  <input type="text" name="emetteur_email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_email',  $message->emetteur_email ?? null  ) }}" >
+                </div>
+                
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
+                  </div>
+                  <input type="text" name="emetteur_telephone" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_telephone',  $message->emetteur_telephone ?? null  ) }}" >
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Type d'Emetteur</span>
                   </div>
-                  <input type="text" name="emetteur_nom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">email</span>
-                  </div>
-                  <input type="text" name="emetteur_email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">telephone</span>
-                  </div>
-                  <input type="text" name="emeutteur_telephone" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">type</span>
-                  </div>
-                  <input type="text" name="emetteur_type" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="text" name="emetteur_type" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_type',  $message->emetteur_type ?? null  ) }}" >
                 </div>
                   
                 <div class="input-group mb-3">
                         <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">date envoie</span>
                         </div>
-                        <input type="text" name="date_env" placeholder="ex : GI" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  >
-                  
+                        <input type="text" name="date_env" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('date_env',  $message->date_env ?? null  ) }}" >
                 </div>
+
+                {{-- <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Message d'Emetteur</span>
+                  </div>
+                  <textarea class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('message',  $message->message ?? null  ) }}" ></textarea>
+                </div> --}}
+                <div class="card" style="margin-bottom: 10px">
+                  <div class="card-body">
+                    <b>Ancien Message :</b>&nbsp; {{$message->message}}
+                  </div>
+                </div>
+              
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Message</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Votre Réponse au Message</span>
                   </div>
-                  <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>Message</textarea>
-                  
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Votre reponse</span>
-                  </div>
-                  <textarea name="reply" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
+                  <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
                   
                 </div>
                   <button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$id.'\';">supprimer</button>';?>

@@ -2,7 +2,7 @@
 
 @section('title')
   
-  @if(empty($field))  
+  @if(empty($fields))  
     Ajouter filiere
   @else 
       filiere traitement
@@ -33,8 +33,8 @@
                 }
                 </style>
 
-                  @if(empty($field))
-                  <form action="store" method="POST" id="formajout">
+                  @if(empty($fields))
+                  <form action="{{ route('Field.update',  ['Field' => $fields->filiere_id ]) }}" method="POST" id="formajout">
                       @method('PUT')
                   @else  
                       <form action="create" method="POST" id="formajout">
@@ -47,23 +47,23 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Filiére ID</span>
                   </div>
-                  <input type="text" name="filiere_id" value="{{$field->filiere_id ?? null}}" class="form-control" placeholder="ex : GI" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ">
+                  <input type="text" name="filiere_id" value="{{$fields->filiere_id ?? null}}" class="form-control" placeholder="ex : GI" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ">
               </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Filiére Nom </span>
                   </div>
-                  <input type="text" name="filiere" value="{{$field->filiere ?? null}}" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ">
+                  <input type="text" name="filiere" value="{{$fields->filiere ?? null}}" placeholder="Genie Informatique" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ">
               </div>
               <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">departement</span>
                   </div>
-                  <input type="text" name="departement" value="{{$field->departement ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="ex : genie informatique">
+                  <input type="text" name="departement" value="{{$fields->departement ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="ex : genie informatique">
               </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" value="{{$field->filiere_description ?? null}}" id="inputGroup-sizing-default">Description</span>
+                    <span class="input-group-text" value="{{$fields->filiere_description ?? null}}" id="inputGroup-sizing-default">Description</span>
                   </div>
                   <input type="text" name="filiere_description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>

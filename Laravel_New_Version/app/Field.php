@@ -12,6 +12,8 @@ class Field extends Model
      *
      * @var array
      */
+    // protected $primaryKey  = 'filiere_id' ;
+
     protected $fillable = [
         'filiere_id','filiere','filiere_description','departement'
     ];

@@ -89,7 +89,7 @@
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{url('/cours')}}">Afficher</a>
-                  <a class="collapse-item" href="{{url('/cours_traitement')}}">Ajouter</a>
+                  <a class="collapse-item" href="href="{{route('classe.create')}}">Ajouter</a>
                   </div>
                 </div>
               </li>
