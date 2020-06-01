@@ -41,7 +41,7 @@ class ClasseController extends Controller
             $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
 
         }
-        return view('cours.addcours-1',['fields'=>$field]) ;
+        return view('dashbord.addcour',['fields'=>$field]) ;
     }
 
     public function create_cours(classe $class)
@@ -72,17 +72,17 @@ class ClasseController extends Controller
         //
         $request->validate([
 
-            'nom' =>  'required|max:200',
+            'nom' =>  'required|max:20',
             'description' => 'required|max:500'
         ]);
 
         $classes = new classe() ;
         $classes->nom =  $request->nom ;
         $classes->description =  $request->description ;
-        $classes->id_filiere =  $request->id_filiere ;
+        $classes->field_id =  $request->id_filiere ;
         $classes->save();
 
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect('/cours')->with('status', 'Le Cour est Ajouter');
     }
 
     /**
@@ -107,8 +107,16 @@ class ClasseController extends Controller
     public function edit($id)
     {
         //
+        $temp_field = Field::select('filiere_id')->get();
+        $nbr = $temp_field->count();
+
+
+        for ($i=0; $i < $nbr; $i++) { 
+            $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
+
+        }
         $classes=classe::findOrFail($id);
-        return view('cours.courtrait',['classe'=>$classes]);
+        return view('dashbord.cours_trait',['classe'=>$classes , 'fields' => $field]);
     }
 
     /**
@@ -123,18 +131,18 @@ class ClasseController extends Controller
         //
         $request->validate([
 
-            'title' =>  'required|max:200',
-            'body' => 'required|max:500'
+            'nom' =>  'required|max:20',
+            'description' => 'required|max:500'
         ]);
 
         $classes = classe::findOrFail($id) ;
-        $classes->nom =  $request->nom ;
-        $classes->description =  $request->description ;
-        $classes->id_filiere =  $request->id_filiere ;
-
+        $classes->nom =  $request->input('nom');
+        $classes->description =  $request->input('description') ;
+        $classes->field_id =  $request->input('field_id') ;
+        // dd($classes);
         $classes->save();
 
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect('/cours')->with('status', 'Le Cour est Modifier');
     }
 
     /**
@@ -148,7 +156,7 @@ class ClasseController extends Controller
         //
         $classes = classe::findOrFail($id) ;
         $classes->delete();
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect('/cours')->with('status', 'Le Cour est Supprimer');
     }
 
     public function findCours($id){

@@ -41,6 +41,7 @@ Route::get('/departement', 'AdminController@afficher_departement')->name('depart
 
 Route::get('/message', 'AdminController@afficher_message')->name('message');
 
+Route::resource('/classe','ClasseController');
 
 
 Route::resource('/dashbord','AdminController');

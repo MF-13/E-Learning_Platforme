@@ -74,7 +74,7 @@ class FieldController extends Controller
                         $filiere = $filieres[$inc][$d][$j];
                         $id = strtoupper($ids[$inc][$d][$j]);
                         
-                        $temp_cour = classe::select('nom')->where('id_filiere',$id)->get();
+                        $temp_cour = classe::select('nom')->where('field_id',$id)->get();
                         $nbr = $temp_cour->count();
                         $cour_nbr[] = $nbr;
                         
@@ -112,7 +112,7 @@ class FieldController extends Controller
     {
         //
         $fields=Field::findOrFail($id);
-        return view('filiere.filieretrait',['fields'=>$fields]);
+        return view('dashbord.filiere_trait',['fields'=>$fields]);
     }
 
 
@@ -123,7 +123,7 @@ class FieldController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         //
         $fields = Field::findOrFail($id) ;
@@ -136,7 +136,17 @@ class FieldController extends Controller
         return redirect('/filiere/filieretrait')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
 
-    public function findCours($filiere_id){
+    public function destroy($id)
+    {
+        //
+        // 
+        // Field::whereIn('id', 'filiere_id')->destroy();
+        dd($id);
+        Field::destroy($id);
+        return redirect('/filiere')->with('status', 'Filiére est Supprimer');
+    }
+
+    public function findCours($id){
         // $classes = classe::where('id_filiere', $filiere_id)->get() ;
 
         // return view('filiere.filiere-1',['classes'=> $classes]);

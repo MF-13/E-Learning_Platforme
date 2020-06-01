@@ -46,10 +46,19 @@
                        <td>{{$classe->id}}</td>
                        <td>{{$classe->nom}}</td>
                        <td>{{$classe->description}}</td>
-                       <td>{{$classe->id_filiere}}</td>
+                       <td>{{$classe->field_id}}</td>
                        {{-- Need Traitement --}}
-                       <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>
-                       <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['filiere_id'].'\';">Supprimer</button></td>
+                      {{-- Modifier Button --}}
+                      <td><a href="{{ route('classe.edit' , ['classe' => $classe->id] ) }}" class="btn btn-warning" >Modifier</a></td>
+                      {{-- Supprimer button --}}
+                      <td>
+                        <form action="{{ route('classe.destroy', ['classe' => $classe->id ]) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" name="submit" class="btn btn-danger" style="display: inline;">Supprimer</button>
+                        </form>
+                      </td>
+                      {{-- END Supprimer button --}}
                      </tr>
                 @endforeach
             </tbody>

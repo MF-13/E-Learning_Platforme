@@ -36,15 +36,28 @@
                     </tr>
                   </tfoot>
              <tbody>
+               
+               {{-- erreur  --}}
                @foreach ($fields as $field)
+               {{-- @php
+                 dd($field->filiere_id);  
+               @endphp --}}
                     <tr>
                       <td>{{$field->filiere_id}}</td>
                       <td>{{$field->filiere}}</td>
                       <td>{{$field->filiere_description}}</td>
                       <td>{{$field->departement}}</td>
                       {{-- Need Traitement --}}
-                      <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>
-                      <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['filiere_id'].'\';">Supprimer</button></td>
+                      <td><a href="{{ route('Field.edit' , ['Field' => $field->filiere_id] ) }}" class="btn btn-warning" >Modifier</a></td>
+                      {{-- Supprimer button --}}
+                      <td>
+                        <form action="{{ route('Field.destroy', ['Field' => $field->filiere_id ]) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" name="submit" class="btn btn-danger" style="display: inline;">Supprimer</button>
+                        </form>
+                      </td>
+                      {{-- END Supprimer button --}}
                     </tr>
                     @endforeach
                   </tbody>

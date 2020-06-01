@@ -17,6 +17,7 @@
       <div class="card text-center">
         <div class="card-header"><i class="fas fa-envelope-open"> Boite Message</i></div>             
         @foreach ($messages as $message)
+        @if ($message->recepteur_id == Auth::user()->id)
           <div class="card-body">
             <div class="card">
               <div class="card-body textleft">
@@ -24,28 +25,41 @@
                 <h6 class="card-subtitle mb-2 text-muted"> {{$message->emetteur_email}}</h6><br>
                 <p class="card-text">Message : {{$message->message}}</p>
                 {{-- Supprimer Le Message --}}
-                <form method="post" action="{{route('messages.destroy', ['id' => $message->id])}}">
+                <form method="post" action="{{route('Message_boite.destroy', ['Message_boite' => $message->id])}}">
                   <!-- input hidden pour envoyer l'id du msg en tout securiter et la valeur c'est l'id du message-->
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-outline-danger btn-sm float-right"><i class="fas fa-trash-alt"></i> Supprimer</button>
                 </form>
-                <p class="text-muted">date d envoie</p>
+                <p class="text-muted">{{$message->date_env}}</p>
               </div>
             </div>
           </div>
-        @empty
-          <!-- si la boite message et vide on affiche le contenue suivant -->
-          <div class="card-body">
-            <div class="card">
-              <div class="card-body textleft">
-                <h5 class="card-title"> Vide</h5>
-                <p class="card-text">Vous n'avez aucun message pour le moment !</p>
-              </div>
+        @else
+        <!-- si la boite message et vide on affiche le contenue suivant -->
+        <div class="card-body">
+          <div class="card">
+            <div class="card-body textleft">
+              <h5 class="card-title"> Vide</h5>
+              <p class="card-text">Vous n'avez aucun message pour le moment !</p>
             </div>
-          </div>  
-        @endempty
-        @endforeach
+          </div>
+        </div>
+        @break
+        @endif
+        @empty($message)
+         <!-- si la boite message et vide on affiche le contenue suivant -->
+         <div class="card-body">
+          <div class="card">
+            <div class="card-body textleft">
+              <h5 class="card-title"> Vide</h5>
+              <p class="card-text">Vous n'avez aucun message pour le moment !</p>
+            </div>
+          </div>
+        </div>    
+        @endempty 
+        
+          @endforeach
       </div>
      </div>
     </div>

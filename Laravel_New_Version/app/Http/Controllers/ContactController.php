@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Message;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -56,8 +57,6 @@ class ContactController extends Controller
             $emetteur_type = 'visiteur'  ;
         }
 
-
-
         $message = new Message();
 
         $message->emetteur_id = $emetteur_id;
@@ -71,11 +70,9 @@ class ContactController extends Controller
         $message->recepteur_id = $id_admin;
         $message->recepteur_email = $email_admin;
         $message->recepteur_type = $admin_type;
-
         
-
         $message->save();
-        return redirect(route('index'))->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect(route('index'))->with('status', 'Le Message est Envoyer a L\'administration !');
     }
 
     /**
@@ -98,6 +95,7 @@ class ContactController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -123,6 +121,6 @@ class ContactController extends Controller
         //
         $message = Message::findOrFail($id) ;
         $message->delete();
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
+        return redirect('/message')->with('status', 'Le Message est Supprimer');
     }
 }

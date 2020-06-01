@@ -38,7 +38,7 @@
                 @csrf
                 {{-- Importer La View qui Contient les Inputs --}}
                 @include('dashbord.form')
-                <button type="submit" name="submit">envoyer</button>
+                <button type="submit" name="submit" class="btn btn-info float-right">envoyer</button>
               </form>
               </div>
             </div>

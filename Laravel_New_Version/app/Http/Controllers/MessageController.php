@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -70,6 +71,8 @@ class MessageController extends Controller
     public function edit($id)
     {
         //
+        $message=Message::findOrFail($id);
+        return view('dashbord.msg_details',['message'=>$message]);
     }
 
     /**
@@ -81,7 +84,24 @@ class MessageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $message = Message::findOrFail($id);
+        // il va change emetteur est admin et récepteur user
+        $message->emetteur_id = -1 ;
+        $message->emetteur_nom = "admin";
+        $message->emetteur_email = Auth::user()->email ;
+        $message->emetteur_telephone = Auth::user()->num_tele_user;
+        $message->emetteur_type = "admin";
+
+        $message->message = $request->input('message');
+
+        $message->recepteur_id = $request->input('emetteur_id');
+        $message->recepteur_email = $request->input('emetteur_email');
+        $message->recepteur_type = $request->input('emetteur_type');
+        // $message->recepteur_nom = $request->input('emetteur_nom');
+        
+        $message->save();
+
+        return redirect('/message')->with('status', 'Le Message est Envoyer a L\'administration !');
     }
 
     /**
@@ -93,5 +113,7 @@ class MessageController extends Controller
     public function destroy($id)
     {
         //
+        Message::destroy($id);
+        return redirect('/Message_boite')->with('status', 'Le Messsage est Supprimer');
     }
 }
