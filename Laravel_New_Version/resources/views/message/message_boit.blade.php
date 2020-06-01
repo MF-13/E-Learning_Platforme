@@ -47,7 +47,7 @@
         </div> --}}
         {{-- @break--}}
         @endif 
-        {{-- @empty($message)
+        @empty($message)
          <!-- si la boite message et vide on affiche le contenue suivant -->
          <div class="card-body">
           <div class="card">
@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>    
-        @endempty  --}}
+        @endempty 
         
           @endforeach
       </div>
