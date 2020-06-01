@@ -36,71 +36,7 @@
                   @method('PUT') --}}  
               <form action="{{ route('dashbord.store') }}" method="POST" id="formajout">
                 @csrf
-                {{-- <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
-                <div class="input-group mb-3" hidden>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                  </div>
-                  <input type="number" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
-                  </div>
-                  <input type="text" name="nom_user" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Prenom</span>
-                  </div>
-                  <input type="text" name="prenom_user" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
-                  </div>
-                  <input type="text" name="password" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Date De Naissance</span>
-                  </div>
-                  <input type="date" name="date_naiss_user" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                  
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Filiere</span>
-                        </div>
-                        <input type="text" name="filiere_user" placeholder="ex : GI" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                  
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
-                  </div>
-                  <input type="number" name="num_tele_user" placeholder="06********" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">adresse</span>
-                  </div>
-                  <input type="text" name="adresse_user" placeholder="Adresse..." class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
-                  </div>
-                  <input type="email" name="email" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">type_user</span>
-                  </div>
-                  <input type="text" name="type_user" placeholder="type_user" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-                </div>
-                {{-- <input type="submit" name="submit" class="btn btn-info float-right"> 
-                <button type="submit" name="submit" class="btn btn-info float-right" >Modifier</button> --}}
+                {{-- Importer La View qui Contient les Inputs --}}
                 @include('dashbord.form')
                 <button type="submit" name="submit">envoyer</button>
               </form>

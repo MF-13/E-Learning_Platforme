@@ -49,6 +49,7 @@
                           <td>{{$message->emetteur_type}}</td>
                           <td>{{$message->message}}</td>
                           <td>{{$message->date_env}}</td>
+                          {{-- Need Traitement --}}
                           <td><button class="btn btn-warning" onclick="window.location.href = '{{ '/messages/' . $message->id}}';">Repondre</button></td>
                           <td><button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$row['id_msg'].'\';">supprimer</button></td>                    
                         </tr>

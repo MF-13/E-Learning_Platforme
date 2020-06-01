@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\File;
 use App\Quizze;
 use App\User;
+use App\Field;
+use Illuminate\Support\Arr;
+
 
 class FileController extends Controller
 {
@@ -39,7 +42,15 @@ class FileController extends Controller
     public function create()
     {
         //
-        return view('cours.addcours-1');
+        $temp_field = Field::select('filiere_id')->get();
+        $nbr = $temp_field->count();
+
+
+        for ($i=0; $i < $nbr; $i++) { 
+            $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
+
+        }
+        return view('cours.addcours-1',['fields'=>$field]) ;
     }
 
     /**

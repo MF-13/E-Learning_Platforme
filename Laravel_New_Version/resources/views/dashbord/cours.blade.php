@@ -42,13 +42,12 @@
             </tfoot>
             <tbody>
                 @foreach ($classes as $classe)
-                    
-                
                      <tr>
                        <td>{{$classe->id}}</td>
                        <td>{{$classe->nom}}</td>
                        <td>{{$classe->description}}</td>
                        <td>{{$classe->id_filiere}}</td>
+                       {{-- Need Traitement --}}
                        <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>
                        <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['filiere_id'].'\';">Supprimer</button></td>
                      </tr>

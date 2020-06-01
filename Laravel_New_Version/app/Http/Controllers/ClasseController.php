@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\classe;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+
 use App\Field;
 
-use Request;
 
 class ClasseController extends Controller
 {
@@ -31,8 +33,15 @@ class ClasseController extends Controller
      */
     public function create()
     {
-        //dans le site
-        return view('cours.addcours-1') ;
+        $temp_field = Field::select('filiere_id')->get();
+        $nbr = $temp_field->count();
+
+
+        for ($i=0; $i < $nbr; $i++) { 
+            $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
+
+        }
+        return view('cours.addcours-1',['fields'=>$field]) ;
     }
 
     public function create_cours(classe $class)

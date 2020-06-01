@@ -53,8 +53,6 @@
                     </tr>
                   </tfoot>
                   @foreach ($users as $user)
-                      
-                  
                     <tr>
                       <td>{{$user->id}}</td>
                       <td>{{$user->nom_user}}</td>
@@ -66,12 +64,11 @@
                       <td>{{$user->adresse_user}}</td>
                       <td>{{$user->email_user}}</td>
                       <td>{{$user->type_user}}</td>
-                      
+                    {{-- Need Traitement   --}}
                     <td><button type="button" class="btn btn-success" onclick=" window.location.href = \'accepter.php?id='.$row['id'].'\';">Accepter</button></td>
                     <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'refuser.php?id='.$row['id'].'\';">Refuser</button></td>
                   </tr>
                   @endforeach
-              
                   </tbody>
                 </table>
               </div>

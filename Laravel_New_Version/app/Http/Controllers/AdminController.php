@@ -9,6 +9,7 @@ use App\classe;
 use App\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 use App\Http\Requests\StoreUser;
 
 
@@ -96,7 +97,15 @@ class AdminController extends Controller
     }
     public function create()
     {
-        return view('dashbord.adduser');
+        $temp_field = Field::select('filiere_id')->get();
+        $nbr = $temp_field->count();
+
+
+        for ($i=0; $i < $nbr; $i++) { 
+            $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
+
+        }
+        return view('dashbord.adduser',['fields'=>$field]);
     }
     public function store(StoreUser $request)
     {

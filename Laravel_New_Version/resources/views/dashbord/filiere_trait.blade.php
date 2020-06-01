@@ -8,8 +8,6 @@
       filiere traitement
   @endif
 @endsection
-
-
   @section('content')
 
         <!-- Begin Page Content -->

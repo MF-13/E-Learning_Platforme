@@ -6,7 +6,6 @@
 @endsection
 
 @section('content')
-{{-- ['users' => User::where('type_user','etudiant')->get()   ] ); --}}
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- DataTales Example -->
@@ -14,7 +13,6 @@
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Etudiants</h6>
             </div>
-
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -59,17 +57,8 @@
                       <td>{{$user->num_tele_user}}</td>
                       <td>{{$user->email}}</td>
                       <td>{{$user->adresse_user}}</td>
-                      {{-- <td>5</td>
-                      <td>elbouayadi</td>
-                      <td>aiman</td>
-                      <td>4444</td>
-                      <td>2020-08-08</td>
-                      <td>gi</td>
-                      <td>0588888</td>
-                      <td>aiman@gmail.com</td>
-                      <td>rabat</td> --}}
+                      {{-- Modifier Button --}}
                       <td><a href="{{ route('dashbord.edit' , ['dashbord' => $user->id] ) }}" class="btn btn-warning" >Modifier</a></td>
-                      {{-- <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['id_user'].'\';">Supprimer</button></td> --}}
                       {{-- Supprimer button --}}
                       <td>
                         <form action="{{ route('dashbord.destroy', ['dashbord' => $user->id ]) }}" method="POST" style="display: inline;">

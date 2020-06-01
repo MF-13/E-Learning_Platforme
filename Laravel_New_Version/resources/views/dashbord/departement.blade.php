@@ -52,31 +52,33 @@
 
       </div>
       <!-- End of Main Content -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                     <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                          <form action="traitement/modifier_photo.php" method="POST" enctype = "multipart/form-data">
-                            <div class="form-group">
-                              <label for="recipient-name" class="col-form-label">nom de la filiere</label>
-                                <input name = "dept" type="text" class="form-control" id="recipient-name">
-                                <label for="recipient-name" class="col-form-label">changer la photo</label>
-                                <input name = "userfile" type="file" class="form-control" id="recipient-name">
-                            </div>
-                            <div class="modal-footer">
-                            <input type="submit" class="btn btn-primary btn-sm" value="Enregistrer">
-                             </div>
-                           </form>
-                         </div>
-                       </div>
-                     </div>
-         </div>
+
+    {{-- Model De Traitement De Département --}}
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            {{-- Need Traitement --}}
+            <form action="traitement/modifier_photo.php" method="POST" enctype = "multipart/form-data">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">nom de la filiere</label>
+                <input name = "dept" type="text" class="form-control" id="recipient-name">
+                <label for="recipient-name" class="col-form-label">changer la photo</label>
+                <input name = "userfile" type="file" class="form-control" id="recipient-name">
+              </div>
+              <div class="modal-footer">
+              <input type="submit" class="btn btn-primary btn-sm" value="Enregistrer">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{-- END Model De Traitement De Département --}}
 
     </div>
     <!-- End of Content Wrapper -->

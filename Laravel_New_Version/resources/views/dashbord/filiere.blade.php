@@ -5,19 +5,13 @@
 @endsection
 
 @section('content')
-
-  
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
-        
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Filiere</h6>
             </div>
-
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -43,13 +37,12 @@
                   </tfoot>
              <tbody>
                @foreach ($fields as $field)
-                   
-               
                     <tr>
                       <td>{{$field->filiere_id}}</td>
                       <td>{{$field->filiere}}</td>
                       <td>{{$field->filiere_description}}</td>
                       <td>{{$field->departement}}</td>
+                      {{-- Need Traitement --}}
                       <td><button type="button" class="btn btn-warning" onclick=" window.location.href = \'filieretrait.php?id='.$row['filiere_id'].'\';">Modifier</button></td>
                       <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'supprimer.php?id='.$row['filiere_id'].'\';">Supprimer</button></td>
                     </tr>

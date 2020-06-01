@@ -15,7 +15,6 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 {{-- CARD --}}
-
                 @php
                     $inc=0;
                     $c = 0;
@@ -47,25 +46,22 @@
                                             @endwhile
                                         </ul>
                                 </div>
-
                                 @php
                                     $count++;
                                 @endphp
-                           @endfor
-                           </div>
+                            @endfor
+                            </div>
                         </div>
                         @php
                             $inc++;
                         @endphp
                     @endforeach
                 @endwhile
-                @php
-                    // dd($count++);
-                @endphp
-                {{-- END CARD --}}
+                {{-- END Card --}}
             </div>
         </div>
     </div>
+    
 <script src={{ asset("js/site/filiere.js") }}></script>
 
 @endsection

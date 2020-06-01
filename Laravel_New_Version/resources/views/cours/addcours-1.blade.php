@@ -19,65 +19,61 @@
 
             <div class="card text-center">
 
-                <div class="card-header">
+                <div class="card-header">Ajouter le cours</div>
 
-                  Ajouter le cours
+                    <div class="card-body">
 
-                </div>
+                        <form  method = "POST" action ="{{route('cour.store')}}" enctype = "multipart/form-data">
+                            @csrf
+                                <div class="form-group">
 
-                <div class="card-body">
+                                    <input type="hidden" name="code_prof" value="{{Auth::user()->id}}" class="form-control" required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" hidden>
 
-                <form  method = "POST" action ="{{route('cour.store')}}" enctype = "multipart/form-data">
-                    @csrf
-                        <div class="form-group">
+                                    <label  for="titre">Titre cours</label>
 
-                            <input type="hidden" name="code_prof" value="{{Auth::user()->id}}" class="form-control" required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" hidden>
+                                    <input type="text" name="titre" class="form-control" id="titre" placeholder="ex. langage C" required>
 
-                            <label  for="titre">Titre cours</label>
+                                
 
-                            <input type="text" name="titre" class="form-control" id="titre" placeholder="ex. langage C" required>
+                                    <label for="userfile" class="textleft"> Choisir le fichier(<strong>taille max :  500mb</strong>)</label>
 
-                           
+                                    <input name = "userfile" type="file" class="form-control-file " id="userfile">
 
-                            <label for="userfile" class="textleft"> Choisir le fichier(<strong>taille max :  500mb</strong>)</label>
+                                    <br>
 
-                            <input name = "userfile" type="file" class="form-control-file " id="userfile">
+                                
 
-                            <br>
+                                    <select name="type_cour" class="form-control" id="exampleFormControlSelect1">
+                                        <option>cour</option>
+                                        <option>tp</option>
+                                        <option>td</option>
+                                        <option>bibliotheque</option>
+                                    </select>
 
-                           
+                <!--specifier le cour dans le quelle on va importer ce fichier-->
 
-                            <select name="type_cour" class="form-control" id="exampleFormControlSelect1">
-                                <option>cour</option>
-                                <option>tp</option>
-                                <option>td</option>
-                                <option>bibliotheque</option>
-                            </select>
+                            {{-- fonction pour les filiere existe --}}
+                                    <label for="id_filiere">Cours</label>
+                                    <select name="id_filiere" class="form-control" id="id_filiere">
+                                        @foreach ($fields as $field)
+                                        <option>{{strtolower($field)}}</option>
+      	                                @endforeach
+                                        <option>bibliotheque</option>
+                                    </select>
 
-         <!--specifier le cour dans le quelle on va importer ce fichier-->
+                                    <label for="commentaire">Commentaire</label>
 
-                    {{-- fonction pour les filiere existe --}}
-                            <label for="id_filiere">Cours</label>
-                            <select name="id_filiere" class="form-control" id="id_filiere">
-                                <option>gi</option>
-                                <option>tm</option>
-                                <option>tcc</option>
-                                <option>bibliotheque</option>
-                            </select>
+                                    <textarea name="commentaire" required="required" class="form-control" id="commentaire" rows="3"></textarea>
 
-                            <label for="commentaire">Commentaire</label>
+                                    </div>
 
-                            <textarea name="commentaire" required="required" class="form-control" id="commentaire" rows="3"></textarea>
+                                    <div class="card-footer text-muted">
 
-                            </div>
+                                        <div class="textright">
 
-                            <div class="card-footer text-muted">
+                                        <input type="submit" name="submit" class="btn btn-outline-info btn-sm" value="Ajouter">
 
-                                <div class="textright">
-
-                                   <input type="submit" name="submit" class="btn btn-outline-info btn-sm" value="Ajouter">
-
-                                 </div>
+                                        </div>
 
                             </div>
 
