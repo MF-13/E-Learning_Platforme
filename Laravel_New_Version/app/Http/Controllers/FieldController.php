@@ -131,12 +131,16 @@ class FieldController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $fields = Field::findOrFail($id) ;
-        $fields->filiere =  $request->filiere ;
-        $fields->description =  $request->description ;
-        $fields->filiere_description =  $request->filiere_description ;
+        $fields = Field::where('filiere_id',$id)->get() ;
+        foreach($fields as $field){
 
-        $fields->save();
+        }
+        // dd($field);
+        $field->filiere =  $request->filiere ;
+        $field->description =  $request->description ;
+        $field->filiere_description =  $request->filiere_description ;
+
+        $field->save()->where('filiere_id',$id);
 
         return redirect('/filiere/filieretrait')->with('status', 'L\'opération s\'effectues avec successe  !');
     }

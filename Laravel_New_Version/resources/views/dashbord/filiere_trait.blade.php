@@ -33,11 +33,11 @@
                 }
                 </style>
                     {{-- {{dd($fields)}} --}}
-                  @if(empty($fields))
-                  <form action="{{ route('Field.update',  ['Field' => $fields->filiere_id ]) }}" method="POST" id="formajout">
+                  @if(!empty($fields))
+                      <form action="{{ route('Field.update',  ['Field' => $fields->filiere_id ]) }}" method="POST" id="formajout">
                       @method('PUT')
                   @else  
-                      <form action="create" method="POST" id="formajout">
+                      <form action="{{route('Field.store')}}" method="POST" id="formajout">
                       
                   @endif
 

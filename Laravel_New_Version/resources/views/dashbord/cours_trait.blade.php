@@ -70,7 +70,7 @@
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="inputGroupSelect02">Filiére du Cour</label>
                 </div>
-                <select class="custom-select" name="field_id" id="inputGroupSelect02">
+                <select class="custom-select" name="id_filiere" id="inputGroupSelect02">
                   <option value="{{$classe->id_filiere ?? null}}" >{{$classe->id_filiere  ?? null}}</option>
                     @foreach ($fields as $field)
                     <option value="{{$field}}" >{{strtoupper($field)}}</option>

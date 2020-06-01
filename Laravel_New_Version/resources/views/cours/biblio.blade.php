@@ -65,6 +65,7 @@
                                 
                                 
                                 <!-- si L'utilisateur est un professeur -->
+                              @auth
                                 @if (Auth::user()->type_user == 'professeur')
                                     <!-- L'accées De Supprimer le fichier -->
                                     <form class="formbutton" action="{{ route('cour.destroy', ['cour' => $file->id ]) }}" method="POST"">
@@ -72,13 +73,15 @@
                                       @method('DELETE')
                                       <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
                                     </form>
-                                @endif      
+                                @endif  
+                              @endauth    
                               </div>
                               </div>
                               </div>
                               </div>
                               <hr>
                     @endforeach
+                    {{-- {{dd($file->pdf_lien)}} --}}
 </div>
 </div>
 </div>

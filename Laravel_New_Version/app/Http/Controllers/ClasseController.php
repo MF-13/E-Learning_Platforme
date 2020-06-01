@@ -138,7 +138,7 @@ class ClasseController extends Controller
         $classes = classe::findOrFail($id) ;
         $classes->nom =  $request->input('nom');
         $classes->description =  $request->input('description') ;
-        $classes->field_id =  $request->input('field_id') ;
+        $classes->id_filiere =  $request->input('id_filiere') ;
         // dd($classes);
         $classes->save();
 

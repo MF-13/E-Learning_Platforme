@@ -39,7 +39,7 @@
                   <input type="number" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('id',  $message->id ?? null  ) }}" hidden >
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend" hidden>
                     <span class="input-group-text" id="inputGroup-sizing-default">Code emetteur</span>
                   </div>
@@ -100,7 +100,7 @@
                   <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
                   
                 </div>
-                  <button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$id.'\';">supprimer</button>';?>
+                  <button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$id.'\';">supprimer</button>
                   <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>
