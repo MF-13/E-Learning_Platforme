@@ -44,6 +44,7 @@ class Quizcontroller extends Controller
         //
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -54,17 +55,10 @@ class Quizcontroller extends Controller
     {
             //select des informations du quiz
         $quiz=Quiz::where('id_quiz',$id)->get();
-            //select des questions du quiz
+            //select des qu estions du quiz
         $questions = Question::where('id_quiz',$id)->get();
             // count le nombre de question par quiz
         $question_nbr = $questions->count();
-
-        // for ($i=1; $i < $question_nbr; $i++) { 
-        //     dd($questions[$i]);
-        // }
-        
-
-
 
         return view('cours.quiz',  ['quiz' => $quiz, 'questions'=>$questions,'question_nbr'=>$question_nbr] );
     }

@@ -32,7 +32,7 @@
                    color: red;
                 }
                 </style>
-
+                    {{-- {{dd($fields)}} --}}
                   @if(empty($fields))
                   <form action="{{ route('Field.update',  ['Field' => $fields->filiere_id ]) }}" method="POST" id="formajout">
                       @method('PUT')
@@ -63,10 +63,13 @@
               </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" value="{{$fields->filiere_description ?? null}}" id="inputGroup-sizing-default">Description</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
                   </div>
-                  <input type="text" name="filiere_description" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  <textarea name="filiere_description"  class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" cols="30" rows="10" value="{{$fields->filiere_description ?? null}}">{{$fields->filiere_description ?? null}}</textarea>
+                  
               </div>
+
+              
               <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>
