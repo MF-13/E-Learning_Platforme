@@ -79,7 +79,7 @@ class ClasseController extends Controller
         $classes = new classe() ;
         $classes->nom =  $request->nom ;
         $classes->description =  $request->description ;
-        $classes->field_id =  $request->id_filiere ;
+        $classes->id_filiere =  $request->id_filiere ;
         $classes->save();
 
         return redirect('/cours')->with('status', 'Le Cour est Ajouter');

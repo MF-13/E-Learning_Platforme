@@ -36,14 +36,7 @@
                   @csrf
 
                   <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
-                  <br>  
-                <div class="input-group mb-3" hidden>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Cours ID</span>
-                  </div>
-                  <input type="text" name="id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
-              </div>
-              <br>
+                
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Cours Nom </span>
@@ -62,7 +55,7 @@
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="inputGroupSelect02">Filiére du Cour</label>
                 </div>
-                <select class="custom-select" name="field_id" id="inputGroupSelect02">
+                <select class="custom-select" name="id_filiere" id="inputGroupSelect02">
                     @foreach ($fields as $field)
                     <option value="{{$field}}">{{strtolower($field)}}</option>
                     @endforeach
