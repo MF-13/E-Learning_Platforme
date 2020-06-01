@@ -7,7 +7,6 @@
 
   @section('content')
 
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- DataTales Example -->
@@ -28,9 +27,9 @@
                 }
                 </style>
                 
-                <form action="{{ route('Message_boite.update',  ['Message_boite' => $message->id ]) }}" method="POST" id="formajout">
+                <form action="{{ route('Message_boite.store') }}" method="POST" id="formajout">
                   @csrf
-                  @method('PUT')
+                  
                 
                 <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
@@ -80,12 +79,6 @@
                         <input type="text" name="date_env" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('date_env',  $message->date_env ?? null  ) }}" >
                 </div>
 
-                {{-- <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Message d'Emetteur</span>
-                  </div>
-                  <textarea class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('message',  $message->message ?? null  ) }}" ></textarea>
-                </div> --}}
                 <div class="card" style="margin-bottom: 10px">
                   <div class="card-body">
                     <b>Ancien Message :</b>&nbsp; {{$message->message}}
@@ -100,9 +93,13 @@
                   <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
                   
                 </div>
-                  <button class="btn btn-danger" onclick="window.location.href = \'msg_drop.php?id='.$id.'\';">supprimer</button>
-                  <input type="submit" name="submit" class="btn btn-info float-right">
-                  </form>
+                {{-- <form action="{{ route('contact.destroy', ['contact' => $message->id ]) }}" method="POST" style="display: inline;">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" name="submit" class="btn btn-danger" style="display: inline;">Supprimer</button>
+                </form>                   --}}
+                <input type="submit" name="submit" class="btn btn-info float-right">
+              </form>
               </div>
             </div>
           </div>

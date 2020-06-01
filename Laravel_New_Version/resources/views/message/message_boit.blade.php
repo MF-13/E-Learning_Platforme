@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
       {{-- Messages card --}}
-      <div class="card text-center">
+      <div class="card text-center" style="margin-top: 60px">
         <div class="card-header"><i class="fas fa-envelope-open"> Boite Message</i></div>             
         @foreach ($messages as $message)
         @if ($message->recepteur_id == Auth::user()->id)
@@ -35,19 +35,19 @@
               </div>
             </div>
           </div>
-        @else
+        {{-- @else --}}
         <!-- si la boite message et vide on affiche le contenue suivant -->
-        <div class="card-body">
+        {{-- <div class="card-body">
           <div class="card">
             <div class="card-body textleft">
               <h5 class="card-title"> Vide</h5>
               <p class="card-text">Vous n'avez aucun message pour le moment !</p>
             </div>
           </div>
-        </div>
-        @break
-        @endif
-        @empty($message)
+        </div> --}}
+        {{-- @break--}}
+        @endif 
+        {{-- @empty($message)
          <!-- si la boite message et vide on affiche le contenue suivant -->
          <div class="card-body">
           <div class="card">
@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>    
-        @endempty 
+        @endempty  --}}
         
           @endforeach
       </div>

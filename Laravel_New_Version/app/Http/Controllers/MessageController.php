@@ -18,7 +18,7 @@ class MessageController extends Controller
     {
         //
         return view('message.message_boit' , [
-            'messages'=>Message::all()
+            'messages'=>Message::orderBy('created_at', 'desc')->get()
         ]);
     }
 
@@ -42,10 +42,23 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         //
-        $messages = new Message() ;
-        $messages->recepteur_email =  $request->recepteur_email ;
-        $messages->message =  $request->message ;
-        $messages->save();
+        $message = new Message() ;
+        $message->emetteur_id = -1 ;
+        $message->emetteur_nom = "admin";
+        $message->emetteur_email = Auth::user()->email ;
+        $message->emetteur_telephone = Auth::user()->num_tele_user;
+        $message->emetteur_type = "admin";
+
+        $message->message = $request->input('message');
+
+        $message->recepteur_id = $request->input('emetteur_id');
+        $message->recepteur_email = $request->input('emetteur_email');
+        $message->recepteur_type = $request->input('emetteur_type');
+        // $message->recepteur_nom = $request->input('emetteur_nom');
+        
+        $message->save();
+
+        return redirect('/message')->with('status', 'Le Message est Envoyer a L\'administration !');
 
         return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
