@@ -109,13 +109,14 @@ class FileController extends Controller
         //insertion du : cours / tp / td / bibliotheque dans la base de donnees
 
         // ******************************* Start traitement de fichier *****************************
-
+        
         $this->validate($request, [
             'titre' => 'required',
-            'id_filiere' => 'required',
+            'cour' => 'required',
             'type_cour' => 'required',
             'userfile' => 'required|max:1999'
         ]);
+
 
         // Handle File Upload
         if($request->hasFile('userfile')){
@@ -144,12 +145,12 @@ class FileController extends Controller
         $file->commantaire = $request->input('commentaire');
         $file->nom_pdf = $fileNameToStore;
         $file->pdf_lien = $path;
+
         if($request->cour=='bibliotheque'){
             $file->id_cour=intval('-1');
         }else{
-            $id = classe::select('id')->where(['nom'=>$request->cour,'id_filiere'=>Auth::user()->filiere_user ])->get();
-            $id = id['id'];
-            dd($id);
+            $id = classe::select('id')->where('nom',$request->cour)->get();
+            $id = $id[0]['id'];
             $file->id_cour=$id;
         }
             

@@ -56,7 +56,7 @@
                                     <label for="cour">Cours</label>
                                     <select name="cour" class="form-control" id="cour">
                                         @foreach ($cours as $cour)
-                                            <option>{{strtolower($cour)}}</option>
+                                            <option value="{{strtolower($cour)}}">{{strtolower($cour)}}</option>
       	                                @endforeach
                                         <option value="bibl">bibliotheque</option>
                                     </select>
