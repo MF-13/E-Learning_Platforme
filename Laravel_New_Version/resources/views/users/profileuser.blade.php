@@ -29,7 +29,12 @@
             <p class="card-text"><b>Email: </b>{{$user->email}}</p>
 
             <!------------------------Go TO MESSAGE-------------------------------------------------------------------------------------------->
-            <a  class="btn btn-primary btn-sm btn-block" href="{{route('Message_boite.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
+            @if(Auth::user()->user_type=='admin')
+              <a  class="btn btn-primary btn-sm btn-block" href="{{route('Message_boite.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
+            @else 
+              <a  class="btn btn-primary btn-sm btn-block" href="{{url('/message')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
+            @endif
+
             <!------------------------END TO MESSAGE-------------------------------------------------------------------------------------------->               
           </div>
           <div class="card-footer text-muted">

@@ -59,14 +59,14 @@
                                     <button type="submit" class="btn btn-outline-success btnmarging">
                                       <i class="fas fa-download"></i> Telecharger
                                     </button>
-                                </a>
+                                   </a>
                                 </div>
                                   
                                 
                                 
                                 <!-- si L'utilisateur est un professeur -->
                               @auth
-                                @if (Auth::user()->type_user == 'professeur')
+                                @if ($file->code_prof == Auth::user()->id || Auth::user()->type_user == 'admin')
                                     <!-- L'accées De Supprimer le fichier -->
                                     <form class="formbutton" action="{{ route('cour.destroy', ['cour' => $file->id ]) }}" method="POST"">
                                       @csrf

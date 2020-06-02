@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\File;
 use App\User;
 use App\Field;
+use App\Result;
 use Illuminate\Support\Arr;
 use App\Quiz;
+use Auth;
 
 
 class FileController extends Controller
@@ -18,9 +20,25 @@ class FileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $quizzes = Quiz::where('id_filiere',Auth::user()->filiere_user)->get();
+        $nbr_quiz = $quizzes->count();
+        foreach ($quizzes as $quiz) {
+            $results = Result::where('id_quiz',$quiz->id_quiz)->get();
+
+            foreach($results as $result){
+                $etd = User::where('id',$result->id_etudiant)->get();
+                $nom = $etd[0]['nom_user'].' '. $etd[0]['prenom_user'];
+                
+                $temp[] = [$nom ,$result->resultat ];
+            }
+            $rslt[] = [$quiz->id_quiz=>$temp];
+            $temp = array();
+            
+        }
+        // dd($rslt);
         return view('cours.cours-espace', 
-                    ['files' => File::all() ,'quizzes' => Quiz::all()] );
+                    ['files' => File::all() ,'quizzes' => $quizzes, 'resultats'=>$rslt]  );
     }
     /**
      * Display a listing of the resource.

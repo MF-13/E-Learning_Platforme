@@ -23,7 +23,6 @@ class ClasseController extends Controller
         return view('cours.cours-espace' , [
             'classes'=>classe::all()
         ]);
-        // dd(\App\classe::all());
     }
 
     /**
