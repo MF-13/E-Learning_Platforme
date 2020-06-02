@@ -35,20 +35,20 @@
         {{-- Si Nom --}}
         @else
         <div class="txtb">
-          <label>Nom Complet : </label>
+          <label>Nom Complet <span class="required">*</span> : </label>
           <input type="text" name="nom" required placeholder="Enter Votre Nom">
         </div>
         <div class="txtb">
-          <label>Telephone : </label>
-          <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "9" name="telephone" placeholder="Entrer votre numero">
+          <label>Telephone <span class="required">*</span> : </label>
+          <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "10" name="telephone" placeholder="Entrer votre numero" required>
         </div>
         <div class="txtb">
-          <label>Email :</label>
+          <label>Email <span class="required">*</span> :</label>
           <input type="email" name="email" required placeholder="Enter Votre Email">
         </div>
         @endauth
         <div class="txtb">
-          <label>Message :</label>
+          <label>Message <span class="required">*</span> :</label>
           <textarea class="txttb" name="message" required placeholder="Enter Votre Message"></textarea>
         </div>
         

@@ -7,46 +7,62 @@ use App\File;
 use App\User;
 use App\Field;
 use App\Result;
-use Illuminate\Support\Arr;
 use App\Quiz;
 use Auth;
+use Illuminate\Support\Arr;
+
 
 
 class FileController extends Controller
-{
+{   
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        if(Auth::user()->type_user=="admin"){
-                $quizzes = Quiz::all();
-        }else{
-            $quizzes = Quiz::where('id_filiere',Auth::user()->filiere_user)->get();
-        }
-
-        $nbr_quiz = $quizzes->count();
-        foreach ($quizzes as $quiz) {
-            $results = Result::where('id_quiz',$quiz->id_quiz)->get();
-
-            foreach($results as $result){
-                $etd = User::where('id',$result->id_etudiant)->get();
-                $nom = $etd[0]['nom_user'].' '. $etd[0]['prenom_user'];
-                
-                $temp[] = [$nom ,$result->resultat ];
+    {           // si l'utilisateur est connecter 
+        if(Auth::user()){
+                //si l'utilisateur est un admin on affiche tous les  quizzes
+            if(Auth::user()->type_user=="admin"){
+                    $quizzes = Quiz::all();
+            }else{
+                //si l'utilisateur n'est pas admin on affiche  les  quizzes par filieres
+                $quizzes = Quiz::where('id_filiere',Auth::user()->filiere_user)->get();
             }
-            $rslt[] = [$quiz->id_quiz=>$temp];
-            $temp = array();
-            
+                //pour l'affichage des resultats des etudiants 
+            $nbr_quiz = $quizzes->count();
+
+            foreach ($quizzes as $quiz) {
+                $results = Result::where('id_quiz',$quiz->id_quiz)->get();
+
+                foreach($results as $result){
+                    $etd = User::where('id',$result->id_etudiant)->get();
+                    $nom = $etd[0]['nom_user'].' '. $etd[0]['prenom_user'];
+                    
+                    $temp[] = [$nom ,$result->resultat ];
+                }
+                $rslt[] = [$quiz->id_quiz=>$temp];
+                $temp = array();
+                
+            }
+
+            if(empty($rslt)){
+                    //si l'utilisateur est un etudiant , on donne au tableau $rslt un valeur null pour que Return functionne correctement
+                $rslt = array();
+            }
+
+            return view('cours.cours-espace', 
+                        ['files' => File::all() ,'quizzes' => $quizzes, 'resultats'=>$rslt]  );
+        }else{
+
+                //s'il n'est pas connecter
+            return view('cours.cours-espace');
         }
 
-        if(empty($rslt)){
-            $rslt = array();
-        }
-        return view('cours.cours-espace', 
-                    ['files' => File::all() ,'quizzes' => $quizzes, 'resultats'=>$rslt]  );
+
+        
     }
     /**
      * Display a listing of the resource.
@@ -55,7 +71,7 @@ class FileController extends Controller
      */
     public function indexbibl()
     {
-        //
+            //Affichage tous les fichiers disponible dans la bibliotheque meme si l'utilisateur n'est pas connecter 
         return view('cours.biblio', 
                     ['files' => File::where('type_cour','bibliotheque')->get()   ] );
     }
@@ -67,11 +83,12 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+        //Il redirige vers la page du creation des  : cours / tp / td / bibliotheque
+
         $temp_field = Field::select('filiere_id')->get();
         $nbr = $temp_field->count();
 
-
+            // pour l'affichage de tous les filieres
         for ($i=0; $i < $nbr; $i++) { 
             $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
 
@@ -87,8 +104,9 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // *******************************traitement de fichier *****************************
+        //insertion du : cours / tp / td / bibliotheque dans la base de donnees
+
+        // ******************************* Start traitement de fichier *****************************
 
         $this->validate($request, [
             'titre' => 'required',
@@ -111,9 +129,11 @@ class FileController extends Controller
             // Upload Image
             $path = $request->file('userfile')->storeAs('public/file', $filiereName.'/'.$fileNameToStore);
         } 
-        // Le ficher est ajouter dans C:\wamp\www\PFE\Laravel_New_Version\storage\app\public\file\
 
-        // Create Post
+        // ******************************* ENDtraitement de fichier *****************************
+
+        // Le ficher sera ajouter dans C:\wamp\www\PFE\Laravel_New_Version\storage\app\public\file\
+        
         $file = new File;
         $file->code_prof = $request->input('code_prof');
         $file->titre = $request->input('titre');
@@ -135,7 +155,8 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        //
+        //redirection vers la page qui affiche le : cour / tp / td en detail
+        
         return view('cours.cours-detail', ['files' => File::findOrFail($id)]);
     }
 
@@ -147,7 +168,7 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        //
+        //pour afficher form du cour/tp/td 
     }
 
     /**
@@ -159,7 +180,8 @@ class FileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //pour enregistrer les modifications apartir du edit
+        
     }
 
     /**
@@ -170,7 +192,8 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //supprimer cour/tp/td/bibliotheque
+
         File::destroy($id);
         return redirect('/cour')->with('status','Le Cour est Supprimer');
     }

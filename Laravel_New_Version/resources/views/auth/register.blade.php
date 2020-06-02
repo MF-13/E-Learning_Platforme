@@ -69,8 +69,6 @@
 
 					<option>professeur</option>
 
-					<option>admin</option>
-
 
 				</select>
 
@@ -93,7 +91,7 @@
                                 @enderror
 
 				{{-- <input type="text" class="field" name="num_tele_user" placeholder="telephone" > --}}
-				<input id="num_tele_user" type="text" class="field form-control @error('num_tele_user') is-invalid @enderror" name="num_tele_user" value="{{ old('num_tele_user') }}" required autocomplete="num_tele_user" placeholder="Numéro de téléphone">
+				<input id="num_tele_user"  type="number" class="field form-control @error('num_tele_user') is-invalid @enderror" name="num_tele_user" value="{{ old('num_tele_user') }}" required autocomplete="num_tele_user" placeholder="Numéro de téléphone">
 
                                 @error('num_tele_user')
                                     <span class="invalid-feedback" role="alert">
