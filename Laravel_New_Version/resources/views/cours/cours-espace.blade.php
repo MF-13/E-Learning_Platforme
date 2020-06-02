@@ -56,13 +56,13 @@
                     <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
                     <div class="media-body">
               <!-- Afficher les cards -->
-                          @php
-                            echo"<h4 class=\"mt-0\">Type de cour : ".strtoupper($file->type_cour)."</h4>"
-                          @endphp
+                          
+                          <h4 class="mt-0">{{strtoupper($file->type_cour)}} : {{strtoupper($file->titre)}}  </h4>
+                          
                           <p class="pmedia">
                               <ul class="pmedia mylist">
 
-                                <li><b>Nom Cour:</b>{{$file->titre}}</li>
+                                <li><b>Module:</b> {{$cours[$file->id_cour]}}</li>
 
                                 <li><b>commantaire:</b> {{$file->commantaire}}</li>
 

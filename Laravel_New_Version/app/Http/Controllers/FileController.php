@@ -47,15 +47,38 @@ class FileController extends Controller
                 $rslt[] = [$quiz->id_quiz=>$temp];
                 $temp = array();
                 
-            }
-
+            }   
+            
             if(empty($rslt)){
                     //si l'utilisateur est un etudiant , on donne au tableau $rslt un valeur null pour que Return functionne correctement
                 $rslt = array();
             }
+                //selection des cours et fichiers
+
+            $files = File::where('id_filiere',Auth::user()->filiere_user)->get();
+            $nbr_files = $files->count();
+            
+            foreach($files as $file){
+
+                $temp_name= array();
+                $id = $file->id_cour;
+                array_push($temp_name,classe::select('nom')->where('id',$id)->get());
+                $cour[$id]=$temp_name[0][0]['nom'];
+
+            }
+
+            if(empty($cour)){
+               
+                $cour = array();
+
+            }
+
+
+
+
 
             return view('cours.cours-espace', 
-                        ['files' => File::all() ,'quizzes' => $quizzes, 'resultats'=>$rslt]  );
+                        ['files' => $files ,'quizzes' => $quizzes, 'resultats'=>$rslt, 'cours'=>$cour]   );
         }else{
 
                 //s'il n'est pas connecter
