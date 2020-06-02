@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\File;
 use App\User;
+use App\classe;
 use App\Field;
 use App\Result;
 use App\Quiz;
@@ -85,15 +86,16 @@ class FileController extends Controller
     {
         //Il redirige vers la page du creation des  : cours / tp / td / bibliotheque
 
-        $temp_field = Field::select('filiere_id')->get();
-        $nbr = $temp_field->count();
+        $temp_cour = classe::select('id','nom')->where('id_filiere',Auth::user()->filiere_user)->get();
+        $nbr = $temp_cour->count();
 
             // pour l'affichage de tous les filieres
         for ($i=0; $i < $nbr; $i++) { 
-            $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
+            $cour[] = Arr::get($temp_cour,$i.'.nom') ;
 
+        
         }
-        return view('cours.addcours-1',['fields'=>$field]) ;
+        return view('cours.addcours-1',['cours'=>$cour]) ;
     }
 
     /**
@@ -137,11 +139,22 @@ class FileController extends Controller
         $file = new File;
         $file->code_prof = $request->input('code_prof');
         $file->titre = $request->input('titre');
-        $file->id_filiere = $request->input('id_filiere');
+        $file->id_filiere = Auth::user()->filiere_user;
         $file->type_cour = $request->input('type_cour');
         $file->commantaire = $request->input('commentaire');
         $file->nom_pdf = $fileNameToStore;
         $file->pdf_lien = $path;
+        if($request->cour=='bibliotheque'){
+            $file->id_cour=intval('-1');
+        }else{
+            $id = classe::select('id')->where(['nom'=>$request->cour,'id_filiere'=>Auth::user()->filiere_user ])->get();
+            $id = id['id'];
+            dd($id);
+            $file->id_cour=$id;
+        }
+            
+
+
         $file->save();
 
         return redirect('/cour')->with('status', 'Le Cour est Créer');

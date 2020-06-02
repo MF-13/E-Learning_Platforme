@@ -42,7 +42,7 @@
                                     <br>
 
                                 
-
+                                    <label for="type_cour" class="textleft"> Type de Cour</label>
                                     <select name="type_cour" class="form-control" id="exampleFormControlSelect1">
                                         <option>cour</option>
                                         <option>tp</option>
@@ -53,10 +53,10 @@
                 <!--specifier le cour dans le quelle on va importer ce fichier-->
 
                             {{-- fonction pour les filiere existe --}}
-                                    <label for="id_filiere">Cours</label>
-                                    <select name="id_filiere" class="form-control" id="id_filiere">
-                                        @foreach ($fields as $field)
-                                        <option>{{strtolower($field)}}</option>
+                                    <label for="cour">Cours</label>
+                                    <select name="cour" class="form-control" id="cour">
+                                        @foreach ($cours as $cour)
+                                            <option>{{strtolower($cour)}}</option>
       	                                @endforeach
                                         <option value="bibl">bibliotheque</option>
                                     </select>
