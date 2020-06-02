@@ -146,7 +146,7 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         @foreach ($quizzes as $quizze)
-           {{-- @if(Auth::user()->id==$quizze->id_prof || Auth::user()->type_user=='admin')  --}}
+           @if(Auth::user()->id==$quizze->id_prof) 
               <div class="card text-center cardpadding">
                 <div class="card-body">
                   <div class="media">
@@ -186,27 +186,26 @@
                                         </tr>
                                       </thead>
                                       <tbody>
-                                            @foreach ($resultats as $resultat)
+                                        @foreach ($resultats as $resultat) 
+                                            @if(!empty($resultat[$quizze->id_quiz]))
+                                                @php
+                                                    $rslts = $resultat[$quizze->id_quiz];
                                                   
-                                                @if(!empty($resultat[$quizze->id_quiz]))
-                                                    @php
-                                                        $rslts = $resultat[$quizze->id_quiz];
-                                                      
-                                                    @endphp
-                                                    @foreach ($rslts as $rslt)
-                                                        @if(!empty($rslt))
-                                                          <tr>
-                                                            <td>{{strtoupper($rslt[0])}}</td>
-                                                            <td>{{strtoupper($rslt[1])}}</td>
-                                                          </tr> 
-                                                        @else
-                                                          <tr>
-                                                              <td>Aucune reponse pour le moment</td>
-                                                          </tr>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            @endforeach
+                                                @endphp
+                                                @foreach ($rslts as $rslt)
+                                                    @if(!empty($rslt))
+                                                      <tr>
+                                                        <td>{{strtoupper($rslt[0])}}</td>
+                                                        <td>{{strtoupper($rslt[1])}}</td>
+                                                      </tr> 
+                                                    @else
+                                                      <tr>
+                                                        <td>Aucune reponse pour le moment</td>
+                                                      </tr>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @endforeach
                                             
                                         
                                 <!--si aucun etudian n' pas encore repondue <td>acune resultat est disponible pour le moment</td> -->
@@ -221,7 +220,7 @@
                     </div>
                   </div>
                 </div>
-          {{-- @endif --}}
+          @endif
         @endforeach
         </div>
       </div>

@@ -21,7 +21,12 @@ class FileController extends Controller
      */
     public function index()
     {   
-        $quizzes = Quiz::where('id_filiere',Auth::user()->filiere_user)->get();
+        if(Auth::user()->type_user=="admin"){
+                $quizzes = Quiz::all();
+        }else{
+            $quizzes = Quiz::where('id_filiere',Auth::user()->filiere_user)->get();
+        }
+
         $nbr_quiz = $quizzes->count();
         foreach ($quizzes as $quiz) {
             $results = Result::where('id_quiz',$quiz->id_quiz)->get();
@@ -36,7 +41,10 @@ class FileController extends Controller
             $temp = array();
             
         }
-        // dd($rslt);
+
+        if(empty($rslt)){
+            $rslt = array();
+        }
         return view('cours.cours-espace', 
                     ['files' => File::all() ,'quizzes' => $quizzes, 'resultats'=>$rslt]  );
     }
