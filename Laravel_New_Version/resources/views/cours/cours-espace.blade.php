@@ -155,11 +155,8 @@
                               <li><b>Publier le :</b> {{$quizze->date_pub}}</li>
                               <li><b>Dérniére date a rendre :</b> {{$quizze->dernier_delai}}</li>
                               <br>
-                              {{-- Need Traitement --}}
-                              <form class="formbutton" method="post" action="quiz.php">
-                                <input type="hidden" name="id" value="id quiz">
-                                <button type="submit" class="btn btn-outline-secondary btnmarging"><i class="fas fa-eye"></i> Consulter...</button>
-                              </form>
+                              <a href="{{ route('quiz.show',['quiz'=> $quizze->id_quiz ])}}" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i>Consulter le Quiz</a>
+
                             </ul>
                             {{-- Supprimer le quiz --}}
                             <form class="formbutton" action="{{ route('quiz.destroy', ['quiz' => $quizze->id_quiz ]) }}" method="POST"">

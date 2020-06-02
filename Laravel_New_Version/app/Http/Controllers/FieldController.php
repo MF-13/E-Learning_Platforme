@@ -129,18 +129,16 @@ class FieldController extends Controller
         //
         $field = Field::where('filiere_id',$id)->first() ;
 
-        
-        // foreach($fields as $field){
-
-        // }
-        // dd($fields);
         $field->filiere_id = $request->filiere_id;
         $field->filiere =  $request->filiere ;
         $field->departement =  $request->departement ;
         $field->filiere_description =  $request->filiere_description ;
-// dd($fields);
-        // $field->save()->where('filiere_id',$id);
-        $field->save();
+        
+        $update = ['filiere_id'=> $field->filiere_id, 'filiere'=> $field->filiere , 
+                    'departement'=> $field->departement , 
+                    'filiere_description'=> $field->filiere_description];
+        
+        Field::where('filiere_id',$id)->update($update);
 
         return redirect('/filiere')->with('status', 'La Filiére est Modifier');
     }
@@ -170,11 +168,8 @@ class FieldController extends Controller
 
     public function destroy($id)
     {
-        //
-        // 
-        // Field::whereIn('id', 'filiere_id')->destroy();
-        dd($id);
-        Field::destroy($id);
+        $supp = Field::where('filiere_id',$id)->delete();
+
         return redirect('/filiere')->with('status', 'Filiére est Supprimer');
     }
 

@@ -145,9 +145,8 @@ class Quizcontroller extends Controller
      */
     public function destroy($id)
     {
-        //
-        Quiz::destroy($id);
-        // 
+        $supp = Quiz::where('id_quiz',$id)->delete();
+
         return redirect('/dashbord');
     }
 }

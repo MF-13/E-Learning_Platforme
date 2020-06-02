@@ -32,21 +32,44 @@
                   @foreach($questions as $question)
                       
                         <p class="card-text">Question {{$nbr+1}} : {{$question['question']}} </p>
-                        @php // inverser l ordre des reponse 
-                            $reps= [$question['rep_correcte'],$question['rep_2'],$question['rep_3']];
-                            shuffle($reps);
-                        @endphp
+                        @if(Auth::user()->type_user=='etudiant')
+                            @php // inverser l ordre des reponse 
+                                $reps= [$question['rep_correcte'],$question['rep_2'],$question['rep_3']];
+                                shuffle($reps);
+                            @endphp
 
-                        @foreach ($reps as $rep)
-                        <input type="radio" value="{{$rep}}"  name="qst{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$rep}}<br>
-                        @endforeach
+                            @foreach ($reps as $rep)
+                            <input type="radio" value="{{$rep}}"  name="qst{{$nbr+1}}" style="margin-left: 20px; margin-bottom: 8px;"  >{{$rep}}<br>
+                            @endforeach
 
-                       @php
-                            $nbr++;
-                        @endphp
+                            @php
+                                  $nbr++;
+                            @endphp
+
+                        @elseif(Auth::user()->type_user=='professeur')
+                            @php // inverser l ordre des reponse 
+                                $reps= [$question['rep_correcte'],$question['rep_2'],$question['rep_3']];
+                            @endphp
+                            <ul>
+                                  <li>
+                                      Reponse 1 (correcte) : {{$reps[0]}}
+                                  </li>
+                                  <li>
+                                      Reponse 2 : {{$reps[1]}}
+                                  </li>
+                                  <li>
+                                      Reponse 3 : {{$reps[2]}}
+                                  </li>
+                                
+                            </ul>
+                            @php
+                                  $nbr++;
+                            @endphp
+                        @endif
                   @endforeach
-                  <input type="submit" name="submit" class="btn btn-success float-right">
-
+                  @if(Auth::user()->type_user=='etudiant')
+                      <input type="submit" name="submit" class="btn btn-success float-right">
+                  @endif
               </form>
 
         </div>
