@@ -58,9 +58,8 @@ class MessageController extends Controller
         
         $message->save();
 
-        return redirect('/message')->with('status', 'Le Message est Envoyer a L\'administration !');
+        return redirect('/message')->with('status', 'Le Message est Envoyer');
 
-        return redirect('/cours/cours-espace')->with('status', 'L\'opération s\'effectues avec successe  !');
     }
 
     /**
@@ -114,7 +113,7 @@ class MessageController extends Controller
         
         $message->save();
 
-        return redirect('/message')->with('status', 'Le Message est Envoyer a L\'administration !');
+        return redirect('/message')->with('status', 'Le Message est Modifier');
     }
 
     /**

@@ -98,7 +98,7 @@ class FileController extends Controller
         $file->pdf_lien = $path;
         $file->save();
 
-        return redirect('/cour')->with('success', 'cour Created');
+        return redirect('/cour')->with('status', 'Le Cour est Créer');
     }
 
     /**
@@ -146,6 +146,6 @@ class FileController extends Controller
     {
         //
         File::destroy($id);
-        return redirect('/cour');
+        return redirect('/cour')->with('status','Le Cour est Supprimer');
     }
 }

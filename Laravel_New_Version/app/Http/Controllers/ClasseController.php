@@ -159,9 +159,4 @@ class ClasseController extends Controller
         return redirect('/cours')->with('status', 'Le Cour est Supprimer');
     }
 
-    public function findCours($id){
-
-        $query = "select nom from classes where id_filiere=".$id.";";
-
-    }
 }

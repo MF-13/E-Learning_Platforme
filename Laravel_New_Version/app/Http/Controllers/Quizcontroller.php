@@ -47,6 +47,9 @@ class Quizcontroller extends Controller
         $quiz->id_filiere = $request->id_filiere;
         $quiz->nom_quiz = $request->nom_quiz;
         $quiz->dernier_delai = $request->dernier_delai;
+        $quiz->save();
+
+        return redirect('/cour')->with('status','Le Quiz est Ajouter'); ;
     }
 
 

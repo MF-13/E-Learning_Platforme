@@ -146,9 +146,10 @@ class AdminController extends Controller
 
         $user->save();
                                 
-            $request->session()->flash('status','User ajouter avec succes');
+            // $request->session()->flash('status','User ajouter avec succes');
                     
-            return redirect('/user');
+            // return redirect('/user');
+            return redirect('/dashbord')->with('status','User est ajouter');
     }
 
     public function show()
@@ -176,8 +177,8 @@ class AdminController extends Controller
     public function destroy(Request $request , $id)
     {   
         User::destroy($id);
-        $request->session()->flash('status','L\'utilisateur est Supprimer');
-        return redirect('/dashbord');
+        // $request->session()->flash('status','L\'utilisateur est Supprimer');
+        return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer');
         
     }
 }

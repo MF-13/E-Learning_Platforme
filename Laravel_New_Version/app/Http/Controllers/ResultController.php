@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Result;
 use App\Quiz;
 use App\Question;
-use Auth;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller
@@ -73,7 +72,7 @@ class ResultController extends Controller
         // dd($result->result);
         $result->save();
 
-        return redirect('/');
+        return redirect('/')->with('status','Votre Réponses sont Valider');
     }
 
     /**

@@ -91,6 +91,6 @@ class CommentController extends Controller
     {
         //
         Comment::destroy($id);
-        return redirect('/Comments')->with('status', 'L\'opinion est Supprimer');
+        return redirect('/Comments')->with('status', 'Le Commentaire est Supprimer');
     }
 }
