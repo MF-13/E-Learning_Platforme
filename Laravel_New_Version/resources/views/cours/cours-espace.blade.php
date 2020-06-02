@@ -12,7 +12,7 @@
 
 @section('content')
   {{-- Si L'utilisateur est Connecter --}}
-    @auth
+@Auth
     <!-- Type Donnes Section -->
     <ul class="nav nav-pills nav-fill tab">
       <li class="nav-item">
@@ -71,7 +71,6 @@
                               </ul>
                           </p>
                         <!-- Telecharger le fichier -->
-                        @Auth
                             <div class="formbutton">
                               <a href="{{$file->pdf_lien}}" download>
                                 <button type="submit" class="btn btn-outline-success btnmarging">
@@ -88,10 +87,8 @@
                               <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
                               </form>
                             @endif
-                        @endauth
-                        
 
-                    </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -231,7 +228,7 @@
   
   <script src={{ asset("js/site/cours-espace.js") }}></script>
   {{-- Si L'utilisateur n'est pas Connecter --}}
-  @else
+@else
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">

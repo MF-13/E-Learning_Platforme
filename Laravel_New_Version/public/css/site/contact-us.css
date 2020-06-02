@@ -9,6 +9,10 @@ body{
 
 }
 
+.required{
+  color: red;
+}
+
 .contact-form{
 
   width: 85%;
