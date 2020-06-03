@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href={{ asset("css/site/filiere-1.css") }}>
     <link rel="stylesheet" href={{ asset("css/site/bootstrap.css") }}>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href={{ asset("css/site/forget_pass.css") }}>
     <title>Récupération de mot de passe</title>
 </head>
 <body class="text-center">
