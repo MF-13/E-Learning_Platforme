@@ -58,21 +58,20 @@
     <input type="text" name="adresse_user" class="form-control" value="{{ old('adresse_user',  $user->adresse_user ?? null  ) }}" aria-describedby="inputGroup-sizing-default">
 </div>
 
-    <div class="input-group mb-3">
+    {{-- <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-default">Type De L'utilisateur</span>
         </div>
         <input type="text" name="type_user" class="form-control" value="{{ old('type_user',  $user->type_user ?? null  ) }}" aria-describedby="inputGroup-sizing-default">
-    </div>
+    </div> --}}
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Options</label>
+          <label class="input-group-text" for="inputGroupSelect01">Type de l'utilisateur</label>
         </div>
         <select class="custom-select" name="type_user" id="inputGroupSelect01">
           <option value="etudiant">Etudiant</option>
           <option value="professeur">Professeur</option>
-          <option value="admin">Admin</option>
         </select>
     </div>
 

@@ -55,9 +55,9 @@
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
+            <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe (Entrer le nouveau mdps sinon laisser l'actuel)</span>
           </div>
-          <input type="text" name="password" value="{{$dashbord->password ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+          <input type="password" name="password" value="{{$dashbord->password ?? null}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
         </div>
 
         <div class="input-group mb-3">
@@ -95,7 +95,7 @@
           <input type="email" name="email" value="{{$dashbord->email ?? null}}" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
         </div>
                 
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" hidden>
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">type_user</span>
           </div>

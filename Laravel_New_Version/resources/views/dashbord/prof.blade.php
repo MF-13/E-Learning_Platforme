@@ -22,7 +22,6 @@
                       <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
-                      <th>Mot de passe</th>
                       <th>Date de naissance</th>   
                       <th>Filiere</th>
                       <th>Telephone</th>
@@ -37,7 +36,6 @@
                       <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
-                      <th>Mot de passe</th>
                       <th>Date de naissance</th>   
                       <th>Filiere</th>
                       <th>Telephone</th>
@@ -53,7 +51,6 @@
                       <td>{{$user->id}}</td>
                       <td>{{$user->nom_user}}</td>
                       <td>{{$user->prenom_user}}</td>
-                      <td>{{$user->password}}</td>
                       <td>{{$user->date_naiss_user}}</td>
                       <td>{{$user->filiere_user}}</td>
                       <td>{{$user->num_tele_user}}</td>

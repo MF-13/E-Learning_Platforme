@@ -23,12 +23,14 @@
                   <thead>
                     <tr>
                       <th>departement</th>
+                      <th>Inserer la photo</th>
                       <th>Modifier la Photo</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>departement</th>
+                      <th>Inserer la photo</th>
                       <th>Modifier la Photo</th>
                     </tr>
                   </tfoot>
@@ -36,8 +38,9 @@
             @foreach ($departements as $departement)
                 <tr>
                 <td>{{strtoupper($departement->departement)}}</td>
+                <td><input type="file" ></td>
                 {{-- traitement de Modification de photo --}}
-                  <td><button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button></td>
+                <td><button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button></td>
                 </tr>
             @endforeach
                   
@@ -65,7 +68,7 @@
             {{-- Need Traitement --}}
             <form action="traitement/modifier_photo.php" method="POST" enctype = "multipart/form-data">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">nom de la filiere</label>
+                <label for="recipient-name" class="col-form-label">nom du departement</label>
                 <input name = "dept" type="text" class="form-control" id="recipient-name">
                 <label for="recipient-name" class="col-form-label">changer la photo</label>
                 <input name = "userfile" type="file" class="form-control" id="recipient-name">

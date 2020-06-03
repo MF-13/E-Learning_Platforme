@@ -39,12 +39,12 @@ class AdminController extends Controller
 
     public function afficher_etudiant()
     {
-        return view('dashbord.etudiant',  ['users' => User::where('type_user','etudiant')->get() , 'type'=>'etudiant'   ] );
+        return view('dashbord.etudiant',  ['users' => User::where('type_user','etudiant')->orderBy('id','DESC')->get() , 'type'=>'etudiant'   ] );
     }
 
     public function afficher_professeur()
     {
-        return view('dashbord.prof', ['users' => User::where('type_user','professeur')->get()   ] );
+        return view('dashbord.prof', ['users' => User::where('type_user','professeur')->orderby('id','DESC')->get()   ] );
     } 
 
     public function afficher_demande()
@@ -171,7 +171,19 @@ class AdminController extends Controller
         $user->type_user = $request->input('type_user');
         $user->save();
         $request->session()->flash('status','User modifier avec succes');
-        return redirect('/dashbord');
+
+        switch( $user->type_user){
+                case 'etudiant' :   return redirect('/etudiant');    break;
+                case 'professeur' :  return redirect('/professeur');       break;
+                case 'admin' : return redirect('/dashbord'); break;
+                default :  return redirect('/dashbord'); break;
+
+        }
+
+       
+
+
+       
     }
 
     public function destroy(Request $request , $id)
