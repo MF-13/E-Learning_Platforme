@@ -114,11 +114,14 @@ class FileController extends Controller
         $nbr = $temp_cour->count();
         // dd($nbr);
             // pour l'affichage de tous les filieres
-        for ($i=0; $i < $nbr; $i++) { 
-            $cour[] = Arr::get($temp_cour,$i.'.nom') ;
-
-        
+        if($nbr>0){
+            for ($i=0; $i < $nbr; $i++) { 
+                 $cour[] = Arr::get($temp_cour,$i.'.nom') ;
+            }
+        }else{
+            $cour = array();
         }
+        
         // dd($cour);
         return view('cours.addcours-1',['cours'=>$cour]) ;
     }

@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `classes`
 --
 
-CREATE TABLE `classes` (
+CREATE TABLE IF NOT EXISTS `classes` (
   `id` int(11) NOT NULL,
   `nom` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -54,7 +54,7 @@ INSERT INTO `classes` (`id`, `nom`, `description`, `id_filiere`, `created_at`, `
 -- Structure de la table `comments`
 --
 
-CREATE TABLE `comments` (
+CREATE TABLE IF NOT EXISTS `comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nom` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -80,7 +80,7 @@ INSERT INTO `comments` (`id`, `nom`, `email`, `opinion`, `created_at`, `updated_
 -- Structure de la table `failed_jobs`
 --
 
-CREATE TABLE `failed_jobs` (
+CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `failed_jobs` (
 -- Structure de la table `fields`
 --
 
-CREATE TABLE `fields` (
+CREATE TABLE IF NOT EXISTS `fields` (
   `filiere_id` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `filiere` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `filiere_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -123,7 +123,7 @@ INSERT INTO `fields` (`filiere_id`, `filiere`, `filiere_description`, `departeme
 -- Structure de la table `files`
 --
 
-CREATE TABLE `files` (
+CREATE TABLE IF NOT EXISTS `files` (
   `id` int(11) NOT NULL,
   `id_filiere` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `code_prof` int(11) NOT NULL,
@@ -161,7 +161,7 @@ INSERT INTO `files` (`id`, `id_filiere`, `code_prof`, `commantaire`, `id_cour`, 
 -- Structure de la table `messages`
 --
 
-CREATE TABLE `messages` (
+CREATE TABLE IF NOT EXISTS `messages` (
   `id` int(11) NOT NULL,
   `emetteur_id` int(11) NOT NULL,
   `emetteur_nom` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -202,7 +202,7 @@ INSERT INTO `messages` (`id`, `emetteur_id`, `emetteur_nom`, `emetteur_email`, `
 -- Structure de la table `migrations`
 --
 
-CREATE TABLE `migrations` (
+CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
@@ -233,7 +233,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Structure de la table `password_resets`
 --
 
-CREATE TABLE `password_resets` (
+CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
@@ -245,7 +245,7 @@ CREATE TABLE `password_resets` (
 -- Structure de la table `permissions`
 --
 
-CREATE TABLE `permissions` (
+CREATE TABLE IF NOT EXISTS `permissions` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -278,7 +278,7 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created
 -- Structure de la table `permission_role`
 --
 
-CREATE TABLE `permission_role` (
+CREATE TABLE IF NOT EXISTS `permission_role` (
   `permission_id` int(10) UNSIGNED NOT NULL,
   `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -309,7 +309,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 -- Structure de la table `permission_user`
 --
 
-CREATE TABLE `permission_user` (
+CREATE TABLE IF NOT EXISTS `permission_user` (
   `permission_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `user_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -321,7 +321,7 @@ CREATE TABLE `permission_user` (
 -- Structure de la table `questions`
 --
 
-CREATE TABLE `questions` (
+CREATE TABLE IF NOT EXISTS `questions` (
   `id_quiz` int(11) NOT NULL,
   `n_question` int(11) NOT NULL,
   `question` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -351,7 +351,7 @@ INSERT INTO `questions` (`id_quiz`, `n_question`, `question`, `rep_correcte`, `r
 -- Structure de la table `quizzes`
 --
 
-CREATE TABLE `quizzes` (
+CREATE TABLE IF NOT EXISTS `quizzes` (
   `id_quiz` int(11) NOT NULL,
   `nom_quiz` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_prof` int(11) NOT NULL,
@@ -377,7 +377,7 @@ INSERT INTO `quizzes` (`id_quiz`, `nom_quiz`, `id_prof`, `id_filiere`, `dernier_
 -- Structure de la table `requests`
 --
 
-CREATE TABLE `requests` (
+CREATE TABLE IF NOT EXISTS `requests` (
   `id` int(11) NOT NULL,
   `nom` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prenom` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -406,7 +406,7 @@ INSERT INTO `requests` (`id`, `nom`, `prenom`, `date_naiss`, `filiere`, `num_tel
 -- Structure de la table `results`
 --
 
-CREATE TABLE `results` (
+CREATE TABLE IF NOT EXISTS `results` (
   `id_quiz` int(11) NOT NULL,
   `id_etudiant` int(11) NOT NULL,
   `resultat` int(11) NOT NULL,
@@ -431,7 +431,7 @@ INSERT INTO `results` (`id_quiz`, `id_etudiant`, `resultat`, `quesiont_corrcete`
 -- Structure de la table `roles`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -455,7 +455,7 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, 
 -- Structure de la table `role_user`
 --
 
-CREATE TABLE `role_user` (
+CREATE TABLE IF NOT EXISTS `role_user` (
   `role_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `user_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -513,7 +513,7 @@ INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
   `nom_user` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `prenom_user` text COLLATE utf8mb4_unicode_ci NOT NULL,
