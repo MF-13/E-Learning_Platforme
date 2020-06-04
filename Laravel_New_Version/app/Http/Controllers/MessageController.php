@@ -43,7 +43,7 @@ class MessageController extends Controller
     {
         //
         $message = new Message() ;
-        $message->emetteur_id = -1 ;
+        $message->emetteur_id = 0 ;
         $message->emetteur_nom = "admin";
         $message->emetteur_email = Auth::user()->email ;
         $message->emetteur_telephone = Auth::user()->num_tele_user;
