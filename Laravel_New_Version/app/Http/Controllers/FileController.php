@@ -149,6 +149,7 @@ class FileController extends Controller
         // Handle File Upload
         if($request->hasFile('userfile')){
             $filiereName = $request->id_filiere ;
+            dd($filiereName);
             // Get filename with the extension
             $filenameWithExt = $request->file('userfile')->getClientOriginalName();
             // Get just filename
