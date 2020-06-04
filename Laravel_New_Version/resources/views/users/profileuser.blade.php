@@ -32,7 +32,7 @@
             @if(Auth::user()->user_type=='admin')
               <a  class="btn btn-primary btn-sm btn-block" href="{{route('Message_boite.index')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
             @else 
-              <a  class="btn btn-primary btn-sm btn-block" href="{{url('/message')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
+              <a  class="btn btn-primary btn-sm btn-block" href="{{url('/Message_boite')}}"><i class="fas fa-envelope-open"></i>Boite Message</a>
             @endif
 
             <!------------------------END TO MESSAGE-------------------------------------------------------------------------------------------->               
