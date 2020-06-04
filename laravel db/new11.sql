@@ -61,7 +61,6 @@ INSERT INTO `classes` (`id`, `nom`, `description`, `id_filiere`, `created_at`, `
 (18, 'Systémes d\'exploitation', 'Ce cour permet d\'avoir travallier avec les différents systemes d\'exploitation existe', 'TSI', '2020-06-03 21:38:04', '2020-06-03 21:38:04'),
 (19, 'Deep Learning', 'Le deep learning ou apprentissage profond est un type d\'intelligence artificielle dérivé du machine learning (apprentissage automatique) où la machine est capable d\'apprendre par elle-même,', 'IA', '2020-06-04 05:03:24', '2020-06-04 05:03:24'),
 (20, 'Machine Learning', 'Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed.', 'IA', '2020-06-04 05:28:05', '2020-06-04 05:28:05');
-
 ;
 
 -- --------------------------------------------------------
@@ -84,15 +83,11 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `nom`, `email`, `opinion`, `created_at`, `updated_at`) VALUES
-(4, 'EL KHABBAZ', 'elkhabbaz91@gmail.com', 'Opinion 3', '2020-06-01 18:14:34', '2020-06-01 18:14:34'),
-(6, 'hassan ayoubi', 'hassan@gmail.com', 'Un bon site merci', '2020-06-02 14:06:53', '2020-06-02 14:06:53'),
-(7, 'khadija bilala', 'bilala@gmail.com', 'Merci pour cette plateform', '2020-06-02 14:39:19', '2020-06-02 14:39:19'),
-(8, 'aya zerouali', 'zerouali_aya@gmail.com', 'beaucoup de cours et de fichier utile ! merci', '2020-06-02 14:40:16', '2020-06-02 14:40:16'),
-(9, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', '2020-06-02 14:50:24', '2020-06-02 14:50:24')
-(10, 'houyakoun hajar', 'houyakoun@gmail.com', 'Bonjour, est-ce-que le cour de sécuriter réseau est existe', '2020-06-03 13:30:47', '2020-06-03 13:30:47'),
-(11, 'ouzzine wiam', 'ouzzine@gmail.com', 'Ou ce truve les cours de S5', '2020-06-03 18:10:10', '2020-06-03 18:10:10'),
-(12, 'heddadi doha', 'heddadi@gmail.com', 'Merci pour cette platforme.', '2020-06-03 21:00:04', '2020-06-03 21:00:04');
-;
+(1, 'EL KHABBAZ', 'elkhabbaz91@gmail.com', 'Opinion 3', '2020-06-01 18:14:34', '2020-06-01 18:14:34'),
+(2, 'hassan ayoubi', 'hassan@gmail.com', 'Un bon site merci', '2020-06-02 14:06:53', '2020-06-02 14:06:53'),
+(3, 'khadija bilala', 'bilala@gmail.com', 'Merci pour cette plateform', '2020-06-02 14:39:19', '2020-06-02 14:39:19'),
+(4, 'aya zerouali', 'zerouali_aya@gmail.com', 'beaucoup de cours et de fichier utile ! merci', '2020-06-02 14:40:16', '2020-06-02 14:40:16'),
+(5, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', '2020-06-02 14:50:24', '2020-06-02 14:50:24');
 
 -- --------------------------------------------------------
 
@@ -165,8 +160,7 @@ CREATE TABLE `files` (
 
 INSERT INTO `files` (`id`, `id_filiere`, `code_prof`, `commantaire`, `id_cour`, `type_cour`, `nbr_telechargement`, `date_ajoute`, `nom_pdf`, `pdf_lien`, `titre`, `created_at`, `updated_at`) VALUES
 (31, 'bibl', 15, 'eze', NULL, 'bibliotheque', 0, '2020-06-01 12:06:33', 'webhost.txt', 'public/file/bibl/webhost.txt', 'khbz', '2020-06-01 11:06:33', '2020-06-01 11:06:33'),
-(32, 'bibl', 15, 'testsssssss', NULL, 'bibliotheque', 0, '2020-06-01 12:32:19', 'TP1_PHP.pdf', 'public/file/bibl/TP1_PHP.pdf', 'testdasdadsd', '2020-06-01 11:32:19', '2020-06-01 11:32:19'),
-
+(32, 'bibl', 15, 'testsssssss', NULL, 'bibliotheque', 0, '2020-06-01 12:32:19', 'TP1_PHP.pdf', 'public/file/bibl/TP1_PHP.pdf', 'testdasdadsd', '2020-06-01 11:32:19', '2020-06-01 11:32:19')
 ;
 
 -- --------------------------------------------------------
@@ -197,11 +191,11 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `emetteur_id`, `emetteur_nom`, `emetteur_email`, `emetteur_telephone`, `emetteur_type`, `message`, `etat`, `date_env`, `recepteur_id`, `recepteur_email`, `recepteur_type`, `created_at`, `updated_at`) VALUES
-(12, -1, 'karam athmani', 'karam@gmail.com', 678987454, 'visiteur', 'Bonjour , je veux etre un etudiant a l\'EST au future', '0', '2020-06-02 15:53:19', -1, 'admin@gmail.com', 'admin', '2020-06-02 14:53:19', '2020-06-02 14:53:19'),
-(10, -1, 'teeeeest', 'teeest@haha.com', 4568987, 'visiteur', 'bnjr teeest 31', '0', '2020-05-31 11:52:50', -1, 'admin@gmail.com', 'admin', '2020-05-31 10:52:50', '2020-05-31 10:52:50'),
-(11, 13, 'test tessst', 'test@gmail.com', 4789654, 'professeur', 'salam ana proff', '0', '2020-05-31 11:54:31', -1, 'admin@gmail.com', 'admin', '2020-05-31 10:54:31', '2020-05-31 10:54:31'),
-(13, -1, 'ayoub bousmouni', 'bousmouni@gmail.com', 784561165, 'visiteur', 'hello , i want the course of OOP', '0', '2020-06-02 16:04:24', -1, 'admin@gmail.com', 'admin', '2020-06-02 15:04:24', '2020-06-02 15:04:24'),
-(14, -1, 'admin', 'aiman.elbou@gmail.com', 666060606, 'admin', 'bz3t', '0', '2020-06-03 10:58:00', 13, 'test@gmail.com', 'professeur', '2020-06-03 09:58:00', '2020-06-03 09:58:00');
+(12, -1, 'karam athmani', 'karam@gmail.com', 678987454, 'visiteur', 'Bonjour , je veux etre un etudiant a l\'EST au future', '0', '2020-06-02 15:53:19', 0, 'admin@gmail.com', 'admin', '2020-06-02 14:53:19', '2020-06-02 14:53:19'),
+(10, -1, 'teeeeest', 'teeest@haha.com', 4568987, 'visiteur', 'bnjr teeest 31', '0', '2020-05-31 11:52:50', 0, 'admin@gmail.com', 'admin', '2020-05-31 10:52:50', '2020-05-31 10:52:50'),
+(11, 13, 'test tessst', 'test@gmail.com', 4789654, 'professeur', 'salam ana proff', '0', '2020-05-31 11:54:31', 0, 'admin@gmail.com', 'admin', '2020-05-31 10:54:31', '2020-05-31 10:54:31'),
+(13, -1, 'ayoub bousmouni', 'bousmouni@gmail.com', 784561165, 'visiteur', 'hello , i want the course of OOP', '0', '2020-06-02 16:04:24', 0, 'admin@gmail.com', 'admin', '2020-06-02 15:04:24', '2020-06-02 15:04:24'),
+(14, 0, 'admin', 'aiman.elbou@gmail.com', 666060606, 'admin', 'bz3t', '0', '2020-06-03 10:58:00', 13, 'test@gmail.com', 'professeur', '2020-06-03 09:58:00', '2020-06-03 09:58:00');
 
 -- --------------------------------------------------------
 
@@ -344,13 +338,11 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id_quiz`, `n_question`, `question`, `rep_correcte`, `rep_2`, `rep_3`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Mon nom est', 'aiman', 'hassan', 'ayoub', NULL, NULL),
-(1, 2, 'Mon age est', '20', '100', '80', NULL, NULL),
-(1, 3, 'Mon prenom est', 'elbouayadi', 'asraoui', 'ahmadi', NULL, NULL),
 (24, 1, 'un test est :', 'un test est :', 'un test est :', 'un test est :', '2020-06-02 11:49:14', '2020-06-02 11:49:14'),
 (24, 2, 'prof est', 'prof est', 'prof est', 'prof est', '2020-06-02 11:49:14', '2020-06-02 11:49:14'),
-(31, 1, 'q1', 'a', 'b', 'c', '2020-06-02 12:10:57', '2020-06-02 12:10:57'),
-(31, 2, 'q2', 'd', 'e', 'f', '2020-06-02 12:10:57', '2020-06-02 12:10:57');
+(1, 1, 'q1', 'a', 'b', 'c', '2020-06-02 12:10:57', '2020-06-02 12:10:57'),
+(1, 2, 'q2', 'd', 'e', 'f', '2020-06-02 12:10:57', '2020-06-02 12:10:57')
+;
 
 -- --------------------------------------------------------
 
@@ -374,10 +366,8 @@ CREATE TABLE `quizzes` (
 --
 
 INSERT INTO `quizzes` (`id_quiz`, `nom_quiz`, `id_prof`, `id_filiere`, `dernier_delai`, `date_pub`, `created_at`, `updated_at`) VALUES
-(1, 'quiz de test', 15, 'TM', NULL, '2020-06-17 20:00:00', NULL, NULL),
-(2, 'quiz de Semestre', 3, 'TCC', NULL, '2020-07-08 20:00:00', NULL, NULL),
-(31, 'titre quiz', 15, 'TM', NULL, '2020-06-02 13:10:57', '2020-06-02 12:10:57', '2020-06-02 12:10:57');
-
+(1, 'titre quiz', 15, 'TM', NULL, '2020-06-02 13:10:57', '2020-06-02 12:10:57', '2020-06-02 12:10:57'),
+;
 -- --------------------------------------------------------
 
 --
@@ -428,8 +418,6 @@ CREATE TABLE `results` (
 --
 
 INSERT INTO `results` (`id_quiz`, `id_etudiant`, `resultat`, `quesiont_corrcete`, `question_incorrecte`, `created_at`, `updated_at`) VALUES
-(1, 10, 3, '1', '1', NULL, NULL),
-(31, 14, 1, '1 , ', '2 , ', '2020-06-02 13:33:19', '2020-06-02 13:33:19'),
 (1, 14, 2, '1 , 2 , ', '3 , ', '2020-06-01 09:29:38', '2020-06-01 09:29:38');
 
 -- --------------------------------------------------------
