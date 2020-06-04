@@ -46,7 +46,23 @@ INSERT INTO `classes` (`id`, `nom`, `description`, `id_filiere`, `created_at`, `
 (3, 'Programmation C', 'Ce cours sert a prends les et la base principe de programmation C', 'GI', NULL, '2020-06-03 09:19:44'),
 (4, 'Programmation JAVA', 'Ce cours sert a prends les et la base principe de ..', 'GI', NULL, NULL),
 (5, 'Securiter Réseau', 'Ce cours sert a prends les et la base principe de ...', 'TSI', NULL, NULL),
-(6, 'Gestion Projet', 'Ce cours sert a prends les et la base principe de ...', 'TM', NULL, NULL);
+(6, 'Gestion Projet', 'Ce cours sert a prends les et la base principe de ...', 'TM', NULL, NULL),
+(7, 'Droit d\'entreprise', 'Ce Cour permet d\'enregistrer la valeur des opérations réalisées par une entreprise et aussi de recenser le détail de ce qu\'elle possède et ce qu\'elle doit.', 'TM', '2020-06-03 17:58:43', '2020-06-03 17:58:43'),
+(8, 'Pythone', 'Ce cours permet d\'améliorer les compétences du programmation avec langage Phythone', 'IA', '2020-06-04 05:25:56', '2020-06-04 05:25:56'),
+(9, 'Réseaux & Services sur Réseaux', 'Ce Modules contient les principe des systémes Réseaux et ca sécuriter.', 'TSI', '2020-06-03 14:10:05', '2020-06-03 14:10:05'),
+(10, 'Electronique', 'Ce cour contient les basics d\'electronique.', 'GIM', '2020-06-03 18:59:53', '2020-06-03 18:59:53'),
+(11, 'Automatisées', 'Ce cour contient les basics de Systemes Automatisées.', 'GIM', '2020-06-03 19:00:53', '2020-06-03 19:03:30'),
+(12, 'Physique de base', 'Ce cour contiant les principes de Physique.', 'GC', '2020-06-03 20:22:59', '2020-06-03 20:22:59'),
+(13, 'Techniques Comptables', 'Ce cours sert a prends a consiste à donner des renseignements chiffrés d’ordre économique et juridique, exprimés dans des comptes.', 'TM', '2020-06-03 14:36:21', '2020-06-03 14:36:21'),
+(14, 'Organisation sécurité', 'Ce cours contient les basics d\'Organisation du Projet', 'GC', '2020-06-03 20:24:37', '2020-06-03 20:24:37'),
+(15, 'Programmation java', 'Ce cours permet d\'améliorer les compétences du programmation avec langage JAVA', 'GI', '2020-06-03 20:59:07', '2020-06-03 20:59:07'),
+(16, 'Réseaux Informatique', 'Ce cour contient les méthodes pour construire un réseaux locale et sécuriser.', 'GI', '2020-06-03 21:10:56', '2020-06-03 21:10:56'),
+(17, 'Sérvice Réseaux', 'Ce cours contient les différents service réseaux.', 'TSI', '2020-06-03 21:35:38', '2020-06-03 21:35:38'),
+(18, 'Systémes d\'exploitation', 'Ce cour permet d\'avoir travallier avec les différents systemes d\'exploitation existe', 'TSI', '2020-06-03 21:38:04', '2020-06-03 21:38:04'),
+(19, 'Deep Learning', 'Le deep learning ou apprentissage profond est un type d\'intelligence artificielle dérivé du machine learning (apprentissage automatique) où la machine est capable d\'apprendre par elle-même,', 'IA', '2020-06-04 05:03:24', '2020-06-04 05:03:24'),
+(20, 'Machine Learning', 'Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed.', 'IA', '2020-06-04 05:28:05', '2020-06-04 05:28:05');
+
+;
 
 -- --------------------------------------------------------
 
@@ -72,7 +88,11 @@ INSERT INTO `comments` (`id`, `nom`, `email`, `opinion`, `created_at`, `updated_
 (6, 'hassan ayoubi', 'hassan@gmail.com', 'Un bon site merci', '2020-06-02 14:06:53', '2020-06-02 14:06:53'),
 (7, 'khadija bilala', 'bilala@gmail.com', 'Merci pour cette plateform', '2020-06-02 14:39:19', '2020-06-02 14:39:19'),
 (8, 'aya zerouali', 'zerouali_aya@gmail.com', 'beaucoup de cours et de fichier utile ! merci', '2020-06-02 14:40:16', '2020-06-02 14:40:16'),
-(9, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', '2020-06-02 14:50:24', '2020-06-02 14:50:24');
+(9, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', '2020-06-02 14:50:24', '2020-06-02 14:50:24')
+(10, 'houyakoun hajar', 'houyakoun@gmail.com', 'Bonjour, est-ce-que le cour de sécuriter réseau est existe', '2020-06-03 13:30:47', '2020-06-03 13:30:47'),
+(11, 'ouzzine wiam', 'ouzzine@gmail.com', 'Ou ce truve les cours de S5', '2020-06-03 18:10:10', '2020-06-03 18:10:10'),
+(12, 'heddadi doha', 'heddadi@gmail.com', 'Merci pour cette platforme.', '2020-06-03 21:00:04', '2020-06-03 21:00:04');
+;
 
 -- --------------------------------------------------------
 
@@ -144,16 +164,10 @@ CREATE TABLE `files` (
 --
 
 INSERT INTO `files` (`id`, `id_filiere`, `code_prof`, `commantaire`, `id_cour`, `type_cour`, `nbr_telechargement`, `date_ajoute`, `nom_pdf`, `pdf_lien`, `titre`, `created_at`, `updated_at`) VALUES
-(29, 'tcc', 141, 'n', 45, 'cour', 0, '2020-04-17 08:57:00', '@ReadMe.txt', '../file/tcc/@ReadMe.txt', 'un pdf de x et y ', NULL, NULL),
-(27, 'tcc', 141, 'tp de macro a rendre', 47, 'tp', 0, '2020-04-17 08:29:42', '@ReadMe.txt', '../file/tcc/@ReadMe.txt', 'TP MACRO', NULL, NULL),
-(28, 'tcc', 141, 'a rendre', 46, 'td', 0, '2020-04-17 08:45:14', '@ReadMe.txt', '../file/tcc/@ReadMe.txt', 'test ', NULL, NULL),
-(23, 'tcc', 14, 'chapitre N 1 du Module', 45, 'cour', 0, '2020-04-17 04:10:31', 'VIDEO_10s_hd.mp4', '../file/tcc/VIDEO_10s_hd.mp4', 'Video de cours Module', NULL, NULL),
-(24, 'tcc', 14, 'TP 1 ', 46, 'tp', 0, '2020-04-17 04:11:43', 'cv.txt', '../file/tcc/cv.txt', 'TP1', NULL, NULL),
-(25, 'tcc', 141, 'A rendre avant le 20/04/2020 a 12:00 ', 45, 'td', 0, '2020-04-17 04:15:18', 'HTML-partie1.pdf', '../file/tcc/HTML-partie1.pdf', 'TD 3 ', NULL, NULL),
-(21, 'TM', 15, 'test 1', 2, 'tp', 1, '2020-04-13 13:18:37', '@ReadMe.txt', '../file/bibliotheque/@ReadMe.txt', 'Exemple PFE', NULL, NULL),
 (31, 'bibl', 15, 'eze', NULL, 'bibliotheque', 0, '2020-06-01 12:06:33', 'webhost.txt', 'public/file/bibl/webhost.txt', 'khbz', '2020-06-01 11:06:33', '2020-06-01 11:06:33'),
 (32, 'bibl', 15, 'testsssssss', NULL, 'bibliotheque', 0, '2020-06-01 12:32:19', 'TP1_PHP.pdf', 'public/file/bibl/TP1_PHP.pdf', 'testdasdadsd', '2020-06-01 11:32:19', '2020-06-01 11:32:19'),
-(33, 'TM', 15, 'test', 6, 'tp', 0, '2020-06-02 18:54:56', 'webhost.txt', 'public/file//webhost.txt', 'tessst', '2020-06-02 17:54:56', '2020-06-02 17:54:56');
+
+;
 
 -- --------------------------------------------------------
 
@@ -183,14 +197,7 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `emetteur_id`, `emetteur_nom`, `emetteur_email`, `emetteur_telephone`, `emetteur_type`, `message`, `etat`, `date_env`, `recepteur_id`, `recepteur_email`, `recepteur_type`, `created_at`, `updated_at`) VALUES
-(1, 1, 'admin', 'ayman.admin@gmail.com', 548615, 'admin', 'Bonjour Mr.Hassan , merci de passe a la Direction avant le 20/04/2020', '0', '2020-05-18 09:48:00', 3, 'hassan.loukili@gmail.com', 'professeur', NULL, NULL),
-(2, 2, 'admin', 'ayman.admin@gmail.com\r\n', 548615, 'admin', 'salam ayoub msg recu', '0', '2020-05-18 09:50:15', 5, 'ayoub.om@gmail.com', 'etudiant', NULL, NULL),
 (12, -1, 'karam athmani', 'karam@gmail.com', 678987454, 'visiteur', 'Bonjour , je veux etre un etudiant a l\'EST au future', '0', '2020-06-02 15:53:19', -1, 'admin@gmail.com', 'admin', '2020-06-02 14:53:19', '2020-06-02 14:53:19'),
-(5, 12, 'elbou aiman', 'aiman.elbou@gmail.com', 666666665, NULL, 'bnjr', '0', '2020-05-29 08:54:59', 1, 'admin@gmail.com', NULL, '2020-05-29 08:54:59', '2020-05-29 08:54:59'),
-(6, 12, 'elbou aiman', 'aiman.elbou@gmail.com', 666666665, NULL, 'test apres changes de hidden', '0', '2020-05-29 09:00:04', 1, 'admin@gmail.com', NULL, '2020-05-29 09:00:04', '2020-05-29 09:00:04'),
-(7, 12, 'elbou aiman', 'aiman.elbou@gmail.com', 666666665, NULL, 'hhh', '0', '2020-05-29 09:01:23', 1, 'admin@gmail.com', 'admin', '2020-05-29 09:01:23', '2020-05-29 09:01:23'),
-(8, 0, 'test', 'test@gmail.com', 45454545, NULL, 'teeeest', '0', '2020-05-29 09:18:39', 1, 'admin@gmail.com', NULL, '2020-05-29 09:18:39', '2020-05-29 09:18:39'),
-(9, 0, 'test', 'test@gmail.com', 454545454, NULL, 'ssss', '0', '2020-05-29 09:23:39', 1, 'admin@gmail.com', NULL, '2020-05-29 09:23:39', '2020-05-29 09:23:39'),
 (10, -1, 'teeeeest', 'teeest@haha.com', 4568987, 'visiteur', 'bnjr teeest 31', '0', '2020-05-31 11:52:50', -1, 'admin@gmail.com', 'admin', '2020-05-31 10:52:50', '2020-05-31 10:52:50'),
 (11, 13, 'test tessst', 'test@gmail.com', 4789654, 'professeur', 'salam ana proff', '0', '2020-05-31 11:54:31', -1, 'admin@gmail.com', 'admin', '2020-05-31 10:54:31', '2020-05-31 10:54:31'),
 (13, -1, 'ayoub bousmouni', 'bousmouni@gmail.com', 784561165, 'visiteur', 'hello , i want the course of OOP', '0', '2020-06-02 16:04:24', -1, 'admin@gmail.com', 'admin', '2020-06-02 15:04:24', '2020-06-02 15:04:24'),
