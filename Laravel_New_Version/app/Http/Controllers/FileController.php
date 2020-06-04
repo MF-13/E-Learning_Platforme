@@ -37,15 +37,16 @@ class FileController extends Controller
 
             foreach ($quizzes as $quiz) {
                 $results = Result::where('id_quiz',$quiz->id_quiz)->get();
-
+                $temp = array();
                 foreach($results as $result){
                     $etd = User::where('id',$result->id_etudiant)->get();
                     $nom = $etd[0]['nom_user'].' '. $etd[0]['prenom_user'];
                     
-                    $temp[] = [$nom ,$result->resultat ];
+                    $temp = [$nom ,$result->resultat ];
                 }
+                
                 $rslt[] = [$quiz->id_quiz=>$temp];
-                $temp = array();
+                
                 
             }   
             
@@ -111,13 +112,14 @@ class FileController extends Controller
 
         $temp_cour = classe::select('id','nom')->where('id_filiere',Auth::user()->filiere_user)->get();
         $nbr = $temp_cour->count();
-
+        // dd($nbr);
             // pour l'affichage de tous les filieres
         for ($i=0; $i < $nbr; $i++) { 
             $cour[] = Arr::get($temp_cour,$i.'.nom') ;
 
         
         }
+        // dd($cour);
         return view('cours.addcours-1',['cours'=>$cour]) ;
     }
 
@@ -168,7 +170,7 @@ class FileController extends Controller
         $file->commantaire = $request->input('commentaire');
         $file->nom_pdf = $fileNameToStore;
         $file->pdf_lien = $path;
-
+        
         if($request->cour=='bibliotheque'){
             $file->id_cour=intval('-1');
         }else{

@@ -71,13 +71,14 @@ class ClasseController extends Controller
         //
         $request->validate([
 
-            'nom' =>  'required|max:20',
+            'nom' =>  'required|max:100',
             'description' => 'required|max:500'
         ]);
 
         $classes = new classe() ;
         $classes->nom =  $request->nom ;
         $classes->description =  $request->description ;
+        // $classes->field_id =  $request->id_filiere ;
         $classes->id_filiere =  $request->id_filiere ;
         $classes->save();
 

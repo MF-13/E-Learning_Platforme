@@ -53,12 +53,16 @@
                 <!--specifier le cour dans le quelle on va importer ce fichier-->
 
                             {{-- fonction pour les filiere existe --}}
+                                        {{-- @php
+                                          dd($cours);  
+                                        @endphp --}}
                                     <label for="cour">Cours</label>
                                     <select name="cour" class="form-control" id="cour">
+                                        
+                                        <option value="bibl">bibliotheque</option>
                                         @foreach ($cours as $cour)
                                             <option value="{{strtolower($cour)}}">{{strtolower($cour)}}</option>
       	                                @endforeach
-                                        <option value="bibl">bibliotheque</option>
                                     </select>
 
                                     <label for="commentaire">Commentaire</label>
