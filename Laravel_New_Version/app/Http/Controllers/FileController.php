@@ -12,6 +12,7 @@ use App\Quiz;
 use Auth;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreFile;
 use Illuminate\Support\Facades\File as FileFacade;
 
 
@@ -137,18 +138,18 @@ class FileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFile $request)
     {
         //insertion du : cours / tp / td / bibliotheque dans la base de donnees
 
         // ******************************* Start traitement de fichier *****************************
         
-        $this->validate($request, [
-            'titre' => 'required',
-            'cour' => 'required',
-            'type_cour' => 'required',
-            'userfile' => 'required|max:1999'
-        ]);
+        // $this->validate($request, [
+        //     'titre' => 'required',
+        //     'cour' => 'required',
+        //     'type_cour' => 'required',
+        //     'userfile' => 'required|max:1999'
+        // ]);
 
 
         // Handle File Upload
@@ -158,7 +159,7 @@ class FileController extends Controller
                 $filiereName = 'bibliotheque' ;
                 
             }else{
-                 $filiereName = AUth::user()->filiere_user ;
+                 $filiereName = Auth::user()->filiere_user ;
             }
 
             // Get filename with the extension
@@ -240,7 +241,6 @@ class FileController extends Controller
        
         if($request->hasFile('userfile')){
             $departementName = $request->departement ;
-             
             // Get filename with the extension
             $filenameWithExt = $request->file('userfile')->getClientOriginalName();
             // Get just filename
@@ -253,16 +253,38 @@ class FileController extends Controller
             $p = 'images/img/index/filiere/'.$fileNameToStore;
 
             if(Storage::exists($p)){
-
                 Storage::delete($p);
-                
             }
-
-            
             $path = $request->file('userfile')->storeAs('images/img/index/filiere/',$fileNameToStore);
+        }
+        //Prend l'ancient nomdu departement
+        $olddepartements_name = $request->old_dept ;
+        //Prent depuis table Fields les filiere qui contient le meme deartement
+        $field_departements[] = Field::select('filiere_id','departement')->where('departement',$olddepartements_name)->get() ;
+        //Prend le filiere_id correspond a le departement name
+        // $field_departements_id = Field::select('filiere_id')->where('departement',$olddepartements_name)->get() ;
+        //Le nombre de line de $field_departements
+        $nbr = Field::select('departement')->where('departement',$olddepartements_name)->count();
 
-        } 
-        
+        $id=array();
+
+        for ($i=0; $i < $nbr; $i++) {
+            $id[] = Arr::get($field_departements,'0.'.$i.'.filiere_id') ;
+        }
+
+        if($nbr != 0){
+            foreach($field_departements as $field_d){
+                $field_d->departement = $request->departement;
+
+                for ($j=0; $j < $nbr; $j++){
+                $update = ['filiere_id'=> $id[$j] , 'departement'=> $field_d->departement ];
+                Field::where('filiere_id',$id[$j])->update($update); 
+                }
+            }
+        }
+
+        return redirect('/filiere')->with('status', 'Le Département est Modifier');
+        dd($nbr);
         
     }
 
@@ -288,7 +310,7 @@ class FileController extends Controller
           }else{
         
             
-            return redirect('/cour')->with('status','error hors de la suppresion du fichier');
+            return redirect('/cour')->with('status','Error hors de la suppresion du fichier');
         
           }
         

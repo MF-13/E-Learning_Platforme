@@ -42,7 +42,6 @@
                 <form action="{{ route('classe.update',  ['classe' => $classe->id ]) }}" method="POST" id="formajout">
                   @csrf
                   @method('PUT')
-
                   <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
                   <br>  
                 <div class="input-group mb-3" hidden>
@@ -78,7 +77,13 @@
                 </select>
               </div>
               <br>
-              
+              @if($errors->any())
+                    <ul style="color: red">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
               <input type="submit" name="submit" class="btn btn-info float-right">
               
               </form>

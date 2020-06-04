@@ -98,6 +98,13 @@
                   @method('DELETE')
                   <button type="submit" name="submit" class="btn btn-danger" style="display: inline;">Supprimer</button>
                 </form>                   --}}
+                @if($errors->any())
+                    <ul style="color: red">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
                 <input type="submit" name="submit" class="btn btn-info float-right">
               </form>
               </div>

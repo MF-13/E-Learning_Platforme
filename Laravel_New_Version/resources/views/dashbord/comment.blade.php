@@ -9,7 +9,8 @@ Les Opinions des utilisateur
 
  <!-- Begin Page Content -->
  <div class="container-fluid">
-        
+  <h1 class="h3 mb-2 text-gray-800">Opinions </h1>
+  <p class="mb-4">Les Opinions envoyer par différents visiteur ou utilisateur ! </p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use App\Http\Requests\StoreField;
 use Illuminate\Http\Request;
 
 use App\Field;
@@ -143,16 +144,16 @@ class FieldController extends Controller
         return redirect('/filiere')->with('status', 'La Filiére est Modifier');
     }
 
-    public function store(Request $request)
+    public function store(StoreField $request)
     {
         //
-        $request->validate([
+        // $request->validate([
 
-            'filiere_id' =>  'required|max:4',
-            'filiere' => 'required|max:500',
-            'departement' => 'required',
-            'filiere_description' => 'required'
-        ]);
+        //     'filiere_id' =>  'required|max:4',
+        //     'filiere' => 'required|max:500',
+        //     'departement' => 'required',
+        //     'filiere_description' => 'required'
+        // ]);
         
         $field = new Field();
         $field->filiere_id = $request->filiere_id;

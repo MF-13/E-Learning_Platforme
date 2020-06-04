@@ -5,13 +5,8 @@
 @endsection
 
 @section('content')
-
-  
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
-        
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -23,38 +18,34 @@
                   <thead>
                     <tr>
                       <th>departement</th>
-                      <th>Modifier la Photo</th>
+                      <th>Modifier</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>departement</th>
-                      <th>Modifier la Photo</th>
+                      <th>Modifier</th>
                     </tr>
                   </tfoot>
              <tbody>
             @foreach ($departements as $departement)
-                
                     <tr>
                         <td>{{strtoupper($departement->departement)}}</td>
                         <td><a href="{{ route('cour.edit' , ['cour' => $departement->departement] ) }}" class="btn btn-warning" >Modifier</a></td>
                     </tr>
             @endforeach
-                  
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
-
       </div>
       <!-- End of Main Content -->
 
     {{-- Model De Traitement De Département --}}
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -63,7 +54,7 @@
           </div>
           <div class="modal-body">
             {{-- Need Traitement --}}
-            <form action="traitement/modifier_photo.php" method="POST" enctype = "multipart/form-data">
+            {{-- <form action="traitement/modifier_photo.php" method="POST" enctype = "multipart/form-data">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">nom du departement</label>
                 <input name = "dept" type="text" class="form-control" id="recipient-name">
@@ -77,12 +68,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}} 
     {{-- END Model De Traitement De Département --}}
-
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
 

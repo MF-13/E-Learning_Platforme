@@ -15,7 +15,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
       {{-- Messages card --}}
       <div class="card text-center" style="margin-top: 60px">
-        <div class="card-header"><i class="fas fa-envelope-open"> Boite Message</i></div>             
+        <div class="card-header"><i class="fas fa-envelope-open"> Boite Message</i></div>
+                     
         @foreach ($messages as $message)
         @if ($message->recepteur_id == Auth::user()->id)
           <div class="card-body">

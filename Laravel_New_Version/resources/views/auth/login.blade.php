@@ -18,13 +18,13 @@
 
 <body>
 
-	<img class="wave" src="\images\img\login\wave.png">
+	<img class="wave" src="\storage\images\img\login\wave.png">
 
 	<div class="container">
 
 		<div class="img">
 
-			<img src="\images\img\login\undraw_authentication_fsn5.svg">
+			<img src="\storage\images\img\login\undraw_authentication_fsn5.svg">
 
 		</div>
 
@@ -34,7 +34,7 @@
 				<form method="POST" action="{{ route('login') }}">
 					@csrf
 
-				<img src="\images\img\login\avatar.svg">
+				<img src="\storage\images\img\login\avatar.svg">
 
 				<h2 class="title">Bonjour</h2>
 

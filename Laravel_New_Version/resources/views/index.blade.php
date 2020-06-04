@@ -22,18 +22,18 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="\images\img\index\wall\2.jpg" class="d-block w-100" alt="..." height="700px">
+        <img src="\storage\images\img\index\wall\2.jpg" class="d-block w-100" alt="..." height="700px">
         <div class="carousel-caption d-none d-md-block">
           <h4>Palataforme E Learning</h4>
           <p>L'université Moulay Ismail lance sa plateforme d'enseignement à distance . </p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="\images\img\index\wall\1.jpg" class="d-block w-100" alt="..." height="700px">
+        <img src="\storage\images\img\index\wall\1.jpg" class="d-block w-100" alt="..." height="700px">
         <div class="carousel-caption d-none d-md-block"></div>
       </div>
       <div class="carousel-item">
-        <img src="\images\img\index\wall\3.jpg" class="d-block w-100" alt="..." height="700px">
+        <img src="\storage\images\img\index\wall\3.jpg" class="d-block w-100" alt="..." height="700px">
         <div class="carousel-caption d-none d-md-block"></div>
       </div>
     </div>
@@ -84,13 +84,13 @@
   <div class="container">
     <div class="row relationrow">
       <div class="col-lg-3 col-md-3 col-sm-12 imgcentrer">
-        <img src="\images\img\index\logo-est-meknГЁs.png" alt="EST MEKNES" width="170" height="170">
+        <img src="\storage\images\img\index\logo-est-meknГЁs.png" alt="EST MEKNES" width="170" height="170">
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12">
         <p class="font-weight-bold relationpara">Cette plateforme a été créé en partenariat avec l'Université de Moulay Ismail - est Méknes pour fournir des ressources et des informations importantes et utiles aux personnes inscrites à l'université. </p>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-12 imgcentrer">
-        <img src="\images\img\index\logo.png" alt="E Learning logo" width="120" height="140">
+        <img src="\storage\images\img\index\logo.png" alt="E Learning logo" width="120" height="140">
       </div>
     </div>
   </div>
@@ -112,7 +112,7 @@
         @foreach($fields as $dept)
           <div class="col-lg-3 col-md-6 col-sm-12" style="min-width: 100%;  ">
             <div class="card">
-              <img class="card-img-top" src="\images\img\index\filiere\{{$dept->departement}}.png" alt="TCC" height="150">
+              <img class="card-img-top" src="\storage\images\img\index\filiere\{{$dept->departement}}.png" alt="TCC" height="150">
               <div class="card-body">
                 <h5 class="card-title">{{strtoupper($dept->departement)}}</h5>
                 <p class="card-text">Filiére :<br>

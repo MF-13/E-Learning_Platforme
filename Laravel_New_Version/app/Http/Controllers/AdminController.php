@@ -161,7 +161,7 @@ class AdminController extends Controller
         return view('dashbord.profileadmin',  ['user' =>   User::find(Auth::user()->id)] );
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreUser $request, $id)
     {
         $user = User::findOrFail($id);
         $user->nom_user = $request->input('nom_user');
@@ -195,8 +195,8 @@ class AdminController extends Controller
         User::destroy($id);
 
         switch( $type_user){
-            case 'etudiant' :   return redirect('/etudiant')->with('status','L\'utilisateur est Supprimer');    break;
-            case 'professeur' :  return redirect('/professeur')->with('status','L\'utilisateur est Supprimer');       break;
+            case 'etudiant' :   return redirect('/etudiant')->with('status','L\'Etudiant est Supprimer');    break;
+            case 'professeur' :  return redirect('/professeur')->with('status','Le Professeur est Supprimer');       break;
             case 'admin' : return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer'); break;
             default :  return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer'); break;
 

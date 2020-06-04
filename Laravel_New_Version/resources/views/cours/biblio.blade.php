@@ -40,7 +40,7 @@
 
                         <div class="media">
 
-                          <img src="\images\img\cours espace\pdf.png" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                          <img src="\storage\images\img\cours espace\pdf.png" class="align-self-start mr-3 pdfsize" alt="pdf png image">
 
                             <div class="media-body">      
 

@@ -89,7 +89,13 @@
                   </div>
                   <input type="email" name="email" value="{{Auth::user()->email}}" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
-
+                @if($errors->any())
+                    <ul style="color: red">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
                 <input type="submit" name="submit" class="btn btn-info float-right">
 
       </form>

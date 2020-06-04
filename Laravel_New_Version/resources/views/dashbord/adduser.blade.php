@@ -36,9 +36,21 @@
                   @method('PUT') --}}  
               <form action="{{ route('dashbord.store') }}" method="POST" id="formajout">
                 @csrf
+                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                
                 {{-- Importer La View qui Contient les Inputs --}}
                 @include('dashbord.form')
-                <button type="submit" name="submit" class="btn btn-info float-right">envoyer</button>
+                
+                @if($errors->any())
+                    <ul style="color: red">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+
+                <button type="submit" name="submit" class="btn btn-info float-right">Envoyer</button>
+                
               </form>
               </div>
             </div>

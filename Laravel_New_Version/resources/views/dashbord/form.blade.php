@@ -78,7 +78,7 @@
 
 {{-- Pour afficher les messages d'error --}}
 @if($errors->any())
-    <ul>
+    <ul style="color: red">
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
         @endforeach

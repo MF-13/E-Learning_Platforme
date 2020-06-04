@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\classe;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreClasse;
 use Illuminate\Support\Arr;
 
 use App\Field;
@@ -66,14 +67,14 @@ class ClasseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreClasse $request)
     {
         //
-        $request->validate([
+        // $request->validate([
 
-            'nom' =>  'required|max:100',
-            'description' => 'required|max:500'
-        ]);
+        //     'nom' =>  'required|max:30',
+        //     'description' => 'required|max:500'
+        // ]);
 
         $classes = new classe() ;
         $classes->nom =  $request->nom ;
@@ -126,14 +127,14 @@ class ClasseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreClasse $request, $id)
     {
         //
-        $request->validate([
+        // $request->validate([
 
-            'nom' =>  'required|max:20',
-            'description' => 'required|max:500'
-        ]);
+        //     'nom' =>  'required|max:30',
+        //     'description' => 'required|max:500'
+        // ]);
 
         $classes = classe::findOrFail($id) ;
         $classes->nom =  $request->input('nom');

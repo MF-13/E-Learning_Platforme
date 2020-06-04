@@ -65,11 +65,15 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
                   </div>
-                  <textarea name="filiere_description"  class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" cols="30" rows="10" value="{{$fields->filiere_description ?? null}}">{{$fields->filiere_description ?? null}}</textarea>
-                  
+                  <textarea name="filiere_description"  class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" cols="30" rows="10" value="{{$fields->filiere_description ?? null}}">{{$fields->filiere_description ?? null}}</textarea>                  
               </div>
-
-              
+              @if($errors->any())
+                    <ul style="color: red">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
               <input type="submit" name="submit" class="btn btn-info float-right">
                   </form>
               </div>

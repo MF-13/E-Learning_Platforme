@@ -6,7 +6,7 @@
 @endsection
 
 @section('title')
-    cours espace
+    Cours Espace
 @endsection
 
 
@@ -53,7 +53,7 @@
               <div class="card text-center cardpadding">
                 <div class="card-body">
                   <div class="media">
-                    <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                    <img src="\storage\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
                     <div class="media-body">
               <!-- Afficher les cards -->
                           
@@ -116,7 +116,7 @@
             <div class="card text-center cardpadding">
               <div class="card-body">
                 <div class="media">
-                  <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                  <img src="\storage\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
                     <div class="media-body"> 
                       <h4 class="mt-0">Quiz : {{$quizze->nom_quiz}}</h4>
                       <p class="pmedia">
@@ -150,7 +150,7 @@
               <div class="card text-center cardpadding">
                 <div class="card-body">
                   <div class="media">
-                    <img src="\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
+                    <img src="\storage\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
                       <div class="media-body"> 
                         <h4 class="mt-0">Quiz : {{$quizze->nom_quiz}}</h4>
                           <p class="pmedia">
@@ -182,6 +182,7 @@
                                           <th scope="col" style="text-align: center;">Nombre des reponses correcte</th>
                                         </tr>
                                       </thead>
+                                      {{-- Afficher les Résultats des étudiants --}}
                                       <tbody>
                                         @foreach ($resultats as $resultat) 
                                             @if(!empty($resultat[$quizze->id_quiz]))
@@ -197,13 +198,11 @@
                                                       </tr> 
                                                     @endif
                                             @else
+                                            {{-- si aucun etudian n' pas encore repondue  --}}
                                                       <tr><td>Aucune reponse pour le moment</td></tr>       
                                             @endif
                                         
                                         @endforeach
-                                            
-                                        
-                                <!--si aucun etudian n' pas encore repondue <td>acune resultat est disponible pour le moment</td> -->
                                       </tbody>
                                     </table>
                                   </div>
@@ -236,5 +235,8 @@
       </div>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
   @endauth
   @endsection

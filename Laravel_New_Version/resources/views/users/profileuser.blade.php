@@ -19,13 +19,13 @@
           <div class="card-body">
             <div class="textcenter">
               <!-- la photo de profile-->
-                <!-- si l'utilisateur n'a pas une photo on utilise une photo par defaul <img src="path/defaultpicture.png"> -->
-                <img src="..\images\profileimage\etudiant\defaultpicture.png">
+                {{-- Défault Image pour l'utilisateur --}}
+                <img src="\storage\images\profileimage\etudiant\defaultpicture.png">
                 <br>
                 <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
             </div>
             <br>
-            <p class="card-text"><b>Nom et prenom: </b>{{$user->nom_user}} {{$user->prenom_user}}</p>
+            <p class="card-text"><b>Nom Complet: </b>{{$user->nom_user}} {{$user->prenom_user}}</p>
             <p class="card-text"><b>Email: </b>{{$user->email}}</p>
 
             <!------------------------Go TO MESSAGE-------------------------------------------------------------------------------------------->

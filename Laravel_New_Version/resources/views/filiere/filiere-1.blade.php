@@ -7,7 +7,7 @@
 @endsection
 
 @section('title')
-    filiere
+    Filiére Information
 @endsection
 
 @section('content')
@@ -25,12 +25,12 @@
                         <div class="card" style="margin-top: 100px; background-color: #eeeeee; border-style: none;">
                             <button class="accordion"><h3 class="titre">{{strtoupper($dept->departement)}}</h3></button>
                             <div class="panel">
-                            <img src="\images\img\index\filiere\{{$dept->departement}}.png" class="card-img-top" alt="...">
+                            <img src="\storage\images\img\index\filiere\{{$dept->departement}}.png" class="card-img-top" alt="...">
                             @for ($i = 0; $i < $fil_nbr[$inc]; $i++)
                                 <div class="card-body">
                                     <h5 class="card-title">{{$filiere[$inc][$dept->departement][$i]}}</h5>
                                     <p class="card-text">{{$description[$inc][$dept->departement][$i]}}</p>
-                                    <p class="card-text"><strong>Cours de la filiere : </strong></p>
+                                    <p class="card-text"><strong>Les Modules du filiere : </strong></p>
                                         <ul>
                                             @php
                                                 $j=0;
