@@ -72,7 +72,10 @@
                           </p>
                         <!-- Telecharger le fichier -->
                             <div class="formbutton">
-                              <a href="{{$file->pdf_lien}}" download>
+                              @php
+                                  $lien = 'storage/'.$file->pdf_lien;
+                              @endphp
+                              <a href="{{$lien}}" download>
                                 <button type="submit" class="btn btn-outline-success btnmarging">
                                   <i class="fas fa-download"></i> Telecharger
                                 </button>
@@ -186,19 +189,17 @@
                                                     $rslts = $resultat[$quizze->id_quiz];
                                                   
                                                 @endphp
-                                                @foreach ($rslts as $rslt)
-                                                    @if(!empty($rslt))
+                                                
+                                                    @if(!(empty($rslts)))
                                                       <tr>
-                                                        <td>{{strtoupper($rslt[0])}}</td>
-                                                        <td>{{strtoupper($rslt[1])}}</td>
+                                                        <td>{{strtoupper($rslts[0])}}</td>
+                                                        <td>{{strtoupper($rslts[1])}}</td>
                                                       </tr> 
-                                                    @else
-                                                      <tr>
-                                                        <td>Aucune reponse pour le moment</td>
-                                                      </tr>
                                                     @endif
-                                                @endforeach
+                                            @else
+                                                      <tr><td>Aucune reponse pour le moment</td></tr>       
                                             @endif
+                                        
                                         @endforeach
                                             
                                         

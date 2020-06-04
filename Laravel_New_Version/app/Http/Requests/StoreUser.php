@@ -27,7 +27,7 @@ class StoreUser extends FormRequest
             'nom_user' => 'required|min:3',
             'prenom_user' => 'required|min:3',
             'date_naiss_user' => 'required|date',
-            'num_tele_user' => 'required',
+            'num_tele_user' => 'required|int',
             'filiere_user' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:5',

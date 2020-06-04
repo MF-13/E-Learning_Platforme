@@ -142,7 +142,7 @@ class ClasseController extends Controller
         // dd($classes);
         $classes->save();
 
-        return redirect('/cours')->with('status', 'Le Cour est Modifier');
+        return redirect('/cours')->with('status', 'Le Module est Modifier');
     }
 
     /**
@@ -156,7 +156,7 @@ class ClasseController extends Controller
         //
         $classes = classe::findOrFail($id) ;
         $classes->delete();
-        return redirect('/cours')->with('status', 'Le Cour est Supprimer');
+        return redirect('/cours')->with('status', 'Le Module est Supprimer');
     }
 
 }

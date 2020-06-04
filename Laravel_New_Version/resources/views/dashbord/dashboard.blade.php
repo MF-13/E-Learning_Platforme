@@ -84,7 +84,7 @@
               <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                   <i class="fas fa-fw fa-sliders-h"></i>
-                  <span>cours</span>
+                  <span>Modules</span>
                 </a>
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">

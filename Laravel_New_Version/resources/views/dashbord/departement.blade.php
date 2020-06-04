@@ -23,25 +23,22 @@
                   <thead>
                     <tr>
                       <th>departement</th>
-                      <th>Inserer la photo</th>
                       <th>Modifier la Photo</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>departement</th>
-                      <th>Inserer la photo</th>
                       <th>Modifier la Photo</th>
                     </tr>
                   </tfoot>
              <tbody>
             @foreach ($departements as $departement)
-                <tr>
-                <td>{{strtoupper($departement->departement)}}</td>
-                <td><input type="file" ></td>
-                {{-- traitement de Modification de photo --}}
-                <td><button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Modifier la photo de profile</button></td>
-                </tr>
+                
+                    <tr>
+                        <td>{{strtoupper($departement->departement)}}</td>
+                        <td><a href="{{ route('cour.edit' , ['cour' => $departement->departement] ) }}" class="btn btn-warning" >Modifier</a></td>
+                    </tr>
             @endforeach
                   
                   </tbody>

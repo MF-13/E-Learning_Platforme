@@ -146,10 +146,14 @@ class AdminController extends Controller
 
         $user->save();
                                 
-            // $request->session()->flash('status','User ajouter avec succes');
-                    
-            // return redirect('/user');
-            return redirect('/dashbord')->with('status','User est ajouter');
+        switch( $user->type_user){
+            case 'etudiant' :   return redirect('/etudiant');    break;
+            case 'professeur' :  return redirect('/professeur');       break;
+            case 'admin' : return redirect('/dashbord'); break;
+            default :  return redirect('/dashbord'); break;
+
+        }
+           
     }
 
     public function show()
@@ -179,18 +183,24 @@ class AdminController extends Controller
                 default :  return redirect('/dashbord'); break;
 
         }
-
-       
-
-
        
     }
 
     public function destroy(Request $request , $id)
     {   
+        
+        $temp = User::select('type_user')->where('id',$id)->get();
+        $type_user = $temp[0]['type_user'];
+        
         User::destroy($id);
-        // $request->session()->flash('status','L\'utilisateur est Supprimer');
-        return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer');
+
+        switch( $type_user){
+            case 'etudiant' :   return redirect('/etudiant')->with('status','L\'utilisateur est Supprimer');    break;
+            case 'professeur' :  return redirect('/professeur')->with('status','L\'utilisateur est Supprimer');       break;
+            case 'admin' : return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer'); break;
+            default :  return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer'); break;
+
+         }
         
     }
 }

@@ -11,6 +11,8 @@ use App\Result;
 use App\Quiz;
 use Auth;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File as FileFacade;
 
 
 
@@ -40,17 +42,20 @@ class FileController extends Controller
                 $temp = array();
                 foreach($results as $result){
                     $etd = User::where('id',$result->id_etudiant)->get();
+                    
                     $nom = $etd[0]['nom_user'].' '. $etd[0]['prenom_user'];
                     
                     $temp = [$nom ,$result->resultat ];
+                    
+                    $rslt[] = [$quiz->id_quiz=>$temp];
+                    
                 }
                 
-                $rslt[] = [$quiz->id_quiz=>$temp];
                 
                 
             }   
             
-            if(empty($rslt)){
+            if($nbr_quiz==0){
                     //si l'utilisateur est un etudiant , on donne au tableau $rslt un valeur null pour que Return functionne correctement
                 $rslt = array();
             }
@@ -148,8 +153,14 @@ class FileController extends Controller
 
         // Handle File Upload
         if($request->hasFile('userfile')){
-            $filiereName = $request->id_filiere ;
-            dd($filiereName);
+           
+            if($request->cour=='bibliotheque'){
+                $filiereName = 'bibliotheque' ;
+                
+            }else{
+                 $filiereName = AUth::user()->filiere_user ;
+            }
+
             // Get filename with the extension
             $filenameWithExt = $request->file('userfile')->getClientOriginalName();
             // Get just filename
@@ -157,9 +168,10 @@ class FileController extends Controller
             // Get just ext
             $extension = $request->file('userfile')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore= $filename.'.'.$extension;
+            $fileNameToStore= time().'_'.$filename.'.'.$extension;
             // Upload Image
-            $path = $request->file('userfile')->storeAs('public/file', $filiereName.'/'.$fileNameToStore);
+            $path = $request->file('userfile')->storeAs('file/'.$filiereName,$fileNameToStore);
+            
         } 
 
         // ******************************* ENDtraitement de fichier *****************************
@@ -211,7 +223,8 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        //pour afficher form du cour/tp/td 
+        return view('dashbord.departement_trait',['dept'=>$id]);
+
     }
 
     /**
@@ -222,8 +235,34 @@ class FileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //pour enregistrer les modifications apartir du edit
+    {   
+        // changer la photo de departement
+       
+        if($request->hasFile('userfile')){
+            $departementName = $request->departement ;
+             
+            // Get filename with the extension
+            $filenameWithExt = $request->file('userfile')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('userfile')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $departementName.'.'.$extension;
+            // Upload Image
+            $p = 'images/img/index/filiere/'.$fileNameToStore;
+
+            if(Storage::exists($p)){
+
+                Storage::delete($p);
+                
+            }
+
+            
+            $path = $request->file('userfile')->storeAs('images/img/index/filiere/',$fileNameToStore);
+
+        } 
+        
         
     }
 
@@ -236,8 +275,22 @@ class FileController extends Controller
     public function destroy($id)
     {
         //supprimer cour/tp/td/bibliotheque
+        
+        $temp = File::select('pdf_lien')->where('id',$id)->get();
+        $temp =   $temp[0]['pdf_lien'];
 
-        File::destroy($id);
-        return redirect('/cour')->with('status','Le Cour est Supprimer');
+        if(Storage::exists($temp)){
+
+            Storage::delete($temp);
+            File::destroy($id);
+             return redirect('/cour')->with('status','Le Cour est Supprimer');
+            
+          }else{
+        
+            
+            return redirect('/cour')->with('status','error hors de la suppresion du fichier');
+        
+          }
+        
     }
 }
