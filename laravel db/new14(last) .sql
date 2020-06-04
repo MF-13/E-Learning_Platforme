@@ -41,26 +41,26 @@ CREATE TABLE IF NOT EXISTS `classes` (
 --
 
 INSERT INTO `classes` (`id`, `nom`, `description`, `id_filiere`, `created_at`, `updated_at`) VALUES
-(1, 'Learn Laravel', 'Learn Laravel description', 'GI', NULL, NULL),
-(2, 'Learn management', 'Learn html description', 'TM', NULL, NULL),
+(1, 'Learn Laravel', 'Learn Laravel description', 'GI', current_timestamp(), current_timestamp()),
+(2, 'Learn management', 'Learn html description', 'TM', current_timestamp(), current_timestamp()),
 (3, 'Programmation C', 'Ce cours sert a prends les et la base principe de programmation C', 'GI', NULL, '2020-06-03 09:19:44'),
-(4, 'Programmation JAVA', 'Ce cours sert a prends les et la base principe de ..', 'GI', NULL, NULL),
-(5, 'Securiter Réseau', 'Ce cours sert a prends les et la base principe de ...', 'TSI', NULL, NULL),
-(6, 'Gestion Projet', 'Ce cours sert a prends les et la base principe de ...', 'TM', NULL, NULL),
-(7, 'Droit d\'entreprise', 'Ce Cour permet d\'enregistrer la valeur des opérations réalisées par une entreprise et aussi de recenser le détail de ce qu\'elle possède et ce qu\'elle doit.', 'TM', '2020-06-03 17:58:43', '2020-06-03 17:58:43'),
-(8, 'Pythone', 'Ce cours permet d\'améliorer les compétences du programmation avec langage Phythone', 'IA', '2020-06-04 05:25:56', '2020-06-04 05:25:56'),
-(9, 'Réseaux & Services sur Réseaux', 'Ce Modules contient les principe des systémes Réseaux et ca sécuriter.', 'TSI', '2020-06-03 14:10:05', '2020-06-03 14:10:05'),
-(10, 'Electronique', 'Ce cour contient les basics d\'electronique.', 'GIM', '2020-06-03 18:59:53', '2020-06-03 18:59:53'),
-(11, 'Automatisées', 'Ce cour contient les basics de Systemes Automatisées.', 'GIM', '2020-06-03 19:00:53', '2020-06-03 19:03:30'),
-(12, 'Physique de base', 'Ce cour contiant les principes de Physique.', 'GC', '2020-06-03 20:22:59', '2020-06-03 20:22:59'),
-(13, 'Techniques Comptables', 'Ce cours sert a prends a consiste à donner des renseignements chiffrés d’ordre économique et juridique, exprimés dans des comptes.', 'TM', '2020-06-03 14:36:21', '2020-06-03 14:36:21'),
-(14, 'Organisation sécurité', 'Ce cours contient les basics d\'Organisation du Projet', 'GC', '2020-06-03 20:24:37', '2020-06-03 20:24:37'),
-(15, 'Programmation java', 'Ce cours permet d\'améliorer les compétences du programmation avec langage JAVA', 'GI', '2020-06-03 20:59:07', '2020-06-03 20:59:07'),
-(16, 'Réseaux Informatique', 'Ce cour contient les méthodes pour construire un réseaux locale et sécuriser.', 'GI', '2020-06-03 21:10:56', '2020-06-03 21:10:56'),
-(17, 'Sérvice Réseaux', 'Ce cours contient les différents service réseaux.', 'TSI', '2020-06-03 21:35:38', '2020-06-03 21:35:38'),
-(18, 'Systémes d\'exploitation', 'Ce cour permet d\'avoir travallier avec les différents systemes d\'exploitation existe', 'TSI', '2020-06-03 21:38:04', '2020-06-03 21:38:04'),
-(19, 'Deep Learning', 'Le deep learning ou apprentissage profond est un type d\'intelligence artificielle dérivé du machine learning (apprentissage automatique) où la machine est capable d\'apprendre par elle-même,', 'IA', '2020-06-04 05:03:24', '2020-06-04 05:03:24'),
-(20, 'Machine Learning', 'Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed.', 'IA', '2020-06-04 05:28:05', '2020-06-04 05:28:05');
+(4, 'Programmation JAVA', 'Ce cours sert a prends les et la base principe de ..', 'GI', current_timestamp(), current_timestamp()),
+(5, 'Securiter Réseau', 'Ce cours sert a prends les et la base principe de ...', 'TSI', current_timestamp(), current_timestamp()),
+(6, 'Gestion Projet', 'Ce cours sert a prends les et la base principe de ...', 'TM', current_timestamp(), current_timestamp()),
+(7, 'Droit d\'entreprise', 'Ce Cour permet d\'enregistrer la valeur des opérations réalisées par une entreprise et aussi de recenser le détail de ce qu\'elle possède et ce qu\'elle doit.', 'TM', current_timestamp(), current_timestamp()),
+(8, 'Pythone', 'Ce cours permet d\'améliorer les compétences du programmation avec langage Phythone', 'IA', current_timestamp(), current_timestamp()),
+(9, 'Réseaux & Services sur Réseaux', 'Ce Modules contient les principe des systémes Réseaux et ca sécuriter.', 'TSI', current_timestamp(), current_timestamp()),
+(10, 'Electronique', 'Ce cour contient les basics d\'electronique.', 'GIM', current_timestamp(), current_timestamp()),
+(11, 'Automatisées', 'Ce cour contient les basics de Systemes Automatisées.', 'GIM', current_timestamp(), current_timestamp()),
+(12, 'Physique de base', 'Ce cour contiant les principes de Physique.', 'GC', current_timestamp(), current_timestamp()),
+(13, 'Techniques Comptables', 'Ce cours sert a prends a consiste à donner des renseignements chiffrés d’ordre économique et juridique, exprimés dans des comptes.', 'TM', current_timestamp(), current_timestamp()),
+(14, 'Organisation sécurité', 'Ce cours contient les basics d\'Organisation du Projet', 'GC', current_timestamp(), current_timestamp()),
+(15, 'Programmation java', 'Ce cours permet d\'améliorer les compétences du programmation avec langage JAVA', 'GI', current_timestamp(), current_timestamp()),
+(16, 'Réseaux Informatique', 'Ce cour contient les méthodes pour construire un réseaux locale et sécuriser.', 'GI', current_timestamp(), current_timestamp()),
+(17, 'Sérvice Réseaux', 'Ce cours contient les différents service réseaux.', 'TSI', current_timestamp(), current_timestamp()),
+(18, 'Systémes d\'exploitation', 'Ce cour permet d\'avoir travallier avec les différents systemes d\'exploitation existe', 'TSI', current_timestamp(), current_timestamp()),
+(19, 'Deep Learning', 'Le deep learning ou apprentissage profond est un type d\'intelligence artificielle dérivé du machine learning (apprentissage automatique) où la machine est capable d\'apprendre par elle-même,', 'IA', current_timestamp(), current_timestamp()),
+(20, 'Machine Learning', 'Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed.', 'IA', current_timestamp(), current_timestamp());
 ;
 
 -- --------------------------------------------------------
@@ -83,11 +83,11 @@ CREATE TABLE IF NOT EXISTS `comments` (
 --
 
 INSERT INTO `comments` (`id`, `nom`, `email`, `opinion`, `created_at`, `updated_at`) VALUES
-(1, 'EL KHABBAZ', 'elkhabbaz91@gmail.com', 'Opinion 3', '2020-06-01 18:14:34', '2020-06-01 18:14:34'),
-(2, 'hassan ayoubi', 'hassan@gmail.com', 'Un bon site merci', '2020-06-02 14:06:53', '2020-06-02 14:06:53'),
-(3, 'khadija bilala', 'bilala@gmail.com', 'Merci pour cette plateform', '2020-06-02 14:39:19', '2020-06-02 14:39:19'),
-(4, 'aya zerouali', 'zerouali_aya@gmail.com', 'beaucoup de cours et de fichier utile ! merci', '2020-06-02 14:40:16', '2020-06-02 14:40:16'),
-(5, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', '2020-06-02 14:50:24', '2020-06-02 14:50:24');
+(1, 'EL KHABBAZ', 'elkhabbaz91@gmail.com', 'Opinion 3', current_timestamp(), current_timestamp()),
+(2, 'hassan ayoubi', 'hassan@gmail.com', 'Un bon site merci', current_timestamp(), current_timestamp()),
+(3, 'khadija bilala', 'bilala@gmail.com', 'Merci pour cette plateform', current_timestamp(), current_timestamp()),
+(4, 'aya zerouali', 'zerouali_aya@gmail.com', 'beaucoup de cours et de fichier utile ! merci', current_timestamp(), current_timestamp()),
+(5, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', current_timestamp(), current_timestamp());
 
 -- --------------------------------------------------------
 
@@ -124,13 +124,13 @@ CREATE TABLE IF NOT EXISTS `fields` (
 --
 
 INSERT INTO `fields` (`filiere_id`, `filiere`, `filiere_description`, `departement`, `created_at`, `updated_at`) VALUES
-('GI', 'GENIE INFORMATIQUE', 'Le développement de l\'informatique, des systèmes d’information et des systèmes de télécommunication élargissent considérablement les domaines d\'application de l\'informatique en renforçant les interactions entre les aspects matériels et logiciels. La filière d’informatique d’EST est une réponse à ces développements.', 'genie informatique', NULL, NULL),
-('TM', 'TECHNIQUE DE MANAGEMENT', 'Former des techniciens supérieurs en techniques de management (privées et publiques) disposant de connaissances et compétences appréciables.\r\nFavoriser une meilleure collaboration entre l\'université et les entreprises.\r\nAcquérir des compétences directement opérationnelles liées à la maîtrise technique des emplois ciblés.', 'techniques de management', NULL, NULL),
-('TSI', 'TECHNIQUE DE SON ET D IMAGE', 'Cette formation a pour objectif d\'apporter des compétences professionnelles dans le domaine de la création numérique (Images fixes ou animées, sons, vidéos, compositing,...). Les compétences acquises par les lauréats leurs permettent de s\'engager dans des métiers différents.', 'genie informatique', NULL, NULL),
-('GIM', 'GENIE INDUSTRIEL ET MAINTENANCE', 'Génie industriel et Maintenance a pour but de former en deux ans des techniciens supérieurs généralistes capables de gérer et d’organiser les opérations de maintenance des installations, pour optimiser la disponibilité des outils de production et de service.', 'genie electrique', NULL, NULL),
-('GC', 'GENEIE CIVIL', 'L’enseignement vise à la formation en deux ans de cadres polyvalents participant à la responsabilité de l’étude et de l’exécution des travaux de génie civil:\r\nDans un bureau d’études, ils élaborent, suivant les directives des ingénieurs, les plans, devis, programmes et calculs, tant en ce qui concerne la conception que la préparation des ouvrages.\r\nSur les chantiers, ils ont la responsabilité de l’exécution : conduite des travaux, coordination des corps d’état, etc.\r\nDans les laboratoires d’essais ou de recherche, ils sont chargés de l’organisation, de l’exécution et du dépouillement des programmes d’essais.', 'genie electrique', NULL, NULL),
-('IA', 'Inteligence artificiel', 'Filiere de inteligence artificiel', 'genie informatique', NULL, NULL),
-('DWA', 'developpement web et media', 'ok apres modification', 'genie informatique', '2020-06-02 19:12:51', '2020-06-03 09:28:20');
+('GI', 'GENIE INFORMATIQUE', 'Le développement de l\'informatique, des systèmes d’information et des systèmes de télécommunication élargissent considérablement les domaines d\'application de l\'informatique en renforçant les interactions entre les aspects matériels et logiciels. La filière d’informatique d’EST est une réponse à ces développements.', 'genie informatique', current_timestamp(), current_timestamp()),
+('TM', 'TECHNIQUE DE MANAGEMENT', 'Former des techniciens supérieurs en techniques de management (privées et publiques) disposant de connaissances et compétences appréciables.\r\nFavoriser une meilleure collaboration entre l\'université et les entreprises.\r\nAcquérir des compétences directement opérationnelles liées à la maîtrise technique des emplois ciblés.', 'techniques de management', current_timestamp(), current_timestamp()),
+('TSI', 'TECHNIQUE DE SON ET D IMAGE', 'Cette formation a pour objectif d\'apporter des compétences professionnelles dans le domaine de la création numérique (Images fixes ou animées, sons, vidéos, compositing,...). Les compétences acquises par les lauréats leurs permettent de s\'engager dans des métiers différents.', 'genie informatique', current_timestamp(), current_timestamp()),
+('GIM', 'GENIE INDUSTRIEL ET MAINTENANCE', 'Génie industriel et Maintenance a pour but de former en deux ans des techniciens supérieurs généralistes capables de gérer et d’organiser les opérations de maintenance des installations, pour optimiser la disponibilité des outils de production et de service.', 'genie electrique', current_timestamp(), current_timestamp()),
+('GC', 'GENEIE CIVIL', 'L’enseignement vise à la formation en deux ans de cadres polyvalents participant à la responsabilité de l’étude et de l’exécution des travaux de génie civil:\r\nDans un bureau d’études, ils élaborent, suivant les directives des ingénieurs, les plans, devis, programmes et calculs, tant en ce qui concerne la conception que la préparation des ouvrages.\r\nSur les chantiers, ils ont la responsabilité de l’exécution : conduite des travaux, coordination des corps d’état, etc.\r\nDans les laboratoires d’essais ou de recherche, ils sont chargés de l’organisation, de l’exécution et du dépouillement des programmes d’essais.', 'genie electrique', current_timestamp(), current_timestamp()),
+('IA', 'Inteligence artificiel', 'Filiere de inteligence artificiel', 'genie informatique', current_timestamp(), current_timestamp()),
+('DWA', 'developpement web et media', 'ok apres modification', 'genie informatique', current_timestamp(), current_timestamp());
 
 -- --------------------------------------------------------
 
@@ -159,9 +159,8 @@ CREATE TABLE IF NOT EXISTS `files` (
 --
 
 INSERT INTO `files` (`id`, `id_filiere`, `code_prof`, `commantaire`, `id_cour`, `type_cour`, `nbr_telechargement`, `date_ajoute`, `nom_pdf`, `pdf_lien`, `titre`, `created_at`, `updated_at`) VALUES
-(31, 'bibl', 15, 'eze', NULL, 'bibliotheque', 0, '2020-06-01 12:06:33', 'webhost.txt', 'public/file/bibl/webhost.txt', 'khbz', '2020-06-01 11:06:33', '2020-06-01 11:06:33'),
-(32, 'bibl', 15, 'testsssssss', NULL, 'bibliotheque', 0, '2020-06-01 12:32:19', 'TP1_PHP.pdf', 'public/file/bibl/TP1_PHP.pdf', 'testdasdadsd', '2020-06-01 11:32:19', '2020-06-01 11:32:19')
-;
+(31, 'bibl', 15, 'eze', NULL, 'bibliotheque', 0, '2020-06-01 12:06:33', 'webhost.txt', 'public/file/bibl/webhost.txt', 'khbz', current_timestamp(), current_timestamp()),
+(32, 'bibl', 15, 'testsssssss', NULL, 'bibliotheque', 0, '2020-06-01 12:32:19', 'TP1_PHP.pdf', 'public/file/bibl/TP1_PHP.pdf', 'testdasdadsd', current_timestamp(), current_timestamp());
 
 -- --------------------------------------------------------
 
@@ -191,11 +190,11 @@ CREATE TABLE IF NOT EXISTS `messages` (
 --
 
 INSERT INTO `messages` (`id`, `emetteur_id`, `emetteur_nom`, `emetteur_email`, `emetteur_telephone`, `emetteur_type`, `message`, `etat`, `date_env`, `recepteur_id`, `recepteur_email`, `recepteur_type`, `created_at`, `updated_at`) VALUES
-(12, -1, 'karam athmani', 'karam@gmail.com', 678987454, 'visiteur', 'Bonjour , je veux etre un etudiant a l\'EST au future', '0', '2020-06-02 15:53:19', 0, 'admin@gmail.com', 'admin', '2020-06-02 14:53:19', '2020-06-02 14:53:19'),
-(10, -1, 'teeeeest', 'teeest@haha.com', 4568987, 'visiteur', 'bnjr teeest 31', '0', '2020-05-31 11:52:50', 0, 'admin@gmail.com', 'admin', '2020-05-31 10:52:50', '2020-05-31 10:52:50'),
-(11, 13, 'test tessst', 'test@gmail.com', 4789654, 'professeur', 'salam ana proff', '0', '2020-05-31 11:54:31', 0, 'admin@gmail.com', 'admin', '2020-05-31 10:54:31', '2020-05-31 10:54:31'),
-(13, -1, 'ayoub bousmouni', 'bousmouni@gmail.com', 784561165, 'visiteur', 'hello , i want the course of OOP', '0', '2020-06-02 16:04:24', 0, 'admin@gmail.com', 'admin', '2020-06-02 15:04:24', '2020-06-02 15:04:24'),
-(14, 0, 'admin', 'aiman.elbou@gmail.com', 666060606, 'admin', 'bz3t', '0', '2020-06-03 10:58:00', 13, 'test@gmail.com', 'professeur', '2020-06-03 09:58:00', '2020-06-03 09:58:00');
+(12, -1, 'karam athmani', 'karam@gmail.com', 678987454, 'visiteur', 'Bonjour , je veux etre un etudiant a l\'EST au future', '0', '2020-06-02 15:53:19', 0, 'admin@gmail.com', 'admin', current_timestamp(), current_timestamp()),
+(10, -1, 'teeeeest', 'teeest@haha.com', 4568987, 'visiteur', 'bnjr teeest 31', '0', '2020-05-31 11:52:50', 0, 'admin@gmail.com', 'admin', current_timestamp(), current_timestamp()),
+(11, 13, 'test tessst', 'test@gmail.com', 4789654, 'professeur', 'salam ana proff', '0', '2020-05-31 11:54:31', 0, 'admin@gmail.com', 'admin', current_timestamp(), current_timestamp()),
+(13, -1, 'ayoub bousmouni', 'bousmouni@gmail.com', 784561165, 'visiteur', 'hello , i want the course of OOP', '0', '2020-06-02 16:04:24', 0, 'admin@gmail.com', 'admin', current_timestamp(), current_timestamp()),
+(14, 0, 'admin', 'aiman.elbou@gmail.com', 666060606, 'admin', 'bz3t', '0', '2020-06-03 10:58:00', 13, 'test@gmail.com', 'professeur', current_timestamp(), current_timestamp());
 
 -- --------------------------------------------------------
 
@@ -338,11 +337,8 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 INSERT INTO `questions` (`id_quiz`, `n_question`, `question`, `rep_correcte`, `rep_2`, `rep_3`, `created_at`, `updated_at`) VALUES
-(24, 1, 'un test est :', 'un test est :', 'un test est :', 'un test est :', '2020-06-02 11:49:14', '2020-06-02 11:49:14'),
-(24, 2, 'prof est', 'prof est', 'prof est', 'prof est', '2020-06-02 11:49:14', '2020-06-02 11:49:14'),
-(1, 1, 'q1', 'a', 'b', 'c', '2020-06-02 12:10:57', '2020-06-02 12:10:57'),
-(1, 2, 'q2', 'd', 'e', 'f', '2020-06-02 12:10:57', '2020-06-02 12:10:57')
-;
+(1, 1, 'q1', 'a', 'b', 'c', current_timestamp(), current_timestamp()),
+(1, 2, 'q2', 'd', 'e', 'f', current_timestamp(), current_timestamp());
 
 -- --------------------------------------------------------
 
@@ -366,8 +362,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
 --
 
 INSERT INTO `quizzes` (`id_quiz`, `nom_quiz`, `id_prof`, `id_filiere`, `dernier_delai`, `date_pub`, `created_at`, `updated_at`) VALUES
-(1, 'titre quiz', 15, 'TM', NULL, '2020-06-02 13:10:57', '2020-06-02 12:10:57', '2020-06-02 12:10:57'),
-;
+(1, 'titre quiz', 15, 'TM', NULL, current_timestamp(), current_timestamp(), current_timestamp());
 -- --------------------------------------------------------
 
 --
@@ -395,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
 --
 
 INSERT INTO `requests` (`id`, `nom`, `prenom`, `date_naiss`, `filiere`, `num_tele`, `email`, `password`, `type_user`, `etat`, `adresse`, `created_at`, `updated_at`) VALUES
-(1, 'elmallmi', 'bilal', '2003-06-12', 'gi', 678549878, 'elmallmi@gmail.com', '$2y$10$nxHQhJeo6SYokxmWQh49SeC3eeYTDBRLXOp1.lKx3lCplFizkOdTS', 'etudiant', '0', 'sidi bouzkri', '2020-06-02 15:38:52', '2020-06-02 15:38:52');
+(1, 'elmallmi', 'bilal', '2003-06-12', 'gi', 678549878, 'elmallmi@gmail.com', '$2y$10$nxHQhJeo6SYokxmWQh49SeC3eeYTDBRLXOp1.lKx3lCplFizkOdTS', 'etudiant', '0', 'sidi bouzkri', current_timestamp(), current_timestamp());
 
 -- --------------------------------------------------------
 
@@ -418,7 +413,7 @@ CREATE TABLE IF NOT EXISTS `results` (
 --
 
 INSERT INTO `results` (`id_quiz`, `id_etudiant`, `resultat`, `quesiont_corrcete`, `question_incorrecte`, `created_at`, `updated_at`) VALUES
-(1, 14, 2, '1 , 2 , ', '3 , ', '2020-06-01 09:29:38', '2020-06-01 09:29:38');
+(1, 14, 2, '1 , 2 , ', '3 , ', current_timestamp(), current_timestamp());
 
 -- --------------------------------------------------------
 
