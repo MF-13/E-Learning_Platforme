@@ -49,13 +49,7 @@
                                         <option>td</option>
                                         <option>bibliotheque</option>
                                     </select>
-
-                <!--specifier le cour dans le quelle on va importer ce fichier-->
-
-                            {{-- fonction pour les filiere existe --}}
-                                        {{-- @php
-                                          dd($cours);  
-                                        @endphp --}}
+                                    
                                     <label for="cour">Cours</label>
                                     <select name="cour" class="form-control" id="cour">
                                         

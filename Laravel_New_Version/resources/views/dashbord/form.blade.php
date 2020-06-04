@@ -21,7 +21,8 @@
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Numero Du Telephone</span>
+      <span class="input-group-text" id="inputGroup-sizing-default">Numero Du Telephone ( sans 0 au debut )</span>
+      <span class="input-group-text" id="inputGroup-sizing-default">+212</span>
     </div>
     <input type="text" name="num_tele_user" class="form-control" value="{{ old('num_tele_user',  $user->num_tele_user ?? null  ) }}" aria-describedby="inputGroup-sizing-default">
 </div>
