@@ -24,6 +24,9 @@
                                                 Cliquer ici pour entrer le nombre des questions 
                                             </button>
                                         </a>
+                                        <br>
+                                        <br>
+                                        <br>
                                 @else
                                     @php
                                         $nbr_question = $_GET['number'];
@@ -82,7 +85,9 @@
             </div>
         </div>
     </div>
-    
+    <br>
+                                <br>
+                                <br>
     
     <script type="text/javascript">  
         function numberquestion(){  

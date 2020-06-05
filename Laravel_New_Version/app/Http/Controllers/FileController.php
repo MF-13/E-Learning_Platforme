@@ -85,7 +85,7 @@ class FileController extends Controller
 
 
             return view('cours.cours-espace', 
-                        ['files' => $files ,'quizzes' => $quizzes, 'resultats'=>$rslt, 'cours'=>$cour]   );
+                        ['files' => $files ,'quizzes' => $quizzes, 'resultats'=>$rslt , 'cours'=>$cour]   );
         }else{
 
                 //s'il n'est pas connecter

@@ -15,7 +15,7 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i>    
-                  Ajouter Cour  
+                  Ajouter le Module  
               </h6>
 
             </div>
@@ -37,7 +37,7 @@
                   <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Cours Nom </span>
+                      <span class="input-group-text" id="inputGroup-sizing-default">Module Nom </span>
                     </div>
                     <input type="text" name="nom" placeholder="EX : Programmation" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                   </div>
@@ -55,7 +55,7 @@
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect02">Filiére du Cour</label>
+                      <label class="input-group-text" for="inputGroupSelect02">Filiére du Module</label>
                     </div>
                     <select class="custom-select" name="id_filiere" id="inputGroupSelect02">
                         @foreach ($fields as $field)

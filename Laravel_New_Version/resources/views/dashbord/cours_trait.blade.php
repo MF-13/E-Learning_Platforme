@@ -18,8 +18,8 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-folder-plus"></i>  @if(!empty($classe))  
-                  Ajouter cours
+              <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-edit"></i>  @if(!empty($classe))  
+                  Module Modification
                   @else 
                   Cours traitement  
                   @endif
@@ -53,7 +53,7 @@
               <br>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Cours Nom </span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Module Nom </span>
                   </div>
                   <input type="text" name="nom" placeholder="EX : Programmation" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{$classe->nom ?? null}}">
               </div>
@@ -67,7 +67,7 @@
               <br>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect02">Filiére du Cour</label>
+                  <label class="input-group-text" for="inputGroupSelect02">Filiére du Module</label>
                 </div>
                 <select class="custom-select" name="id_filiere" id="inputGroupSelect02">
                   <option value="{{$classe->id_filiere ?? null}}" >{{$classe->id_filiere  ?? null}}</option>
@@ -96,7 +96,15 @@
 
       </div>
       <!-- End of Main Content -->
-
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
     <!-- End of Content Wrapper -->
 
