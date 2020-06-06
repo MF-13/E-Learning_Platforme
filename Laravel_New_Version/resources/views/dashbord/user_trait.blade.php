@@ -31,6 +31,9 @@
       @csrf
       @method('PUT')
       <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
+      @if($dashbord->verify==null || $dashbord->verify=='false' )
+       <p style="color: blue;"><i class="fas fa-exclamation-triangle"></i> On cliquant sur modifier , vous accepter l'utilisateur dans le site web </p>
+      @endif
 
         <div class="input-group mb-3" hidden>
           <div class="input-group-prepend">

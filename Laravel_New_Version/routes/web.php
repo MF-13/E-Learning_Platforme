@@ -51,6 +51,7 @@ Route::resource('/classe','ClasseController');
 
 Route::resource('/dashbord','AdminController');
 
+Route::get('/request','RequestController@destroy')->name('request');
 
 //pour ne pas declarer tous les routes , il faut utiliser resource au lieu de get
 
@@ -69,3 +70,6 @@ Route::resource('/cour/quiz','Quizcontroller');
 Route::resource('/result','Resultcontroller');
 
 Route::resource('/comment','CommentController');
+
+Route::resource('/request','RequestController');
+

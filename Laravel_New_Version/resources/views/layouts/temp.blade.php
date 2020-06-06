@@ -117,9 +117,22 @@
             <i class="far fa-check-square"></i> L'opération s'effectue avec <strong>Success!</strong>&nbsp;{{session()->get('status')}}
           </div>
         @endif
+
     </div>
     {{-- Espace Du <Code></Code> --}}
-     @yield('content') 
+@auth
+    @if(Auth::user()->verify==null ||Auth::user()->verify=='false')
+          @php
+          
+            redirect('/')->with('status','Attendez jusqu\'a l\'activation de votre compte') 
+          @endphp
+    @else
+        @yield('content') 
+
+    @endif
+@else
+    @yield('content') 
+@endauth
  </div>
 </body>
 

@@ -12,7 +12,16 @@
 
 @section('content')
   {{-- Si L'utilisateur est Connecter --}}
+ 
 @Auth
+
+@if(Auth::user()->verify==null ||Auth::user()->verify=='false')
+      @php
+       
+         redirect('/')->with('status','Attendez jusqu\'a l\'activation de votre compte') 
+      @endphp
+@else
+
     <!-- Type Donnes Section -->
     <ul class="nav nav-pills nav-fill tab">
       <li class="nav-item">
@@ -236,6 +245,7 @@
   
   <script src={{ asset("js/site/cours-espace.js") }}></script>
   {{-- Si L'utilisateur n'est pas Connecter --}}
+  @endif
 @else
   <div class="container">
     <div class="row">

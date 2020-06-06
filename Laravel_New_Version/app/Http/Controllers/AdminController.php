@@ -50,7 +50,7 @@ class AdminController extends Controller
     public function afficher_demande()
     {
        // il faut faire le traitement a partie de la table Request
-        return view('dashbord.demande',  ['users' => User::orderBy('id', 'DESC')->get()   ] );
+        return view('dashbord.demande',  ['users' => User::where('verify','false')->orwhere('verify',null)->get() ] );
     }
 
     public function afficher_filiere()
@@ -179,6 +179,8 @@ class AdminController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->adresse_user = $request->input('adresse_user');
         $user->type_user = $request->input('type_user');
+        $user->verify = 'true';
+
         $user->save();
         $request->session()->flash('status','User modifier avec succes');
 

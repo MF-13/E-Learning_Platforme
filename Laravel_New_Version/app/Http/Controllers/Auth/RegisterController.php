@@ -71,7 +71,8 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+        $data['verify'] = "false";
         $user = User::create([
             'nom_user' => $data['nom_user'],
             'prenom_user' => $data['prenom_user'],
@@ -82,6 +83,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'adresse_user' => $data['adresse_user'],
             'type_user' => $data['type_user'],
+            'verify'=>$data['verify'],
         ]);
         $user->attachRole('user');
 

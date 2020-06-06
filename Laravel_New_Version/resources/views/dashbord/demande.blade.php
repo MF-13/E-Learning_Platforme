@@ -25,12 +25,11 @@
                       <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
-                      <th>Mot de passe</th>
-                      <th>Date de naissance</th>   
-                      <th>Filiere</th>
+                      <th>Date de naissance</th>  
                       <th>Telephone</th>
-                      <th>Adresse</th>
+                      <th>Filiere</th>
                       <th>Email</th>
+                      <th>Adresse</th>
                       <th>Type user</th>
                       <th>Accepter</th>
                       <th>Refuser</th>
@@ -41,12 +40,11 @@
                       <th>Id</th>
                       <th>Nom</th>
                       <th>Prenom</th>
-                      <th>Mot de passe</th>
-                      <th>Date de naissance</th>   
-                      <th>Filiere</th>
+                      <th>Date de naissance</th> 
                       <th>Telephone</th>
-                      <th>Adresse</th>
+                      <th>Filiere</th>
                       <th>Email</th>
+                      <th>Adresse</th>
                       <th>Type user</th>
                       <th>Accepter</th>
                       <th>Refuser</th>
@@ -57,16 +55,24 @@
                       <td>{{$user->id}}</td>
                       <td>{{$user->nom_user}}</td>
                       <td>{{$user->prenom_user}}</td>
-                      <td>{{$user->mdps_user}}</td>
                       <td>{{$user->date_naiss_user}}</td>
-                      <td>{{$user->filiere_user}}</td>
                       <td>{{$user->num_tele_user}}</td>
+                      <td>{{$user->filiere_user}}</td>
+                      <td>{{$user->email}}</td>
                       <td>{{$user->adresse_user}}</td>
-                      <td>{{$user->email_user}}</td>
                       <td>{{$user->type_user}}</td>
                     {{-- Need Traitement   --}}
-                    <td><button type="button" class="btn btn-success" onclick=" window.location.href = \'accepter.php?id='.$row['id'].'\';">Accepter</button></td>
-                    <td><button type="button" class="btn btn-danger" onclick=" window.location.href = \'refuser.php?id='.$row['id'].'\';">Refuser</button></td>
+                    <td>
+                      <a href="{{ route('dashbord.edit' , ['dashbord' => $user->id] ) }}" class="btn btn-warning" >Modifier</a>
+                    </td>
+
+                    <td>
+                      <form action="{{ route('dashbord.destroy', ['dashbord' => $user->id ]) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" name="submit" class="btn btn-danger" style="display: inline;">Refuser</button>
+                      </form>
+                    </td>
                   </tr>
                   @endforeach
                   </tbody>

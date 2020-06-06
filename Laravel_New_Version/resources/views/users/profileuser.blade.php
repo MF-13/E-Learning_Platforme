@@ -11,6 +11,7 @@
 
 
 @section('content')
+
 <div class="container">
   <div class="row" style="margin-top: 100px;">
     <div class="col-lg-4 col-md-4 col-sm-12">
