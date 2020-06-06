@@ -29,6 +29,8 @@ Route::get('/cours_traitement', 'classeController@create_cours')->name('Cours Tr
 Route::get('/etudiant', 'AdminController@afficher_etudiant')->name('etudiant');
 Route::get('/professeur', 'AdminController@afficher_professeur')->name('professeur');
 Route::get('/user_traitement', 'AdminController@user_traitement');
+Route::get('/change_picture', 'UserController@change_picture')->name('change');
+
 
 Route::get('/demande', 'AdminController@afficher_demande')->name('demande');
 
@@ -40,6 +42,7 @@ Route::get('/Cour_Add', 'AdminController@Cour_Add');
 Route::get('/departement', 'AdminController@afficher_departement')->name('departement');
 
 Route::get('/message', 'AdminController@afficher_message')->name('message');
+Route::get('/new_message', 'AdminController@create_message');
 
 Route::get('/Comments', 'AdminController@afficher_comment')->name('comment');
 

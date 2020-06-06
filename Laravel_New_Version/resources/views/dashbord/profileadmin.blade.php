@@ -14,19 +14,11 @@
     </div>
     <div class="card-body">
     <div class="table-responsive">
-    <style>
-    #datatable {
-      text-align: center;
-      font-size: 17px;
-      font-family: monospace;
-    }
-    sup{color: red;}
-    </style>
                      
      <form action="{{ route('dashbord.update', ['dashbord' => Auth::user()->id]) }}" method="POST">
                 @csrf
                 @method('PUT') 
-                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
                 <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text"  id="inputGroup-sizing-default">Id</span>
@@ -89,6 +81,14 @@
                   </div>
                   <input type="email" name="email" value="{{Auth::user()->email}}" placeholder="exemple@domain.com" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                 </div>
+                
+                <div class="input-group mb-3" hidden>
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                  </div>
+                  <input type="text" name="type_user" value="{{Auth::user()->type_user}}" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                </div>
+
                 @if($errors->any())
                     <ul style="color: red">
                         @foreach ($errors->all() as $error)

@@ -16,20 +16,11 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
-                  #datatable {
-                  text-align: center;
-                  font-size: 17px;
-                  font-family: monospace;
-                }
-                sup{
-                   color: red;
-                }
-                </style>
                 
                 <form action="{{ route('Message_boite.store') }}" method="POST" id="formajout">
                   @csrf
                   
+                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>  
                 
                 <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
@@ -45,40 +36,64 @@
                   <input type="text" name="emetteur_id" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_id',  $message->emetteur_id ?? null  ) }}" >
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nom du Emetteur</span>
                   </div>
                   <input type="text" name="emetteur_nom" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_nom',  $message->emetteur_nom ?? null  ) }}" >
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email du Emetteur</span>
                   </div>
                   <input type="text" name="emetteur_email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_email',  $message->emetteur_email ?? null  ) }}" >
                 </div>
                 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
                   </div>
                   <input type="text" name="emetteur_telephone" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_telephone',  $message->emetteur_telephone ?? null  ) }}" >
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Type d'Emetteur</span>
                   </div>
                   <input type="text" name="emetteur_type" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('emetteur_type',  $message->emetteur_type ?? null  ) }}" >
                 </div>
                   
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" hidden>
                         <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">date envoie</span>
                         </div>
                         <input type="text" name="date_env" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ old('date_env',  $message->date_env ?? null  ) }}" >
                 </div>
-
+                <div class="card" style="margin-bottom: 10px">
+                  <div class="card-body">
+                    <b>Nom :</b>&nbsp; {{$message->emetteur_nom}}
+                  </div>
+                </div>
+                <div class="card" style="margin-bottom: 10px">
+                  <div class="card-body">
+                    <b>Email :</b>&nbsp; {{$message->emetteur_email}}
+                  </div>
+                </div>
+                <div class="card" style="margin-bottom: 10px">
+                  <div class="card-body">
+                    <b>Telephone :</b>&nbsp; {{$message->emetteur_telephone}}
+                  </div>
+                </div>
+                <div class="card" style="margin-bottom: 10px">
+                  <div class="card-body">
+                    <b>Type :</b>&nbsp; {{$message->emetteur_type}}
+                  </div>
+                </div>
+                <div class="card" style="margin-bottom: 10px">
+                  <div class="card-body">
+                    <b>Date d'envoie:</b>&nbsp; {{$message->date_env}}
+                  </div>
+                </div>
                 <div class="card" style="margin-bottom: 10px">
                   <div class="card-body">
                     <b>Ancien Message :</b>&nbsp; {{$message->message}}

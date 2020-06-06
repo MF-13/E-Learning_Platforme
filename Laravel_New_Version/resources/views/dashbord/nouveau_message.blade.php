@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('dashbord.dashboard')
 
 @section('title')
   Nouveau Message
@@ -15,26 +15,16 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
-                  #datatable {
-                  text-align: center;
-                  font-size: 17px;
-                  font-family: monospace;
-                }
-                sup{
-                   color: red;
-                }
-                </style>
                 
-              <form action="{{route('message.update',['message'=>$message->$id])}}" method="POST" id="formajout">
+              <form action="{{route('Message_boite.store')}}" method="POST" id="formajout">
                 @csrf
-                @method('PUT')
+                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>  
                 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                   </div>
-                  <input type="text" name="recepteur_email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                  <input type="email" name="emetteur_email" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required >
                 </div>
 
                 
@@ -42,7 +32,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Message</span>
                   </div>
-                  <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..."></textarea>
+                  <textarea name="message" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Votre reponse..." required></textarea>
                   
                 </div>
                 <input type="submit" name="submit" class="btn btn-info float-right">

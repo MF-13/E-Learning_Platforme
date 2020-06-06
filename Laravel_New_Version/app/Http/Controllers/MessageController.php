@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
@@ -16,10 +17,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
-        return view('message.message_boit' , [
-            'messages'=>Message::orderBy('created_at', 'desc')->get()
-        ]);
+        $messages = Message::where('recepteur_id', Auth::user()->id)->orderBy('created_at', 'desc')->get() ; 
+        $nbr = $messages->count();
+        return view('message.message_boit' , [ 'messages'=> $messages , 'nbr'=>$nbr ]);
     }
 
     /**
@@ -50,11 +50,31 @@ class MessageController extends Controller
         $message->emetteur_type = "admin";
 
         $message->message = $request->input('message');
-
-        $message->recepteur_id = $request->input('emetteur_id');
         $message->recepteur_email = $request->input('emetteur_email');
-        $message->recepteur_type = $request->input('emetteur_type');
-        // $message->recepteur_nom = $request->input('emetteur_nom');
+
+        if($request->input('emetteur_id')){
+                $message->recepteur_id = $request->input('emetteur_id');
+                $message->recepteur_type = $request->input('emetteur_type');
+                if($message->recepteur_type=='visiteur'){
+                 return redirect('/message')->with('false', 'email not found in the database , l\'utilisateur est un visiteur');
+                }
+                Message::where('id',$request->id)->update(['etat'=>'1']); 
+                        
+        }else{
+            
+            $temp = User::select('id','type_user')->where('email',$request->input('emetteur_email'))->get();
+            $nbr= $temp->count();
+            if($nbr==0){
+                 return redirect('/new_message')->with('false', 'email not found');
+            }else{
+                $id = $temp[0]['id'];
+                $type = $temp[0]['type_user'];
+                $message->recepteur_id = $id;
+                $message->recepteur_type = $type;
+            }
+
+
+        }
         
         $message->save();
 
@@ -122,10 +142,21 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
-        Message::destroy($id);
-        return redirect('/Message_boite')->with('status', 'Le Messsage est Supprimer');
+        
+        if(isset($request->delete)){
+
+            Message::where('recepteur_id',Auth::user()->id)->delete();
+            return redirect('/Message_boite')->with('status', 'tous Les Messsages  sont Supprimer');
+
+        }else{
+                
+            Message::destroy($id);
+            return redirect('/Message_boite')->with('status', 'Le Messsage est Supprimer');
+
+        }
     }
+
+    
 }

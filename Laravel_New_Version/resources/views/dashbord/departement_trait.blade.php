@@ -19,24 +19,15 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
-                  #datatable {
-                  text-align: center;
-                  font-size: 17px;
-                  font-family: monospace;
-                }
-                sup{
-                   color: red;
-                }
-                </style>
-        
+           
                 <form action="{{ route('cour.update' , ['cour' => $dept ]) }}" method="POST" id="formajout" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')
-                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
                   <br>  
-                  {{-- {{dd($dept)}} --}}
+                  
                     <input type="hidden" name="old_dept" value="{{$dept}}">
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Nom du Département</span>
@@ -49,7 +40,7 @@
                           <span class="input-group-text" id="inputGroupFileAddon01">Choissir une image </span>
                         </div>
                         <div class="custom-file">
-                          <input type="file" name="userfile"  class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" >
+                          <input type="file" name="userfile" accept="image/png" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" >
                           <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>

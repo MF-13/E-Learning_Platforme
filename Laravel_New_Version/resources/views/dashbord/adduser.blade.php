@@ -36,7 +36,7 @@
                   @method('PUT') --}}  
               <form action="{{ route('dashbord.store') }}" method="POST" id="formajout">
                 @csrf
-                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
                 
                 {{-- Importer La View qui Contient les Inputs --}}
                 @include('dashbord.form')

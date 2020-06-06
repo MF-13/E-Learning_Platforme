@@ -41,7 +41,9 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   $email_admin = "admin@gmail.com";
+    {   
+        
+        $email_admin = "admin@gmail.com";
         $id_admin = "0";
         $admin_type = "admin";
 

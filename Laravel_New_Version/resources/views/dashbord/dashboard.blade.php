@@ -218,9 +218,15 @@
           <div class="alert alert-success">
             <i class="far fa-check-square"></i> L'opération s'effectue avec <strong>Success!</strong>&nbsp;{{session()->get('status')}}
           </div>
+        @elseif(session()->has('false'))
+          <div class="alert alert-danger">
+            <i class="far fa-check-square"></i> <strong>Erreure</strong>&nbsp;{{session()->get('false')}}
+          </div>
         @endif
       
     </div>
+
+    
 
     <div class="body">
 

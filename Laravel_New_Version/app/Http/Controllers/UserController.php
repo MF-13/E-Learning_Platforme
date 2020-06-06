@@ -7,6 +7,8 @@ use App\User;
 use App\Http\Requests\StoreUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File as FileFacade;
 
 
 class UserController extends Controller
@@ -18,8 +20,7 @@ class UserController extends Controller
     public function index()
     {
        
-        return view('users.index', 
-                    ['users' => User::orderBy('id', 'DESC')->get()   ] );
+        //
     }
 
     /**
@@ -27,9 +28,41 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function change_picture(Request $request)
     {
-        return view('users.create');
+        //cree une photo de profile
+
+        if($request->hasFile('pic')){
+           
+            // dd('tets');
+            $id_user = Auth::user()->id ;
+            $type_user = Auth::user()->type_user ;
+
+            // Get filename with the extension
+            $filenameWithExt = $request->file('pic')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('pic')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $id_user.'.'.$extension;
+
+            $path='images/profileimage/'.$type_user.'/';
+ 
+             if(Storage::exists($path)){
+                    Storage::delete($path);
+                    
+            
+             }
+            // Upload Image
+            $request->file('pic')->storeAs($path,$fileNameToStore);
+            
+        } 
+
+            return view('users.profileuser',  ['user' =>   User::find(Auth::user()->id)] );
+
+
+
     }
 
     /**
@@ -69,8 +102,22 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
-    {
-        return view('users.profileuser',  ['user' =>   User::find(Auth::user()->id)] );
+    {   
+        $path = "images/profileimage/".Auth::user()->type_user."/".Auth::user()->id.".png";
+        
+        if(Storage::exists($path))
+        {
+            $picture = 1;
+
+        }
+        else
+        {
+            $picture = 0;  
+            $path = "images/profileimage/".Auth::user()->type_user."/defaultpicture.png";
+
+        }
+        
+        return view('users.profileuser',  ['user' =>   User::find(Auth::user()->id) , 'path'=>$path] );
     }
 
     /**
@@ -128,21 +175,5 @@ class UserController extends Controller
         
     }
 
-    public function is_email_exist($email)
-    {
-        if (User::where('email', '=', $email)->exists()) {
-            return true;
-         }else{
-            return false;
-         }
-    }
-
-    public function is_numero_exist($num)
-    {
-        if (User::where('num_tele_user', '=', $num)->exists()) {
-            return true;
-         }else{
-            return false;
-         }
-    }
+   
 }

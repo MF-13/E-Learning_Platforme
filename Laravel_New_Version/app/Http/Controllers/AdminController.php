@@ -97,6 +97,12 @@ class AdminController extends Controller
 
     }
 
+    public function create_message()
+    {
+            return view('dashbord.nouveau_message');
+    }
+
+
     public function Cour_Add()
     {
 
@@ -177,9 +183,9 @@ class AdminController extends Controller
         $request->session()->flash('status','User modifier avec succes');
 
         switch( $user->type_user){
-                case 'etudiant' :   return redirect('/etudiant');    break;
-                case 'professeur' :  return redirect('/professeur');       break;
-                case 'admin' : return redirect('/dashbord'); break;
+                case 'etudiant' :   return redirect('/etudiant')->with('status','Modifier avec succes');    break;
+                case 'professeur' :  return redirect('/professeur')->with('status','Modifier avec succes');       break;
+                case 'admin' : return redirect('/dashbord')->with('status','Modifier avec succes'); break;
                 default :  return redirect('/dashbord'); break;
 
         }

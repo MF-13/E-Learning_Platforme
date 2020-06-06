@@ -20,7 +20,10 @@
             <div class="textcenter">
               <!-- la photo de profile-->
                 {{-- Défault Image pour l'utilisateur --}}
-                <img src="\storage\images\profileimage\etudiant\defaultpicture.png">
+                  
+                 <img src="/storage/{{$path}}" class="rounded-circle" width="100px"  height="100px">
+                       
+
                 <br>
                 <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap" style=" margin-left: -20px;">Modifier la photo de profile</button>
             </div>
@@ -59,6 +62,14 @@
       <div class="card text-center">
         <div class="card-header">Votre Information</div>
           <div class="card-body">
+              @if($errors->any())
+                  <ul style="color: red" class="float-left">
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+                 <br> <hr>
+             @endif
             {{-- Affiche Les Informations Depuis Base Données --}}
             <p class="text"><b>Code Massar : </b>{{$user->id}}</p>
 
@@ -83,8 +94,9 @@
               {{-- Modifier les Information Dans dashbord --}}
                 <a href="{{route('dashbord.index')}}" class="btn btn-outline-success btn-sm ">Modifier le profile</a> 
               @else
-                <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Modifier</button>
+                <button type="button" class="btn btn-outline-success btn-sm " data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Modifier le profile</button>
               @endif
+              
             </div>
             {{-- Ce Modal est Afficher Lorsque On Click Sur Button Modifier --}}
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,6 +120,7 @@
                 </div>
               </div>
             </div>
+            {{-- END MODULE --}}
           </div>
         </div>
       </div>
@@ -124,15 +137,20 @@
         </div>
          <div class="modal-body">
         {{-- Traitement Nécessaire --}}
-          <form action="traitement/modifier_photo.php" method="POST" enctype = "multipart/form-data">
+
+          <form action="{{url('/change_picture')}}" method="POST" enctype = "multipart/form-data">
+            @csrf
+            @method('GET')
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">changer la photo</label>
-                <input name = "userfile" type="file" class="form-control" id="recipient-name">
+                <input name = "pic" accept="image/png" type="file" class="form-control" id="recipient-name">
             </div>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary btn-sm" value="Enregistrer">
             </div>
+
           </form>
+
         </div>
       </div>
     </div>

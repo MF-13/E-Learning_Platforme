@@ -144,12 +144,7 @@ class FileController extends Controller
 
         // ******************************* Start traitement de fichier *****************************
         
-        // $this->validate($request, [
-        //     'titre' => 'required',
-        //     'cour' => 'required',
-        //     'type_cour' => 'required',
-        //     'userfile' => 'required|max:1999'
-        // ]);
+       
 
 
         // Handle File Upload
@@ -237,7 +232,7 @@ class FileController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        // changer la photo de departement
+        // changer la photo du departement
        
         if($request->hasFile('userfile')){
             $departementName = $request->departement ;
@@ -251,18 +246,25 @@ class FileController extends Controller
             $fileNameToStore= $departementName.'.'.$extension;
             // Upload Image
             $p = 'images/img/index/filiere/'.$fileNameToStore;
+                //si la photo du departement deja existe , on supprime l'anciennes
+            
+            // dd($p);
 
             if(Storage::exists($p)){
+            //    dd('true');
+
                 Storage::delete($p);
             }
+
             $path = $request->file('userfile')->storeAs('images/img/index/filiere/',$fileNameToStore);
         }
+
         //Prend l'ancient nomdu departement
         $olddepartements_name = $request->old_dept ;
         //Prent depuis table Fields les filiere qui contient le meme deartement
         $field_departements[] = Field::select('filiere_id','departement')->where('departement',$olddepartements_name)->get() ;
         //Prend le filiere_id correspond a le departement name
-        // $field_departements_id = Field::select('filiere_id')->where('departement',$olddepartements_name)->get() ;
+        
         //Le nombre de line de $field_departements
         $nbr = Field::select('departement')->where('departement',$olddepartements_name)->count();
 
@@ -277,16 +279,26 @@ class FileController extends Controller
                 $field_d->departement = $request->departement;
 
                 for ($j=0; $j < $nbr; $j++){
-                $update = ['filiere_id'=> $id[$j] , 'departement'=> $field_d->departement ];
+                $update = ['departement'=> $field_d->departement ];
                 Field::where('filiere_id',$id[$j])->update($update); 
                 }
             }
+
+             //changer le nom de l'image
+            $l="images/img/index/filiere/";
+            $link = $l.$olddepartements_name.'.PNG';
+            $newName = $l.$field_d->departement.'.PNG';
+         
+
+            Storage::move($link,$newName);
+
         }
 
-        return redirect('/filiere')->with('status', 'Le Département est Modifier');
-        dd($nbr);
+        return redirect('/departement')->with('status', 'Le Département est Modifier');
+       
         
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -296,7 +308,7 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        //supprimer cour/tp/td/bibliotheque
+        //supprimer le fichier de la base de donnees et supprimer le fichier dans le stockage
         
         $temp = File::select('pdf_lien')->where('id',$id)->get();
         $temp =   $temp[0]['pdf_lien'];

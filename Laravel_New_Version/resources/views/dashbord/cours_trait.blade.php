@@ -28,21 +28,12 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
-                  #datatable {
-                  text-align: center;
-                  font-size: 17px;
-                  font-family: monospace;
-                }
-                sup{
-                   color: red;
-                }
-                </style>
+               
         
                 <form action="{{ route('classe.update',  ['classe' => $classe->id ]) }}" method="POST" id="formajout">
                   @csrf
                   @method('PUT')
-                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
                   <br>  
                 <div class="input-group mb-3" hidden>
                   <div class="input-group-prepend">

@@ -34,7 +34,7 @@
         
                 <form action="{{ route('classe.store') }}" method="POST" id="formajout">
                   @csrf
-                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+                  <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroup-sizing-default">Module Nom </span>

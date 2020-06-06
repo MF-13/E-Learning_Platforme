@@ -30,7 +30,7 @@
     <form action="{{ route('dashbord.update',  ['dashbord' => $dashbord->id ]) }}" method="POST" id="formajout">
       @csrf
       @method('PUT')
-      <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs est obligatoires</p>
+      <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
 
         <div class="input-group mb-3" hidden>
           <div class="input-group-prepend">
@@ -101,6 +101,14 @@
           </div>
           <input type="text" name="type_user" value="{{$dashbord->type_user ?? null}}" placeholder="type_user" class="form-control" required="required" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
         </div>
+
+        @if($errors->any())
+            <ul style="color: red">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
 
         <button type="submit" name="submit" class="btn btn-info float-right" >Modifier</button>
 
