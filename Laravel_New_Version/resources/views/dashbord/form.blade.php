@@ -33,7 +33,7 @@
     </div>
     <select class="custom-select" name="filiere_user" id="inputGroupSelect02">
         @foreach ($fields as $field)
-        <option value="{{$field}}">{{strtolower($field)}}</option>
+        <option value="{{strtolower($field)}}">{{strtolower($field)}}</option>
       	@endforeach
     </select>
 </div>

@@ -105,7 +105,7 @@
 </div> 
 
   <!-- *************************************** traitement pour QUIZ *******************************************-->
-                                  
+                                
 <div id="quiz" class="tabcontent">
   <div class="container">
     <div class="row">
@@ -113,6 +113,7 @@
         {{-- Si L'utilisateur est un Etudiant ou admin --}}
         @if(Auth::user()->type_user=='etudiant' || Auth::user()->type_user=='admin')
           @foreach ($quizzes as $quizze)
+            @if($quizze->dernier_delai>date('Y-m-d H:i:s'))
             <div class="card text-center cardpadding">
               <div class="card-body">
                 <div class="media">
@@ -121,24 +122,34 @@
                       <h4 class="mt-0">Quiz : {{$quizze->nom_quiz}}</h4>
                       <p class="pmedia">
                       <ul class="pmedia mylist">
-                        <li><b>Réaliser par : </b> $nom_prof</li>
                         <li><b>Publier le : </b>{{$quizze->date_pub}}</li>
                         <li><b>Dérniére date a faire : </b>{{$quizze->dernier_delai}}</li>
                         <br>
                         {{-- Need Traitement --}}
+                        @php
+                            // dd($id_etd_repondu)
+                        @endphp
+                        @if(in_array(Auth::user()->id,$id_etd_repondu[$quizze->id_quiz]))
+                           <p class="alert alert-info">Quiz deja realiser</p>
+                        @else
                           <a href="{{ route('quiz.show',['quiz'=> $quizze->id_quiz ])}}" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i> Réaliser le Quiz</a>
+                        @endif
                       </ul>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+            @endif
           @endforeach
         @endif
       </div>
     </div>
   </div>
     
+
+
+
 {{-- Si L'utilisateur est un Professeur est lui qui a poser le quiz--}}
 
 

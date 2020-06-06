@@ -14,7 +14,7 @@
             <label for="num_tele_user" class="col-form-label">Numero Du Telephone</label>
             <input type="text" name="num_tele_user" id="num_tele_user" class="form-control" value="{{ old('num_tele_user',  $user->num_tele_user ?? null  ) }}">
         </div>
-        <div class="form-group">
+        <div class="form-group" hidden>
             <label for="filiere_user" class="col-form-label">Filiére</label>
             <input type="text" name="filiere_user" id="filiere_user" class="form-control" value="{{ old('filiere_user',  $user->filiere_user ?? null  ) }}">
         </div>

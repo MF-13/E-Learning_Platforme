@@ -55,7 +55,10 @@
                             {{-- Need Traitement --}}
                               <!-- /*Telecharger le fichier*/ -->
                                 <div class="formbutton">
-                                  <a href="{{$file->pdf_lien}}" download>
+                                  @php
+                                      $lien = 'storage/'.$file->pdf_lien;
+                                  @endphp
+                                  <a href="{{$lien}}" download>
                                     <button type="submit" class="btn btn-outline-success btnmarging">
                                       <i class="fas fa-download"></i> Telecharger
                                     </button>

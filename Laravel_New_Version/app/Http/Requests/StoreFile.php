@@ -28,7 +28,8 @@ class StoreFile extends FormRequest
             'titre' => 'required',
             'cour' => 'required',
             'type_cour' => 'required',
-            'userfile' => 'required|max:1999'
+            'userfile' => 'required|200000'  //200mb
+            
         ];
     }
 }

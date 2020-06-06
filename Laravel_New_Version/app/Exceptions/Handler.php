@@ -67,7 +67,13 @@ class Handler extends ExceptionHandler
 
             //add any other exepction using the if statement with changing the statue code and the redirect URL
     }
- 
+
     return parent::render($request, $exception);
+
+
+
 }
+
+
+
 }

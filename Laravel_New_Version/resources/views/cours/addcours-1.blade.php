@@ -42,15 +42,15 @@
                                 
                                 <label for="type_cour" class="textleft"> Type de Cour</label>
                                 <select name="type_cour" class="form-control" id="exampleFormControlSelect1">
-                                    <option>cour</option>
-                                    <option>tp</option>
-                                    <option>td</option>
-                                    <option>bibliotheque</option>
+                                    <option value="cour">cour</option>
+                                    <option value="tp">tp</option>
+                                    <option value="td">td</option>
+                                    <option value="bibliotheque">bibliotheque</option>
                                 </select>
                                     
                                 <label for="cour">Cours</label>
                                 <select name="cour" class="form-control" id="cour">
-                                    <option value="bibl">Bibliotheque</option>
+                                    <option value="bibliotheque">Bibliotheque</option>
                                      @foreach ($cours as $cour)
                                         <option value="{{strtolower($cour)}}">{{strtolower($cour)}}</option>
       	                            @endforeach
