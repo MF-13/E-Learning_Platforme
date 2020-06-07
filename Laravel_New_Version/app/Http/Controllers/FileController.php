@@ -42,7 +42,7 @@ class FileController extends Controller
                     if($nbr_quiz!=0){
                         foreach ($quizzes as $quiz) {
                                 $results = Result::where('id_quiz',$quiz->id_quiz)->get();
-                                // dd($quizzes);
+
                                 if($results->count()!=0){
                                     $temp = array();
                                     $i=0;
@@ -55,7 +55,6 @@ class FileController extends Controller
                                                         
                                         $rslt[] = [$quiz->id_quiz=>$temp];
 
-                                        // array_push($id_etd,);
                                         $id_etd[$quiz->id_quiz][$i] = $result->id_etudiant;
                                         $i++;
                                     } 
@@ -69,24 +68,13 @@ class FileController extends Controller
                     }
                     else{
                         //si l'utilisateur est un etudiant , on donne au tableau $rslt un valeur null pour que Return functionne correctement
-                        
                         $rslt = array();
                         $id_etd = array();
-
                     }
-                    // $id_etd[$quiz->id_quiz][1] = 45;
-                    // dd($id_etd);
-                    // if(in_array(4,$id_etd[3])){
-                    //     dd('yes');
-                    // }else{
-                    //     dd('no');
-                    // }
-
                         //selection des cours et fichiers
 
                     $files = File::where('id_filiere',Auth::user()->filiere_user)->where('type_cour','!=','bibliotheque')->orderBy('date_ajoute','DESC')->get();
                     $nbr_files = $files->count();
-                  
 
                     foreach($files as $file){
                         
@@ -103,24 +91,16 @@ class FileController extends Controller
 
                     }
 
-
-                        
-
                     return view('cours.cours-espace', 
                                 ['files' => $files ,'quizzes' => $quizzes, 'resultats'=>$rslt , 'cours'=>$cour,  'id_etd_repondu'=>$id_etd]   );
         }
 
         else
-
         {
-
                 //s'il n'est pas connecter
             return view('cours.cours-espace');
-
         }
 
-
-        
     }
     /**
      * Display a listing of the resource.
@@ -345,13 +325,8 @@ class FileController extends Controller
             Storage::delete($temp);
             File::destroy($id);
              return redirect('/cour')->with('status','Le Cour est Supprimer');
-            
           }else{
-        
-            
-            return redirect('/cour')->with('status','Error hors de la suppresion du fichier');
-        
+            return redirect('/cour')->with('false','Error hors de la suppresion du fichier');
           }
-        
     }
 }

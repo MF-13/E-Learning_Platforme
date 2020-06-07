@@ -81,6 +81,6 @@ class RequestController extends Controller
     public function destroy($id)
     {
         request::destroy($id);
-        return redirect('/demande')->with('status','supprimer avec succes');
+        return redirect('/demande')->with('status','La Demande est Supprimer');
     }
 }

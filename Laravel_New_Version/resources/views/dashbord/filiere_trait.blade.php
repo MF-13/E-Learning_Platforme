@@ -3,9 +3,9 @@
 @section('title')
   
   @if(empty($fields))  
-    Ajouter filiere
+    Ajouter Filiere
   @else 
-      filiere traitement
+    Filiere Traitement
   @endif
 @endsection
   @section('content')
@@ -22,17 +22,6 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <style>
-                  #datatable {
-                  text-align: center;
-                  font-size: 17px;
-                  font-family: monospace;
-                }
-                sup{
-                   color: red;
-                }
-                </style>
-                    {{-- {{dd($fields)}} --}}
                   @if(!empty($fields))
                       <form action="{{ route('Field.update',  ['Field' => $fields->filiere_id ]) }}" method="POST" id="formajout">
                       @method('PUT')

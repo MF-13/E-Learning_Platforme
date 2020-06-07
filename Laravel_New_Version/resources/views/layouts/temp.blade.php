@@ -112,26 +112,24 @@
 <body>
   <div class="body mt-5" >
     <div class="status" style="margin-top: 50px;">
-      @if(session()->has('status'))
-          <div class="alert alert-success">
-            <i class="far fa-check-square"></i> L'opération s'effectue avec <strong>Success!</strong>&nbsp;{{session()->get('status')}}
-          </div>
-          @elseif(session()->has('false'))
+      @if(session()->has('false'))
           <div class="alert alert-danger" style="margin-top: 50px;">
             <i class="far fa-check-square"></i> <strong>Erreure</strong>&nbsp;{{session()->get('false')}}
           </div>
-        @endif
+          @elseif(session()->has('status'))
+          <div class="alert alert-success">
+            <i class="far fa-check-square"></i> L'opération s'effectue avec <strong>Success!</strong>&nbsp;{{session()->get('status')}}
+          </div>
+      @endif
     </div>
     {{-- Espace Du <Code></Code> --}}
 @auth
     @if(Auth::user()->verify==null ||Auth::user()->verify=='false')
           @php
-          
             redirect('/')->with('false','Attendez jusqu\'a l\'activation de votre compte') 
           @endphp
     @else
         @yield('content') 
-
     @endif
 @else
     @yield('content') 

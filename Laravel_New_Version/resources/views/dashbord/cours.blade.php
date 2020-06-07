@@ -47,7 +47,6 @@ Modules Liste
                        <td>{{$classe->nom}}</td>
                        <td>{{$classe->description}}</td>
                        <td>{{$classe->id_filiere}}</td>
-                       {{-- Need Traitement --}}
                       {{-- Modifier Button --}}
                       <td><a href="{{ route('classe.edit' , ['classe' => $classe->id] ) }}" class="btn btn-warning" >Modifier</a></td>
                       {{-- Supprimer button --}}

@@ -129,7 +129,6 @@ class MessageController extends Controller
         $message->recepteur_id = $request->input('emetteur_id');
         $message->recepteur_email = $request->input('emetteur_email');
         $message->recepteur_type = $request->input('emetteur_type');
-        // $message->recepteur_nom = $request->input('emetteur_nom');
         
         $message->save();
 

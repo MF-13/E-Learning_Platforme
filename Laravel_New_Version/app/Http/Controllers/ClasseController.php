@@ -69,17 +69,9 @@ class ClasseController extends Controller
      */
     public function store(StoreClasse $request)
     {
-        //
-        // $request->validate([
-
-        //     'nom' =>  'required|max:30',
-        //     'description' => 'required|max:500'
-        // ]);
-
         $classes = new classe() ;
         $classes->nom =  $request->nom ;
         $classes->description =  $request->description ;
-        // $classes->field_id =  $request->id_filiere ;
         $classes->id_filiere =  $request->id_filiere ;
         $classes->save();
 
@@ -94,8 +86,6 @@ class ClasseController extends Controller
      */
     public function show($id)
     {
-        //
-        // $classes = classe::findOrFail($id_cour);
         return view('cours.cours-detail', ['classes' => classe::findOrFail($id)]);
     }
 
@@ -107,16 +97,15 @@ class ClasseController extends Controller
      */
     public function edit($id)
     {
-        //
         $temp_field = Field::select('filiere_id')->get();
         $nbr = $temp_field->count();
 
 
         for ($i=0; $i < $nbr; $i++) { 
             $field[] = Arr::get($temp_field,$i.'.filiere_id') ;
-
         }
         $classes=classe::findOrFail($id);
+
         return view('dashbord.cours_trait',['classe'=>$classes , 'fields' => $field]);
     }
 
@@ -129,18 +118,11 @@ class ClasseController extends Controller
      */
     public function update(StoreClasse $request, $id)
     {
-        //
-        // $request->validate([
-
-        //     'nom' =>  'required|max:30',
-        //     'description' => 'required|max:500'
-        // ]);
-
         $classes = classe::findOrFail($id) ;
         $classes->nom =  $request->input('nom');
         $classes->description =  $request->input('description') ;
         $classes->id_filiere =  $request->input('id_filiere') ;
-        // dd($classes);
+        
         $classes->save();
 
         return redirect('/cours')->with('status', 'Le Module est Modifier');
@@ -154,7 +136,6 @@ class ClasseController extends Controller
      */
     public function destroy($id)
     {
-        //
         $classes = classe::findOrFail($id) ;
         $classes->delete();
         return redirect('/cours')->with('status', 'Le Module est Supprimer');

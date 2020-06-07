@@ -37,7 +37,6 @@ class Indexcontroller extends Controller
                     //pour envoyer les filieres
                 $filieres[] = [$f->departement => $arr ];
 
-
                     //Pour vider le tableau arr et temp_filiere avant de commancer un nouvel traitement
                 $arr = array();
                 $temp_filiere = array();

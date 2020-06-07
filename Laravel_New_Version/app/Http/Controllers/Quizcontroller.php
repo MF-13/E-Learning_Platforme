@@ -147,6 +147,6 @@ class Quizcontroller extends Controller
     {
         $supp = Quiz::where('id_quiz',$id)->delete();
 
-        return redirect('/dashbord');
+        return redirect('/cour')->with('status', 'Le Quiz est Supprimer');
     }
 }
