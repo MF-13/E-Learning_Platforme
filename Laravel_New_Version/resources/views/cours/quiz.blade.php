@@ -46,7 +46,7 @@
                                   $nbr++;
                             @endphp
 
-                        @elseif(Auth::user()->type_user=='professeur')
+                        @elseif(Auth::user()->type_user=='professeur' || Auth::user()->type_user=='admin')
                             @php // inverser l ordre des reponse 
                                 $reps= [$question['rep_correcte'],$question['rep_2'],$question['rep_3']];
                             @endphp

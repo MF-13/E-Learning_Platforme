@@ -32,62 +32,69 @@ class FileController extends Controller
                     if(Auth::user()->type_user=="admin"){
                             $quizzes = Quiz::all();
                     }
-                    else
+                    elseif(Auth::user()->type_user=="etudiant")
                     {
                         //si l'utilisateur n'est pas admin on affiche  les  quizzes par filieres
                         $quizzes = Quiz::where('id_filiere',Auth::user()->filiere_user)->get();
                     }
+                    else
+                    {
+                        $quizzes = Quiz::where('id_filiere',Auth::user()->filiere_user)->where('id_prof',Auth::user()->id)->get();
+                    }
+
                         //pour l'affichage des resultats des etudiants 
                     $nbr_quiz = $quizzes->count();
                     if($nbr_quiz!=0){
                         foreach ($quizzes as $quiz) {
                                 $results = Result::where('id_quiz',$quiz->id_quiz)->get();
-                                // dd($quizzes);
+                                
                                 if($results->count()!=0){
-                                    $temp = array();
-                                    $i=0;
-                                    foreach($results as $result){
-                                        $etd = User::where('id',$result->id_etudiant)->get();
-                                                        
-                                        $nom = $etd[0]['nom_user'].' '. $etd[0]['prenom_user'];
-                                                        
-                                        $temp = [$nom ,$result->resultat ];
-                                                        
-                                        $rslt[] = [$quiz->id_quiz=>$temp];
+                                        $temp = array();
+                                        $i=0;
+                                        foreach($results as $result){
+                                            $etd = User::where('id',$result->id_etudiant)->get();
+                                                            
+                                            $nom = $etd[0]['nom_user'].' '. $etd[0]['prenom_user'];
+                                                            
+                                            $temp = [$nom =>$result->resultat ];
+                                                            
+                                            $rslt[$quiz->id_quiz][$result->id_etudiant] = $temp;
 
-                                        // array_push($id_etd,);
-                                        $id_etd[$quiz->id_quiz][$i] = $result->id_etudiant;
-                                        $i++;
-                                    } 
-                                }else{
-                                      $rslt = array();
+                                            // array_push($id_etd,);
+                                            $id_etd[$quiz->id_quiz][$i] = $result->id_etudiant;
+                                            $i++;
+                                        } 
+                                }
+                                else
+                                {
+                                      $rslt[$quiz->id_quiz] = array();
                                       $id_etd[$quiz->id_quiz] = array();
                                 }
                                 
                         } 
 
                     }
-                    else{
+                    else
+                    {
                         //si l'utilisateur est un etudiant , on donne au tableau $rslt un valeur null pour que Return functionne correctement
                         
                         $rslt = array();
                         $id_etd = array();
 
                     }
-                    // $id_etd[$quiz->id_quiz][1] = 45;
-                    // dd($id_etd);
-                    // if(in_array(4,$id_etd[3])){
-                    //     dd('yes');
-                    // }else{
-                    //     dd('no');
-                    // }
-
+                    
                         //selection des cours et fichiers
-
-                    $files = File::where('id_filiere',Auth::user()->filiere_user)->where('type_cour','!=','bibliotheque')->orderBy('date_ajoute','DESC')->get();
-                    $nbr_files = $files->count();
+                    if(Auth::user()->type_user=="admin"){
+                        $files = File::where('type_cour','!=','bibliotheque')->orderBy('date_ajoute','DESC')->get();
+                        $nbr_files = $files->count();
+                    }
+                    else{
+                        $files = File::where('id_filiere',Auth::user()->filiere_user)->where('type_cour','!=','bibliotheque')->orderBy('date_ajoute','DESC')->get();
+                        $nbr_files = $files->count();
                   
 
+                    }
+                    
                     foreach($files as $file){
                         
                         $temp_name= array();

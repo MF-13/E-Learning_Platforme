@@ -58,7 +58,7 @@
       @foreach($types as $type)
         <div id="{{$type}}" class="tabcontent">
           @foreach ($files as $file)
-            @if($file->type_cour==$type && $file->id_filiere==Auth::user()->filiere_user) 
+            @if($file->type_cour==$type) 
               <div class="card text-center cardpadding">
                 <div class="card-body">
                   <div class="media">
@@ -67,7 +67,9 @@
               <!-- Afficher les cards -->
                           
                           <h4 class="mt-0">{{strtoupper($file->type_cour)}} : {{strtoupper($file->titre)}}  </h4>
-                          
+                          @if(Auth::user()->type_user=="admin")
+                             <h5 class="mt-0">Filiere : {{strtoupper($file->id_filiere)}}</h5>
+                          @endif
                           <p class="pmedia">
                               <ul class="pmedia mylist">
 
@@ -119,10 +121,10 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
-        {{-- Si L'utilisateur est un Etudiant ou admin --}}
-        @if(Auth::user()->type_user=='etudiant' || Auth::user()->type_user=='admin')
+        {{-- Si L'utilisateur est un Etudiant --}}
+        @if(Auth::user()->type_user=='etudiant')
           @foreach ($quizzes as $quizze)
-            @if($quizze->dernier_delai>date('Y-m-d H:i:s'))
+            @if($quizze->dernier_delai>date('Y-m-d H:i:s') || $quizze->dernier_delai==null )
             <div class="card text-center cardpadding">
               <div class="card-body">
                 <div class="media">
@@ -132,17 +134,20 @@
                       <p class="pmedia">
                       <ul class="pmedia mylist">
                         <li><b>Publier le : </b>{{$quizze->date_pub}}</li>
-                        <li><b>Dérniére date a faire : </b>{{$quizze->dernier_delai}}</li>
-                        <br>
-                        {{-- Need Traitement --}}
-                        @php
-                            // dd($id_etd_repondu)
-                        @endphp
-                        @if(in_array(Auth::user()->id,$id_etd_repondu[$quizze->id_quiz]))
-                           <p class="alert alert-info">Quiz deja realiser</p>
+                        @if($quizze->dernier_delai==null)
+                              <li><b>Dérniére date a faire : </b>Pas definie par le professeur</li>
                         @else
-                          <a href="{{ route('quiz.show',['quiz'=> $quizze->id_quiz ])}}" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i> Réaliser le Quiz</a>
+                              <li><b>Dérniére date a faire : </b>{{$quizze->dernier_delai}}</li>
                         @endif
+                        <br>
+                        
+                            @if(in_array(Auth::user()->id,$id_etd_repondu[$quizze->id_quiz]))
+                                <p class="alert alert-info">Quiz deja realiser</p>
+                            @else
+                                                      
+                                 <a href="{{ route('quiz.show',['quiz'=> $quizze->id_quiz ])}}" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i> Réaliser le Quiz</a>
+                             @endif
+                        
                       </ul>
                       </p>
                     </div>
@@ -159,39 +164,52 @@
 
 
 
-{{-- Si L'utilisateur est un Professeur est lui qui a poser le quiz--}}
+{{-- Si L'utilisateur est un Professeur ou un  admiin --}}
 
 
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         @foreach ($quizzes as $quizze)
-           @if(Auth::user()->id==$quizze->id_prof) 
+           @if(Auth::user()->type_user=='professeur' || Auth::user()->type_user=='admin') 
               <div class="card text-center cardpadding">
                 <div class="card-body">
                   <div class="media">
                     <img src="\storage\images\img\cours espace\undraw_files1_9ool.svg" class="align-self-start mr-3 pdfsize" alt="pdf png image">
                       <div class="media-body"> 
                         <h4 class="mt-0">Quiz : {{$quizze->nom_quiz}}</h4>
+                        @if(Auth::user()->type_user=="admin")
+                             <h5 class="mt-0">Filiere : {{strtoupper($quizze->id_filiere)}}</h5>
+                          @endif
                           <p class="pmedia">
                             <ul class="pmedia mylist">
                               <li><b>Publier le :</b> {{$quizze->date_pub}}</li>
-                              <li><b>Dérniére date a rendre :</b> {{$quizze->dernier_delai}}</li>
+                              @if($quizze->dernier_delai==null)
+                                    <li><b>Dérniére date a faire : </b>Pas definie par le professeur</li>
+                              @else
+                                    <li><b>Dérniére date a faire : </b>{{$quizze->dernier_delai}}</li>
+                              @endif
                               <br>
+
                               <a href="{{ route('quiz.show',['quiz'=> $quizze->id_quiz ])}}" class="btn btn-outline-info btnmarging"><i class="fas fa-edit"></i>Consulter le Quiz</a>
 
                             </ul>
-                            {{-- Supprimer le quiz --}}
-                            <form class="formbutton" action="{{ route('quiz.destroy', ['quiz' => $quizze->id_quiz ]) }}" method="POST"">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
-                            </form>
+
+                            {{-- Supprimer le quiz pour le proffeseur seulement--}}
+                            @if(Auth::user()->type_user=="professeur")
+                                <form class="formbutton" action="{{ route('quiz.destroy', ['quiz' => $quizze->id_quiz ]) }}" method="POST"">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="btn btn-outline-danger btnmarging"><i class="fas fa-trash"></i> Supprimer</button>
+                                </form>
+                            @endif
                             {{-- End Supprimer  --}}
+
                             {{-- Affichage Les Résultats des Etudiant qui Réealiser le quiz --}}
                             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{$quizze->id_quiz}}" aria-expanded="false" aria-controls="collapseExample">
                               <i class="fas fa-sort-down fa-2x" style="padding-bottom: 10px;"></i> Etudiants Résultas
                             </button>
+
                             {{-- Tableau qui sort --}}
                                 <div class="collapse" id="{{$quizze->id_quiz}}">
                                   <div class="card card-body">
@@ -204,31 +222,32 @@
                                       </thead>
                                       {{-- Afficher les Résultats des étudiants --}}
                                       <tbody>
-                                        @foreach ($resultats as $resultat) 
-                                            @if(!empty($resultat[$quizze->id_quiz]))
-                                                @php
-                                                    $rslts = $resultat[$quizze->id_quiz];
-                                                  
-                                                @endphp
+                                        @php
+                                            $resultat = $resultats[$quizze->id_quiz];
+                                        @endphp
+                                            @if(!empty($resultat))
                                                 
-                                                    @if(!(empty($rslts)))
+                                                    @foreach($resultat as $rslts)
                                                       <tr>
-                                                        <td>{{strtoupper($rslts[0])}}</td>
-                                                        <td>{{strtoupper($rslts[1])}}</td>
-                                                      </tr> 
-                                                    @endif
+                                                        @php
+                                                            $name = array_keys($rslts);
+                                                        @endphp
+                                                        <td>{{strtoupper($name[0])}}</td>
+                                                        <td>{{strtoupper($rslts[$name[0]])}}</td>
+                                                      </tr>
+
+                                                    @endforeach
                                             @else
                                             {{-- si aucun etudian n' pas encore repondue  --}}
                                                       <tr><td>Aucune reponse pour le moment</td></tr>       
                                             @endif
                                         
-                                        @endforeach
                                       </tbody>
                                     </table>
                                   </div>
                                 </div>
                               {{-- END Tableau qui sort --}}
-                              {{-- End Affichage Les Résultats --}}
+                              {{-- End Affichage des Résultats --}}
                             </p>
                           </div>
                     </div>
