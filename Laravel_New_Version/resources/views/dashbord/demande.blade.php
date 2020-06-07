@@ -63,7 +63,7 @@
                       <td>{{$user->type_user}}</td>
                     {{-- Need Traitement   --}}
                     <td>
-                      <a href="{{ route('dashbord.edit' , ['dashbord' => $user->id] ) }}" class="btn btn-warning" >Modifier</a>
+                      <a href="{{ route('dashbord.edit' , ['dashbord' => $user->id] ) }}" class="btn btn-success" >Accepter</a>
                     </td>
 
                     <td>
@@ -87,7 +87,14 @@
       </div>
 
         <!---end of page content-->
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     </div>
     <!-- End of Content Wrapper -->

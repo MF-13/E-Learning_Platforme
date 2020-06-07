@@ -83,8 +83,8 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`id`, `nom`, `email`, `opinion`, `created_at`, `updated_at`) VALUES
 (1, 'EL KHABBAZ', 'elkhabbaz91@gmail.com', 'Opinion 3', '2020-06-04 12:34:04', '2020-06-04 12:34:04'),
 (2, 'hassan ayoubi', 'hassan@gmail.com', 'Un bon site merci', '2020-06-04 12:34:04', '2020-06-04 12:34:04'),
-(5, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', '2020-06-04 12:34:04', '2020-06-04 12:34:04'),
-(6, 'bouras ayoub', 'bouras@gmail.com', 'test', '2020-06-06 10:57:29', '2020-06-06 10:57:29');
+(3, 'elbouayadi ayman', 'aiman.elbou@gmail.com', 'Bonjour je suis un admin', '2020-06-04 12:34:04', '2020-06-04 12:34:04'),
+(4, 'bouras ayoub', 'bouras@gmail.com', 'Bonjour, est ce que MR BARRADA est envoyer le quiz', '2020-06-06 10:57:29', '2020-06-06 10:57:29');
 
 -- --------------------------------------------------------
 
@@ -121,7 +121,7 @@ CREATE TABLE `fields` (
 --
 
 INSERT INTO `fields` (`filiere_id`, `filiere`, `filiere_description`, `departement`, `created_at`, `updated_at`) VALUES
-('DWA', 'developpement web et media', 'ok apres modification', 'genie informatique', '2020-06-04 12:34:04', '2020-06-06 09:13:34'),
+('DWA', 'DEVELOPEMENT WEB ET MEDIA', 'ok apres modification', 'genie informatique', '2020-06-04 12:34:04', '2020-06-06 09:13:34'),
 ('GC', 'GENEIE CIVIL', 'L’enseignement vise à la formation en deux ans de cadres polyvalents participant à la responsabilité de l’étude et de l’exécution des travaux de génie civil:\r\nDans un bureau d’études, ils élaborent, suivant les directives des ingénieurs, les plans, devis, programmes et calculs, tant en ce qui concerne la conception que la préparation des ouvrages.\r\nSur les chantiers, ils ont la responsabilité de l’exécution : conduite des travaux, coordination des corps d’état, etc.\r\nDans les laboratoires d’essais ou de recherche, ils sont chargés de l’organisation, de l’exécution et du dépouillement des programmes d’essais.', 'genie electrique', '2020-06-04 12:34:04', '2020-06-04 12:34:04'),
 ('GI', 'GENIE INFORMATIQUE', 'Le développement de l\'informatique, des systèmes d’information et des systèmes de télécommunication élargissent considérablement les domaines d\'application de l\'informatique en renforçant les interactions entre les aspects matériels et logiciels. La filière d’informatique d’EST est une réponse à ces développements.', 'genie informatique', '2020-06-04 12:34:04', '2020-06-06 09:13:34'),
 ('GIM', 'GENIE INDUSTRIEL ET MAINTENANCE', 'Génie industriel et Maintenance a pour but de former en deux ans des techniciens supérieurs généralistes capables de gérer et d’organiser les opérations de maintenance des installations, pour optimiser la disponibilité des outils de production et de service.', 'genie electrique', '2020-06-04 12:34:04', '2020-06-04 12:34:04'),

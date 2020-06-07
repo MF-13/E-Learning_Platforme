@@ -32,10 +32,11 @@
                   @method('DELETE')
                   <button type="submit" class="btn btn-outline-danger btn-sm float-right"><i class="fas fa-trash-alt"></i> Supprimer</button>
                 </form>
+                {{-- Place Répondre --}}
                 <button class="btn btn-primary float-left" type="button" data-toggle="collapse" data-target="#{{$message->id}}" aria-expanded="false" aria-controls="collapseExample">
                   <i class="fas fa-sort-down fa-2x" style="padding-bottom: 10px;"></i> Repondre
                 </button><br>
-                {{-- Tableau qui sort --}}
+                {{-- Form qui sort --}}
                 <div class="collapse" id="{{$message->id}}">
                   <div class="card card-body">
                     <form action="{{route('contact.store')}}" method="POST">
@@ -52,16 +53,23 @@
                                <label>Email :</label>
                                <input type="email" name="email" required placeholder="Enter Votre Email" value="{{ Auth::user()->email }}">
                             </div>
-                            <div class="txtb">
+                            {{-- <div class="txtb">
                               <label>Message :</label>
                               <input type="text" name="message" required placeholder="Votre reponse..." >
-                           </div>
-                           <input type="submit" class="btn btn-success">
+                           </div> --}}
+                           <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Message :</span>
+                            </div>
+                            <textarea class="form-control" name="message" aria-label="With textarea"></textarea>
+                          </div>
+                           <input type="submit" class="btn btn-success float-right">
                     </form>
                       
                 
                   </div>
                 </div>
+                {{-- Fin place du Répondre --}}
               </div>
             </div> 
           </div>

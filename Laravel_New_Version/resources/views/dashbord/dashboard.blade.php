@@ -99,7 +99,7 @@
               <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                   <i class="fas fa-fw fa-sliders-h"></i>
-                  <span>departement</span>
+                  <span>Departements</span>
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">

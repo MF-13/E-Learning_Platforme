@@ -48,7 +48,7 @@
                                     <option value="bibliotheque">bibliotheque</option>
                                 </select>
                                     
-                                <label for="cour">Cours</label>
+                                <label for="cour">Modules</label>
                                 <select name="cour" class="form-control" id="cour">
                                     <option value="bibliotheque">Bibliotheque</option>
                                      @foreach ($cours as $cour)
