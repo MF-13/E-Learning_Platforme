@@ -148,15 +148,16 @@ class AdminController extends Controller
             'adresse_user' => $request['adresse_user'],
             'type_user' => $request['type_user'],
         ]);
+        $user->verify = 'true';
         $user->attachRole('user');
 
         $user->save();
                                 
         switch( $user->type_user){
-            case 'etudiant' :   return redirect('/etudiant');    break;
-            case 'professeur' :  return redirect('/professeur');       break;
-            case 'admin' : return redirect('/dashbord'); break;
-            default :  return redirect('/dashbord'); break;
+            case 'etudiant' :   return redirect('/etudiant')->with('status', 'L\'Etudiant est Ajouter');    break;
+            case 'professeur' :  return redirect('/professeur')->with('status', 'Le Professeur est Ajouter');       break;
+            case 'admin' : return redirect('/dashbord')->with('status', 'L\'Administrateur est Ajouter'); break;
+            default :  return redirect('/dashbord')->with('false', 'Echec Pendant l\'opération'); break;
 
         }
            
@@ -182,13 +183,13 @@ class AdminController extends Controller
         $user->verify = 'true';
 
         $user->save();
-        $request->session()->flash('status','User modifier avec succes');
+        // $request->session()->flash('status','User modifier avec succes');
 
         switch( $user->type_user){
-                case 'etudiant' :   return redirect('/etudiant')->with('status','Modifier avec succes');    break;
-                case 'professeur' :  return redirect('/professeur')->with('status','Modifier avec succes');       break;
-                case 'admin' : return redirect('/dashbord')->with('status','Modifier avec succes'); break;
-                default :  return redirect('/dashbord'); break;
+                case 'etudiant' :   return redirect('/etudiant')->with('status','L\'Etudiant Modifier avec succes');    break;
+                case 'professeur' :  return redirect('/professeur')->with('status','Le Professeur Modifier avec succes');       break;
+                case 'admin' : return redirect('/dashbord')->with('status','L\'administrateur Modifier avec succes'); break;
+                default :  return redirect('/dashbord')->with('false', 'Echec Pendant l\'opération'); break;
 
         }
        
@@ -205,8 +206,8 @@ class AdminController extends Controller
         switch( $type_user){
             case 'etudiant' :   return redirect('/etudiant')->with('status','L\'Etudiant est Supprimer');    break;
             case 'professeur' :  return redirect('/professeur')->with('status','Le Professeur est Supprimer');       break;
-            case 'admin' : return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer'); break;
-            default :  return redirect('/dashbord')->with('status','L\'utilisateur est Supprimer'); break;
+            case 'admin' : return redirect('/dashbord')->with('status','L\'Administrateur est Supprimer'); break;
+            default :  return redirect('/dashbord')->with('false','Echec Pendant l\'opération'); break;
 
          }
         

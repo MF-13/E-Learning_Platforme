@@ -53,20 +53,16 @@
                                <label>Email :</label>
                                <input type="email" name="email" required placeholder="Enter Votre Email" value="{{ Auth::user()->email }}">
                             </div>
-                            {{-- <div class="txtb">
-                              <label>Message :</label>
-                              <input type="text" name="message" required placeholder="Votre reponse..." >
-                           </div> --}}
+                            
                            <div class="input-group">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Message :</span>
+                              <span class="input-group-text">Message </span>
                             </div>
                             <textarea class="form-control" name="message" aria-label="With textarea"></textarea>
                           </div>
                            <input type="submit" class="btn btn-success float-right">
                     </form>
                       
-                
                   </div>
                 </div>
                 {{-- Fin place du Répondre --}}

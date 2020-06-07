@@ -32,7 +32,7 @@
       @method('PUT')
       <p style="color: red;"><i class="fas fa-exclamation-triangle"></i> Touts les champs sont obligatoires</p>
       @if($dashbord->verify==null || $dashbord->verify=='false' )
-       <p style="color: blue;"><i class="fas fa-exclamation-triangle"></i> On cliquant sur modifier , vous accepter l'utilisateur dans le site web </p>
+       <p style="color: orange"><i class="fas fa-exclamation-triangle"></i> On cliquant sur Modifier , Vous accepter l'utilisateur dans le site web </p>
       @endif
 
         <div class="input-group mb-3" hidden>
@@ -123,6 +123,14 @@
 <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
 <!-- End of Content Wrapper -->
 </div>

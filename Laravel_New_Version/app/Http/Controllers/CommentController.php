@@ -36,7 +36,6 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $comment = new Comment();
         $comment->nom = $request->nom ;
         $comment->email = $request->email ;
@@ -89,8 +88,8 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
         Comment::destroy($id);
+
         return redirect('/Comments')->with('status', 'Le Commentaire est Supprimer');
     }
 }

@@ -77,10 +77,8 @@ class FileController extends Controller
                     else
                     {
                         //si l'utilisateur est un etudiant , on donne au tableau $rslt un valeur null pour que Return functionne correctement
-                        
                         $rslt = array();
                         $id_etd = array();
-
                     }
                     
                         //selection des cours et fichiers
@@ -110,24 +108,16 @@ class FileController extends Controller
 
                     }
 
-
-                        
-
                     return view('cours.cours-espace', 
                                 ['files' => $files ,'quizzes' => $quizzes, 'resultats'=>$rslt , 'cours'=>$cour,  'id_etd_repondu'=>$id_etd]   );
         }
 
         else
-
         {
-
                 //s'il n'est pas connecter
             return view('cours.cours-espace');
-
         }
 
-
-        
     }
     /**
      * Display a listing of the resource.
@@ -352,13 +342,8 @@ class FileController extends Controller
             Storage::delete($temp);
             File::destroy($id);
              return redirect('/cour')->with('status','Le Cour est Supprimer');
-            
           }else{
-        
-            
-            return redirect('/cour')->with('status','Error hors de la suppresion du fichier');
-        
+            return redirect('/cour')->with('false','Error hors de la suppresion du fichier');
           }
-        
     }
 }

@@ -86,10 +86,6 @@ class FieldController extends Controller
 
                 $inc++;
             } 
-            // dd($cours) ;
-
-            // dd($cour_nbr) ; 
-            
         }
         
         return view('filiere.filiere-1',
@@ -146,15 +142,6 @@ class FieldController extends Controller
 
     public function store(StoreField $request)
     {
-        //
-        // $request->validate([
-
-        //     'filiere_id' =>  'required|max:4',
-        //     'filiere' => 'required|max:500',
-        //     'departement' => 'required',
-        //     'filiere_description' => 'required'
-        // ]);
-        
         $field = new Field();
         $field->filiere_id = $request->filiere_id;
         $field->filiere =  $request->filiere ;
@@ -172,13 +159,5 @@ class FieldController extends Controller
         $supp = Field::where('filiere_id',$id)->delete();
 
         return redirect('/filiere')->with('status', 'Filiére est Supprimer');
-    }
-
-    public function findCours($id){
-        // $classes = classe::where('id_filiere', $filiere_id)->get() ;
-
-        // return view('filiere.filiere-1',['classes'=> $classes]);
-
-
     }
 }

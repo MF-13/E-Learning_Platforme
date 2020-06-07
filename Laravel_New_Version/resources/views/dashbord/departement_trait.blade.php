@@ -50,8 +50,10 @@
                             <li>{{ $error }}</li>
                         @endforeach
                     </ul>
-                @endif
-                <input type="submit" name="submit" class="btn btn-info float-right">
+                    @endif
+
+                    <input type="submit" name="submit" class="btn btn-info float-right">
+                    
               </form>
               </div>
             </div>
